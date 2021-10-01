@@ -1,61 +1,108 @@
+{% import "macros.html" as macros %}
+
 <!DOCTYPE html>
-<html lang="en" style="display: none">
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script type="text/javascript">
-    // Dynamic style loading
-    let fetchStyle = function() {
-      return new Promise((resolve, reject) => {
-        const themes = ['blue', 'cyan', 'deeppurple', 'green', 'indigo', 'lightblue', 'lightgreen', 'pink', 'purple', 'teal'];
-        const theme = "/styles/" + themes[Math.floor(Math.random() * themes.length)] + ".css";
+<html lang="{{ config.default_language }}" style="display: none" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="referrer" content="no-referrer">
 
-        let link = document.createElement('link');
-        link.type = 'text/css';
-        link.rel = 'stylesheet';
-        link.onload = function() {
-          document.documentElement.setAttribute("style", "display:auto");
-          resolve();
-         };
-        link.href = theme;
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
-        let headScript = document.querySelector('script');
-        headScript.parentNode.insertBefore(link, headScript);
-      });
-    }
-    fetchStyle()
-    </script>
+  {% block title -%}
+  {% if config.extra.subtitle %}
+  <title>{{ config.title }} | {{ config.extra.subtitle }}</title>
+  {% else %}
+  <title>{{ config.title }}</title>
+  {% endif %}
+  <meta property="og:title" content="{{ config.title }}" />
+  <meta name="twitter:title" content="{{ config.title }}" />
+  {%- endblock title %}
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  {% block description -%}
+  {% if config.description -%}
+  <meta name="description" content="{{ config.description }}">
+  <meta property="og:description" content="{{ config.description }}">
+  <meta name="twitter:description" content="{{ config.description | truncate(length=200) }}">
+  {%- endif %}
+  {%- endblock description %}
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="{{🧁description of site that will show up in links}}">
-    <link rel="canonical" href="{{🧁linktosite}}"/>
-    <meta name="author" content="{{🧁}}">
-    <meta name="theme-color" content="{{🧁theme color that'll show up in some mobile browsers}}">
-    <meta name="apple-mobile-web-app-status-bar-style" content="{{🧁theme color that'll show up in some mobile browsers}}">
+  {% block meta -%}
+  <meta property="og:site_name" content="{{ config.title }}" />
+  <meta property="og:url" content="{{ config.base_url }}" />
+  {%- endblock meta %}
 
-    <meta property="og:site_name" content="{{🧁}}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="{{🧁}}" />
-    <meta property="og:description" content="{{🧁description again, for open graph}}" />
-    <meta property="og:url" content="{{🧁}}" />
-    <meta name="theme-color" content="{{🧁}}">
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+  {% block css -%}
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  {%- endblock css %}
 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+  <script type="text/javascript">
+  let fetchStyle = function() {
+    const themes = ['blue', 'cyan', 'deeppurple', 'green', 'indigo', 'lightblue', 'lightgreen', 'pink', 'purple', 'teal'];
+    const theme = "{{ get_url(path='themes') | safe }}/" + themes[Math.floor(Math.random() * themes.length)] + ".css";
 
-    <title>{{🧁}}</title>
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-  </body>
-  <footer>
-    <!-- Analytics would go here -->
-  </footer>
+    let link = document.createElement('link');
+    link.type = 'text/css';
+    link.rel = 'stylesheet';
+    link.onload = function() {
+      document.documentElement.setAttribute("style", "display:auto");
+     };
+    link.href = theme;
+
+    let headScript = document.querySelector('script');
+    headScript.parentNode.insertBefore(link, headScript);
+  }
+  fetchStyle()
+  </script>
+
+  <link rel='icon' type='image/x-icon' href="{{ get_url(path="favicon.ico") }}" />
+
+  {% if config.generate_feed -%}
+  <link rel="alternate" type="application/atom+xml" title="{{ config.title }}" href="{{ get_url(path="atom.xml") }}">
+  {%- endif %}
+
+  {% block extra_head -%}
+  {%- endblock extra_head %}
+
+</head>
+<body>
+  {% block header -%}
+  <header class="header">
+    <h1 class="title-link"><a href="{{ config.base_url }}" class="p-title__link">{{ config.title }}</a></h1>
+    <div class="header-links">
+      <a href="https://🧁.me"> Personal Site </a> |
+      <a href="https://twitter.com/🧁"> Twitter </a> |
+      <a href="https://github.com/🧁"> Github </a> |
+      <a href="mailto:🧁"> Email </a>
+    </div>
+  </header>
+
+  {%- endblock header %}
+
+  <main id="main" class="main">
+    {% block content -%}
+    {% for page in paginator.pages %}
+      <article class="c-article p-list-article">
+        {{ macros::title(page=page) }}
+        <div class="article-summary">
+          {% if page.summary -%}
+          {{ macros::polish(content=page.summary) }}
+          {% else %}
+          {{ macros::polish(content=page.content) | truncate(length=280) }}
+          {%- endif %}
+        </div>
+      </article>
+    {% endfor %}
+
+    {%- endblock content %}
+  </main>
+
+  <!-- Analytics should go here 🧁 -->
+  <link rel="stylesheet" href="{{ get_url(path="css/katex.min.css") }}">
+  <script defer src="{{ get_url(path="js/katex.min.js") }}"></script>
+  <script defer src="{{ get_url(path="js/mathtex-script-type.min.js") }}"></script>
+  <script src="https://kit.fontawesome.com/fa2f0e5568.js" crossorigin="anonymous"></script>
+</body>
 </html>
