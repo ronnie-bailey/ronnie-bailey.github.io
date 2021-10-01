@@ -1,168 +1,52 @@
-<head> <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> 
+<ul class="fading-slideshow">
+  <li><a href="1.jpg"><img src="1.jpg" width="360" height="270"></a></li>
+  <li><a href="2.jpg"><img src="2.jpg" width="360" height="270"></a></li>
+  <li><a href="3.jpg"><img src="3.jpg" width="360" height="270"></a></li>
+  <li><a href="4.jpg"><img src="4.jpg" width="360" height="270"></a></li>
+  <li><a href="5.jpg"><img src="5.jpg" width="360" height="270"></a></li>
+  <li><a href="6.jpg"><img src="6.jpg" width="360" height="270"></a></li>
+  <li><a href="7.jpg"><img src="7.jpg" width="360" height="270"></a></li>
+  <li><a href="8.jpg"><img src="8.jpg" width="360" height="270"></a></li>
+</ul>
 
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200&display=swap" rel="stylesheet"> 
 <style>
-h1 {    
-font-family: 'Raleway', sans-serif;
-}
 
-h2 {
-font-family: 'Assistant', sans-serif;
-background: rgba(20, 122, 218, 0.158);
-}
+  @keyframes fader {
+    from { opacity: 1.0; }
+    to   { opacity: 0.0; }
+  }
 
-h3 { font-family: 'Raleway', sans-serif;
-font-size: 14px;
-normal 
-font-weight: 200;
-}
+  .fading-slideshow {
+    margin: 1em auto;
+    padding: 0;
+    width: 382px;
+    height: 292px;
+    list-style-type: none;
+  }
 
+  .fading-slideshow > li {
+    position: absolute;
+  }
 
-.tab {
-display: inline-block;
-margin-left: 700px;
-}
+  /* current slide */
 
-table {
-width: 70%;
-border-collapse: collapse;
-border: 1px solid white;
-}
-th {
-text-align: left;
-}
+  .fading-slideshow > li:nth-of-type(1) {
+    animation-name: fader;
+    animation-delay: 4s;
+    animation-duration: 1s;
+    z-index: 20;
+  }
 
+  /* next slide to display */
 
+  .fading-slideshow > li:nth-of-type(2) {
+    z-index: 10;
+  }
 
+  /* all other slides */
 
-
-
-
-a:link {
-color: rgba(45, 101, 223, 0.815);
-background-color: transparent;
-text-decoration: none;
-}
-a:visited {
-color: rgb(85, 85, 85);
-background-color: transparent;
-text-decoration: none;
-}
-a:hover {
-color: rgb(143, 18, 18);
-background-color: transparent;
-text-decoration: underline;
-}
-a:active {
-color: yellow;
-background-color: transparent;
-text-decoration: underline;
-}
-
-
-
-
-
-
-
-
-<title>Your new title here</title>
-
-
+  .fading-slideshow > li:nth-of-type(n+3) {
+    display: none;
+  }
 
 </style>
-</head>
-
-
-<body>
-
-
-
-
-<h1><center>Ronnie Bailey</center></h1>
-<p><center><h3>Henrico, VA | <a href="mailto:ronniebailey@live.com">Email</a> | <a href="https://www.linkedin.com/in/ronniebailey">LinkedIn</a></a></h3></center></p>
-
-<h3>Solutions-focused, team oriented with broad based experience and hands-on skills. Highly effective support skills andcost-effective customer support strategies. Proven ability to successfully analyze critical support requirements, to identifydeficiencies and potential opportunities, and develop innovative solutions for increasing reliability and improving productivity.</h3>
-
-<section>
-<center><table>
-<tr>
- <th><h1>Technologies</h1></th>
- <th><h1></h1></th>
- <th><h1>Technical Support</h1></th>
-</tr>
-<tr>
- <td><h3>Active Directory</h3></td>
- <td><h3>Sharepoint Management</h3></td>
- <td><h3>Autonomy Supervision</td>
- <td><h3>LAN/WAN connectivity</td>
-</tr>
-<tr>
-   <td><h3>Amazon Web Service</h3></td>
-   <td><h3>VMWare</h3></td>
-   <td><h3>Data Backup Recovery</td>
-   <td><h3>Remote Sessions</td>
- </tr>
-<tr>
-<td><h3>Bomgar, Beyond Trust</h3></td>
-<td><h3>Wireshark</h3></td>
-<td><h3>Intermediate French Skills</td>
-<td><h3>Server Management</td>
-</tr>
-
-
-</table></center>
-</section>
-<h1><center>Career</center></h1>
-   <p><h2>Tier II Support Engineer | Contractor <span class="tab">10.2019 - Present</span></h2></p>
-           <p><h3>• Focus on both meeting SLAs and maintaining a high level of actual user satisfaction for 950 local and additional remote clients.
-           <p>• On-boarding and off-boarding personnel within the company through Active Directory and Exchange server administration.
-           <p>• Applying provisioned packages, installing imaging for Windows operating systems, configuring BIOS, and firmware updates toensure devices are in compliance to the latest security standards.
-           <p>• Closing 94% of tickets on first contact, following up with users to ensure frequent updates using ServiceNow ticketing system.
-           <p>• Worked with IT leadership to develop and execute a litigation hold policy across technologies.
-           <p>• Controlling asset management with Intune and Active Directory for licenses and hardware, keeping company data secured.
-           <p>• Serves as a liaison between the technical team and in-house clients by delivering complex concepts in a casual manner.</h3></section>
-
-
-   <p><h2>Helpdesk Technician | Contractor <span class="tab">04.2019 – 10.2019</span></h2></p>
-           <p><h3>• Was the primary support resource for 500 people, including executives. Received 98% satisfaction rating on post-ticket reviews.
-           <p>• Exceeded expectations by processing approximately 30 to 50 help desk tickets per day and single call resolution using Remedy.
-           <p>• Developed Windows Server administration, including Active Directory and Group Policy for password resets and unlocks.
-           <p>• Collaborated with Tier II - III peers based in the U.S., India, and Philippines to resolve complex problems that required escalation.
-           <p>• Managed ticketing admin tools to monitor for preventative maintenance improving IT department’s effectiveness by 35%.</h3></section>
-
-
-    <p><h2>Operations Supervisor | CVS Pharmacy <span class="tab">04.2018 – 10.2019</span></h2></p>
-           <p><h3>• Well-versed in all HIPAA and patient privacy regulations.
-           <p>• Oversaw the completion of all opening and closing store operations.
-           <p>• Exercised caution when dealing with sickly or disabled customers in a potentially hazardous environment.
-           <p>• Ensured the customer's sense of confidentiality at all times while accessing their secured accounts.
-           <p>• Conducted employee reviews and  implemented new coaching techniques.</h3></section>
-
-
-     <p><h2>Supervisor Electronics Technician | uBreakiFix <span class="tab">04.2018 – 10.2019</span></h2></p>
-           <p><h3>• Managed and administered network servers, Mac OS X, Windows X, and Linux based desktop computer systems and peripherals.
-           <p>• Conducted testing and fault diagnostics on electrical equipment and recommended best practices.
-           <p>• Authored and reviewed Standard Operating Procedures (SOP’s) for electrical equipment.
-           <p>• Triaged incoming appointments to appropriate work order queues on customer priority and severity.
-           <p>• Performed computer, cellphone, tablet, printer, and various hardware repairs.</h3></section>
-
- <section>
-
-</div>
-
-</section>
-<h1><center>Education</center></h1>
-
-<p><h2>BSc Degree,​ University of Richmond | In Progress <span class="tab">01.2021 – 2023</span></h2></p>
-<p><h3>• Information Security</h3></section>
-
-<p><h2>A.A.S Degree, Reynolds College | Completed. GPA 3.0 <span class="tab">08.2018 – 08.2020</span></h2></p>
-<p><h3>• Information Systems & Cyber Security
-<p><h3>• Network Administration Certificate</h3></p></h3></section>
-
-
-<body oncontextmenu="return false">
-
-</body>
-
