@@ -8,14 +8,15 @@
 
 
 
-<?php
-$Ronnie Bailey - Resume.pdf = "Ronnie Bailey - Resume.pdf";
-
-//Content type and this case its a PDF
-header("Content-type: application/pdf");
-
-header("Content-Length: " . filesize($Ronnie Bailey - Resume.pdf )); 
-
-//Display the file
-readfile($Ronnie Bailey - Resume.pdf );
-?>
+<object
+	data="https://example.com/test.pdf#page=2"
+	type="application/pdf"
+	width="100%"
+	height="100%"
+>
+	<p>
+		Your browser does not support PDFs.
+		<a href="Ronnie Bailey - Resume.pdf">Download the PDF</a>
+		.
+	</p>
+</object>
