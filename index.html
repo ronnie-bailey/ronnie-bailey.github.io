@@ -15,25 +15,7 @@
     .header {
       background-color: #333;
       padding: 20px;
-      text-align: center;
       color: #fff;
-    }
-    .word-cloud {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 300px;
-      margin-bottom: 40px;
-    }
-    .word-cloud span {
-      display: inline-block;
-      font-size: 16px;
-      margin: 0 10px;
-      animation: rotate 10s linear infinite;
-    }
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
     }
     .container {
       max-width: 960px;
@@ -56,55 +38,50 @@
     .resume-item .item-date {
       color: #888;
     }
-    .resume-item .item-description {
-      color: #555;
-      opacity: 0;
-      transition: opacity 0.6s ease-in-out;
-    }
-    .resume-item:hover .item-description {
-      opacity: 1;
-    }
-    .resume-item .item-description.show-description {
-      opacity: 1;
-    }
-    .resume-item .item-description.hide-description {
-      opacity: 0;
+    .pdf-container {
+      width: 100%;
+      height: 600px;
+      border: none;
     }
   </style>
-  <script>
-    function toggleDescription(item) {
-      const description = item.querySelector(".item-description");
-      description.classList.toggle("show-description");
-      description.classList.toggle("hide-description");
-    }
-  </script>
 </head>
 <body>
   <div class="header">
     <h1>Professional IT Resume</h1>
-    <div class="word-cloud">
-      <span>Technical Skill 1</span>
-      <span>Technical Skill 2</span>
-      <span>Technical Skill 3</span>
-      <!-- Add more technical skills here -->
-    </div>
   </div>
   <div class="container">
     <div class="resume-section">
-      <h2>Work Experience</h2>
-      <div class="resume-item" onclick="toggleDescription(this)">
-        <div class="item-title">Job Title</div>
-        <div class="item-date">January 20XX - Present</div>
-        <div class="item-description hide-description">
-          Description of your responsibilities and achievements.
-        </div>
+      <h2>About Me</h2>
+      <p>Highly experienced Senior Cloud Security professional with a proven track record of success in delivering cloud-based security solutions that effectively meet operational and compliance requirements. With over a decade of expertise, I possess a deep understanding of the intricacies of cloud security and possess the ability to ensure stakeholders' needs are met while maintaining robust security measures.</p>
+    </div>
+    <div class="resume-section">
+      <h2>Experience</h2>
+      <div class="resume-item">
+        <h3>Identity & Access Management, Architect SME</h3>
+        <p><strong>3/2022 – Present | D.H.S., U.S. Secret Service</strong></p>
+        <ul>
+          <li>Performs IAM architect duties, developing and implementing IAM solutions, improving system architecture, and designing Cloud Identity Management solutions with Zero Trust methodologies.</li>
+          <li>Manages DHS enterprise network security program, promotes IAM governance, and utilizes scripting knowledge.</li>
+          <li>Collaborates with IT and business leaders to implement layered security controls and scalable information security solutions based on business requirements.</li>
+        </ul>
       </div>
-      <!-- Add more work experience items here -->
+      <!-- Add more experience items here -->
     </div>
     <div class="resume-section">
       <h2>Education</h2>
-      <div class="resume-item" onclick="toggleDescription(this)">
-        <div class="item-title">Degree</div>
-        <div class="item-date">Year</div>
-        <div class="item-description hide-description">
-          Description of your education and coursework.
+      <p><strong>Bachelor of Science in Cybersecurity, 5/2023 | University of Richmond | Richmond, VA</strong></p>
+      <p><strong>Associate of Applied Science in Information Systems, 8/2020 | Reynolds College | Richmond, VA</strong></p>
+    </div>
+    <div class="resume-section">
+      <h2>Certification</h2>
+      <p><strong>AZ-900, Microsoft Azure, 12/2023 | In Progress</strong></p>
+      <p><strong>Cybersecurity Essentials, 10/2021 | Cisco Networking Academy</strong></p>
+      <p><strong>Network Administration, 8/2021 | Reynolds College</strong></p>
+    </div>
+    <div class="resume-section">
+      <h2>PDF</h2>
+      <iframe class="pdf-container" src="Ronnie Bailey Resume.pdf"></iframe>
+    </div>
+  </div>
+</body>
+</html>
