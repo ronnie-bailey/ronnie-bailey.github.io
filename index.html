@@ -68,7 +68,40 @@
       
       
       
-       <div class="skills">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resume Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    .skills {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+    }
+    .skill-item {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+    .skill-item:before {
+      content: "•";
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="skills">
     <ul>
       <li class="skill-item">Access Control/Change Management</li>
       <li class="skill-item">Active Directory/GPO Administration</li>
@@ -110,6 +143,9 @@
       <li class="skill-item">Windows Server Administration</li>
     </ul>
   </div>
+</body>
+</html>
+
       
       
       <h2>Experience</h2>
