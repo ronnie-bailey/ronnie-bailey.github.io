@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Work History Template</title>
+  <title>Professional IT Resume</title>
   <style>
     * {
       margin: 0;
@@ -17,94 +17,84 @@
       margin: 0 auto;
       padding: 40px;
     }
-    .timeline {
-      position: relative;
-      margin: 40px 0;
-      padding: 20px 0;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: #ccc;
-    }
-    .timeline-item {
-      position: relative;
+    .resume-section {
       margin-bottom: 40px;
     }
-    .timeline-item .timeline-content {
-      position: relative;
-      max-width: 60%;
-      margin-left: auto;
-      margin-right: auto;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      opacity: 0;
-      transform: scale(0.8);
-      transition: opacity 0.8s ease-in, transform 0.8s ease-in;
-    }
-    .timeline-item.in-view .timeline-content {
-      opacity: 1;
-      transform: scale(1);
-    }
-    .timeline-content h3 {
-      margin-bottom: 10px;
+    .resume-section h2 {
+      margin-bottom: 20px;
       color: #333;
     }
-    .timeline-content p {
+    .resume-item {
+      margin-bottom: 20px;
+    }
+    .resume-item .item-title {
+      font-weight: bold;
+    }
+    .resume-item .item-date {
       color: #888;
     }
+    .resume-item .item-description {
+      color: #555;
+    }
   </style>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $(window).scroll(function() {
-        $('.timeline-item').each(function() {
-          if ($(this).offset().top <= $(window).scrollTop() + $(window).height() * 0.8) {
-            $(this).addClass('in-view');
-          }
-        });
-      });
-    });
-  </script>
 </head>
 <body>
   <div class="container">
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h3>IDENTITY & ACCESS MANAGEMENT, ARCHITECT SME</h3>
-          <p>D.H.S, U.S. SECRET SERVICE</p>
-          <p>Duration: MARCH 2022 - Present</p>
-          <p>● Performs IAM architect duties, developing and implementing IAM solutions, improving system architecture, and designing Cloud Identity Management solutions with Zero Trust methodologies.</p>
-<p>● Manages DHS enterprise network security program, promotes IAM governance, and utilizes scripting knowledge.</p>
-<p>● Collaborates with IT and business leaders to implement layered security controls and scalable information security solutions based on business requirements.</p>
-<p>● Monitors system performance and utilization metrics, documents IAM applications architecture, and resolves potential issues effectively.</p>
-<p>● Leads project in transitioning IT governance framework from on-prem to cloud environment, generates roadmaps, and establishes procedures for user access, access controls, and administrative practices in IAM solutions.</p>
+    <div class="resume-section">
+      <h2>Work Experience</h2>
+      <div class="resume-item">
+        <div class="item-title">IDENTITY & ACCESS MANAGEMENT, ARCHITECT SME</div>
+        <div class="item-date">MARCH 2022 - Present</div>
+        <div class="item-description">
+● Performs IAM architect duties, developing and implementing IAM solutions, improving system architecture, and designing Cloud Identity Management solutions with Zero Trust methodologies.
+● Manages DHS enterprise network security program, promotes IAM governance, and utilizes scripting knowledge.
+● Collaborates with IT and business leaders to implement layered security controls and scalable information security solutions based on business requirements.
+● Monitors system performance and utilization metrics, documents IAM applications architecture, and resolves potential issues effectively.
+● Leads project in transitioning IT governance framework from on-prem to cloud environment, generates roadmaps, and establishes procedures for user access, access controls, and administrative practices in IAM solutions.
         </div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h3>Job Title</h3>
-          <p>Company Name</p>
-          <p>Duration: January 20XX - December 20XX</p>
-          <p>Description of your responsibilities and achievements.</p>
+      <!-- Add more work experience items here -->
+    </div>
+    <div class="resume-section">
+      <h2>Education</h2>
+      <div class="resume-item">
+        <div class="item-title">Degree</div>
+        <div class="item-date">Year</div>
+        <div class="item-description">
+          Description of your education and coursework.
         </div>
       </div>
-      <!-- Add more timeline items here -->
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h3>Job Title</h3>
-          <p>Company Name</p>
-          <p>Duration: January 20XX - Present</p>
-          <p>Description of your responsibilities and achievements.</p>
+      <!-- Add more education items here -->
+    </div>
+    <div class="resume-section">
+      <h2>Skills</h2>
+      <ul>
+        <li>Skill 1</li>
+        <li>Skill 2</li>
+        <li>Skill 3</li>
+        <!-- Add more skills here -->
+      </ul>
+    </div>
+    <div class="resume-section">
+      <h2>Projects</h2>
+      <div class="resume-item">
+        <div class="item-title">Project Title</div>
+        <div class="item-date">Year</div>
+        <div class="item-description">
+          Description of the project and your role.
         </div>
       </div>
-      <div class="timeline-item">
-        <div class="
+      <!-- Add more project items here -->
+    </div>
+    <div class="resume-section">
+      <h2>Achievements</h2>
+      <ul>
+        <li>Achievement 1</li>
+        <li>Achievement 2</li>
+        <li>Achievement 3</li>
+        <!-- Add more achievements here -->
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
