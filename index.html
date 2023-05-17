@@ -35,17 +35,35 @@
     }
     .resume-item .item-description {
       color: #555;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    .resume-item:hover .item-description {
+      opacity: 1;
+    }
+    .resume-item .item-description.show-description {
+      opacity: 1;
+    }
+    .resume-item .item-description.hide-description {
+      opacity: 0;
     }
   </style>
+  <script>
+    function toggleDescription(item) {
+      const description = item.querySelector(".item-description");
+      description.classList.toggle("show-description");
+      description.classList.toggle("hide-description");
+    }
+  </script>
 </head>
 <body>
   <div class="container">
     <div class="resume-section">
       <h2>Work Experience</h2>
-      <div class="resume-item">
-        <div class="item-title">IDENTITY & ACCESS MANAGEMENT, ARCHITECT SME</div>
-        <div class="item-date">MARCH 2022 - Present</div>
-        <div class="item-description">
+      <div class="resume-item" onclick="toggleDescription(this)">
+        <div class="item-title">Job Title</div>
+        <div class="item-date">January 20XX - Present</div>
+        <div class="item-description hide-description">
 ● Performs IAM architect duties, developing and implementing IAM solutions, improving system architecture, and designing Cloud Identity Management solutions with Zero Trust methodologies.
 ● Manages DHS enterprise network security program, promotes IAM governance, and utilizes scripting knowledge.
 ● Collaborates with IT and business leaders to implement layered security controls and scalable information security solutions based on business requirements.
@@ -57,10 +75,10 @@
     </div>
     <div class="resume-section">
       <h2>Education</h2>
-      <div class="resume-item">
+      <div class="resume-item" onclick="toggleDescription(this)">
         <div class="item-title">Degree</div>
         <div class="item-date">Year</div>
-        <div class="item-description">
+        <div class="item-description hide-description">
           Description of your education and coursework.
         </div>
       </div>
@@ -77,10 +95,10 @@
     </div>
     <div class="resume-section">
       <h2>Projects</h2>
-      <div class="resume-item">
+      <div class="resume-item" onclick="toggleDescription(this)">
         <div class="item-title">Project Title</div>
         <div class="item-date">Year</div>
-        <div class="item-description">
+        <div class="item-description hide-description">
           Description of the project and your role.
         </div>
       </div>
@@ -92,9 +110,4 @@
         <li>Achievement 1</li>
         <li>Achievement 2</li>
         <li>Achievement 3</li>
-        <!-- Add more achievements here -->
-      </ul>
-    </div>
-  </div>
-</body>
-</html>
+       
