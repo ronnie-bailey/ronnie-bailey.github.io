@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	
+	<title>Ronnie Bailey - Resume</title>
+	
+<style>
+body {
+  font-family: Arial, Helvetica, Oxygen, sans-serif;
+  margin: 0;
+		
+		
+	
+	
+	
+	
+	
+	
+	margin: 0;
+			padding: 0;
+		}
+		.container {
+			padding: 20px;
+			max-width: 800px;
+			margin: 0 auto;
+		}
+		.heading {
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+		.subheading {
+			font-size: 18px;
+			margin-bottom: 5px;
+			color: #888;
+		}
+		.section {
+			margin-bottom: 20px;
+		}
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		li {
+			margin-bottom: 5px;
+		}
+		.footer {
+			margin-top: 50px;
+			text-align: center;
+			color: #888;
+		}
+		
+.experience {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .experience .column {
+      flex-basis: 50%;
+	}. </style>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<center><div class="banner">
+  <div>
+   <p style="color:white;">
+ <h1>Welcome to the site</h1>
+    <h5>Download PDF resume</h5></p>
+    <button><a href="Ronnie Bailey Resume.pdf">Download</a></button>
+  </div>  
+	</div></center>
+	
+	
+<center><style>	
+.banner {
+    /* The image used */
+    background-image:
+    url(flow.gif);
+    /* Set height */
+    height: 200px;
+    /* Set background size */
+    background-size:cover;
+  }
+	</style></center>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</head>
+<body>
+	<div class="container">
+		<center><H1>RONNIE BAILEY</H1></center>
+			<center><P>RICHMOND, VA | (360) 719-8377</p></center>
+			<center><p>career@ronniebailey.cloud | linkedin.com/in/ronniebailey</p></center>
+
+ 		<div class="section">
+ 			<h2 class="heading"><font color="#3983AB">ABOUT ME</font></h2>
+ 			<ul>Highly experienced Senior Cloud Security professional with a proven track record of success in delivering cloud-based security solutions that effectively meet operational and compliance requirements. With over a decade of expertise, I possess a deep understanding of the intricacies of cloud security and possess the ability to ensure stakeholders' needs are met while maintaining robust security measures.</ul>
+ 		</div>
+
+
+
+    
+          
+            
+    
+
+          
+          Expand Down
+    
+    
+  
+		<h2 class="heading"><font color="#3983AB">EXPERIENCE</font></h2>
+  <div class="experience">
+    <div class="column">
+      <ul>
+ <li>Access Control/Change Management</li>
+        <li>Active Directory/GPO Administration</li>
+        <li>Amazon Web Service</li>
+        <li>API Management/Apigee</li>
+        <li>Auth0</li>
+        <li>Azure AD</li>
+        <li><a href="https://www.beyondtrust.com/blog/entry/identity-access-management-iam" style="color: #5E5E5E">Bomgar/BeyondTrust</a></li>
+        <li>Cisco Meraki</li>
+        <li>Citrix Remote Desktop</li>
+        <li>Confluence</li>
+        <li>Crowdstrike</li>
+        <li>Data Classification</li>
+        <li>Documentation</li>
+        <li>Fortinet Suite</li>
+	<li>Github</li>
+        <li>HIPAA, NIST Frameworks</li>
+        <li>HRIS/ UltiPro/ Workday</li>
+        <li>Hybrid Migration, On-Prem to Cloud</li>
+        <li>Identity Solutions Design & Implementation</li>
+      </ul>
+    </div>
+    <div class="column">
+      <ul>
+        <li>ISO/ NERC CIP/ NIST/ SEC 501</li>
+	<li>Jira</li>
+        <li>Linux Mainframe Environment</li>
+        <li>Microsoft 365</li>
+        <li>Microsoft Intune</li>
+        <li>Mobile Device Management (MDM)</li>
+        <li>OAuth, OIDC, SAML, SSO</li>
+        <li>OneIdentity Safeguard</li>
+        <li>Password Management</li>
+        <li><a href="ping.html" style="color: #5E5E5E">PingFederate</a></li>        
+        <li>Powershell Scripting, Python</li>
+        <li>Qradar</li>
+        <li>Rapid7</li>
+        <li>REST API/ JSON/ JavaScript</li>
+        <li>RSA MFA</li>
+        <li>Security Identity Manager (IBM)</li>
+        <li>ServiceNow</li>
+        <li>Varonis</li>
+        <li>Windows Server Administration</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
+		
+		
+		<body>
+		<div class="section">
+			<h2 class="heading"><font color="#3983AB">CAREER</font></h2>
+			<ul>
+				<li><strong>IDENTITY & ACCESS MANAGEMENT, ARCHITECT SME</STRONG><BR>D.H.S., U.S. SECRET SERVICE &emsp; 3/2022 - PRESENT<br>• Performs IAM architect duties, developing and implementing IAM solutions, improving system architecture, and designing Cloud Identity Management solutions with Zero Trust methodologies.<br>• Manages DHS enterprise network security program, promotes IAM governance, and utilizes scripting knowledge.<br>• Collaborates with IT and business leaders to implement layered security controls and scalable information security solutions based on business requirements.<br>• Monitors system performance and utilization metrics, documents IAM applications architecture, and resolves potential issues effectively.<br>• Leads project in transitioning IT governance framework from on-prem to cloud environment, generates roadmaps, and establishes procedures for user access, access controls, and administrative practices in IAM solutions.</li><p>
+				<li><strong>SR. CUSTOMER IDENTITY AND ACCESS MANAGEMENT (CIAM), ENGINEER</STRONG><BR>LANDS’ END &emsp; 12/2021 - 12/2022<br>• Implemented OpenID Connect, OAuth 2.0, SSO, and MFA.<br>• Articulated cybersecurity architecture vision and strategies to guide leadership decision-making.<br>• Provided end-to-end support for Identity and Access Management lifecycle including on/off-boarding, conversions, transfers, IAM compliance, and role management.<br>• Designed, implemented, supported, and maintained PingIdentity SSO platform.<br>• Managed domain object lifecycles through automation and integration with key systems.<br>• Participated in software development in Java, SQL, and JavaScript.<br>• Experienced in security protocols such as LDAP-S, SAML, WS-Federation, SCIM, OAuth, and OIDC.</li><p>
+				<li><strong>SECURITY NETWORK ENGINEER</STRONG><BR>ACCESSIA HEALTH &emsp; 7/2021 - 12/2021<br>• Maintained server compliance with the ACF2 environment through Unix scripting.<br>• Ensured continuous functioning of system interfaces/connectors and coordinated with IT for technical support.<br>• Enforced SP 1800-30 guidelines to protect confidential data in healthcare applications and general Internet access.<br>• Created IT and business documentation for internal processes and procedures.</li><p>
+				<li><strong>IDENTITY AND ACCESS MANAGEMENT, ADMINISTRATOR</STRONG><BR>INDIVIOR PHARMACEUTICALS &emsp; 10/2019 - 7/2021<br>• Ensured ePHI data protection and encryption through off-site backups and Microsoft Bitlocker.<br>• Investigated threats, managed HBSS policies using Ivanti, and performed compliance scans using Microsoft Intune, Azure AD Services, and Defender.<br>• Managed user account profiles in Active Directory and Exchange Server for access control and security.<br>• Configured and authenticated Microsoft Defender for Exchange and Office 365 email security.<br>• Administered hybrid Identity and Access Management to mitigate identity-related risks.</li><p>
+				<li><strong>IDENTITY & ACCESS MANAGEMENT, SR. ANALYST</STRONG><BR>WELLS FARGO &emsp; 4/2019 - 10/2019 <br>• Established and maintained user accounts, profiles, network and system security, and access privileges through IAM tools such as Active Directory, Office 365, and SCCM.<br>• Designed plans for future systems and infrastructure strategies, including Windows 10 and Azure AD migrations and Mobile Device Management solutions.<br>• Conducted on and off-boarding and trained 400 employees on security processes, reducing phishing attacks.<br>• Improved IT department effectiveness by 35% with SCCM tools for monitoring and preventative maintenance.<br>• Ensured IAM practices were compliant with the bank's operational risk framework and industry best practices, including policies, procedures, and control methodologies.<br>• Managed phishing simulation campaigns and provided system and network administration support.<br>• Worked with software and hardware vendors to document changes for troubleshooting and remediation.</li><p>
+				<li><strong>IDENTITY AND ACCESS MANAGEMENT, ANALYST</STRONG><BR>WELLSECURED IT &emsp; 10/2015 - 1/2019<br>• Created and maintained documentation of the IT Risk program and any exceptions for regulatory compliance.<br>• Performed implementation, upgrade and testing tasks for systems and network security technologies through utilization of change control methodologies.<br>• Installed virtual machines (VMWare, VirtualBox, & Hyper-V) to utilize applications in a test environment.<br>• Created industry leading practices of Identity and Access Management/Access Control/Change Management through Active Directory and Azure AD PaaS.<br>• Provided complex technical guidance, oversight, and enforcement of security directives, policies, standards, plans, and procedures as defined by ISO/IEC 27001 framework.<br>• Defined and documented IT security requirements and communicated through effective security programs and training.<br>• Compiled and documented data in support of equipment and/or user changes of system migrations.</li><p>
+				<li><strong>IDENTITY & ACCESS MANAGEMENT, SOLUTIONS ENGINEER</STRONG><BR>CLOUDCENTRIA SECURITY &emsp; 6/2011 - 3/2022<br>• Directed, coordinated, and controlled services to ensure alignment with business direction and compliance with standards, policies, and budgets.<br>• Communicated company wide architecture strategy and direction to management and systems teams.<br>• Supported the Identity and Access Management group, providing strategic guidance and collaborating on design and implementation projects.<br>• Supported information security technologies across various domains, with a focus on identity and access management solutions and controls.<br>• Created artifacts such as position papers, blueprints, and reference architectures.<br>• Led architectural support for product and vendor evaluations addressing IAM functionality and security threats.<br>• Provided oversight and technical leadership across all cybersecurity domains to ensure system confidentiality, integrity, and availability.</li><p>
+			</ul>
+		</div>
+		<div class="section">
+			<h2 class="heading"><font color="#3983AB">EDUCATION</font></h2>
+			<ul>
+				<LI><STRONG>BACHELOR OF SCIENCE IN CYBERSECURITY</STRONG><BR>5/2023 | UNIVERSITY OF RICHMOND | RICHMOND, VA</LI>
+				<LI><STRONG>ASSOCIATE OF APPLIED SCIENCE IN INFORMATION SYSTEMS</STRONG><BR>8/2020 | REYNOLDS COLLEGE | RICHMOND, VA</LI>
+			</ul>
+		</div>
+		<div class="section">
+			<h2 class="heading"><font color="#3983AB">CERTIFICATION</font></h2>
+			<ul>
+				<LI><STRONG>AZ-900, MICROSOFT AZURE</STRONG><BR>12/2023 (IN PROGRESS)</LI>
+				<LI><STRONG>CYBERSECURITY ESSENTIALS</STRONG><BR>10/2021 | CISCO NETWORKING ACADEMY</LI>
+				<LI><STRONG>NETWORK ADMINISTRATION</STRONG><BR>8/2021 | REYNOLDS COLLEGE</LI>
+			</ul>
+		</div>
+	</div>
+	<div class="footer"><p>
+		
+		<i>“The best way to predict the future is to create it”. —Peter Drucker</i><br>
+		<p>&copy; 2023 Ronnie Bailey. All rights reserved.</p>
+	</div>
+</body>
+</html>
