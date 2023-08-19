@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Webpage Title</title>
+    <style>
+        /* Add your custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0 0 20px;
+        }
+        ul {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0 0 20px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Technical Skills:</h1>
+    <ul>
+        <li><strong>IAM Solutions:</strong> Utilized Python code to automate tasks and enhance efficiency for Ping Identity Overview.</li>
+        <li><strong>PingOne Platform:</strong> Worked on securing user data and implementing new features for Ping Identity Overview.</li>
+    </ul>
+
+    <h1>Problem-solving Skills:</h1>
+    <ul>
+        <li>Detected and resolved a bug in the PingOne platform, ensuring user data security for Ping Identity Overview.</li>
+        <li>Developed an optimized algorithm to enhance performance across the Ping Identity Overview.</li>
+        <li>Troubleshot and debugged code to resolve a critical deployment issue for Ping Identity Overview.</li>
+    </ul>
+
+    <!-- Repeat the same structure for other sections -->
+
+    <!-- IAM Experience: MFA with PingID, PingOne Admin -->
+    <h1>IAM Experience: MFA with PingID, PingOne Admin:</h1>
+    <p>As a "PingFederate Administrator" or "PingOne Cloud Administrator," I led the configuration and management of authentication and multi-factor authentication (MFA) settings within the PingOne Cloud tenant. Responsibilities encompassed redirecting users to PingID for MFA, enabling diverse authentication methods, and maintaining the security of the IAM system. I managed user access, administered devices and services, defined identity repositories, and conducted advanced diagnostics, all crucial to ensuring secure and efficient user authentication.</p>
+
+    <!-- PingOne Management Experience -->
+    <h1>PingOne Management Experience:</h1>
+    <!-- ... Repeat similar structure for other sections -->
+
+</body>
+</html>
