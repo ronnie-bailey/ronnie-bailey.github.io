@@ -91,33 +91,66 @@ body {
 	
 	
 	
-<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+	<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Download Resume</title>
-<script>
-function handleSelection(value) {
-  if (!value) return;
-  if (value.startsWith('http')) {
-    window.open(value, '_blank');
-  } else {
-    window.location.href = value;
+<style>
+  .banner {
+    /* The image used */
+    background-image: url('flow.gif');
+    /* Set height */
+    height: 200px;
+    /* Set background size */
+    background-size: cover;
   }
-}
-</script>
+
+  .button-container {
+    display: flex;
+    justify-content: start;
+    gap: 10px; /* Adjust the space between the buttons */
+  }
+
+  .download-button, .documentation-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .download-button:hover, .documentation-button:hover {
+    background-color: #0056b3;
+  }
+</style>
 </head>
 <body>
 
-<div class="banner" style="background-image: url('flow.gif'); height: 200px; background-size: cover;"></div>
+<div class="banner"></div>
 
-<select onchange="handleSelection(this.value)">
-  <option value="">Select an option</option>
-  <option value="Ronnie Bailey Resume.pdf" download="Ronnie Bailey's Resume">Download PDF</option>
-  <option value="Ronnie Bailey Resume.docx" download="Ronnie Bailey's Resume">Download Word</option>
-  <option value="https://yourdocumentationlink.com">Documentation</option>
-</select>
+<div class="button-container">
+  <a href="Ronnie Bailey Resume.pdf" download="Ronnie Bailey's Resume">
+    <button class="download-button">Download PDF</button>
+  </a>
+  <a href="Ronnie Bailey Resume.docx" download="Ronnie Bailey's Resume">
+    <button class="download-button">Download Word</button>
+  </a>
+  <a href="https://yourdocumentationlink.com" target="_blank">
+    <button class="documentation-button">Documentation</button>
+  </a>
+</div>
 
 </body>
 </html>
