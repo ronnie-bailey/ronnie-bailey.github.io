@@ -1,0 +1,24 @@
+
+.text-container {
+  position: relative;
+  display: inline-block;
+}
+.text-container span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.text-original {
+  opacity: 1;
+}
+.text-hover {
+  opacity: 0;
+  color: red; /* Adjust color as needed */
+}
+.text-container:hover .text-original {
+  opacity: 0;
+}
+.text-container:hover .text-hover {
+  opacity: 1;
+}
