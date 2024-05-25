@@ -3,39 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Portfolio</title>
+    <title>Ronnie Bailey Resume</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f2f5;
             margin: 0;
             padding: 20px;
+            color: #333;
         }
         .container {
             background: #fff;
             padding: 20px;
             margin: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
             max-width: 900px;
             margin: 0 auto;
+            border-radius: 8px;
         }
         .header {
             text-align: center;
-            padding-bottom: 10px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #0073e6;
             margin-bottom: 20px;
         }
         .header h1 {
             margin: 0;
-            font-size: 2em;
-            letter-spacing: 5px;
+            font-size: 2.5em;
+            letter-spacing: 3px;
+            color: #0073e6;
+        }
+        .header p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #555;
         }
         .section {
             margin-bottom: 20px;
         }
         .section h2 {
             margin-bottom: 10px;
-            font-size: 1.2em;
+            font-size: 1.5em;
             padding-bottom: 5px;
+            border-bottom: 2px solid #0073e6;
+            color: #0073e6;
         }
         .contact-info, .social, .languages, .software, .interests {
             display: flex;
@@ -75,6 +86,35 @@
             list-style-type: disc;
             margin-left: 20px;
         }
+        a {
+            color: #0073e6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .highlight {
+            color: #0073e6;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #0073e6;
+            color: #fff;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        .icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            background-size: cover;
+        }
+        .icon-linkedin { background-image: url('https://cdn-icons-png.flaticon.com/512/174/174857.png'); }
+        .icon-email { background-image: url('https://cdn-icons-png.flaticon.com/512/732/732200.png'); }
+        .icon-phone { background-image: url('https://cdn-icons-png.flaticon.com/512/1782/1782765.png'); }
     </style>
 </head>
 <body>
@@ -82,14 +122,14 @@
         <div class="header">
             <h1>RONNIE BAILEY</h1>
             <p>Richmond, VA // (360) 719-8377</p>
-            <p>ronniebailey@live.com // <a href="https://linkedin.com/in/ronniebailey">linkedin.com/in/ronniebailey</a></p>
+            <p><span class="icon icon-email"></span>ronniebailey@live.com // <span class="icon icon-linkedin"></span><a href="https://linkedin.com/in/ronniebailey">linkedin.com/in/ronniebailey</a></p>
         </div>
         <div class="row">
             <div class="left-column">
                 <div class="section">
                     <h2>Education</h2>
-                    <p>University of Richmond<br>Bachelor’s of Science in Cybersecurity<br>08/2024</p>
-                    <p>Reynolds College<br>Associate of Applied Science in Information Systems<br>05/2021</p>
+                    <p>University of Richmond<br>Bachelor’s of Science in Cybersecurity <span class="badge">08/2024</span></p>
+                    <p>Reynolds College<br>Associate of Applied Science in Information Systems <span class="badge">05/2021</span></p>
                 </div>
                 <div class="section">
                     <h2>Skills</h2>
@@ -117,8 +157,8 @@
                 </div>
                 <div class="section">
                     <h2>Awards</h2>
-                    <p>Phi Theta Kappa Honor Society<br>International Honor Society<br>04/2018</p>
-                    <p>Dean’s List<br>Reynolds College<br>06/2018</p>
+                    <p>Phi Theta Kappa Honor Society <span class="badge">04/2018</span></p>
+                    <p>Dean’s List <span class="badge">06/2018</span></p>
                 </div>
             </div>
             <div class="right-column">
@@ -130,7 +170,7 @@
                     <h2>Experience</h2>
                     <ul class="details">
                         <li>
-                            <p>Principal Security Architect, Cybersecurity<br>Kroger, Technology & Digital Department<br>12/2022 - 02/2024</p>
+                            <p>Principal Security Architect, Cybersecurity<br>Kroger, Technology & Digital Department <span class="badge">12/2022 - 02/2024</span></p>
                             <ul>
                                 <li>Enhanced organizational security posture and compliance by leveraging Microsoft Azure AD/Entra ID for cloud services, OneIdentity Safeguard and TPAM for IAM, ensuring scalable and secure cloud infrastructure.</li>
                                 <li>Reduced system vulnerabilities and improved threat detection and response through the integration of CrowdStrike, focusing on advanced endpoint security.</li>
@@ -145,26 +185,10 @@
                             </ul>
                         </li>
                         <li>
-                            <p>Customer Identity & Access Management Architect<br>Department of Homeland Security, OCIO, United States Secret Service<br>02/2022 - 12/2022</p>
+                            <p>Customer Identity & Access Management Architect<br>Department of Homeland Security, OCIO, United States Secret Service <span class="badge">02/2022 - 12/2022</span></p>
                             <ul>
                                 <li>Streamlined CyberArk's Privileged Access Management system boosting audit compliance by 50% and cutting response times by 40% through implementing advanced security protocols and integrating automated threat detection features.</li>
                                 <li>Orchestrated cloud migration using GCP, ensuring secure and efficient transfer of critical systems from on-prem to cloud environments.</li>
                                 <li>Utilized Agile, SCRUM, and scripting languages including PowerShell, Python, and Java for system resilience and efficiency in accordance with the FISMA framework to meet compliance and security frameworks.</li>
                                 <li>Designed and implemented identity solutions using Active Directory, OAuth, and SAML emphasizing cloud security.</li>
-                                <li>Leveraged Fortinet in the transition to a zero-trust network architecture, significantly minimizing potential attack vectors enhancing security posture.</li>
-                                <li>Orchestrated the organization’s successful FedRAMP authorization process, enabling secure and compliant cloud service offerings to federal agencies.</li>
-                                <li>Designed and implemented an information security management system (ISMS) that achieved ISO 27001 certification, significantly improving the organization's security posture and client confidence for the customer.</li>
-                                <li>Developed and enforced access policies using Saviynt's policy engine, leading to a 50% reduction in unauthorized access incidents.</li>
-                                <li>Utilized capabilities in Python and Powershell scripting for automation of security tasks, analysis, and tool development for GCP to create security solutions.</li>
-                                <li>Managed enterprise network security program, promoting IAM governance and utilizing scripting knowledge for IT infrastructure and operations management.</li>
-                                <li>Monitored server and firewall logs, analyzed network traffic, and conducted regular vulnerability scans using tools like Qualys for threat detection and vulnerability management to maintain robust security for the customer.</li>
-                                <li>Implemented robust incident response protocols using Fortinet solutions with GCP, reducing detection and response times for cybersecurity incidents.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <p>Cloud Vulnerability Analyst<br>Accessia Health<br>07/2021 - 12/2021</p>
-                            <ul>
-                                <li>Managed vulnerability assessments, remediation strategies, and ensured HIPAA and NIST compliance.</li>
-                                <li>Engineered comprehensive training modules on EHR tools and health information management practices, enhancing workflow efficiency and compliance across clinical and administrative staff.</li>
-                                <li>Developed training programs on the use of DICOM standards for imaging data, HL7 for electronic health information exchange, and IHE protocols to ensure interoperable use of healthcare information.</li>
-                                <li>Implemented and managed Microsoft Defender for Identity across a 10,000-user
+                                <li>Leveraged Fortinet in the transition to a zero-trust network architecture, significantly minimizing potential attack vectors enhancing
