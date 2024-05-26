@@ -121,6 +121,9 @@
             column-count: 2;
             column-gap: 40px;
         }
+        .full-page {
+            width: 100%;
+        }
         .highlight-skill {
             background-color: yellow;
         }
@@ -192,9 +195,9 @@
                                 <li data-skill="CrowdStrike">Reduced system vulnerabilities and improved threat detection and response through the integration of CrowdStrike, focusing on advanced endpoint security.</li>
                                 <li data-skill="SailPoint">Drove the adoption of SailPoint, resulting in a 45% improvement in audit performance and a 35% reduction in unauthorized access through refined identity governance and automated provisioning processes.</li>
                                 <li data-skill="Active Directory">Streamlined user access control and enterprise management with Active Directory and LDAP, facilitating secure and efficient authentication processes.</li>
-                                <li data-skill="Okta">Integrated Okta
+                                <li data-skill="Okta">Integrated Okta to provide seamless identity and
 
- to provide seamless identity and access management across cloud and on-premise applications, reinforcing the security framework.</li>
+ access management across cloud and on-premise applications, reinforcing the security framework.</li>
                                 <li data-skill="Varonis">Protected sensitive information, ensuring regulatory compliance, by employing Varonis for threat detection and vulnerability management for data analytics.</li>
                                 <li data-skill="Confluence SharePoint Microsoft 365">Supported secure collaboration and information sharing using Confluence, SharePoint, and Microsoft 365, incorporating security measures into business operations for devops and system automation.</li>
                                 <li>Managed and secured privileged passwords with One Identity's Privileged Password Management PPM, addressing access-related vulnerabilities.</li>
@@ -202,6 +205,11 @@
                                 <li data-skill="CrowdStrike">Orchestrated rollout of CrowdStrike Falcon to 10,000 endpoints for automated threat detection and response.</li>
                             </ul>
                         </li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h2>Experience</h2>
+                    <ul class="details full-page">
                         <li>
                             <p><span class="highlight">Customer Identity & Access Management Architect</span><br>Department of Homeland Security, OCIO, United States Secret Service <span class="badge">02/2022 - 12/2022</span></p>
                             <ul>
@@ -263,60 +271,4 @@
                                 <li data-skill="Microsoft Defender">Utilized Microsoft Defender’s automated investigation and remediation features to streamline security operations, achieving a 30% reduction in manual security tasks through automation.</li>
                                 <li>Developed and implemented advanced Splunk dashboards for comprehensive visibility into network traffic, system logs, and user activities, enhancing the security team's analytical capabilities, aiding in proactive threat hunting efforts.</li>
                                 <li>Utilized COBOL for system updates, bug fixes, and implementing new features to improve efficiency and reliability.</li>
-                                <li>Participated in cross-departmental projects to extend the functionality of COBOL applications, enabling new banking services and improving customer experience.</li>
-                                <li>Conducted on/off-boarding and trained 400 employees on security processes, reducing phishing attacks by presenting security awareness and training
-
-.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <p><span class="highlight">Customer Identity & Access Management Engineer</span><br>Wellsecured IT <span class="badge">10/2015 - 01/2019</span></p>
-                            <ul>
-                                <li data-skill="ForgeRock IDM">Orchestrated the migration of legacy IAM systems to ForgeRock IDM, improving identity lifecycle management and reducing operational costs.</li>
-                                <li data-skill="Splunk">Integrated Splunk with IAM solutions to automate the collection and analysis of access logs, streamlining audit processes and significantly improving the efficiency of compliance reporting.</li>
-                                <li>Provided complex technical guidance, oversight, and enforcement of security directives, policies, standards, plans, and procedures as defined by ISO/IEC 27001 framework.</li>
-                                <li data-skill="Microsoft Defender">Ensured alignment with NIST and ISO 27001 standards by leveraging Microsoft Defender’s security controls to protect sensitive data and maintain high compliance levels.</li>
-                                <li data-skill="Ping Identity">Conducted comprehensive security audits using Ping Identity tools to identify and remediate potential vulnerabilities in the IAM infrastructure.</li>
-                                <li data-skill="Citrix">Optimized application delivery and performance using Citrix, achieving a 99.9% uptime for critical applications and enhancing user satisfaction.</li>
-                                <li>Installed virtual machines (VMWare, VirtualBox, & Hyper-V) to utilize applications in a test environment of IT Infrastructure and operations management.</li>
-                                <li data-skill="Powershell">Designed and deployed a suite of PowerShell scripts for automating security tasks, including log analysis, system hardening, and incident detection.</li>
-                                <li data-skill="AWS">Integrated a secure, scalable AWS cloud infrastructure with enhanced identity/access management and encryption, boosting efficiency and security.</li>
-                                <li data-skill="Auth0">Integrated Auth0 for scalable user authentication, enhancing authentication success to 99% and cutting development time by 50% by adopting secure and efficient authentication workflows.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <p><span class="highlight">Cloud Security Operations</span><br>Cloudcentria Security <span class="badge">06/2011 - 12/2015</span></p>
-                            <ul>
-                                <li>Developed and maintained policies, procedures, and documentation to align with regulatory standards, leading to successful audits and certifications.</li>
-                                <li>Conducted penetration testing and vulnerability assessments using Kali Linux, identifying critical security weaknesses and recommending mitigation strategies to enhance system resilience.</li>
-                                <li data-skill="Ping Identity">Led the integration of Ping Identity with enterprise applications, ensuring secure and efficient user access control to reduce administrative overhead.</li>
-                                <li>Maintained high-level customer satisfaction by delivering professional and timely support, and documenting processes and service desk records meticulously.</li>
-                                <li data-skill="Active Directory Azure AD/Entra ID">Created industry leading practices of IAM/Access Control/Change Management through Active Directory and Azure AD/Entra ID PaaS.</li>
-                                <li>Spearheaded mitigation of sophisticated DDoS attacks, improving organizational threat resilience.</li>
-                                <li data-skill="Nessus">Directed an enterprise-wide vulnerability management program using Nessus, covering 15,000 assets.</li>
-                                <li>Conducted a digital forensics investigation of a suspected insider threat, using The Sleuth Kit for disk image analysis and evidence recovery.</li>
-                                <li>Identified the malicious insider, leading to legal action and the recovery of stolen intellectual property.</li>
-                                <li>Developed best practices for forensic investigations, significantly improving incident response capabilities.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        document.querySelectorAll('.skill').forEach(skill => {
-            skill.addEventListener('mouseover', () => {
-                document.querySelectorAll(`[data-skill="${skill.dataset.skill}"]`).forEach(entry => {
-                    entry.classList.add('highlight-skill');
-                });
-            });
-            skill.addEventListener('mouseout', () => {
-                document.querySelectorAll(`[data-skill="${skill.dataset.skill}"]`).forEach(entry => {
-                    entry.classList.remove('highlight-skill');
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+                                <li>Participated in cross-departmental projects to extend the functionality of COBOL applications, enabling new banking services and improving customer experience.</li |oai:code-citation|
