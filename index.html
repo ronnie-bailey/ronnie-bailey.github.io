@@ -64,9 +64,6 @@
             margin: 0;
             padding: 5px 0;
         }
-        .left-column, .right-column {
-            width: 48%;
-        }
         .column {
             display: flex;
             flex-direction: column;
@@ -154,7 +151,38 @@
             border-radius: 8px;
             width: 200px;
         }
+        .highlight-skill:hover {
+            background-color: yellow;
+        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var skills = document.querySelectorAll('.skill');
+            skills.forEach(function(skill) {
+                skill.addEventListener('mouseover', function() {
+                    var skillName = skill.getAttribute('data-skill');
+                    var highlights = document.querySelectorAll('[data-skill="'+skillName+'"]');
+                    highlights.forEach(function(highlight) {
+                        highlight.classList.add('highlight-skill');
+                    });
+                });
+                skill.addEventListener('mouseout', function() {
+                    var skillName = skill.getAttribute('data-skill');
+                    var highlights = document.querySelectorAll('[data-skill="'+skillName+'"]');
+                    highlights.forEach(function(highlight) {
+                        highlight.classList.remove('highlight-skill');
+                    });
+                });
+                skill.addEventListener('click', function() {
+                    var skillName = skill.getAttribute('data-skill');
+                    var highlight = document.querySelector('[data-skill="'+skillName+'"]');
+                    if (highlight) {
+                        highlight.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="floating-skills">
@@ -189,41 +217,18 @@
             <p>Richmond, VA // (360) 719-8377</p>
             <p><span class="icon icon-microsoft"></span>ronniebailey@live.com // <span class="icon icon-linkedin"></span><a href="https://linkedin.com/in/ronniebailey">linkedin.com/in/ronniebailey</a></p>
         </div>
-        <div class="row">
-            <div class="left-column">
-                <div class="section">
-                    <h2>Education</h2>
-                    <p>University of Richmond<br>Bachelor’s of Science in Cybersecurity <span class="badge">08/2024</span></p>
-                    <p>Reynolds College<br>Associate of Applied Science in Information Systems <span class="badge">05/2021</span></p>
-                </div>
-            </div>
-            <div class="right-column">
-                <div class="section">
-                    <h2>Awards</h2>
-                    <p>Phi Theta Kappa Honor Society <span class="badge">04/2018</span></p>
-                    <p>Dean’s List <span class="badge">06/2018</span></p>
-                </div>
-                <div class="section">
-                    <h2>Certifications</h2>
-                    <p>AZ-900, Microsoft Azure Fundamentals <span class="badge">09/2024</span></p>
-                    <p>Cybersecurity Essentials, Cisco <span class="badge">10/2021</span></p>
-                    <p>IBM Cloud Essentials, IBM <span class="badge">10/2021</span></p>
-                    <p>Network Administration, Reynolds College <span class="badge">07/2020</span></p>
-                </div>
-            </div>
-        </div>
-        <div class="section experience-centered">
+        <div class="section">
             <h2>Experience</h2>
             <ul class="details">
                 <li>
                     <p><span class="highlight">Principal Security Architect, Cybersecurity</span><br>Kroger, Technology & Digital Department <span class="badge">12/2022 - 02/2024</span></p>
                     <ul>
                         <li data-skill="Microsoft Azure AD/Entra ID">Enhanced organizational security posture and compliance by leveraging Microsoft Azure AD/Entra ID for cloud services, OneIdentity Safeguard and TPAM for IAM, ensuring scalable and secure cloud infrastructure.</li>
-                        <li data-skill="
-
-CrowdStrike">Deployed and managed endpoint security solutions using CrowdStrike, reducing malware incidents by 45%.</li>
+                        <li data-skill="CrowdStrike">Deployed and managed endpoint security solutions using CrowdStrike, reducing malware incidents by 45%.</li>
                         <li data-skill="Active Directory">Implemented advanced Active Directory configurations to improve authentication protocols and access controls.</li>
-                        <li data-skill="Okta">Led the integration of Okta for SSO and MFA, streamlining user access management across cloud and on-premise applications.</li>
+                        <li data-skill="Okta">Led the integration of Okta for SSO and MFA, streamlining
+
+ user access management across cloud and on-premise applications.</li>
                         <li data-skill="Varonis">Utilized Varonis for data governance and threat detection, reducing data exposure risks by 30%.</li>
                         <li data-skill="Confluence">Facilitated collaboration and documentation through Confluence, enhancing project visibility and knowledge sharing.</li>
                         <li data-skill="SharePoint">Managed SharePoint for internal document management and team collaboration.</li>
@@ -301,12 +306,12 @@ CrowdStrike">Deployed and managed endpoint security solutions using CrowdStrike,
                     </ul>
                 </li>
                 <li>
-                    <p><span class="highlight">Customer
-
- Identity & Access Management Engineer</span><br>Wellsecured IT <span class="badge">10/2015 - 01/2019</span></p>
+                    <p><span class="highlight">Customer Identity & Access Management Engineer</span><br>Wellsecured IT <span class="badge">10/2015 - 01/2019</span></p>
                     <ul>
                         <li>Orchestrated the migration of legacy IAM systems to ForgeRock IDM, improving identity lifecycle management and reducing operational costs.</li>
-                        <li>Integrated Splunk with IAM solutions to automate the collection and analysis of access logs, streamlining audit processes and significantly improving the efficiency of compliance reporting.</li>
+                        <li>Integrated Splunk
+
+ with IAM solutions to automate the collection and analysis of access logs, streamlining audit processes and significantly improving the efficiency of compliance reporting.</li>
                         <li>Provided complex technical guidance, oversight, and enforcement of security directives, policies, standards, plans, and procedures as defined by ISO/IEC 27001 framework.</li>
                         <li>Ensured alignment with NIST and ISO 27001 standards by leveraging Microsoft Defender’s security controls to protect sensitive data and maintain high compliance levels.</li>
                         <li>Conducted comprehensive security audits using Ping Identity tools to identify and remediate potential vulnerabilities in the IAM infrastructure.</li>
@@ -337,11 +342,3 @@ CrowdStrike">Deployed and managed endpoint security solutions using CrowdStrike,
     </div>
 </body>
 </html>
-"""
-
-with open("/mnt/data/ronnie_bailey_resume.txt", "w") as file:
-    file.write(html_content)
-
-I have created the text file with the HTML content. You can download it using the link below:
-
-[Download Ronnie Bailey Resume Text File](sandbox:/mnt/data/ronnie_bailey_resume.txt?_chatgptios_conversationID=2c7789c6-99c7-49bb-9701-5863f6b187aa&_chatgptios_messageID=fe5576d0-8143-45b3-a731-9bf80bc2794f) |oai:code-citation|
