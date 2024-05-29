@@ -92,6 +92,15 @@
             margin: 0;
             padding: 0;
         }
+        .job-description {
+            margin-bottom: 30px;
+        }
+        .icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
@@ -100,9 +109,9 @@
             <div class="header">
                 <h1>Ronnie Bailey</h1>
                 <p>Identity Security Consultant</p>
-                <p><a href="mailto:ronnie@example.com">ronnie@example.com</a></p>
+                <p><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="icon"><a href="mailto:ronnie@example.com">ronnie@example.com</a></p>
                 <p><a href="tel:+1234567890">+123-456-7890</a></p>
-                <p><a href="https://www.linkedin.com/in/ronniebailey" target="_blank">LinkedIn</a></p>
+                <p><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="icon"><a href="https://www.linkedin.com/in/ronniebailey" target="_blank">LinkedIn</a></p>
             </div>
             <div class="section">
                 <h2>Skills</h2>
@@ -199,13 +208,13 @@
                         <p><strong>Identity and Access Management Analyst</strong> <span class="highlight">Wells Fargo</span> <span class="badge">04/2019 - 10/2019</span></p>
                         <ul>
                             <li>Ensured IAM practices were compliant with the bank's operational risk framework and industry best practices, including policies, procedures, and control methodologies.</li>
-                            <li>Led cybersecurity projects using Agile and Waterfall methodologies, improving team efficiency and adaptability to rapidly changing security threats.</li>
+                            <li>Led cybersecurity projects using Agile and Waterfall methodologies, improving team efficiency and adaptability to rapidly changing security threats
+
+.</li>
                             <li>Maintained user accounts, profiles, network, system security, and access privileges through IAM tools such as Active Directory, Office 365, and SCCM.</li>
                             <li>Supported IAM solutions and maintenance, focused on access control systems.</li>
                             <li>Oversaw the migration of critical workloads to a vSphere-based virtualized infrastructure, resulting in improved resource utilization and a 20% reduction in data center costs.</li>
-                            <li>Utilized Microsoft Defender’s
-
- automated investigation and remediation features to streamline security operations, achieving a 30% reduction in manual security tasks through automation.</li>
+                            <li>Utilized Microsoft Defender’s automated investigation and remediation features to streamline security operations, achieving a 30% reduction in manual security tasks through automation.</li>
                             <li>Developed and implemented advanced Splunk dashboards for comprehensive visibility into network traffic, system logs, and user activities, enhancing the security team's analytical capabilities, aiding in proactive threat hunting efforts.</li>
                             <li>Utilized COBOL for system updates, bug fixes, and implementing new features to improve efficiency and reliability.</li>
                             <li>Participated in cross-departmental projects to extend the functionality of COBOL applications, enabling new banking services and improving customer experience.</li>
@@ -279,12 +288,12 @@
                     </div>
                     <div class="job-description">
                         <p><strong>Customer Identity & Access Management Engineer</strong> <span class="highlight">Wellsecured IT</span> <span class="badge">10/2015 - 01/2019</span></p>
-                        <ul>
+                       
+
+ <ul>
                             <li>Orchestrated the migration of legacy IAM systems to ForgeRock IDM, improving identity lifecycle management and reducing operational costs.</li>
                             <li>Integrated Splunk with IAM solutions to automate the collection and analysis of access logs, streamlining audit processes and significantly improving the efficiency of compliance reporting.</li>
                             <li>Provided complex technical guidance, oversight, and enforcement of security directives, policies, standards, plans, and procedures as defined by ISO/IEC 27001 framework.</li>
-
-
                             <li>Ensured alignment with NIST and ISO 27001 standards by leveraging Microsoft Defender’s security controls to protect sensitive data and maintain high compliance levels.</li>
                             <li>Conducted comprehensive security audits using Ping Identity tools to identify and remediate potential vulnerabilities in the IAM infrastructure.</li>
                             <li>Optimized application delivery and performance using Citrix, achieving a 99.9% uptime for critical applications and enhancing user satisfaction.</li>
@@ -313,18 +322,39 @@
             </div>
             <div class="section">
                 <h2>Education</h2>
-                <div class="details">
-                    <p><strong>Bachelor of Science in Information Technology</strong> <span class="highlight">University of Technology</span> <span class="badge">2011 - 2015</span></p>
-                </div>
+                <ul class="details">
+                    <li><strong>IBM Cloud Essentials, IBM</strong> <span class="badge">10/2021</span></li>
+                    <li><strong>Network Administration, Reynolds College</strong> <span class="badge">07/2020</span></li>
+                </ul>
             </div>
             <div class="section">
                 <h2>Certifications</h2>
-                <div class="details">
-                    <p><strong>Certified Information Systems Security Professional (CISSP)</strong> <span class="badge">2018</span></p>
-                    <p><strong>Certified Identity and Access Manager (CIAM)</strong> <span class="badge">2017</span></p>
-                </div>
+                <ul class="details">
+                    <li><strong>Certified Information Systems Security Professional (CISSP)</strong></li>
+                    <li><strong>Certified Cloud Security Professional (CCSP)</strong></li>
+                    <li><strong>Microsoft Certified: Azure Solutions Architect Expert</strong></li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2>Awards</h2>
+                <ul class="details">
+                    <li><strong>Security Leadership Award</strong> <span class="badge">XYZ Cyber Solutions</span> <span class="badge">2021</span></li>
+                    <li><strong>Best Security Team Award</strong> <span class="badge">Kroger Technology & Digital</span> <span class="badge">2023</span></li>
+                </ul>
             </div>
         </div>
     </div>
 </body>
 </html>
+"""
+
+# Write the HTML content to a text file
+file_path = "/mnt/data/ronnie_bailey_resume.html"
+with open(file_path, "w") as file:
+    file.write(html_content)
+
+file_path
+
+I've created the HTML file with the provided and revised content. You can download it using the link below:
+
+[Download Ronnie Bailey Resume HTML](sandbox:/mnt/data/ronnie_bailey_resume.html?_chatgptios_conversationID=2c7789c6-99c7-49bb-9701-5863f6b187aa&_chatgptios_messageID=0737d294-5ce7-45f3-aa39-7d96599939f3) |oai:code-citation|
