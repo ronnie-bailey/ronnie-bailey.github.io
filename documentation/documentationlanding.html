@@ -6,21 +6,23 @@
     <title>Cybersecurity Documentation Repository</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f0f2f5;
+            color: #333;
         }
 
         header {
-            background: #333;
+            background: #005b96;
             color: #fff;
             padding: 20px 0;
             text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         nav {
-            background: #444;
+            background: #0073e6;
             color: #fff;
             padding: 10px 0;
         }
@@ -28,20 +30,29 @@
         nav ul {
             list-style: none;
             padding: 0;
+            margin: 0;
+            text-align: center;
         }
 
         nav ul li {
             display: inline;
-            margin: 0 10px;
+            margin: 0 15px;
         }
 
         nav ul li a {
             color: #fff;
             text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
         }
 
         main {
             padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         section {
@@ -53,7 +64,7 @@
         }
 
         h2 {
-            color: #333;
+            color: #005b96;
         }
 
         ul {
@@ -66,7 +77,7 @@
         }
 
         ul li a {
-            color: #0066cc;
+            color: #0073e6;
             text-decoration: none;
         }
 
@@ -75,13 +86,14 @@
         }
 
         footer {
-            background: #333;
+            background: #005b96;
             color: #fff;
             text-align: center;
             padding: 10px 0;
             position: fixed;
             width: 100%;
             bottom: 0;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -93,7 +105,7 @@
     
     <nav>
         <ul>
-            <li><a href="https://ronnie-bailey.github.io/documentation/checklist.html">Network Security</a></li>\
+            <li><a href="#network-security">Network Security</a></li>
             <li><a href="#identity-access-management">Identity & Access Management</a></li>
             <li><a href="#data-protection">Data Protection</a></li>
             <li><a href="#incident-response">Incident Response</a></li>
