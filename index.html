@@ -1,3 +1,6 @@
+Here is the updated HTML with the requested rollover effect:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -147,6 +150,26 @@
             margin-top: 20px;
             border-top: 2px solid #76A9EA;
         }
+        .company-name {
+            position: relative;
+        }
+        .company-name .real-name {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #121212;
+            padding: 2px 5px;
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .company-name:hover .placeholder {
+            display: none;
+        }
+        .company-name:hover .real-name {
+            display: inline;
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -197,13 +220,13 @@
                 <h1>Ronnie Bailey</h1>
                 <p>Identity Security Consultant</p>
                 <div class="download-links">
-                    <a href="resume.pdf" download="RonnieBailey_Resume.pdf">Download PDF</a>
+                    <a href="resume.pdf" download="RonnieBa
+
+iley_Resume.pdf">Download PDF</a>
                     <a href="resume.docx" download="RonnieBailey_Resume.docx">Download DOCX</a>
                 </div>
                 <p><img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" class="icon"><a href="mailto:ronniebailey@live.com">ronniebailey@live.com</a></p>
-                <p><a href="tel:+
-
-1234567890">+123-456-7890</a></p>
+                <p><a href="tel:+1234567890">+123-456-7890</a></p>
                 <p><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="icon"><a href="https://www.linkedin.com/in/ronniebailey" target="_blank">LinkedIn</a></p>
             </div>
             <div class="section">
@@ -297,13 +320,13 @@
         <div class="right-column">
             <div class="section">
                 <h2>Summary</h2>
-                <p>With over 7 years of experience in cybersecurity, I have honed my skills in threat detection, risk management, and continuous monitoring. My expertise in developing robust security protocols and my proactive approach to threat mitigation have been instrumental in safeguarding critical infrastructures. My most significant achievement includes playing a pivotal role in defending a major cyber-attack on a financial institution. I am eager to leverage my skills and experience to contribute...
+                <p>With over 7 years of experience in cybersecurity, I have honed my skills in threat detection, risk management, and continuous monitoring. My expertise in developing robust security protocols and my proactive approach to threat mitigation have been instrumental in safeguarding critical infrastructures. My most significant achievement includes playing a pivotal role in defending a major cyber-attack on a financial institution. I am eager to leverage my skills and experience to contribute to the success of a forward-thinking organization.</p>
             </div>
             <div class="section">
                 <h2>Experience</h2>
                 <div class="details">
                     <div class="job-description">
-                        <p><strong>Principal Security Architect, Cybersecurity</strong> <span class="highlight">Kroger, Technology & Digital Department</span> <span class="badge">12/2022 - 02/2024</span></p>
+                        <p><strong>Principal Security Architect, Cybersecurity</strong> <span class="company-name"><span class="placeholder">Major National Retail Company</span><span class="real-name">Kroger, Technology & Digital Department</span></span> <span class="badge">12/2022 - 02/2024</span></p>
                         <ul>
                             <li>Enhanced organizational security posture and compliance by leveraging Microsoft Azure AD/Entra ID for cloud services, OneIdentity Safeguard and TPAM for IAM, ensuring scalable and secure cloud infrastructure.</li>
                             <li>Deployed and managed endpoint security solutions using CrowdStrike, reducing malware incidents by 45%.</li>
@@ -313,7 +336,7 @@
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong>Customer Identity & Access Management Architect</strong> <span class="highlight">Department of Homeland Security, OCIO, United States Secret Service</span> <span class="badge">02/2022 - 12/2022</span></p>
+                        <p><strong>Customer Identity & Access Management Architect</strong> <span class="company-name"><span class="placeholder">Federal Government</span><span class="real-name">Department of Homeland Security, OCIO, United States Secret Service</span></span> <span class="badge">02/2022 - 12/2022</span></p>
                         <ul>
                             <li>Streamlined CyberArk's Privileged Access Management system boosting audit compliance by 50% and cutting response times by 40% through implementing advanced security protocols and integrating automated threat detection features.</li>
                             <li>Orchestrated cloud migration using GCP, ensuring secure and efficient transfer of critical systems from on-prem to cloud environments.</li>
@@ -330,23 +353,23 @@
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong>Cloud Vulnerability Analyst</strong> <span class="highlight">Accessia Health</span> <span class="badge">07/2021 - 12/2021</span></p>
+                        <p><strong>Cloud Vulnerability Analyst</strong> <span class="company-name"><span class="placeholder">Non-profit Healthcare Organization</span><span class="real-name">Accessia Healthcare</span></span> <span class="badge">07/2021 - 12/2021</span></p>
                         <ul>
                             <li>Managed vulnerability assessments, remediation strategies, and ensured HIPAA and NIST compliance.</li>
                             <li>Engineered comprehensive training modules on EHR tools and health information management practices, enhancing workflow efficiency and compliance across clinical and administrative staff.</li>
                             <li>Developed training programs on the use of DICOM standards for imaging data, HL7 for electronic health information exchange, and IHE protocols to ensure interoperable use of healthcare information.</li>
                             <li>Implemented and managed Microsoft Defender for Identity across a 10,000-user enterprise, enhancing security posture by detecting and responding to advanced threats and insider actions.</li>
-                            <li>Designed and deployed multi-factor authentication using Microsoft Defender, reducing unauthorized access incidents by 75% within the first year of implementation.</li>
+                            <li>Designed and deployed multi-factor authentication using Microsoft
+
+ Defender, reducing unauthorized access incidents by 75% within the first year of implementation.</li>
                             <li>Directed the organization-wide SSL/TLS certificate management program, ensuring encryption standards compliance and preventing downtime due to expired certificates.</li>
                             <li>Directed the collection, analysis, and reporting of healthcare metrics, utilizing data from EHR and PACS systems to drive improvements in patient health outcomes and service delivery.</li>
                             <li>Implemented Auth0 for secure, scalable user authentication, leading to a 99% success rate in logins and halving the development time for new auth features by leveraging customizable workflows and SDKs aligning with HIPPA requirements.</li>
-                            <li>Coordinated with IT, audit, and compliance teams to ensure CyberArk practices aligned with regulatory requirements, significantly contributing to successful audits under standards such as SOX, GDPR, and
-
- HIPAA.</li>
+                            <li>Coordinated with IT, audit, and compliance teams to ensure CyberArk practices aligned with regulatory requirements, significantly contributing to successful audits under standards such as SOX, GDPR, and HIPAA.</li>
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong>Privileged Access Management Architect</strong> <span class="highlight">Indivior Pharmaceuticals</span> <span class="badge">10/2019 - 07/2021</span></p>
+                        <p><strong>Privileged Access Management Architect</strong> <span class="company-name"><span class="placeholder">Pharmaceutical Company</span><span class="real-name">Indivior Pharmaceuticals</span></span> <span class="badge">10/2019 - 07/2021</span></p>
                         <ul>
                             <li>Integrated SSO and MFA using Microsoft Azure Active Directory/Entra ID enhancing user verification processes and access management.</li>
                             <li>Ensured ePHI data protection and encryption through backups and Bitlocker.</li>
@@ -365,7 +388,7 @@
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong>Identity and Access Management Analyst</strong> <span class="highlight">Wells Fargo</span> <span class="badge">04/2019 - 10/2019</span></p>
+                        <p><strong>Identity and Access Management Analyst</strong> <span class="company-name"><span class="placeholder">Financial Services</span><span class="real-name">Wells Fargo Bank</span></span> <span class="badge">04/2019 - 10/2019</span></p>
                         <ul>
                             <li>Ensured IAM practices were compliant with the bank's operational risk framework and industry best practices, including policies, procedures, and control methodologies.</li>
                             <li>Led cybersecurity projects using Agile and Waterfall methodologies, improving team efficiency and adaptability to rapidly changing security threats.</li>
@@ -380,7 +403,7 @@
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong>Customer Identity & Access Management Engineer</strong> <span class="highlight">Wellsecured IT</span> <span class="badge">10/2015 - 01/2019</span></p>
+                        <p><strong>Customer Identity & Access Management Engineer</strong> <span class="company-name"><span class="placeholder">Digital Security Firm</span><span class="real-name">Wellsecured IT</span></span> <span class="badge">10/2015 - 01/2019</span></p>
                         <ul>
                             <li>Orchestrated the migration of legacy IAM systems to ForgeRock IDM, improving identity lifecycle management and reducing operational costs.</li>
                             <li>Integrated Splunk with IAM solutions to automate the collection and analysis of access logs, streamlining audit processes and significantly improving the efficiency of compliance reporting.</li>
@@ -395,7 +418,7 @@
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong>Cloud Security Operations</strong> <span class="highlight">Cloudcentria Security</span> <span class="badge">06/2011 - 12/2015</span></p>
+                        <p><strong>Cloud Security Operations</strong> <span class="company-name"><span class="placeholder">Security Services Provider</span><span class="real-name">Cloudcentria Security</span></span> <span class="badge">06/2011 - 12/2015</span></p>
                         <ul>
                             <li>Developed and maintained policies, procedures, and documentation to align with regulatory standards, leading to successful audits and certifications.</li>
                             <li>Conducted penetration testing and vulnerability assessments using Kali Linux, identifying critical security weaknesses and recommending mitigation strategies to enhance system resilience.</li>
@@ -408,6 +431,31 @@
                             <li>Identified the malicious insider, leading to legal action and the recovery of stolen intellectual property.</li>
                             <li>Developed best practices for forensic investigations, significantly improving incident response capabilities.</li>
                         </ul>
+                    </div>
+                    <div class="job-description">
+                        <p><strong>SYSTEMS ADMINISTRATOR</strong> <span class="company-name"><span class="placeholder">PC Repair Company</span><span class="real-name">uBreakiFix</span></span> <span class="badge">Jun 2009 - Dec 2011</span></p>
+                        <ul>
+                            <li>Provided first-level technical support to end-users via phone, email, or in-person, addressing issues with hardware and software, and network connectivity.</li>
+                            <li>Evaluated and prioritized incidents based on impact and urgency, contributing to meeting established service level agreements (SLAs).</li>
+                            <li>Maintained high-level customer satisfaction by delivering professional and timely support, and documenting processes and service desk records meticulously.</li>
+                        </ul>
+                        <p>Skills: Governance, Risk Management, and Compliance (GRC) · Strategy and Leadership · Technical Proficiency
+
+ and Innovation</p>
+                    </div>
+                    <div class="job-description">
+                        <p><strong>IT SUPPORT ASSOCIATE</strong> <span class="company-name"><span class="placeholder">Major National Electronics Retail Company</span><span class="real-name">Circuit City</span></span> <span class="badge">Sep 2006 - Jan 2009</span></p>
+                        <ul>
+                            <li>Demonstrated basic technical support and troubleshooting for electronics and computer products.</li>
+                            <li>Assisted customers with product setup and software installations.</li>
+                            <li>Conducted basic hardware repairs or coordinated with repair services.</li>
+                            <li>Helped customers understand product features and technology specifications.</li>
+                            <li>Managed inventory of computer and electronic accessories.</li>
+                            <li>Kept updated with the latest technology trends and products.</li>
+                            <li>Collaborated with the sales team to meet customer technology needs.</li>
+                            <li>Maintained and updated product display and demonstration areas.</li>
+                        </ul>
+                        <p>Skills: Governance, Risk Management, and Compliance (GRC) · Strategy and Leadership · Technical Proficiency and Innovation</p>
                     </div>
                 </div>
             </div>
@@ -431,3 +479,4 @@
     <div class="quote-of-the-day" id="quote"></div>
 </body>
 </html>
+```
