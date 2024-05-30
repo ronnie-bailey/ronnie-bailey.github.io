@@ -6,162 +6,162 @@
     <title>Cybersecurity Documentation Repository</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #121212;
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5;
-            color: #333;
+            color: #E0E0E0;
         }
-
+        .container {
+            background: #1E1E1E;
+            padding: 20px;
+            margin: 20px auto;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            max-width: 1200px;
+            border-radius: 8px;
+        }
         header {
-            background: #005b96;
-            color: #fff;
-            padding: 20px 0;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            border-bottom: 2px solid #76A9EA;
         }
-
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 3px;
+            color: #76A9EA;
+        }
+        header p {
+            margin: 5px 0;
+            font-size: 1.2em;
+            color: #B0B0B0;
+        }
         nav {
-            background: #0073e6;
-            color: #fff;
-            padding: 10px 0;
+            margin: 20px 0;
+            text-align: center;
         }
-
         nav ul {
             list-style: none;
             padding: 0;
-            margin: 0;
-            text-align: center;
+            display: flex;
+            justify-content: center;
         }
-
         nav ul li {
-            display: inline;
             margin: 0 15px;
         }
-
         nav ul li a {
-            color: #fff;
+            color: #76A9EA;
             text-decoration: none;
+            font-size: 1.1em;
             font-weight: bold;
         }
-
         nav ul li a:hover {
             text-decoration: underline;
         }
-
         main {
             padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
-
         section {
-            background: #fff;
+            background: #252525;
             margin: 20px 0;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
-
-        h2 {
-            color: #005b96;
+        section h2 {
+            color: #76A9EA;
+            margin-bottom: 15px;
         }
-
         ul {
             list-style: none;
             padding: 0;
         }
-
         ul li {
-            margin: 5px 0;
+            margin: 10px 0;
         }
-
         ul li a {
-            color: #0073e6;
+            color: #E0E0E0;
             text-decoration: none;
+            font-size: 1.1em;
         }
-
         ul li a:hover {
             text-decoration: underline;
         }
-
         footer {
-            background: #005b96;
-            color: #fff;
             text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            color: #B0B0B0;
+            border-top: 2px solid #76A9EA;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Cybersecurity Documentation Repository</h1>
-        <p>Access a wealth of knowledge to bolster your cybersecurity expertise.</p>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#network-security">Network Security</a></li>
-            <li><a href="#identity-access-management">Identity & Access Management</a></li>
-            <li><a href="#data-protection">Data Protection</a></li>
-            <li><a href="#incident-response">Incident Response</a></li>
-            <li><a href="#compliance">Compliance</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <section id="network-security">
-            <h2>Network Security</h2>
+    <div class="container">
+        <header>
+            <h1>Cybersecurity Documentation Repository</h1>
+            <p>Access a wealth of knowledge to bolster your cybersecurity expertise.</p>
+        </header>
+        
+        <nav>
             <ul>
-                <li><a href="link1">Link to Documentation 1</a></li>
-                <li><a href="link2">Link to Documentation 2</a></li>
-                <!-- Additional links can be added here -->
+                <li><a href="#network-security">Network Security</a></li>
+                <li><a href="#identity-access-management">Identity & Access Management</a></li>
+                <li><a href="#data-protection">Data Protection</a></li>
+                <li><a href="#incident-response">Incident Response</a></li>
+                <li><a href="#compliance">Compliance</a></li>
             </ul>
-        </section>
+        </nav>
 
-        <section id="identity-access-management">
-            <h2>Identity & Access Management</h2>
-            <ul>
-                <li><a href="link3">Link to Documentation 3</a></li>
-                <li><a href="link4">Link to Documentation 4</a></li>
-                <!-- Additional links can be added here -->
-            </ul>
-        </section>
+        <main>
+            <section id="network-security">
+                <h2>Network Security</h2>
+                <ul>
+                    <li><a href="link1">Link to Documentation 1</a></li>
+                    <li><a href="link2">Link to Documentation 2</a></li>
+                    <!-- Additional links can be added here -->
+                </ul>
+            </section>
 
-        <section id="data-protection">
-            <h2>Data Protection</h2>
-            <ul>
-                <li><a href="link5">Link to Documentation 5</a></li>
-                <li><a href="link6">Link to Documentation 6</a></li>
-                <!-- Additional links can be added here -->
-            </ul>
-        </section>
+            <section id="identity-access-management">
+                <h2>Identity & Access Management</h2>
+                <ul>
+                    <li><a href="link3">Link to Documentation 3</a></li>
+                    <li><a href="link4">Link to Documentation 4</a></li>
+                    <!-- Additional links can be added here -->
+                </ul>
+            </section>
 
-        <section id="incident-response">
-            <h2>Incident Response</h2>
-            <ul>
-                <li><a href="link7">Link to Documentation 7</a></li>
-                <li><a href="link8">Link to Documentation 8</a></li>
-                <!-- Additional links can be added here -->
-            </ul>
-        </section>
+            <section id="data-protection">
+                <h2>Data Protection</h2>
+                <ul>
+                    <li><a href="link5">Link to Documentation 5</a></li>
+                    <li><a href="link6">Link to Documentation 6</a></li>
+                    <!-- Additional links can be added here -->
+                </ul>
+            </section>
 
-        <section id="compliance">
-            <h2>Compliance</h2>
-            <ul>
-                <li><a href="link9">Link to Documentation 9</a></li>
-                <li><a href="link10">Link to Documentation 10</a></li>
-                <!-- Additional links can be added here -->
-            </ul>
-        </section>
-    </main>
+            <section id="incident-response">
+                <h2>Incident Response</h2>
+                <ul>
+                    <li><a href="link7">Link to Documentation 7</a></li>
+                    <li><a href="link8">Link to Documentation 8</a></li>
+                    <!-- Additional links can be added here -->
+                </ul>
+            </section>
 
-    <footer>
-        <p>&copy; 2024 Cybersecurity Documentation Repository</p>
-    </footer>
+            <section id="compliance">
+                <h2>Compliance</h2>
+                <ul>
+                    <li><a href="link9">Link to Documentation 9</a></li>
+                    <li><a href="link10">Link to Documentation 10</a></li>
+                    <!-- Additional links can be added here -->
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Cybersecurity Documentation Repository</p>
+        </footer>
+    </div>
 </body>
 </html>
