@@ -1,3 +1,6 @@
+Sure, here is the entire code you can save in a text file:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -148,23 +151,10 @@
             border-top: 2px solid #76A9EA;
         }
         .company-name {
-            position: relative;
             cursor: pointer;
         }
         .company-name .real-name {
             display: none;
-            position: absolute;
-            background-color: #1E1E1E;
-            color: #76A9EA;
-            padding: 5px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        .company-name:hover .placeholder {
-            display: none;
-        }
-        .company-name:hover .real-name {
-            display: inline;
         }
     </style>
     <script>
@@ -205,6 +195,24 @@
             const today = new Date();
             const quoteIndex = today.getDate() % quotes.length;
             document.getElementById("quote").textContent = quotes[quoteIndex];
+
+            function replaceTextOnHover() {
+                const companyNames = document.querySelectorAll('.company-name');
+                companyNames.forEach(name => {
+                    const placeholder = name.querySelector('.placeholder');
+                    const realName = name.querySelector('.real-name');
+                    name.addEventListener('mouseover', () => {
+                        placeholder.style.display = 'none';
+                        realName.style.display = 'inline';
+                    });
+                    name.addEventListener('mouseout', () => {
+                        placeholder.style.display = 'inline';
+                        realName.style.display = 'none';
+                    });
+                });
+            }
+
+            replaceTextOnHover();
         });
     </script>
 </head>
@@ -215,10 +223,10 @@
             <div class="header">
                 <h1>Ronnie Bailey</h1>
                 <p>Identity Security Consultant</p>
-                <div class="download-links">
-                    <a href="resume.pdf" download="Ron
+                <div
 
-nieBailey_Resume.pdf">Download PDF</a>
+ class="download-links">
+                    <a href="resume.pdf" download="RonnieBailey_Resume.pdf">Download PDF</a>
                     <a href="resume.docx" download="RonnieBailey_Resume.docx">Download DOCX</a>
                 </div>
                 <p><img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" class="icon"><a href="mailto:ronniebailey@live.com">ronniebailey@live.com</a></p>
@@ -322,7 +330,7 @@ nieBailey_Resume.pdf">Download PDF</a>
                 <h2>Experience</h2>
                 <div class="details">
                     <div class="job-description">
-                        <p><strong>Principal Security Architect, Cybersecurity</strong> <span class="company-name"><span class="placeholder">Major National Retail Company</span><span class="real-name">Kroger, Technology & Digital Department</span></span> <span class="badge">12/2022 - 02/2024</span></p>
+                        <p><strong>Principal Security Architect, Cybersecurity</strong> <span class="company-name"><span class="placeholder">Major National Retail Company</span><span class="real-name" style="display:none;">Kroger, Technology & Digital Department</span></span> <span class="badge">12/2022 - 02/2024</span></p>
                         <ul>
                             <li>Enhanced organizational security posture and compliance by leveraging Microsoft Azure AD/Entra ID for cloud services, OneIdentity Safeguard and TPAM for IAM, ensuring scalable and secure cloud infrastructure.</li>
                             <li>Deployed and managed endpoint security solutions using CrowdStrike, reducing malware incidents by 45%.</li>
@@ -332,7 +340,7 @@ nieBailey_Resume.pdf">Download PDF</a>
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong>Customer Identity & Access Management Architect</strong> <span class="company-name"><span class="placeholder">Federal Government</span><span class="real-name">Department of Homeland Security, OCIO, United States Secret Service</span></span> <span class="badge">02/2022 - 12/2022</span></p>
+                        <p><strong>Customer Identity & Access Management Architect</strong> <span class="company-name"><span class="placeholder">Federal Government</span><span class="real-name" style="display:none;">Department of Homeland Security, OCIO, United States Secret Service</span></span> <span class="badge">02/2022 - 12/2022</span></p>
                         <ul>
                             <li>Streamlined CyberArk's Privileged Access Management system boosting audit compliance by 50% and cutting response times by 40% through implementing advanced security protocols and integrating automated threat detection features.</li>
                             <li>Orchestrated cloud migration using GCP, ensuring secure and efficient transfer of critical systems from on-prem to cloud environments.</li>
@@ -349,15 +357,15 @@ nieBailey_Resume.pdf">Download PDF</a>
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong>Cloud Vulnerability Analyst</strong> <span class="company-name"><span class="placeholder">Non-profit Healthcare Organization</span><span class="real-name">Accessia Healthcare</span></span> <span class="badge">07/2021 - 12/2021</span></p>
+                        <p><strong>Cloud Vulnerability Analyst</strong> <span class="company-name"><span class="placeholder">Non-profit Healthcare Organization</span><span class="real-name" style="display:none;">Accessia Healthcare</span></span> <span class="badge">07/2021 - 12/2021</span></p>
                         <ul>
                             <li>Managed vulnerability assessments, remediation strategies, and ensured HIPAA and NIST compliance.</li>
                             <li>Engineered comprehensive training modules on EHR tools and health information management practices, enhancing workflow efficiency and compliance across clinical and administrative staff.</li>
                             <li>Developed training programs on the use of DICOM standards for imaging data, HL7 for electronic health information exchange, and IHE protocols to ensure interoperable use of healthcare information.</li>
-                            <li>Implemented and managed Microsoft Defender for Identity across a 10,000-user enterprise, enhancing security posture by detecting and responding to advanced threats and insider actions.</li>
-                            <li>Designed and deployed multi-factor authentication
+                            <li>Implemented and managed Microsoft Defender for Identity across a 10
 
- using Microsoft Defender, reducing unauthorized access incidents by 75% within the first year of implementation.</li>
+,000-user enterprise, enhancing security posture by detecting and responding to advanced threats and insider actions.</li>
+                            <li>Designed and deployed multi-factor authentication using Microsoft Defender, reducing unauthorized access incidents by 75% within the first year of implementation.</li>
                             <li>Directed the organization-wide SSL/TLS certificate management program, ensuring encryption standards compliance and preventing downtime due to expired certificates.</li>
                             <li>Directed the collection, analysis, and reporting of healthcare metrics, utilizing data from EHR and PACS systems to drive improvements in patient health outcomes and service delivery.</li>
                             <li>Implemented Auth0 for secure, scalable user authentication, leading to a 99% success rate in logins and halving the development time for new auth features by leveraging customizable workflows and SDKs aligning with HIPPA requirements.</li>
@@ -365,7 +373,7 @@ nieBailey_Resume.pdf">Download PDF</a>
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong>Privileged Access Management Architect</strong> <span class="company-name"><span class="placeholder">Pharmaceutical Company</span><span class="real-name">Indivior Pharmaceuticals</span></span> <span class="badge">10/2019 - 07/2021</span></p>
+                        <p><strong>Privileged Access Management Architect</strong> <span class="company-name"><span class="placeholder">Pharmaceutical Company</span><span class="real-name" style="display:none;">Indivior Pharmaceuticals</span></span> <span class="badge">10/2019 - 07/2021</span></p>
                         <ul>
                             <li>Integrated SSO and MFA using Microsoft Azure Active Directory/Entra ID enhancing user verification processes and access management.</li>
                             <li>Ensured ePHI data protection and encryption through backups and Bitlocker.</li>
@@ -384,7 +392,7 @@ nieBailey_Resume.pdf">Download PDF</a>
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong>Identity and Access Management Analyst</strong> <span class="company-name"><span class="placeholder">Financial Services</span><span class="real-name">Wells Fargo Bank</span></span> <span class="badge">04/2019 - 10/2019</span></p>
+                        <p><strong>Identity and Access Management Analyst</strong> <span class="company-name"><span class="placeholder">Financial Services</span><span class="real-name" style="display:none;">Wells Fargo Bank</span></span> <span class="badge">04/2019 - 10/2019</span></p>
                         <ul>
                             <li>Ensured IAM practices were compliant with the bank's operational risk framework and industry best practices, including policies, procedures, and control methodologies.</li>
                             <li>Led cybersecurity projects using Agile and Waterfall methodologies, improving team efficiency and adaptability to rapidly changing security threats.</li>
@@ -399,7 +407,7 @@ nieBailey_Resume.pdf">Download PDF</a>
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong>Customer Identity & Access Management Engineer</strong> <span class="company-name"><span class="placeholder">Digital Security Firm</span><span class="real-name">Wellsecured IT</span></span> <span class="badge">10/2015 - 01/2019</span></p>
+                        <p><strong>Customer Identity & Access Management Engineer</strong> <span class="company-name"><span class="placeholder">Digital Security Firm</span><span class="real-name" style="display:none;">Wellsecured IT</span></span> <span class="badge">10/2015 - 01/2019</span></p>
                         <ul>
                             <li>Orchestrated the migration of legacy IAM systems to ForgeRock IDM, improving identity lifecycle management and reducing operational costs.</li>
                             <li>Integrated Splunk with IAM solutions to automate the collection and analysis of access logs, streamlining audit processes and significantly improving the efficiency of compliance reporting.</li>
@@ -414,7 +422,7 @@ nieBailey_Resume.pdf">Download PDF</a>
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong>Cloud Security Operations</strong> <span class="company-name"><span class="placeholder">Security Services Provider</span><span class="real-name">Cloudcentria Security</span></span> <span class="badge">06/2011 - 12/2015</span></p>
+                        <p><strong>Cloud Security Operations</strong> <span class="company-name"><span class="placeholder">Security Services Provider</span><span class="real-name" style="display:none;">Cloudcentria Security</span></span> <span class="badge">06/2011 - 12/2015</span></p>
                         <ul>
                             <li>Developed and maintained policies, procedures, and documentation to align with regulatory standards, leading to successful audits and certifications.</li>
                             <li>Conducted penetration testing and vulnerability assessments using Kali Linux, identifying critical security weaknesses and recommending mitigation strategies to enhance system resilience.</li>
@@ -429,18 +437,18 @@ nieBailey_Resume.pdf">Download PDF</a>
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong>Systems Administrator</strong> <span class="company-name"><span class="placeholder">PC Repair Company</span><span class="real-name">uBreakiFix</span></span> <span class="badge">Jun 2009 - Dec 2011</span></p>
+                        <p><strong>Systems Administrator</strong> <span class="company-name"><span class="placeholder">PC Repair Company</span><span class="real-name" style="display:none;">uBreakiFix</span></span> <span class="badge">Jun 2009 - Dec 2011</span></p>
                         <ul>
                             <li>Provided first-level technical support to end-users via phone, email, or in-person, addressing issues with hardware and software, and network connectivity.</li>
                             <li>Evaluated and prioritized incidents based on impact and urgency, contributing to meeting established service level agreements (SLAs).</li>
-                            <li>Maintained high-level customer satisfaction by delivering professional and timely support, and documenting processes and service desk records meticulously.</li>
-                        </ul>
-                        <p>Skills: Governance, Risk Management, and Compliance (GRC) · Strategy and Leadership · Technical
+                            <
 
- Proficiency and Innovation</p>
+li>Maintained high-level customer satisfaction by delivering professional and timely support, and documenting processes and service desk records meticulously.</li>
+                        </ul>
+                        <p>Skills: Governance, Risk Management, and Compliance (GRC) · Strategy and Leadership · Technical Proficiency and Innovation</p>
                     </div>
                     <div class="job-description">
-                        <p><strong>IT Support Associate</strong> <span class="company-name"><span class="placeholder">Major National Electronics Retail Company</span><span class="real-name">Circuit City</span></span> <span class="badge">Sep 2006 - Jan 2009</span></p>
+                        <p><strong>IT Support Associate</strong> <span class="company-name"><span class="placeholder">Major National Electronics Retail Company</span><span class="real-name" style="display:none;">Circuit City</span></span> <span class="badge">Sep 2006 - Jan 2009</span></p>
                         <ul>
                             <li>Demonstrated basic technical support and troubleshooting for electronics and computer products.</li>
                             <li>Assisted customers with product setup and software installations.</li>
@@ -475,3 +483,4 @@ nieBailey_Resume.pdf">Download PDF</a>
     <div class="quote-of-the-day" id="quote"></div>
 </body>
 </html>
+```
