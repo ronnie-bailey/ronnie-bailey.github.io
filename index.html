@@ -4,172 +4,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ronnie Bailey Resume</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #121212;
-            margin: 0;
-            padding: 0;
-            color: #E0E0E0;
-        }
+<style>
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        background-color: #121212;
+        margin: 0;
+        padding: 0;
+        color: #E0E0E0;
+    }
+    .container {
+        background: #1E1E1E;
+        padding: 20px;
+        margin: 0 auto;
+        box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        max-width: 900px;
+        border-radius: 8px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+    .left-column {
+        width: 32%;
+    }
+    .right-column {
+        width: 63%;
+    }
+    .banner {
+        background-image: url('flow.gif');
+        height: 200px;
+        background-size: cover;
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        margin-bottom: 0;
+    }
+    .banner::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(18, 18, 18, 0) 60%, #121212 100%);
+    }
+    .header {
+        text-align: center;
+        padding: 20px 0;
+        border-bottom: 2px solid #76A9EA;
+        margin-bottom: 20px;
+    }
+    .header h1 {
+        margin: 0;
+        font-size: 2.5em;
+        letter-spacing: 3px;
+        color: #76A9EA;
+    }
+    .header p {
+        margin: 5px 0;
+        font-size: 1em;
+        color: #B0B0B0;
+    }
+    .section {
+        margin-bottom: 20px;
+    }
+    .section h2 {
+        margin-bottom: 10px;
+        font-size: 1.5em;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #76A9EA;
+        color: #76A9EA;
+    }
+    .details {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    .details li {
+        margin-bottom: 10px;
+    }
+    .details ul {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+    .skills-section {
+        margin-bottom: 20px;
+    }
+    a {
+        color: #76A9EA;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .highlight {
+        color: #76A9EA;
+        font-weight: bold;
+    }
+    .badge {
+        display: inline-block;
+        padding: 2px 8px;
+        background: #76A9EA;
+        color: #fff;
+        border-radius: 12px;
+        font-size: 0.8em;
+        margin-left: 0;
+    }
+    .section p, .section ul {
+        margin: 0;
+        padding: 0;
+    }
+    .job-description {
+        margin-bottom: 30px;
+    }
+    .icon {
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+    .download-links {
+        margin-top: 10px;
+    }
+    .download-links a {
+        display: inline-block;
+        margin: 5px;
+        padding: 10px 20px;
+        background-color: #76A9EA;
+        color: #121212;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .download-links a:hover {
+        background-color: #4A88D1;
+    }
+    .quote-of-the-day {
+        background-color: #1E1E1E;
+        color: #76A9EA;
+        padding: 10px;
+        text-align: center;
+        font-style: italic;
+        margin-top: 20px;
+        border-top: 2px solid #76A9EA;
+    }
+    .company-name {
+        cursor: pointer;
+    }
+    .company-name .real-name {
+        display: none;
+    }
+
+    /* Mobile responsive styles */
+    @media (max-width: 767px) {
         .container {
-            background: #1E1E1E;
-            padding: 20px;
-            margin: 0 auto;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
-            max-width: 900px;
-            border-radius: 8px;
-            position: relative;
-            display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
         }
-        .left-column {
-            width: 32%;
-        }
-        .right-column {
-            width: 63%;
-        }
-        .banner {
-            background-image: url('flow.gif');
-            height: 200px;
-            background-size: cover;
-            position: relative;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            margin-bottom: 0;
-        }
-        .banner::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
+
+        .left-column, .right-column {
             width: 100%;
-            background: linear-gradient(to bottom, rgba(18, 18, 18, 0) 60%, #121212 100%);
-        }
-        .header {
-            text-align: center;
-            padding: 20px 0;
-            border-bottom: 2px solid #76A9EA;
-            margin-bottom: 20px;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            letter-spacing: 3px;
-            color: #76A9EA;
-        }
-        .header p {
-            margin: 5px 0;
-            font-size: 1em;
-            color: #B0B0B0;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        .section h2 {
-            margin-bottom: 10px;
-            font-size: 1.5em;
-            padding-bottom: 5px;
-            border-bottom: 2px solid #76A9EA;
-            color: #76A9EA;
-        }
-        .details {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .details li {
-            margin-bottom: 10px;
-        }
-        .details ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-        .skills-section {
-            margin-bottom: 20px;
-        }
-        a {
-            color: #76A9EA;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .highlight {
-            color: #76A9EA;
-            font-weight: bold;
-        }
-        .badge {
-            display: inline-block;
-            padding: 2px 8px;
-            background: #76A9EA;
-            color: #fff;
-            border-radius: 12px;
-            font-size: 0.8em;
-            margin-left: 10px;
-        }
-        .section p, .section ul {
-            margin: 0;
-            padding: 0;
-        }
-        .job-description {
-            margin-bottom: 30px;
-        }
-        .icon {
-            width: 16px;
-            height: 16px;
-            vertical-align: middle;
-            margin-right: 5px;
-        }
-        .download-links {
-            margin-top: 10px;
-        }
-        .download-links a {
-            display: inline-block;
-            margin: 5px;
-            padding: 10px 20px;
-            background-color: #76A9EA;
-            color: #121212;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .download-links a:hover {
-            background-color: #4A88D1;
-        }
-        .quote-of-the-day {
-            background-color: #1E1E1E;
-            color: #76A9EA;
-            padding: 10px;
-            text-align: center;
-            font-style: italic;
-            margin-top: 20px;
-            border-top: 2px solid #76A9EA;
-        }
-        .company-name {
-            cursor: pointer;
-        }
-        .company-name .real-name {
-            display: none;
         }
 
-        /* Mobile responsive styles */
-        @media (max-width: 767px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .left-column, .right-column {
-                width: 100%;
-            }
-
-            .left-column {
-                margin-bottom: 20px;
-            }
+        .left-column {
+            margin-bottom: 20px;
         }
-    </style>
+    }
+</style>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const quotes = [
