@@ -4,171 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ronnie Bailey Resume</title>
-<style>
-    body {
-        font-family: 'Helvetica Neue', Arial, sans-serif;
-        background-color: #121212;
-        margin: 0;
-        padding: 0;
-        color: #E0E0E0;
-    }
-    .container {
-        background: #1E1E1E;
-        padding: 20px;
-        margin: 0 auto;
-        box-shadow: 0 0 15px rgba(0,0,0,0.5);
-        max-width: 900px;
-        border-radius: 8px;
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-    }
-    .left-column {
-        width: 32%;
-    }
-    .right-column {
-        width: 63%;
-    }
-    .banner {
-        background-image: url('flow.gif');
-        height: 200px;
-        background-size: cover;
-        position: relative;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        margin-bottom: 0;
-    }
-    .banner::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: linear-gradient(to bottom, rgba(18, 18, 18, 0) 60%, #121212 100%);
-    }
-    .header {
-        text-align: center;
-        padding: 20px 0;
-        border-bottom: 2px solid #76A9EA;
-        margin-bottom: 20px;
-    }
-    .header h1 {
-        margin: 0;
-        font-size: 2.5em;
-        letter-spacing: 3px;
-        color: #76A9EA;
-    }
-    .header p {
-        margin: 5px 0;
-        font-size: 1em;
-        color: #B0B0B0;
-    }
-    .section {
-        margin-bottom: 20px;
-    }
-    .section h2 {
-        margin-bottom: 10px;
-        font-size: 1.5em;
-        padding-bottom: 5px;
-        border-bottom: 2px solid #76A9EA;
-        color: #76A9EA;
-    }
-    .details {
-        list-style-type: none;
-        padding-left: 0;
-    }
-    .details li {
-        margin-bottom: 10px;
-    }
-    .details ul {
-        list-style-type: disc;
-        margin-left: 20px;
-    }
-    .skills-section {
-        margin-bottom: 20px;
-    }
-    a {
-        color: #76A9EA;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-    .highlight {
-        color: #76A9EA;
-        font-weight: bold;
-    }
-    .badge {
-        display: block;
-        padding: 2px 8px;
-        background: #76A9EA;
-        color: #000000;
-        border-radius: 12px;
-        font-size: 0.8em;
-        margin-left: 0;
-    }
-    .section p, .section ul {
-        margin: 0;
-        padding: 0;
-    }
-    .job-description {
-        margin-bottom: 30px;
-    }
-    .icon {
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-        margin-right: 5px;
-    }
-    .download-links {
-        margin-top: 10px;
-    }
-    .download-links a {
-        display: inline-block;
-        margin: 5px;
-        padding: 10px 20px;
-        background-color: #76A9EA;
-        color: #121212;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    .download-links a:hover {
-        background-color: #4A88D1;
-    }
-    .quote-of-the-day {
-        background-color: #1E1E1E;
-        color: #76A9EA;
-        padding: 10px;
-        text-align: center;
-        font-style: italic;
-        margin-top: 20px;
-        border-top: 2px solid #76A9EA;
-    }
-    .company-name {
-        cursor: pointer;
-    }
-    .company-name .real-name {
-        display: none;
-    }
-
-    @media (max-width: 767px) {
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+            color: #E0E0E0;
+        }
         .container {
-            flex-direction: column;
-            align-items: center;
+            background: #1E1E1E;
+            padding: 20px;
+            margin: 0 auto;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            max-width: 900px;
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
         }
-
-        .left-column, .right-column {
-            width: 100%;
-        }
-
         .left-column {
+            width: 32%;
+        }
+        .right-column {
+            width: 63%;
+        }
+        .banner {
+            background-image: url('flow.gif');
+            height: 200px;
+            background-size: cover;
+            position: relative;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin-bottom: 0;
+        }
+        .banner::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(18, 18, 18, 0) 60%, #121212 100%);
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #76A9EA;
             margin-bottom: 20px;
         }
-    }
-</style>
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 3px;
+            color: #76A9EA;
+        }
+        .header p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #B0B0B0;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #76A9EA;
+            color: #76A9EA;
+        }
+        .details {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .details li {
+            margin-bottom: 10px;
+        }
+        .details ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        .skills-section {
+            margin-bottom: 20px;
+        }
+        a {
+            color: #76A9EA;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .highlight {
+            color: #76A9EA;
+            font-weight: bold;
+        }
+        .badge {
+            display: block;
+            padding: 2px 8px;
+            background: #76A9EA;
+            color: #000000;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-left: 0;
+        }
+        .section p, .section ul {
+            margin: 0;
+            padding: 0;
+        }
+        .job-description {
+            margin-bottom: 30px;
+        }
+        .icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        .download-links {
+            margin-top: 10px;
+        }
+        .download-links a {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #76A9EA;
+            color: #121212;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .download-links a:hover {
+            background-color: #4A88D1;
+        }
+        .quote-of-the-day {
+            background-color: #1E1E1E;
+            color: #76A9EA;
+            padding: 10px;
+            text-align: center;
+            font-style: italic;
+            margin-top: 20px;
+            border-top: 2px solid #76A9EA;
+        }
+        .company-name {
+            cursor: pointer;
+        }
+        .company-name .real-name {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .left-column, .right-column {
+                width: 100%;
+            }
+
+            .left-column {
+                margin-bottom: 20px;
+            }
+        }
+
+        .job-description p {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -349,8 +354,8 @@
                 <h2>Experience</h2>
                 <div class="details">
                     <div class="job-description">
-                        <p><strong class="badge">Principal Identity and Access Management,Security Architect</strong></p>
-                        <p><span class="company-name"><span class="placeholder">Major National Retail Company</span><span class="real-name" style="display:none;">Kroger, Technology & Digital Department</span></span> <span>Dec 2022 - Feb 2024</span></p>
+                        <p><strong class="badge">Principal Identity and Access Management,Security Architect</strong><span>Dec 2022 - Feb 2024</span></p>
+                        <p><span class="company-name"><span class="placeholder">Major National Retail Company</span><span class="real-name" style="display:none;">Kroger, Technology & Digital Department</span></span></p>
                         <ul>
                             <li>Enhanced organizational security posture and compliance by leveraging Microsoft Azure AD/Entra ID for cloud services, OneIdentity Safeguard and TPAM for IAM, ensuring scalable and secure cloud infrastructure.</li>
                             <li>Deployed and managed endpoint security solutions using CrowdStrike, reducing malware incidents by 45%.</li>
@@ -360,8 +365,8 @@
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong class="badge">Customer Identity & Access Management, Architect</strong></p>
-                        <p><span class="company-name"><span class="placeholder">Federal</span><span class="real-name" style="display:none;">Department of Homeland Security, OCIO, United States Secret Service</span></span> <span>Feb 2022 - Dec 2022</span></p>
+                        <p><strong class="badge">Customer Identity & Access Management, Architect</strong><span>Feb 2022 - Dec 2022</span></p>
+                        <p><span class="company-name"><span class="placeholder">Federal</span><span class="real-name" style="display:none;">Department of Homeland Security, OCIO, United States Secret Service</span></span></p>
                         <ul>
                             <li>Streamlined CyberArk's Privileged Access Management system boosting audit compliance by 50% and cutting response times by 40% through implementing advanced security protocols and integrating automated threat detection features.</li>
                             <li>Orchestrated cloud migration using GCP, ensuring secure and efficient transfer of critical systems from on-prem to cloud environments.</li>
@@ -378,8 +383,8 @@
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong class="badge">Cloud Vulnerability, Analyst</strong></p>
-                        <p><span class="company-name"><span class="placeholder">Non-profit Healthcare</span><span class="real-name" style="display:none;">Accessia Healthcare</span></span> <span>July 2021 - Dec 2021</span></p>
+                        <p><strong class="badge">Cloud Vulnerability, Analyst</strong><span>July 2021 - Dec 2021</span></p>
+                        <p><span class="company-name"><span class="placeholder">Non-profit Healthcare</span><span class="real-name" style="display:none;">Accessia Healthcare</span></span></p>
                         <ul>
                             <li>Managed vulnerability assessments, remediation strategies, and ensured HIPAA and NIST compliance.</li>
                             <li>Engineered comprehensive training modules on EHR tools and health information management practices, enhancing workflow efficiency and compliance across clinical and administrative staff.</li>
@@ -393,8 +398,8 @@
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong class="badge">Privileged Access Management, Architect</strong></p>
-                        <p><span class="company-name"><span class="placeholder">Pharmaceutical Company</span><span class="real-name" style="display:none;">Indivior Pharmaceuticals</span></span> <span>Sept 2019 - July 2021</span></p>
+                        <p><strong class="badge">Privileged Access Management, Architect</strong><span>Sept 2019 - July 2021</span></p>
+                        <p><span class="company-name"><span class="placeholder">Pharmaceutical Company</span><span class="real-name" style="display:none;">Indivior Pharmaceuticals</span></span></p>
                         <ul>
                             <li>Integrated SSO and MFA using Microsoft Azure Active Directory/Entra ID enhancing user verification processes and access management.</li>
                             <li>Ensured ePHI data protection and encryption through backups and Bitlocker.</li>
@@ -412,8 +417,8 @@
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong class="badge">Identity and Access Management, Analyst</strong></p>
-                        <p><span class="company-name"><span class="placeholder">Financial Services</span><span class="real-name" style="display:none;">Wells Fargo Bank</span></span> <span>Apr 2019 - Sept 2019</span></p>
+                        <p><strong class="badge">Identity and Access Management, Analyst</strong><span>Apr 2019 - Sept 2019</span></p>
+                        <p><span class="company-name"><span class="placeholder">Financial Services</span><span class="real-name" style="display:none;">Wells Fargo Bank</span></span></p>
                         <ul>
                             <li>Ensured IAM practices were compliant with the bank's operational risk framework and industry best practices, including policies, procedures, and control methodologies.</li>
                             <li>Led cybersecurity projects using Agile and Waterfall methodologies, improving team efficiency and adaptability to rapidly changing security threats.</li>
@@ -428,8 +433,8 @@
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong class="badge">Customer Identity & Access Management, Engineer</strong></p>
-                        <p><span class="company-name"><span class="placeholder">Digital Security Consultating Firm</span><span class="real-name" style="display:none;">Wellsecured IT</span></span> <span>Oct 2015 - Jan 2019</span></p>
+                        <p><strong class="badge">Customer Identity & Access Management, Engineer</strong><span>Oct 2015 - Jan 2019</span></p>
+                        <p><span class="company-name"><span class="placeholder">Digital Security Consultating Firm</span><span class="real-name" style="display:none;">Wellsecured IT</span></span></p>
                         <ul>
                             <li>Orchestrated the migration of legacy IAM systems to ForgeRock IDM, improving identity lifecycle management and reducing operational costs.</li>
                             <li>Integrated Splunk with IAM solutions to automate the collection and analysis of access logs, streamlining audit processes and significantly improving the efficiency of compliance reporting.</li>
@@ -444,8 +449,8 @@
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong class="badge">Cloud Security Operations</strong></p>
-                        <p><span class="company-name"><span class="placeholder">Cybersecurity Consultating Firm</span><span class="real-name" style="display:none;">Cloudcentria Security</span></span> <span>June 2011 - Dec 2015</span></p>
+                        <p><strong class="badge">Cloud Security Operations</strong><span>June 2011 - Dec 2015</span></p>
+                        <p><span class="company-name"><span class="placeholder">Cybersecurity Consultating Firm</span><span class="real-name" style="display:none;">Cloudcentria Security</span></span></p>
                         <ul>
                             <li>Developed and maintained policies, procedures, and documentation to align with regulatory standards, leading to successful audits and certifications.</li>
                             <li>Conducted penetration testing and vulnerability assessments using Kali Linux, identifying critical security weaknesses and recommending mitigation strategies to enhance system resilience.</li>
@@ -460,8 +465,8 @@
                         </ul>
                     </div>
                     <div class="job-description">
-                        <p><strong class="badge">Systems Administrator II</strong></p>
-                        <p><span class="company-name"><span class="placeholder">PC Repair</span><span class="real-name" style="display:none;">uBreakiFix</span></span> <span>Jun 2009 - Dec 2011</span></p>
+                        <p><strong class="badge">Systems Administrator II</strong><span>Jun 2009 - Dec 2011</span></p>
+                        <p><span class="company-name"><span class="placeholder">PC Repair</span><span class="real-name" style="display:none;">uBreakiFix</span></span></p>
                         <ul>
                             <li>Provided first-level technical support to end-users via phone, email, or in-person, addressing issues with hardware and software, and network connectivity.</li>
                             <li>Evaluated and prioritized incidents based on impact and urgency, contributing to meeting established service level agreements (SLAs).</li>
@@ -470,8 +475,8 @@
                         <p>Skills: Governance, Risk Management, and Compliance (GRC) · Strategy and Leadership · Technical Proficiency and Innovation</p>
                     </div>
                     <div class="job-description">
-                        <p><strong class="badge">IT Support Associate II</strong></p>
-                        <p><span class="company-name"><span class="placeholder">Major National Electronics Retail Company</span><span class="real-name" style="display:none;">Circuit City</span></span> <span>Sep 2006 - Jan 2009</span></p>
+                        <p><strong class="badge">IT Support Associate II</strong><span>Sep 2006 - Jan 2009</span></p>
+                        <p><span class="company-name"><span class="placeholder">Major National Electronics Retail Company</span><span class="real-name" style="display:none;">Circuit City</span></span></p>
                         <ul>
                             <li>Demonstrated basic technical support and troubleshooting for electronics and computer products.</li>
                             <li>Assisted customers with product setup and software installations.</li>
@@ -483,6 +488,24 @@
                             <li>Maintained and updated product display and demonstration areas.</li>
                         </ul>
                         <p>Skills: Governance, Risk Management, and Compliance (GRC) · Strategy and Leadership · Technical Proficiency and Innovation</p>
+                    </div>
+                    <div class="job-description">
+                        <p><strong class="badge">IAM Engineer / Senior Security Engineer</strong><span>Mar 2024 - Present</span></p>
+                        <p><span class="company-name"><span class="placeholder">Data Analytics Company/Federal</span></span></p>
+                        <ul>
+                            <li>Implemented and managed IAM solutions using Entra ID, Active Directory, Azure Active Directory, and RSA to establish robust identity and access management protocols.</li>
+                            <li>Deployed Crowdstrike for advanced threat detection and response, and incorporated SSO and MFA across the enterprise for enhanced security.</li>
+                            <li>Architected and integrated Zero Trust principles into the existing security infrastructure, focusing on least privilege and role-based access controls.</li>
+                            <li>Led the migration from legacy IAM products to modern solutions such as the Microsoft Identity Platform and Okta, ensuring a seamless transition.</li>
+                            <li>Created and maintained automation scripts using Bash, PowerShell, Python, SQL, and JavaScript, resulting in improved process efficiency and reliability.</li>
+                            <li>Engineered end-to-end IAM process flows and implemented secure, role-based access management.</li>
+                            <li>Administered and troubleshooted Windows and Linux/Unix servers, ensuring optimal performance and stability.</li>
+                            <li>Managed PKI and Certificate Authorities, including Microsoft Windows Certificate Services, to secure communications and authentication.</li>
+                            <li>Implemented NIST and ISO security standards in all IAM solutions, ensuring compliance and enhanced security posture.</li>
+                            <li>Mentored junior engineers, led security initiatives, and managed projects to ensure successful and timely delivery.</li>
+                            <li>Produced clear technical documentation and effectively communicated complex technical information to diverse audiences.</li>
+                        </ul>
+                        <p>**Public Trust Clearance**</p>
                     </div>
                 </div>
             </div>
