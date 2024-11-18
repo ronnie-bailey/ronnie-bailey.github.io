@@ -195,61 +195,16 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            cons"Science can amuse and fascinate us all, but it is engineering that changes the world. — Isaac Asimov",		
-"It pays to be obvious, especially if you have a reputation for subtlety. — Isaac Asimov",		
-"The most exciting phrase to hear in science, the one that heralds new discoveries, is not 'Eureka!' but 'That's funny...' — Isaac Asimov",		
-"To succeed, planning alone is insufficient. One must improvise as well. — Isaac Asimov",		
-"The true delight is in the finding out rather than in the knowing. — Isaac Asimov",		
-"The scientist is not a person who gives the right answers, he's one who asks the right questions. — Isaac Asimov",		
-"Your assumptions are your windows on the world. Scrub them off every once in a while, or the light won't come in. — Isaac Asimov",		
-"The advance of civilization is nothing but an exercise in the limiting of privacy. — Isaac Asimov",		
-"The only constant is change, continuing change, inevitable change. — Isaac Asimov",		
-"Knowledge is preferable to ignorance. — Isaac Asimov",		
-"If knowledge can create problems, it is not through ignorance that we can solve them. — Isaac Asimov",		
-"Self-education is, I firmly believe, the only kind of education there is. — Isaac Asimov",		
-"In life, unlike chess, the game continues after checkmate. — Isaac Asimov",		
-"It is change, continuing change, inevitable change, that is the dominant factor in society today. — Isaac Asimov",		
-"I do not fear computers. I fear the lack of them. — Isaac Asimov",		
-"Violence is the last refuge of the incompetent. — Isaac Asimov",		
-"Any planet is 'Earth' to those that live on it. — Isaac Asimov",		
-"The saddest aspect of life right now is that science gathers knowledge faster than society gathers wisdom. — Isaac Asimov",		
-"Never let your sense of morals prevent you from doing what is right. — Isaac Asimov",		
-"It is the obvious which is so difficult to see most of the time. People say 'It's as plain as the nose on your face.' But how much of the nose on your face can you see, unless someone holds a mirror up to you? — Isaac Asimov",		
-"Writing, to me, is simply thinking through my fingers. — Isaac Asimov",		
-"There is a single light of science, and to brighten it anywhere is to brighten it everywhere. — Isaac Asimov",		
-"A poor idea well written is more likely to be accepted than a good idea poorly written. — Isaac Asimov",		
-"People think of education as something they can finish. — Isaac Asimov",		
-"I am not a speed reader. I am a speed understander. — Isaac Asimov",		
-"You don't need to predict the future. Just choose a future—a good future, a useful future—and make it happen. — Isaac Asimov",		
-"To test a rule, break it. — Isaac Asimov",		
-"The essence of independence has been to think and act according to standards from within, not without. — Isaac Asimov",		
-"The greatest inventors are unknown to us. Someone invented writing, but we don't know who. Someone invented printing, but we don't know who. Someone invented the steam engine, but we don't know who. — Isaac Asimov",		
-"It is a curious fact that people are never so trivial as when they take themselves seriously. — Isaac Asimov"		
-
+            const quotes = [
+                "Science can amuse and fascinate us all, but it is engineering that changes the world. — Isaac Asimov",
+                "Knowledge is preferable to ignorance. — Isaac Asimov",
+                "The most exciting phrase to hear in science is not 'Eureka!' but 'That's funny...' — Isaac Asimov",
             ];
 
             const today = new Date();
             const quoteIndex = today.getDate() % quotes.length;
             document.getElementById("quote").textContent = quotes[quoteIndex];
         });
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const companyNames = document.querySelectorAll('.company-name');
-            companyNames.forEach(company => {
-                const placeholder = company.querySelector('.placeholder');
-                const realName = company.querySelector('.real-name');
-                company.addEventListener('mouseover', () => {
-                    placeholder.style.display = 'none';
-                    realName.style.display = 'inline';
-                });
-                company.addEventListener('mouseout', () => {
-                    placeholder.style.display = 'inline';
-                    realName.style.display = 'none';
-                });
-            });
-        });
-</head>
-<body>
     </script>
 </head>
 <body>
@@ -272,7 +227,7 @@
     </p>
 </div>
            <div class="section">
-    <h2>Technical Expertise</h2>
+    <h2>Skills</h2>
     <div class="skills-section">
         <h3>Identity and Access Management (IAM)</h3>
         <ul>
@@ -281,7 +236,7 @@
             <li>ForgeRock IDM <span>(5+ years)</span></li>
             <li>Microsoft Azure AD/Entra ID <span>(7+ years)</span></li>
             <li>Okta <span>(6+ years)</span></li>
-            <li>OneIdentity Safeguard & TPAM <span>(5+ years)</span></li>
+            <li>OneIdentity Safeguard and TPAM <span>(5+ years)</span></li>
             <li>SailPoint <span>(6+ years)</span></li>
             <li>Saviynt <span>(3+ years)</span></li>
             <li>Varonis <span>(4+ years)</span></li>
@@ -373,7 +328,7 @@
                 <h2>Professional Overview</h2>
                 <p>Cybersecurity Architect with over 13 years of experience securing organizations across diverse industries. Passionate about designing innovative security solutions, implementing scalable systems, and empowering businesses to thrive in an increasingly digital world. Recognized for leadership in IAM, Zero Trust strategies, and enhancing cloud security. Dedicated to creating resilient infrastructures and driving operational excellence.</p>
             </div>
-      div class="section">
+            <div class="section">
                 <h2>Experience</h2>
                 <div class="details">
                     <div class="job-description">
@@ -391,29 +346,18 @@
                             <li>Implemented NIST and ISO security standards in all IAM solutions, ensuring compliance and enhanced security posture.</li>
                             <li>Mentored junior engineers, led security initiatives, and managed projects to ensure successful and timely delivery.</li>
                             <li>Produced clear technical documentation and effectively communicated complex technical information to diverse audiences.</li>
-                              </ul>
+                        </ul>
                     </div>
                     <div class="job-description">
                         <p><strong class="badge">Principal Identity and Access Management, Security Architect</strong><span>Dec 2022 - Feb 2024</span></p>
                         <p><span class="company-name"><span class="placeholder">Major National Retail Company</span><span class="real-name" style="display:none;">Kroger, Technology & Digital Department</span></span></p>
                         <ul>
-                           <ul>
-                            <li>Spearheaded a provisioning project for over 32,000 users across three organizations, including the US and UK, optimizing processes and addressing technical debt.</li>
-                            <li>Enhanced organizational security posture and compliance by leveraging Microsoft Azure AD/Entra ID for cloud services, OneIdentity Safeguard, and TPAM for IAM, ensuring scalable and secure cloud infrastructure.</li>
-                            <li>Led Entra ID and Microsoft Identity project planning and execution, achieving seamless integration and alignment with organizational objectives.</li>
-                            <li>Automated account lifecycle management tasks using advanced PowerShell scripting, improving efficiency and ensuring compliance with security policies.</li>
+                            <li>Enhanced organizational security posture and compliance by leveraging Microsoft Azure AD/Entra ID for cloud services, OneIdentity Safeguard and TPAM for IAM, ensuring scalable and secure cloud infrastructure.</li>
                             <li>Deployed and managed endpoint security solutions using CrowdStrike, reducing malware incidents by 45%.</li>
                             <li>Implemented advanced Active Directory configurations to improve authentication protocols and access controls.</li>
                             <li>Led the integration of Okta for SSO and MFA, improving authentication efficiency by 50%.</li>
-                            <li>Implemented process improvements, remediated legacy provisioning practices, and automated workflows to enhance operational efficiency.</li>
                             <li>Utilized Varonis for data security and analytics, enhancing data governance across the enterprise.</li>
-                            <li>Collaborated with global IT teams to define provisioning requirements, develop and test automation scripts, and streamline tool ownership and processes.</li>
-                            <li>Prepared status reports, conducted training sessions, and shared knowledge to enhance team productivity and organizational effectiveness.</li>
-                            <li>Maintained compliance with security policies and governance standards across provisioning operations, minimizing risk and improving audit readiness.</li>
-                            <li>Demonstrated expertise in IAM leadership, PowerShell scripting, and managing technical debt in enterprise-level environments.</li>
-                            <li>Proven success delivering IAM solutions through collaboration with international teams, optimizing processes in a global automotive enterprise.</li>
-</ul>
-                               </ul>
+                        </ul>
                     </div>
                     <div class="job-description">
                         <p><strong class="badge">Customer Identity & Access Management, Architect</strong><span>Feb 2022 - Dec 2022</span></p>
@@ -431,7 +375,7 @@
                             <li>Managed enterprise network security program, promoting IAM governance and utilizing scripting knowledge for IT infrastructure and operations management.</li>
                             <li>Monitored server and firewall logs, analyzed network traffic, and conducted regular vulnerability scans using tools like Qualys for threat detection and vulnerability management to maintain robust security for the customer.</li>
                             <li>Implemented robust incident response protocols using Fortinet solutions with GCP, reducing detection and response times for cybersecurity incidents.</li>
-                           </ul>
+                        </ul>
                     </div>
                     <div class="job-description">
                         <p><strong class="badge">Cloud Vulnerability, Analyst</strong><span>July 2021 - Dec 2021</span></p>
@@ -446,7 +390,7 @@
                             <li>Directed the collection, analysis, and reporting of healthcare metrics, utilizing data from EHR and PACS systems to drive improvements in patient health outcomes and service delivery.</li>
                             <li>Implemented Auth0 for secure, scalable user authentication, leading to a 99% success rate in logins and halving the development time for new auth features by leveraging customizable workflows and SDKs aligning with HIPPA requirements.</li>
                             <li>Coordinated with IT, audit, and compliance teams to ensure CyberArk practices aligned with regulatory requirements, significantly contributing to successful audits under standards such as SOX, GDPR, and HIPAA.</li>
-                       </ul>
+                        </ul>
                     </div>
                     <div class="job-description">
                         <p><strong class="badge">Privileged Access Management, Architect</strong><span>Sept 2019 - July 2021</span></p>
@@ -465,7 +409,7 @@
                             <li>Maintained Carbon Black as comprehensive endpoint security from threat hunting to incident response.</li>
                             <li>Designed and executed automated provisioning and deprovisioning processes in SailPoint, reducing manual workload by 70% and improving onboarding/offboarding efficiency.</li>
                             <li>Designed role-based, location-based, & device compliance access controls for Entra ID.</li>
-                    </ul>
+                        </ul>
                     </div>
                     <div class="job-description">
                         <p><strong class="badge">Identity and Access Management, Analyst</strong><span>Apr 2019 - Sept 2019</span></p>
@@ -481,7 +425,7 @@
                             <li>Utilized COBOL for system updates, bug fixes, and implementing new features to improve efficiency and reliability.</li>
                             <li>Participated in cross-departmental projects to extend the functionality of COBOL applications, enabling new banking services and improving customer experience.</li>
                             <li>Conducted on/off-boarding and trained 400 employees on security processes, reducing phishing attacks by presenting security awareness and training.</li>
-                          </ul>
+                        </ul>
                     </div>
                     <div class="job-description">
                         <p><strong class="badge">Customer Identity & Access Management, Engineer</strong><span>Oct 2015 - Jan 2019</span></p>
@@ -497,7 +441,7 @@
                             <li>Designed and deployed a suite of PowerShell scripts for automating security tasks, including log analysis, system hardening, and incident detection.</li>
                             <li>Integrated a secure, scalable AWS cloud infrastructure with enhanced identity/access management and encryption, boosting efficiency and security.</li>
                             <li>Integrated Auth0 for scalable user authentication, enhancing authentication success to 99% and cutting development time by 50% by adopting secure and efficient authentication workflows.</li>
-                           </ul>
+                        </ul>
                     </div>
                     <div class="job-description">
                         <p><strong class="badge">Cloud Security Operations</strong><span>June 2011 - Dec 2015</span></p>
@@ -513,7 +457,7 @@
                             <li>Conducted a digital forensics investigation of a suspected insider threat, using The Sleuth Kit for disk image analysis and evidence recovery.</li>
                             <li>Identified the malicious insider, leading to legal action and the recovery of stolen intellectual property.</li>
                             <li>Developed best practices for forensic investigations, significantly improving incident response capabilities.</li>
-                           </ul>
+                        </ul>
                     </div>
                     <div class="job-description">
                         <p><strong class="badge">Systems Administrator II</strong><span>Jun 2009 - Dec 2011</span></p>
@@ -522,7 +466,7 @@
                             <li>Provided first-level technical support to end-users via phone, email, or in-person, addressing issues with hardware and software, and network connectivity.</li>
                             <li>Evaluated and prioritized incidents based on impact and urgency, contributing to meeting established service level agreements (SLAs).</li>
                             <li>Maintained high-level customer satisfaction by delivering professional and timely support, and documenting processes and service desk records meticulously.</li>
-                         </ul>
+                        </ul>
                         <p>Skills: Governance, Risk Management, and Compliance (GRC) · Strategy and Leadership · Technical Proficiency and Innovation</p>
                     </div>
                     <div class="job-description">
