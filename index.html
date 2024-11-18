@@ -232,24 +232,6 @@
             const quoteIndex = today.getDate() % quotes.length;
             document.getElementById("quote").textContent = quotes[quoteIndex];
         });
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const companyNames = document.querySelectorAll('.company-name');
-            companyNames.forEach(company => {
-                const placeholder = company.querySelector('.placeholder');
-                const realName = company.querySelector('.real-name');
-                company.addEventListener('mouseover', () => {
-                    placeholder.style.display = 'none';
-                    realName.style.display = 'inline';
-                });
-                company.addEventListener('mouseout', () => {
-                    placeholder.style.display = 'inline';
-                    realName.style.display = 'none';
-                });
-            });
-        });
-</head>
-<body>
     </script>
 </head>
 <body>
