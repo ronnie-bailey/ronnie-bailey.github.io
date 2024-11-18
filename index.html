@@ -229,11 +229,29 @@
                 "The essence of independence has been to think and act according to standards from within, not without. — Isaac Asimov",
                 "The greatest inventors are unknown to us. Someone invented writing, but we don't know who. Someone invented printing, but we don't know who. Someone invented the steam engine, but we don't know who. — Isaac Asimov",
                 "It is a curious fact that people are never so trivial as when they take themselves seriously. — Isaac Asimov"
-            ];
+             ];
 
             const today = new Date();
             const quoteIndex = today.getDate() % quotes.length;
             document.getElementById("quote").textContent = quotes[quoteIndex];
+
+            function replaceTextOnHover() {
+                const companyNames = document.querySelectorAll('.company-name');
+                companyNames.forEach(name => {
+                    const placeholder = name.querySelector('.placeholder');
+                    const realName = name.querySelector('.real-name');
+                    name.addEventListener('mouseover', () => {
+                        placeholder.style.display = 'none';
+                        realName.style.display = 'inline';
+                    });
+                    name.addEventListener('mouseout', () => {
+                        placeholder.style.display = 'inline';
+                        realName.style.display = 'none';
+                    });
+                });
+            }
+
+            replaceTextOnHover();
         });
     </script>
 </head>
