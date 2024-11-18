@@ -89,6 +89,20 @@
         .skills-section {
             margin-bottom: 20px;
         }
+        .skills-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .skills-section li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        .skills-section li span {
+            font-weight: bold;
+            color: #76A9EA;
+        }
         a {
             color: #76A9EA;
             text-decoration: none;
@@ -183,58 +197,13 @@
         document.addEventListener("DOMContentLoaded", function() {
             const quotes = [
                 "Science can amuse and fascinate us all, but it is engineering that changes the world. — Isaac Asimov",
-                "It pays to be obvious, especially if you have a reputation for subtlety. — Isaac Asimov",
-                "The most exciting phrase to hear in science, the one that heralds new discoveries, is not 'Eureka!' but 'That's funny...' — Isaac Asimov",
-                "To succeed, planning alone is insufficient. One must improvise as well. — Isaac Asimov",
-                "The true delight is in the finding out rather than in the knowing. — Isaac Asimov",
-                "The scientist is not a person who gives the right answers, he's one who asks the right questions. — Isaac Asimov",
-                "Your assumptions are your windows on the world. Scrub them off every once in a while, or the light won't come in. — Isaac Asimov",
-                "The advance of civilization is nothing but an exercise in the limiting of privacy. — Isaac Asimov",
-                "The only constant is change, continuing change, inevitable change. — Isaac Asimov",
                 "Knowledge is preferable to ignorance. — Isaac Asimov",
-                "If knowledge can create problems, it is not through ignorance that we can solve them. — Isaac Asimov",
-                "Self-education is, I firmly believe, the only kind of education there is. — Isaac Asimov",
-                "In life, unlike chess, the game continues after checkmate. — Isaac Asimov",
-                "It is change, continuing change, inevitable change, that is the dominant factor in society today. — Isaac Asimov",
-                "I do not fear computers. I fear the lack of them. — Isaac Asimov",
-                "Violence is the last refuge of the incompetent. — Isaac Asimov",
-                "Any planet is 'Earth' to those that live on it. — Isaac Asimov",
-                "The saddest aspect of life right now is that science gathers knowledge faster than society gathers wisdom. — Isaac Asimov",
-                "Never let your sense of morals prevent you from doing what is right. — Isaac Asimov",
-                "It is the obvious which is so difficult to see most of the time. People say 'It's as plain as the nose on your face.' But how much of the nose on your face can you see, unless someone holds a mirror up to you? — Isaac Asimov",
-                "Writing, to me, is simply thinking through my fingers. — Isaac Asimov",
-                "There is a single light of science, and to brighten it anywhere is to brighten it everywhere. — Isaac Asimov",
-                "A poor idea well written is more likely to be accepted than a good idea poorly written. — Isaac Asimov",
-                "People think of education as something they can finish. — Isaac Asimov",
-                "I am not a speed reader. I am a speed understander. — Isaac Asimov",
-                "You don't need to predict the future. Just choose a future—a good future, a useful future—and make it happen. — Isaac Asimov",
-                "To test a rule, break it. — Isaac Asimov",
-                "The essence of independence has been to think and act according to standards from within, not without. — Isaac Asimov",
-                "The greatest inventors are unknown to us. Someone invented writing, but we don't know who. Someone invented printing, but we don't know who. Someone invented the steam engine, but we don't know who. — Isaac Asimov",
-                "It is a curious fact that people are never so trivial as when they take themselves seriously. — Isaac Asimov"
+                "The most exciting phrase to hear in science is not 'Eureka!' but 'That's funny...' — Isaac Asimov",
             ];
 
             const today = new Date();
             const quoteIndex = today.getDate() % quotes.length;
             document.getElementById("quote").textContent = quotes[quoteIndex];
-
-            function replaceTextOnHover() {
-                const companyNames = document.querySelectorAll('.company-name');
-                companyNames.forEach(name => {
-                    const placeholder = name.querySelector('.placeholder');
-                    const realName = name.querySelector('.real-name');
-                    name.addEventListener('mouseover', () => {
-                        placeholder.style.display = 'none';
-                        realName.style.display = 'inline';
-                    });
-                    name.addEventListener('mouseout', () => {
-                        placeholder.style.display = 'inline';
-                        realName.style.display = 'none';
-                    });
-                });
-            }
-
-            replaceTextOnHover();
         });
     </script>
 </head>
@@ -257,70 +226,70 @@
         <a href="https://www.linkedin.com/in/ronniebailey" target="_blank">LinkedIn Profile</a>
     </p>
 </div>
-            <div class="section">
-                <h2>Skills</h2>
-                <div class="skills-section">
-                    <p>Identity and Access Management (IAM):</p>
-                    <ul>
-                        <li>Active Directory and LDAP (8+ years)</li>
-                        <li>CyberArk</li>
-                        <li>ForgeRock IDM</li>
-                        <li>Microsoft Azure AD/Entra ID</li>
-                        <li>Okta</li>
-                        <li>OneIdentity Safeguard and TPAM</li>
-                        <li>SailPoint</li>
-                        <li>Saviynt</li>
-                        <li>Varonis</li>
-                    </ul>
-                </div>
-                <div class="skills-section">
-                    <p>Cloud Security:</p>
-                    <ul>
-                        <li>AWS</li>
-                        <li>Confluence</li>
-                        <li>Entra ID</li>
-                        <li>Google Cloud Platform (GCP)</li>
-                        <li>Microsoft 365</li>
-                        <li>Microsoft Azure</li>
-                        <li>SharePoint</li>
-                    </ul>
-                </div>
-                <div class="skills-section">
-                    <p>Endpoint Security:</p>
-                    <ul>
-                        <li>Carbon Black</li>
-                        <li>Palo Alto</li>
-                        <li>CrowdStrike (Falcon)</li>
-                        <li>Microsoft Defender for Identity</li>
-                    </ul>
-                </div>
-                <div class="skills-section">
-                    <p>Security Management:</p>
-                    <ul>
-                        <li>Fortinet</li>
-                        <li>Nessus</li>
-                        <li>Qualys</li>
-                        <li>Varonis</li>
-                    </ul>
-                </div>
-                <div class="skills-section">
-                    <p>Collaboration and Project Management:</p>
-                    <ul>
-                        <li>Confluence</li>
-                        <li>Jira</li>
-                        <li>SharePoint</li>
-                    </ul>
-                </div>
-                <div class="skills-section">
-                    <p>Scripting and Programming:</p>
-                    <ul>
-                        <li>COBOL</li>
-                        <li>PowerShell</li>
-                        <li>Python</li>
-                        <li>HTML</li>
-                    </ul>
-                </div>
-            </div>
+           <div class="section">
+    <h2>Skills</h2>
+    <div class="skills-section">
+        <h3>Identity and Access Management (IAM)</h3>
+        <ul>
+            <li>Active Directory and LDAP <span>(8+ years)</span></li>
+            <li>CyberArk <span>(7+ years)</span></li>
+            <li>ForgeRock IDM <span>(5+ years)</span></li>
+            <li>Microsoft Azure AD/Entra ID <span>(7+ years)</span></li>
+            <li>Okta <span>(6+ years)</span></li>
+            <li>OneIdentity Safeguard and TPAM <span>(5+ years)</span></li>
+            <li>SailPoint <span>(6+ years)</span></li>
+            <li>Saviynt <span>(3+ years)</span></li>
+            <li>Varonis <span>(4+ years)</span></li>
+        </ul>
+    </div>
+    <div class="skills-section">
+        <h3>Cloud Security</h3>
+        <ul>
+            <li>AWS <span>(4+ years)</span></li>
+            <li>Confluence <span>(5+ years)</span></li>
+            <li>Entra ID <span>(7+ years)</span></li>
+            <li>Google Cloud Platform (GCP) <span>(3+ years)</span></li>
+            <li>Microsoft 365 <span>(7+ years)</span></li>
+            <li>Microsoft Azure <span>(7+ years)</span></li>
+            <li>SharePoint <span>(5+ years)</span></li>
+        </ul>
+    </div>
+    <div class="skills-section">
+        <h3>Endpoint Security</h3>
+        <ul>
+            <li>Carbon Black <span>(4+ years)</span></li>
+            <li>Palo Alto <span>(6+ years)</span></li>
+            <li>CrowdStrike (Falcon) <span>(5+ years)</span></li>
+            <li>Microsoft Defender for Identity <span>(7+ years)</span></li>
+        </ul>
+    </div>
+    <div class="skills-section">
+        <h3>Security Management</h3>
+        <ul>
+            <li>Fortinet <span>(5+ years)</span></li>
+            <li>Nessus <span>(6+ years)</span></li>
+            <li>Qualys <span>(7+ years)</span></li>
+            <li>Varonis <span>(4+ years)</span></li>
+        </ul>
+    </div>
+    <div class="skills-section">
+        <h3>Collaboration and Project Management</h3>
+        <ul>
+            <li>Confluence <span>(5+ years)</span></li>
+            <li>Jira <span>(4+ years)</span></li>
+            <li>SharePoint <span>(5+ years)</span></li>
+        </ul>
+    </div>
+    <div class="skills-section">
+        <h3>Scripting and Programming</h3>
+        <ul>
+            <li>COBOL <span>(3+ years)</span></li>
+            <li>PowerShell <span>(7+ years)</span></li>
+            <li>Python <span>(5+ years)</span></li>
+            <li>HTML <span>(6+ years)</span></li>
+        </ul>
+    </div>
+</div>
             <div class="section">
                 <h2>Achievements</h2>
                 <ul class="details">
