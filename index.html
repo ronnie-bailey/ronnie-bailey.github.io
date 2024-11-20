@@ -187,20 +187,15 @@
             }
         }
 
-        .job-description p {
-            display: flex;
-            justify-content: space-between;
-      .banner-bottom {
-    background-image: url('wave.gif');
+       .banner-bottom {
+    background-image: url('IMG_9114.GIF');
     height: 50px; /* Adjust for thickness */
     background-size: cover; /* Ensures it stretches proportionally */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents tiling */
-    background-attachment: fixed; /* Keeps the image fixed on scroll */
-    position: fixed;
-    bottom: 0;
+    background-attachment: scroll; /* Prevents parallax effect */
+    position: static; /* Keeps the banner at the bottom of the content */
     width: 100%; /* Stretches across the screen */
-    z-index: -1; /* Keeps it in the background */
     opacity: 0.5; /* Fades the banner slightly */
 }
 
