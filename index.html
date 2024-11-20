@@ -191,6 +191,29 @@
             display: flex;
             justify-content: space-between;
         }
+
+
+        .banner-bottom {
+    background-image: url('IMG_9114.GIF');
+    height: 50px; /* Adjust this to control the thickness */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: -1; /* Keeps it in the background */
+    opacity: 0.5; /* Fades the banner slightly */
+}
+.quote-of-the-day {
+    position: relative; /* Ensures it is above the banner */
+    color: #E0E0E0; /* Text color for readability */
+    font-style: italic;
+    padding: 20px;
+    text-align: center;
+    background: rgba(18, 18, 18, 0.7); /* Adds a subtle background for contrast */
+    margin: 0;
+}
     </style>
 
      <script>
@@ -621,6 +644,5 @@
             </div>
         </div>
     </div>
-    <div class="quote-of-the-day" id="quote"></div>
-</body>
+<div class="quote-of-the-day" id="quote"></div> <div class="banner-bottom"></div></body>
 </html>
