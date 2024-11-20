@@ -187,17 +187,33 @@
             }
         }
 
-       .banner-bottom {
-    background-image: url('wave.gif');
-    height: 50px; /* Adjust for thickness */
-    background-size: cover; /* Ensures it stretches proportionally */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents tiling */
-    background-attachment: scroll; /* Prevents parallax effect */
-    position: static; /* Keeps the banner at the bottom of the content */
-    width: 100%; /* Stretches across the screen */
-    opacity: 0.5; /* Fades the banner slightly */
-}
+<style>
+    /* Existing CSS here */
+
+    .quote-of-the-day {
+        position: relative;
+        color: #E0E0E0; /* Text color for readability */
+        font-style: italic;
+        text-align: center;
+        padding: 10px; /* Adjust for spacing */
+        background: rgba(18, 18, 18, 0.7); /* Subtle background for contrast */
+        margin: 0;
+        z-index: 1; /* Ensures it's above the banner */
+    }
+
+    .banner-bottom {
+        background-image: url('IMG_9114.GIF');
+        height: 50px; /* Adjust for thickness */
+        background-size: cover; /* Ensures it stretches proportionally */
+        background-position: center; /* Centers the image */
+        background-repeat: no-repeat; /* Prevents tiling */
+        background-attachment: scroll; /* Prevents parallax effect */
+        position: static; /* Keeps the banner at the bottom of the content */
+        width: 100%; /* Stretches across the screen */
+        opacity: 0.5; /* Fades the banner slightly */
+        border-top: 2px solid #76A9EA; /* Adds a blue line above the GIF */
+    }
+</style>
 
     </style>
 
