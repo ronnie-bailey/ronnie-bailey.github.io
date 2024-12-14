@@ -63,10 +63,35 @@
 
         .manifesto {
             background: #1E1E1E;
+            position: relative;
             padding: 40px 20px;
             margin: 40px auto;
             max-width: 800px;
             border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .manifesto::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(rgba(18,18,18,0.6), rgba(18,18,18,0.6)),
+                url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb21iMW4zbzJwNTJwaTk1anB1dW9pZWp2NHJ5ZzhrY2d0OXpsZXpiZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MFabj1E9mgUsqwVWHu/giphy.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+            z-index: 0;
+        }
+
+        .manifesto h2,
+        .manifesto p {
+            position: relative;
+            z-index: 1;
         }
 
         .manifesto h2 {
