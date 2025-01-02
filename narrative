@@ -1,0 +1,64 @@
+<div class="section">
+    <h2>Detailed Professional Experience</h2>
+    <div class="details">
+        <div class="job-description">
+            <h3>My Journey in Cybersecurity and IAM</h3>
+            <p>
+                From humble beginnings in retail tech support, I discovered that security isn’t just about systems; it’s about safeguarding what matters most to people. 
+                This human-centric philosophy has been the cornerstone of my career, shaping how I tackle challenges like implementing Zero Trust architectures 
+                and pioneering decentralized identity solutions.
+            </p>
+        </div>
+        <div class="job-description">
+            <h3>Innovating Beyond Credentials</h3>
+            <p>
+                My expertise spans leading IAM solutions—CyberArk, SailPoint, AWS, and Azure—but what sets me apart is my ability to think beyond the conventional. 
+                Inspired by sci-fi's visionary ideas, I craft forward-thinking security architectures that address not only today’s threats but also anticipate tomorrow’s challenges.
+            </p>
+        </div>
+        <div class="job-description">
+            <h3>Transforming Identity Management</h3>
+            <p>
+                Over 13+ years, I’ve seen identity management evolve from static, hierarchical models to fluid, decentralized frameworks. In one healthcare project, I spearheaded 
+                the integration of W3C's Decentralized Identifiers (DIDs) alongside traditional authentication methods, creating a system that was both secure and accessible 
+                for crisis-response medical staff.
+            </p>
+        </div>
+        <div class="job-description">
+            <h3>Strategic Adaptability in Action</h3>
+            <p>
+                My philosophy is rooted in embracing change. Across sectors like pharmaceuticals, retail, and federal contracting, I’ve transformed crises into opportunities. 
+                For instance, by collaborating with an employee whose unauthorized automation script sparked innovation, I turned a compliance concern into a secure, enterprise-wide 
+                process improvement.
+            </p>
+        </div>
+        <div class="job-description">
+            <h3>Security as an Organic System</h3>
+            <p>
+                In my own garden, I’ve created "security zones" akin to IAM principles—from public-facing spaces to highly restricted areas. This hands-on analogy not only simplifies 
+                complex concepts for stakeholders but also reinforces my belief that security must be adaptable, dynamic, and human-centric.
+            </p>
+        </div>
+        <div class="job-description">
+            <h3>Looking to the Future</h3>
+            <p>
+                The rise of decentralized identity excites me. Whether deploying blockchain authentication or crafting user-centric access solutions, I dismantle outdated paradigms 
+                while embracing emerging technologies. Corporate volatility energizes me, presenting opportunities to innovate security solutions that are resilient and forward-thinking.
+            </p>
+        </div>
+        <div class="job-description">
+            <h3>A Holistic Approach</h3>
+            <p>
+                Effective security should empower, not restrict. Beyond developing frameworks, I mentor emerging professionals and explore innovations like quantum computing’s implications 
+                for cryptography. My philosophy intertwines permaculture’s principles with security architecture, creating systems that adapt and thrive.
+            </p>
+        </div>
+        <div class="job-description">
+            <h3>The Path Ahead</h3>
+            <p>
+                Committed to pushing the boundaries of IAM, I remain focused on delivering adaptable, people-first security solutions. By combining visionary strategies with practical 
+                implementation, I help organizations navigate the complexities of the digital age while ensuring that security serves humanity—not the other way around.
+            </p>
+        </div>
+    </div>
+</div>
