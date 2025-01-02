@@ -3,112 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elliot's Portfolio</title>
+    <title>Professional Portfolio</title>
     <style>
+        /* General Styles */
         body {
             margin: 0;
-            font-family: "Courier New", Courier, monospace;
-            background-color: #121212;
-            color: #00ff00;
+            font-family: 'Roboto', sans-serif;
+            background-color: #1e1e2f;
+            color: #c7c7c7;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         header {
+            background-color: #2a2a40;
+            padding: 40px 20px;
             text-align: center;
-            padding: 40px 10px;
-            background: #0d0d0d;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         header h1 {
-            font-size: 3rem;
             margin: 0;
+            font-size: 2.5rem;
+            color: #5ccfe6;
         }
 
         header p {
+            margin: 10px 0 0;
             font-size: 1.2rem;
-            color: #bbbbbb;
+            color: #a9a9b2;
         }
 
         .container {
-            max-width: 900px;
-            margin: 40px auto;
+            max-width: 1000px;
+            margin: 20px auto;
             padding: 20px;
-            background-color: #0d0d0d;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-            border-radius: 10px;
+            background-color: #2a2a40;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
         }
 
-        section {
-            margin-bottom: 30px;
-        }
-
-        section h2 {
+        h2 {
+            color: #5ccfe6;
+            margin-bottom: 15px;
             font-size: 1.8rem;
-            color: #00ff00;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #00ff00;
+            border-bottom: 2px solid #5ccfe6;
+            padding-bottom: 5px;
         }
 
-        section p, pre {
-            margin-bottom: 15px;
-            font-size: 1rem;
+        pre {
+            white-space: pre-wrap;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1e1e2f;
+            padding: 15px;
+            border-radius: 5px;
+            color: #c7c7c7;
+            overflow-x: auto;
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #0d0d0d;
-            color: #bbbbbb;
-            font-size: 0.9rem;
+            background-color: #2a2a40;
+            color: #a9a9b2;
         }
 
-        /* Glitch effect */
-        h1, h2 {
-            position: relative;
-            animation: glitch 2s infinite;
-        }
-
-        @keyframes glitch {
-            0% {
-                text-shadow: 2px 2px #ff0000, -2px -2px #0000ff;
-            }
-            50% {
-                text-shadow: -2px -2px #00ff00, 2px 2px #ffff00;
-            }
-            100% {
-                text-shadow: 2px -2px #0000ff, -2px 2px #ff0000;
-            }
-        }
-
-        a {
-            color: #00ff00;
+        footer a {
+            color: #5ccfe6;
             text-decoration: none;
         }
 
-        a:hover {
-            color: #ff0000;
+        footer a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Portfolio</h1>
-        <p>"Protecting systems by day, breaking them by night."</p>
+        <h1>Professional Portfolio</h1>
+        <p>Exploring innovation in cybersecurity and IAM</p>
     </header>
 
     <div class="container">
         <section>
-            <h2>Introduction</h2>
-            <p>My journey in cybersecurity and IAM began in retail tech support, where I learned my most fundamental lesson: security is about protecting what matters to people, not just systems.</p>
-        </section>
-
-        <section>
             <h2>Detailed Professional Experience</h2>
             <pre>
+## Detailed Professional Experience
+
 My journey in cybersecurity and IAM began in retail tech support, where I learned my most fundamental lesson: security is about protecting what matters to people, not just systems. This human-centric perspective has shaped my approach to every challenge since, from implementing Zero Trust architectures to pioneering decentralized identity solutions.
 
 I've always believed that true expertise transcends traditional credentials. While my technical background spans the full spectrum of IAM solutions—from CyberArk to SailPoint, from AWS to Azure—what sets me apart is my ability to see beyond conventional frameworks. Like the sci-fi novels that inspire my thinking, I envision security architectures that anticipate tomorrow's challenges, not just today's threats.
@@ -129,7 +108,7 @@ Looking ahead, I'm committed to pushing the boundaries of what's possible in IAM
     </div>
 
     <footer>
-        <p>&copy; 2025 Portfolio | "Control is an illusion."</p>
+        <p>&copy; 2025 Portfolio | Designed with care. <a href="#">Contact Me</a></p>
     </footer>
 </body>
 </html>
