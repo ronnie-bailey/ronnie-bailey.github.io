@@ -35,14 +35,8 @@
         }
         
         /* Banner styling */
-        .banner-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-        }
-        
         .banner {
-            height: 220px;
+            height: 200px;
             background-image: url('flow.gif');
             background-size: cover;
             position: relative;
@@ -51,7 +45,6 @@
             background-attachment: fixed;
             margin-bottom: 0;
             width: 100%;
-            max-width: 100%;
         }
         
         .banner::after {
@@ -61,35 +54,10 @@
             left: 0;
             height: 100%;
             width: 100%;
-            background: linear-gradient(to bottom, 
-                rgba(18, 18, 18, 0.2) 0%,
-                rgba(18, 18, 18, 0.1) 40%, 
-                rgba(18, 18, 18, 0.4) 80%,
-                rgba(18, 18, 18, 0.9) 95%,
-                var(--bg-color) 100%);
-            z-index: 1;
+            background: linear-gradient(to bottom, rgba(18, 18, 18, 0) 60%, #121212 100%);
         }
         
-        .banner-title {
-            position: absolute;
-            bottom: 40px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            z-index: 2;
-            color: var(--text-color);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 2.8rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-            letter-spacing: 3px;
-        }
-        
-        .banner-title span {
-            color: var(--primary-color);
-        }
-        
-        /* Layout containers */
+                /* Layout containers */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -100,9 +68,6 @@
             background: var(--card-bg);
             border-radius: var(--border-radius);
             box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 2;
-            margin-top: -30px; /* Pull container slightly up over the banner */
         }
         
         /* Header styling - with changes to accommodate the banner title */
@@ -308,10 +273,13 @@
             font-size: 0.95rem;
         }
         
-        .job-description p {
-            font-size: 0.95rem;
+        .job-skills {
+            font-size: 0.9rem;
             color: var(--text-secondary);
             font-style: italic;
+            margin-top: 0.75rem;
+            padding-top: 0.5rem;
+            border-top: 1px dashed rgba(176, 176, 176, 0.3);
         }
         
         /* Quote of the day */
@@ -509,14 +477,13 @@
     </script>
 </head>
 <body>
-    <div class="banner-container">
-        <div class="banner"></div>
-        <h1 class="banner-title"><span>RONNIE</span> BAILEY</h1>
-    </div>
+    <div class="banner"></div>
     <div class="container">
         <!-- Header Section -->
         <header class="header">
             <div class="header-top">
+                <h1>RONNIE BAILEY</h1>
+                <span class="separator">|</span>
                 <a href="narrative.html" class="bio-link">BIO</a>
             </div>
             <p>Principal Cybersecurity & IAM Strategist</p>
@@ -549,6 +516,7 @@
                         <li>Saviynt <span>(3+ years)</span></li>
                         <li>Varonis <span>(4+ years)</span></li>
                     </ul>
+                    <p class="job-skills">Skills: Event Planning · Tech Community Engagement · Public Speaking · Content Creation · Social Media Marketing · Networking · Leadership</p>
                 </div>
                 
                 <div class="skills-section">
@@ -702,6 +670,7 @@
                         <li>Managed security infrastructure using Palo Alto, Checkpoint Identity Security, and Microsoft Defender for endpoint protection.</li>
                         <li>Led incident response efforts, leveraging forensic analysis and security monitoring tools to detect, contain, and remediate cybersecurity threats.</li>
                     </ul>
+                    <p class="job-skills">Skills: IAM Solutions · One Identity · ADManager Plus · Microsoft 365 · Forensic Security · Secureworks Taegis · Sophos MDR · Cloud Security · AWS/Azure/GCP · NIST Standards · Compliance (HIPAA, CIS) · PowerShell · Python · Incident Response</p>
                 </div>
                 
                 <!-- Job 2 -->
@@ -730,6 +699,7 @@
                         <li>Mentored junior engineers, led security initiatives, and managed projects to ensure successful and timely delivery.</li>
                         <li>Produced clear technical documentation and effectively communicated complex technical information to diverse audiences.</li>
                     </ul>
+                    <p class="job-skills">Skills: Entra ID · Active Directory · Azure Active Directory · RSA · Crowdstrike · SSO/MFA · Zero Trust Architecture · PowerShell · Python · Bash · Windows/Linux Servers · PKI · NIST/ISO Standards · Technical Documentation</p>
                 </div>
                 
                 <!-- Job 3 -->
@@ -765,6 +735,7 @@
                         <li>Demonstrated expertise in IAM leadership, PowerShell scripting, and managing technical debt in enterprise-level environments.</li>
                         <li>Proven success delivering IAM solutions through collaboration with international teams, optimizing processes in a global automotive enterprise.</li>
                     </ul>
+                    <p class="job-skills">Skills: Microsoft Azure AD/Entra ID · OneIdentity Safeguard · TPAM · CrowdStrike · Active Directory · Okta · SSO/MFA · Varonis · PowerShell · Account Lifecycle Management · Technical Debt Management · Global Team Collaboration</p>
                 </div>
                 
                 <!-- Job 4 -->
@@ -794,6 +765,7 @@
                         <li>Monitored server and firewall logs, analyzed network traffic, and conducted regular vulnerability scans using tools like Qualys for threat detection and vulnerability management to maintain robust security for the customer.</li>
                         <li>Implemented robust incident response protocols using Fortinet solutions with GCP, reducing detection and response times for cybersecurity incidents.</li>
                     </ul>
+                    <p class="job-skills">Skills: CyberArk · Google Cloud Platform (GCP) · FISMA Compliance · PowerShell · Python · Java · Active Directory · OAuth · SAML · Fortinet · Zero Trust Architecture · FedRAMP · ISO 27001 · Saviynt · Qualys</p>
                 </div>
                 
                 <!-- Job 5 -->
@@ -819,6 +791,7 @@
                         <li>Implemented Auth0 for secure, scalable user authentication, leading to a 99% success rate in logins and halving the development time for new auth features by leveraging customizable workflows and SDKs aligning with HIPPA requirements.</li>
                         <li>Coordinated with IT, audit, and compliance teams to ensure CyberArk practices aligned with regulatory requirements, significantly contributing to successful audits under standards such as SOX, GDPR, and HIPAA.</li>
                     </ul>
+                    <p class="job-skills">Skills: HIPAA/NIST Compliance · Vulnerability Assessment · Healthcare IT · Microsoft Defender · MFA Implementation · SSL/TLS Management · EHR/PACS Systems · Auth0 · CyberArk · Regulatory Compliance (SOX, GDPR)</p>
                 </div>
                 
                 <!-- Job 6 -->
@@ -848,6 +821,7 @@
                         <li>Designed and executed automated provisioning and deprovisioning processes in SailPoint, reducing manual workload by 70% and improving onboarding/offboarding efficiency.</li>
                         <li>Designed role-based, location-based, & device compliance access controls for Entra ID.</li>
                     </ul>
+                    <p class="job-skills">Skills: Microsoft Azure AD/Entra ID · SSO/MFA · BitLocker · Microsoft Intune · Active Directory · Linux Administration · SailPoint IdentityNow · Google Cloud Platform (GCP) · BeyondTrust · Carbon Black · PowerShell · Python</p>
                 </div>
                 
                 <!-- Job 7 -->
@@ -874,6 +848,7 @@
                         <li>Participated in cross-departmental projects to extend the functionality of COBOL applications, enabling new banking services and improving customer experience.</li>
                         <li>Conducted on/off-boarding and trained 400 employees on security processes, reducing phishing attacks by presenting security awareness and training.</li>
                     </ul>
+                    <p class="job-skills">Skills: IAM Compliance · Agile/Waterfall Methodologies · Active Directory · Office 365 · SCCM · VMware · Microsoft Defender · Splunk · COBOL · Security Awareness Training</p>
                 </div>
                 
                 <!-- Job 8 -->
@@ -900,6 +875,7 @@
                         <li>Integrated a secure, scalable AWS cloud infrastructure with enhanced identity/access management and encryption, boosting efficiency and security.</li>
                         <li>Integrated Auth0 for scalable user authentication, enhancing authentication success to 99% and cutting development time by 50% by adopting secure and efficient authentication workflows.</li>
                     </ul>
+                    <p class="job-skills">Skills: ForgeRock IDM · Splunk · ISO/IEC 27001 · NIST Standards · Ping Identity · Citrix · VMware · VirtualBox · Hyper-V · PowerShell · AWS · Auth0 · Identity Lifecycle Management</p>
                 </div>
                 
                 <!-- Job 9 -->
@@ -926,6 +902,7 @@
                         <li>Identified the malicious insider, leading to legal action and the recovery of stolen intellectual property.</li>
                         <li>Developed best practices for forensic investigations, significantly improving incident response capabilities.</li>
                     </ul>
+                    <p class="job-skills">Skills: Policy Development · Kali Linux · Penetration Testing · Ping Identity · Active Directory · Azure AD/Entra ID · DDoS Mitigation · Nessus · Digital Forensics · The Sleuth Kit · Incident Response</p>
                 </div>
                 
                 <!-- Job 10 -->
@@ -945,7 +922,8 @@
                         <li>Evaluated and prioritized incidents based on impact and urgency, contributing to meeting established service level agreements (SLAs).</li>
                         <li>Maintained high-level customer satisfaction by delivering professional and timely support, and documenting processes and service desk records meticulously.</li>
                     </ul>
-                    <p>Skills: Governance, Risk Management, and Compliance (GRC) · Strategy and Leadership · Technical Proficiency and Innovation</p>
+                    </ul>
+                    <p class="job-skills">Skills: Governance, Risk Management, and Compliance (GRC) · Strategy and Leadership · Technical Proficiency and Innovation · Technical Support · Hardware/Software Troubleshooting · SLA Management</p>
                 </div>
                 
                 <!-- Job 11 -->
@@ -970,7 +948,7 @@
                         <li>Collaborated with the sales team to meet customer technology needs.</li>
                         <li>Maintained and updated product display and demonstration areas.</li>
                     </ul>
-                    <p>Skills: Governance, Risk Management, and Compliance (GRC) · Strategy and Leadership · Technical Proficiency and Innovation</p>
+                    <p class="job-skills">Skills: Governance, Risk Management, and Compliance (GRC) · Strategy and Leadership · Technical Proficiency and Innovation · Customer Support · Product Knowledge · Hardware Repair · Inventory Management</p>
                 </div>
             </div>
             
