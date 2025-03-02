@@ -10,6 +10,7 @@
     <style>
         /* Base styling */
         :root {
+            /* Dark mode colors (default) */
             --primary-color: #5ccfe6;
             --primary-dark: #3dabc2;
             --accent-color: #ff6b6b;
@@ -19,6 +20,24 @@
             --text-secondary: #b0b0b0;
             --section-spacing: 1.5rem;
             --border-radius: 8px;
+            
+            /* Theme transition */
+            --transition-time: 0.3s;
+        }
+        
+        /* Light mode colors */
+        :root.light-mode {
+            --primary-color: #0078d4;
+            --primary-dark: #005a9e;
+            --accent-color: #d83b01;
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-secondary: #555555;
+        }
+        
+        body {
+            transition: background-color var(--transition-time), color var(--transition-time);
         }
         
         * {
@@ -35,8 +54,14 @@
         }
         
         /* Banner styling */
+        .banner-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        
         .banner {
-            height: 200px;
+            height: 240px;
             background-image: url('flow.gif');
             background-size: cover;
             position: relative;
@@ -54,13 +79,52 @@
             left: 0;
             height: 100%;
             width: 100%;
-            background: linear-gradient(to bottom, rgba(18, 18, 18, 0) 60%, #121212 100%);
+            background: linear-gradient(to bottom, 
+                rgba(18, 18, 18, 0.2) 0%,
+                rgba(18, 18, 18, 0.1) 40%, 
+                rgba(18, 18, 18, 0.5) 80%,
+                var(--bg-color) 100%);
+        }
+        
+        .banner-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            text-align: center;
+            padding-bottom: 30px;
+        }
+        
+        .banner-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+        
+        .banner-name span {
+            color: var(--primary-color);
+        }
+        
+        .banner-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-color);
+            margin-top: 5px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1px;
         }
         
                 /* Layout containers */
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            margin-top: -30px;
             padding: 2rem;
             display: grid;
             grid-template-columns: 1fr 2fr;
@@ -68,74 +132,43 @@
             background: var(--card-bg);
             border-radius: var(--border-radius);
             box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
         }
         
-        /* Header styling - with changes to accommodate the banner title */
+        /* Header styling */
         .header {
             grid-column: 1 / -1;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
+            flex-wrap: wrap;
+            padding: 1rem 0;
             margin-bottom: var(--section-spacing);
             border-bottom: 2px solid var(--primary-color);
         }
         
-        .header-top {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .header h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-            color: var(--primary-color);
-            margin: 0;
-            font-weight: 700;
-        }
-        
-        .separator {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-        }
-        
-        .bio-link {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .bio-link:hover {
-            text-decoration: underline;
-        }
-        
         .header p {
-            margin: 0.25rem 0;
+            margin: 0.5rem 0;
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .header-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 0.75rem;
             flex-wrap: wrap;
-            justify-content: center;
+            gap: 0.75rem;
         }
         
         .header-links a {
             color: var(--primary-color);
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.75rem;
             border-radius: 50px;
             transition: all 0.3s ease;
             border: 1px solid var(--primary-color);
             font-weight: 500;
+            font-size: 0.9rem;
         }
         
         .header-links a:hover {
@@ -360,29 +393,35 @@
             }
             
             .banner {
-                height: 180px;
+                height: 200px;
                 background-attachment: scroll;
             }
             
+            .banner-name {
+                font-size: 2.4rem;
+            }
+            
             .banner-title {
-                bottom: 30px;
-                font-size: 2.2rem;
+                font-size: 1rem;
             }
         }
         
         @media (max-width: 600px) {
             .banner {
-                height: 150px;
+                height: 180px;
             }
             
-            .banner-title {
-                bottom: 20px;
-                font-size: 1.8rem;
+            .banner-name {
+                font-size: 2rem;
+            }
+            
+            .banner-content {
+                padding-bottom: 20px;
             }
         }
         
-        /* Banner title animation */
-        @keyframes titleFadeIn {
+        /* Banner animations */
+        @keyframes fadeIn {
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -393,8 +432,13 @@
             }
         }
         
+        .banner-name, .banner-title {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
         .banner-title {
-            animation: titleFadeIn 1s ease-out forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
         }
     </style>
     <script>
@@ -473,27 +517,89 @@
             }
 
             replaceTextOnHover();
+            
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlRoot = document.documentElement;
+            
+            // Check for saved theme preference or use device preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                htmlRoot.classList.add(savedTheme + '-mode');
+                if (savedTheme === 'light') {
+                    document.body.classList.remove('dark-mode');
+                    document.body.classList.add('light-mode');
+                } else {
+                    document.body.classList.add('dark-mode'); 
+                    document.body.classList.remove('light-mode');
+                }
+            } else {
+                // Check if user has dark mode preference
+                const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (prefersDarkMode) {
+                    htmlRoot.classList.add('dark-mode');
+                    document.body.classList.add('dark-mode');
+                } else {
+                    htmlRoot.classList.add('light-mode');
+                    document.body.classList.add('light-mode');
+                }
+            }
+            
+            // Theme toggle click handler
+            themeToggle.addEventListener('click', () => {
+                if (htmlRoot.classList.contains('light-mode')) {
+                    htmlRoot.classList.remove('light-mode');
+                    htmlRoot.classList.add('dark-mode');
+                    document.body.classList.remove('light-mode');
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    htmlRoot.classList.remove('dark-mode');
+                    htmlRoot.classList.add('light-mode');
+                    document.body.classList.remove('dark-mode');
+                    document.body.classList.add('light-mode');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
         });
     </script>
 </head>
 <body>
-    <div class="banner"></div>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 1V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 21V23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4.22 4.22L5.64 5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18.36 18.36L19.78 19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 12H23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4.22 19.78L5.64 18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    <div class="banner-wrapper">
+        <div class="banner"></div>
+        <div class="banner-content">
+            <h1 class="banner-name"><span>RONNIE</span> BAILEY</h1>
+            <p class="banner-title">Principal Cybersecurity & IAM Strategist</p>
+        </div>
+    </div>
     <div class="container">
         <!-- Header Section -->
         <header class="header">
-            <div class="header-top">
-                <h1>RONNIE BAILEY</h1>
-                <span class="separator">|</span>
-                <a href="narrative.html" class="bio-link">BIO</a>
-            </div>
-            <p>Principal Cybersecurity & IAM Strategist</p>
-            <p>✉️ <a href="mailto:opportunities@ronniebailey.cloud">opportunities@ronniebailey.cloud</a> | 📞 <a href="tel:+8048031311">+1 (804) 803-1311</a></p>
             <div class="header-links">
                 <a href="https://calendly.com/ronniebailey" target="_blank">Schedule Appointment</a>
                 <a href="Resume.pdf" download="Ronnie Bailey Resume.pdf">Download PDF</a>
                 <a href="Resume.docx" download="Ronnie Bailey Resume.docx">Download WORD</a>
                 <a href="https://www.linkedin.com/in/ronniebailey" target="_blank">LinkedIn Profile</a>
+                <a href="narrative.html" class="bio-link">View Bio</a>
             </div>
+            <p>✉️ <a href="mailto:opportunities@ronniebailey.cloud">opportunities@ronniebailey.cloud</a> | 📞 <a href="tel:+8048031311">+1 (804) 803-1311</a></p>
         </header>
 
         <!-- Left Column -->
