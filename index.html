@@ -101,7 +101,7 @@
             letter-spacing: 1px;
         }
         
-        /* Layout containers */
+                /* Layout containers */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -117,7 +117,7 @@
             z-index: 2;
         }
         
-        /* Header styling */
+        /* Header styling - with changes to accommodate the banner title */
         .header {
             grid-column: 1 / -1;
             display: flex;
@@ -248,54 +248,14 @@
         .job-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: center;
             margin-bottom: 0.75rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
         }
         
-        .job-title {
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-right: 0.5rem;
-        }
-        
-        .employment-type {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            position: relative;
-            padding-left: 1.1rem;
-        }
-        
-        .employment-type::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0.8rem;
-            height: 0.8rem;
-            border-radius: 2px;
-        }
-        
-        .employment-type-contract {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-        
-        .employment-type-contract::before {
-            background-color: var(--primary-color);
-        }
-        
-        .employment-type-fulltime {
-            display: none; /* Hidden since full-time is default */
-        }
-        
-        .job-period {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            white-space: nowrap;
+        .job-title-date {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
         
         .badge {
@@ -369,28 +329,6 @@
             border-top: 1px dashed rgba(176, 176, 176, 0.3);
         }
         
-        /* Contract role indicator */
-        .contract-role {
-            position: relative;
-        }
-        
-        .contract-role::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -3px;
-            width: 100%;
-            height: 2px;
-            background: var(--primary-color);
-            animation: contractPulse 2s infinite;
-        }
-        
-        @keyframes contractPulse {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
-        }
-        
         /* Quote of the day */
         .quote-of-the-day {
             grid-column: 1 / -1;
@@ -420,6 +358,25 @@
             background-color: rgba(30, 30, 30, 0.7);
             z-index: -1;
             border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+        
+        /* Links styling */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        .icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 5px;
         }
         
         /* Responsive design */
@@ -453,25 +410,121 @@
                 height: 180px;
                 background-attachment: scroll;
             }
+            
+            .banner-title {
+                bottom: 30px;
+                font-size: 2.2rem;
+            }
         }
         
         @media (max-width: 600px) {
             .banner {
                 height: 150px;
             }
+            
+            .banner-title {
+                bottom: 20px;
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Banner title animation */
+        @keyframes titleFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .banner-title {
+            animation: titleFadeIn 1s ease-out forwards;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const quotes = [
+                "The future of technology is not in our ability to create machines but in our understanding of how those machines can reshape the soul of humanity.",
+                "The only constant in the evolution of technology is its refusal to remain constrained by the imagination of its creators.",
+                "Every algorithm is a seed planted in the soil of time, destined to grow into solutions for problems we cannot yet see.",
+                "Progress is a paradox: it marches forward yet always loops back to confront the humanity it serves.",
+                "A truly advanced society is one where technology fades into the background, empowering individuals without demanding their attention.",
+                "The challenge of the future will not be building machines that think like us but ensuring we continue to think for ourselves.",
+                "Technology's ultimate triumph lies not in its complexity, but in its simplicity—when it becomes indistinguishable from the human condition.",
+                "In every byte of data lies the possibility of a universe rewritten, a future reimagined.",
+                "The architects of tomorrow must balance the weight of progress with the fragility of wisdom.",
+                "Civilizations rise and fall, but the code we leave behind will outlast the stars themselves.",
+                "Technology thrives where curiosity dares to tread.",
+                "The future belongs to those who code the unknown.",
+                "Every invention is a whisper from tomorrow's possibilities.",
+                "A world driven by technology must pause to ask who drives the driver.",
+                "Progress is not about faster machines but about better questions.",
+                "We shape technology, and in turn, it reshapes us.",
+                "The most powerful tool is not the machine but the mind that wields it.",
+                "In the silence of progress, the loudest voice is innovation.",
+                "The future of technology is a mirror reflecting the best and worst of our humanity.",
+                "As we automate tasks, let us not automate our ethics.",
+                "A truly intelligent machine understands the value of human ignorance.",
+                "Technology's greatest gift is the power to dream beyond our limitations.",
+                "We are not just building tools; we are constructing futures.",
+                "The code of tomorrow is written in the language of imagination.",
+                "Innovation is the art of turning impossibilities into inevitabilities.",
+                "The future is not built by engineers alone but by the dreams they dare to engineer.",
+                "The pace of technology is irrelevant if it leaves humanity behind.",
+                "Every byte of progress must carry the weight of responsibility.",
+                "The more we delegate to machines, the more we must reclaim what makes us human.",
+                "The limits of technology are set only by the boundaries of our courage to explore.",
+                "True advancement lies not in making life easier but in making it richer.",
+                "The architects of the future must code with care for every line creates a legacy.",
+                "Technology without wisdom is power without purpose.",
+                "In the race to innovate, we must not outrun our conscience.",
+                "Every breakthrough is a doorway to a world we are not yet ready to face.",
+                "The greatest risk in technology is believing it has all the answers.",
+                "In the hands of the wise, technology is a tool; in the hands of the careless, a weapon.",
+                "The future of technology is the art of blending complexity with simplicity.",
+                "True progress is measured not by speed but by direction.",
+                "Machines may calculate, but only humans can aspire.",
+                "The algorithms of tomorrow will be written not just with logic but with empathy.",
+                "Every technological leap is a step into uncharted ethical territory.",
+                "A future ruled by machines is no future at all unless guided by human purpose.",
+                "Technology must serve the soul, not enslave it.",
+                "The architects of the digital age are the philosophers of tomorrow.",
+                "Humanity's greatest challenge is to remain human in the age of machines.",
+                "A connected world demands a connected conscience.",
+                "We must code the future with both precision and humility.",
+                "The real innovation lies in using technology to ask, not answer, the biggest questions.",
+                "The foundation of the future is built not with machines, but with the dreams they inspire."
+            ];
+
+            const today = new Date();
+            const quoteIndex = today.getDate() % quotes.length;
+            document.getElementById("quote").textContent = quotes[quoteIndex];
+
+            function replaceTextOnHover() {
+                const companyNames = document.querySelectorAll('.company-name');
+                companyNames.forEach(name => {
+                    const placeholder = name.querySelector('.placeholder');
+                    const realName = name.querySelector('.real-name');
+                    name.addEventListener('mouseover', () => {
+                        placeholder.style.display = 'none';
+                        realName.style.display = 'inline';
+                    });
+                    name.addEventListener('mouseout', () => {
+                        placeholder.style.display = 'inline';
+                        realName.style.display = 'none';
+                    });
+                });
+            }
+
+            replaceTextOnHover();
+        });
+    </script>
 </head>
 <body>
-    <div class="banner-wrapper">
-        <div class="banner">
-            <div class="banner-content">
-                <h1 class="banner-name">RONNIE <span>BAILEY</span></h1>
-                <p class="banner-title">Principal Cybersecurity & IAM Strategist</p>
-            </div>
-        </div>
-    </div>
-    
+    <div class="banner"></div>
     <div class="container">
         <!-- Header Section -->
         <header class="header">
@@ -640,13 +693,12 @@
                 <h2>Professional Experience</h2>
                 
                 <!-- Job 1 -->
-                <div class="job-description contract-role">
+                <div class="job-description">
                     <div class="job-header">
-                        <div>
-                            <span class="job-title">IAM & Security Forensics Engineer</span>
-                            <span class="employment-type employment-type-contract" aria-label="Contract Position">Contract</span>
+                        <div class="job-title-date">
+                            <span class="badge">IAM & Security Forensics Engineer</span>
                         </div>
-                        <span class="job-period" data-year-range="2024-Present"></span>
+                        <span>Dec 2024 - Present</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Local City Government</span>
@@ -668,19 +720,18 @@
                 </div>
                 
                 <!-- Job 2 -->
-                <div class="job-description contract-role">
+                <div class="job-description">
                     <div class="job-header">
-                        <div>
-                            <span class="job-title">Threat Detection/Security Automation Architect</span>
-                            <span class="employment-type employment-type-contract" aria-label="Contract Position">Contract</span>
-                            <span class="badge badge-orange">Public Trust Clearance</span>
+                        <div class="job-title-date">
+                            <span class="badge">Threat Detection/Security Automation Architect</span>
                         </div>
-                        <span class="job-period" data-year-range="2024"></span>
+                        <span>Feb 2024 - Dec 2024</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Legal Technology Organization/Federal Contractor</span>
                         <span class="real-name">Lexis Nexus / United States Patent and Trademark Office</span>
                     </span>
+                    <span class="badge badge-orange">Public Trust Clearance</span>
                     <ul>
                         <li>Implemented and managed IAM solutions using Entra ID, Active Directory, Azure Active Directory, and RSA to establish robust identity and access management protocols.</li>
                         <li>Deployed Crowdstrike for advanced threat detection and response, and incorporated SSO and MFA across the enterprise for enhanced security.</li>
@@ -700,10 +751,10 @@
                 <!-- Job 3 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div>
-                            <span class="job-title">Principal Identity and Access Management, Security Architect</span>
+                        <div class="job-title-date">
+                            <span class="badge">Principal Identity and Access Management, Security Architect</span>
                         </div>
-                        <span class="job-period" data-year-range="2022-2024"></span>
+                        <span>Dec 2022 - Feb 2024</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Major National Retail Company</span>
@@ -734,19 +785,18 @@
                 </div>
                 
                 <!-- Job 4 -->
-                <div class="job-description contract-role">
+                <div class="job-description">
                     <div class="job-header">
-                        <div>
-                            <span class="job-title">Customer Identity & Access Management, Architect</span>
-                            <span class="employment-type employment-type-contract" aria-label="Contract Position">Contract</span>
-                            <span class="badge badge-orange">Public Trust Clearance</span>
+                        <div class="job-title-date">
+                            <span class="badge">Customer Identity & Access Management, Architect</span>
                         </div>
-                        <span class="job-period" data-year-range="2022"></span>
+                        <span>Feb 2022 - Dec 2022</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Federal</span>
                         <span class="real-name">Department of Homeland Security, OCIO, United States Secret Service</span>
                     </span>
+                    <span class="badge badge-orange">Public Trust Clearance</span>
                     <ul>
                         <li>Streamlined CyberArk's Privileged Access Management system boosting audit compliance by 50% and cutting response times by 40% through implementing advanced security protocols and integrating automated threat detection features.</li>
                         <li>Orchestrated cloud migration using GCP, ensuring secure and efficient transfer of critical systems from on-prem to cloud environments.</li>
@@ -765,13 +815,12 @@
                 </div>
                 
                 <!-- Job 5 -->
-                <div class="job-description contract-role">
+                <div class="job-description">
                     <div class="job-header">
-                        <div>
-                            <span class="job-title">Cloud Vulnerability, Analyst</span>
-                            <span class="employment-type employment-type-contract" aria-label="Contract Position">Contract</span>
+                        <div class="job-title-date">
+                            <span class="badge">Cloud Vulnerability, Analyst</span>
                         </div>
-                        <span class="job-period" data-year-range="2021"></span>
+                        <span>July 2021 - Dec 2021</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Non-profit Healthcare</span>
@@ -794,10 +843,10 @@
                 <!-- Job 6 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div>
-                            <span class="job-title">Privileged Access Management, Architect</span>
+                        <div class="job-title-date">
+                            <span class="badge">Privileged Access Management, Architect</span>
                         </div>
-                        <span class="job-period" data-year-range="2019-2021"></span>
+                        <span>Sept 2019 - July 2021</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Pharmaceutical Company</span>
@@ -824,10 +873,10 @@
                 <!-- Job 7 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div>
-                            <span class="job-title">Identity and Access Management, Analyst</span>
+                        <div class="job-title-date">
+                            <span class="badge">Identity and Access Management, Analyst</span>
                         </div>
-                        <span class="job-period" data-year-range="2019"></span>
+                        <span>Apr 2019 - Sept 2019</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Financial Services</span>
@@ -851,10 +900,10 @@
                 <!-- Job 8 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div>
-                            <span class="job-title">Customer Identity & Access Management, Engineer</span>
+                        <div class="job-title-date">
+                            <span class="badge">Customer Identity & Access Management, Engineer</span>
                         </div>
-                        <span class="job-period" data-year-range="2015-2019"></span>
+                        <span>Oct 2015 - Jan 2019</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Digital Security Consulting Firm</span>
@@ -878,10 +927,10 @@
                 <!-- Job 9 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div>
-                            <span class="job-title">Cloud Security Operations</span>
+                        <div class="job-title-date">
+                            <span class="badge">Cloud Security Operations</span>
                         </div>
-                        <span class="job-period" data-year-range="2011-2015"></span>
+                        <span>June 2011 - Dec 2015</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Cybersecurity Consulting Firm</span>
@@ -905,10 +954,10 @@
                 <!-- Job 10 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div>
-                            <span class="job-title">Systems Administrator II</span>
+                        <div class="job-title-date">
+                            <span class="badge">Systems Administrator II</span>
                         </div>
-                        <span class="job-period" data-year-range="2009-2011"></span>
+                        <span>Jun 2009 - Dec 2011</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">PC Repair</span>
@@ -919,16 +968,17 @@
                         <li>Evaluated and prioritized incidents based on impact and urgency, contributing to meeting established service level agreements (SLAs).</li>
                         <li>Maintained high-level customer satisfaction by delivering professional and timely support, and documenting processes and service desk records meticulously.</li>
                     </ul>
+                    </ul>
                     <p class="job-skills">Skills: Governance, Risk Management, and Compliance (GRC) · Strategy and Leadership · Technical Proficiency and Innovation · Technical Support · Hardware/Software Troubleshooting · SLA Management</p>
                 </div>
                 
                 <!-- Job 11 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div>
-                            <span class="job-title">IT Support Associate II</span>
+                        <div class="job-title-date">
+                            <span class="badge">IT Support Associate II</span>
                         </div>
-                        <span class="job-period" data-year-range="2006-2009"></span>
+                        <span>Sep 2006 - Jan 2009</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Major National Electronics Retail Company</span>
@@ -953,16 +1003,16 @@
                 <h2>Volunteer</h2>
                 <div class="job-description">
                     <div class="job-header">
-                        <div>
-                            <span class="job-title">Events Coordinator</span>
-                            <span class="badge badge-green">Volunteer</span>
+                        <div class="job-title-date">
+                            <span class="badge">Events Coordinator</span>
                         </div>
-                        <span class="job-period" data-year-range="2024-Present"></span>
+                        <span>July 2024 - Present</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Technology Organization/Non-Profit Volunteer</span>
-                        <span class="real-name">Blacks in Technology: Richmond, Virginia Chapter</span>
+                        <span class="real-name">Blacks in Technology: Richmond, Virginia Chapter (Volunteer)</span>
                     </span>
+                    <span class="badge badge-green">Volunteer</span>
                     <ul>
                         <li>Plan and execute technology-focused events such as webinars, workshops, and networking meetups.</li>
                         <li>Coordinate with tech speakers, sponsors, and volunteers to ensure smooth event operations.</li>
@@ -971,7 +1021,7 @@
                         <li>Collect and analyze feedback to continuously improve the quality and impact of tech events.</li>
                         <li>Perform light journalistic duties, such as writing event summaries, interviewing tech speakers and attendees, and producing content for newsletters and blog posts.</li>
                     </ul>
-                    <p class="job-skills">Skills: Event Planning · Tech Community Engagement · Public Speaking · Content Creation · Social Media Marketing · Networking · Leadership</p>
+                                        <p class="job-skills">Skills: Event Planning · Tech Community Engagement · Public Speaking · Content Creation · Social Media Marketing · Networking · Leadership</p> 
                 </div>
             </div>
             
@@ -981,14 +1031,14 @@
                 <ul class="details">
                     <li>
                         <strong>Bachelor's of Science in Cybersecurity</strong>, University of Richmond 
-                        <span>2025</span>
+                        <span>March 2025</span>
                         <ul>
                             <li>Relevant Coursework: Network Security, Cryptography, Ethical Hacking</li>
                         </ul>
                     </li>
                     <li>
                         <strong>Associate of Applied Science in Information Systems</strong>, Reynolds College 
-                        <span>2021</span>
+                        <span>May 2021</span>
                         <ul>
                             <li>Relevant Coursework: Database Management, Web Development, Programming Fundamentals</li>
                         </ul>
@@ -1000,10 +1050,10 @@
             <div class="section">
                 <h2>Certifications</h2>
                 <ul class="details">
-                    <li><strong>AZ-900</strong>, Microsoft Azure Fundamentals <span>2025</span></li>
-                    <li><strong>Cybersecurity Essentials</strong>, Cisco <span>2021</span></li>
-                    <li><strong>IBM Cloud Essentials</strong>, IBM <span>2021</span></li>
-                    <li><strong>Network Administration</strong>, Reynolds College <span>2020</span></li>
+                    <li><strong>AZ-900</strong>, Microsoft Azure Fundamentals <span>March 2025</span></li>
+                    <li><strong>Cybersecurity Essentials</strong>, Cisco <span>Oct 2021</span></li>
+                    <li><strong>IBM Cloud Essentials</strong>, IBM <span>Oct 2021</span></li>
+                    <li><strong>Network Administration</strong>, Reynolds College <span>July 2020</span></li>
                 </ul>
             </div>
             
@@ -1011,9 +1061,9 @@
             <div class="section">
                 <h2>Awards and Honors</h2>
                 <ul class="details">
-                    <li><strong>Human Rights Education Training:</strong> US Institute of Diplomacy and Human Rights <span>2023</span></li>
-                    <li><strong>Phi Theta Kappa Honor Society</strong>, International Honor Society <span>2018</span></li>
-                    <li><strong>Dean's List</strong>, Reynolds College <span>2018</span></li>
+                    <li><strong>Human Rights Education Training:</strong> US Institute of Diplomacy and Human Rights <span>Dec 2023</span></li>
+                    <li><strong>Phi Theta Kappa Honor Society</strong>, International Honor Society <span>April 2018</span></li>
+                    <li><strong>Dean's List</strong>, Reynolds College <span>June 2018</span></li>
                 </ul>
             </div>
         </div>
@@ -1021,95 +1071,5 @@
         <!-- Quote of the Day -->
         <div class="quote-of-the-day" id="quote"></div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const quotes = [
-                "The future of technology is not in our ability to create machines but in our understanding of how those machines can reshape the soul of humanity.",
-                "The only constant in the evolution of technology is its refusal to remain constrained by the imagination of its creators.",
-                "Every algorithm is a seed planted in the soil of time, destined to grow into solutions for problems we cannot yet see.",
-                "Progress is a paradox: it marches forward yet always loops back to confront the humanity it serves.",
-                "A truly advanced society is one where technology fades into the background, empowering individuals without demanding their attention.",
-                "The challenge of the future will not be building machines that think like us but ensuring we continue to think for ourselves.",
-                "Technology's ultimate triumph lies not in its complexity, but in its simplicity—when it becomes indistinguishable from the human condition.",
-                "In every byte of data lies the possibility of a universe rewritten, a future reimagined.",
-                "The architects of tomorrow must balance the weight of progress with the fragility of wisdom.",
-                "Civilizations rise and fall, but the code we leave behind will outlast the stars themselves.",
-                "Technology thrives where curiosity dares to tread.",
-                "The future belongs to those who code the unknown.",
-                "Every invention is a whisper from tomorrow's possibilities.",
-                "A world driven by technology must pause to ask who drives the driver.",
-                "Progress is not about faster machines but about better questions.",
-                "We shape technology, and in turn, it reshapes us.",
-                "The most powerful tool is not the machine but the mind that wields it.",
-                "In the silence of progress, the loudest voice is innovation.",
-                "The future of technology is a mirror reflecting the best and worst of our humanity.",
-                "As we automate tasks, let us not automate our ethics.",
-                "A truly intelligent machine understands the value of human ignorance.",
-                "Technology's greatest gift is the power to dream beyond our limitations.",
-                "We are not just building tools; we are constructing futures.",
-                "The code of tomorrow is written in the language of imagination.",
-                "Innovation is the art of turning impossibilities into inevitabilities.",
-                "The future is not built by engineers alone but by the dreams they dare to engineer.",
-                "The pace of technology is irrelevant if it leaves humanity behind.",
-                "Every byte of progress must carry the weight of responsibility.",
-                "The more we delegate to machines, the more we must reclaim what makes us human.",
-                "The limits of technology are set only by the boundaries of our courage to explore.",
-                "True advancement lies not in making life easier but in making it richer.",
-                "The architects of the future must code with care for every line creates a legacy.",
-                "Technology without wisdom is power without purpose.",
-                "In the race to innovate, we must not outrun our conscience.",
-                "Every breakthrough is a doorway to a world we are not yet ready to face.",
-                "The greatest risk in technology is believing it has all the answers.",
-                "In the hands of the wise, technology is a tool; in the hands of the careless, a weapon.",
-                "The future of technology is the art of blending complexity with simplicity.",
-                "True progress is measured not by speed but by direction.",
-                "Machines may calculate, but only humans can aspire.",
-                "The algorithms of tomorrow will be written not just with logic but with empathy.",
-                "Every technological leap is a step into uncharted ethical territory.",
-                "A future ruled by machines is no future at all unless guided by human purpose.",
-                "Technology must serve the soul, not enslave it.",
-                "The architects of the digital age are the philosophers of tomorrow.",
-                "Humanity's greatest challenge is to remain human in the age of machines.",
-                "A connected world demands a connected conscience.",
-                "We must code the future with both precision and humility.",
-                "The real innovation lies in using technology to ask, not answer, the biggest questions.",
-                "The foundation of the future is built not with machines, but with the dreams they inspire."
-            ];
-
-            const today = new Date();
-            const quoteIndex = today.getDate() % quotes.length;
-            document.getElementById("quote").textContent = quotes[quoteIndex];
-
-            // Convert date ranges to year-only format
-            const periods = document.querySelectorAll('.job-period');
-            periods.forEach(period => {
-                const range = period.getAttribute('data-year-range');
-                if (range.includes('-')) {
-                    const [start, end] = range.split('-');
-                    period.textContent = `${start.split(' ')[0]}–${end.split(' ')[0]}`;
-                } else {
-                    period.textContent = range.split(' ')[0];
-                }
-            });
-
-            // Company name hover effect
-            const companyNames = document.querySelectorAll('.company-name');
-            companyNames.forEach(name => {
-                const placeholder = name.querySelector('.placeholder');
-                const realName = name.querySelector('.real-name');
-                
-                name.addEventListener('mouseover', () => {
-                    placeholder.style.display = 'none';
-                    realName.style.display = 'inline';
-                });
-                
-                name.addEventListener('mouseout', () => {
-                    placeholder.style.display = 'inline';
-                    realName.style.display = 'none';
-                });
-            });
-        });
-    </script>
 </body>
 </html>
