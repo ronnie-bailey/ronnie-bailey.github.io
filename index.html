@@ -34,7 +34,7 @@
             line-height: 1.6;
         }
         
-        /* Banner styling */
+        /* Banner styling - REMOVED the banner content */
         .banner-wrapper {
             position: relative;
             width: 100%;
@@ -42,7 +42,7 @@
         }
         
         .banner {
-            height: 240px;
+            height: 100px; /* Reduced height */
             background-image: url('flow.gif');
             background-size: cover;
             position: relative;
@@ -65,40 +65,6 @@
                 rgba(18, 18, 18, 0.1) 40%, 
                 rgba(18, 18, 18, 0.5) 80%,
                 var(--bg-color) 100%);
-        }
-        
-        .banner-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            z-index: 10;
-            text-align: center;
-            padding-bottom: 30px;
-        }
-        
-        .banner-name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--text-color);
-            margin: 0;
-            letter-spacing: 3px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-        }
-        
-        .banner-name span {
-            color: var(--primary-color);
-        }
-        
-        .banner-title {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: var(--text-color);
-            margin-top: 5px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-            letter-spacing: 1px;
         }
         
         /* Layout containers */
@@ -188,6 +154,16 @@
         .header-links a:hover {
             background-color: var(--primary-color);
             color: var(--bg-color);
+        }
+        
+        /* Hyperlink styling */
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
         }
         
         /* Section styling */
@@ -427,26 +403,21 @@
             }
             
             .banner {
-                height: 180px;
+                height: 80px;
                 background-attachment: scroll;
             }
         }
         
         @media (max-width: 600px) {
             .banner {
-                height: 150px;
+                height: 60px;
             }
         }
     </style>
 </head>
 <body>
     <div class="banner-wrapper">
-        <div class="banner">
-            <div class="banner-content">
-                <h1 class="banner-name">RONNIE <span>BAILEY</span></h1>
-                <p class="banner-title">Principal Cybersecurity & IAM Strategist</p>
-            </div>
-        </div>
+        <div class="banner"></div>
     </div>
     
     <div class="container">
@@ -600,7 +571,7 @@
                 <p>Cybersecurity Trends and Developments</p>
                 <p>Gardening</p>
                 <p>Scifi Books</p>
-                <p><img src="fr/france.png" class="icon"><a href="fr/fr.html" target="_blank">Version Française</a></p>
+                <p><a href="fr/fr.html" target="_blank">Version Française</a></p>
             </div>
         </div>
         
@@ -623,7 +594,7 @@
                             <span class="job-title">IAM & Security Forensics Engineer</span>
                             <span class="employment-type employment-type-contract" aria-label="Contract Position">Contract</span>
                         </div>
-                        <span class="job-period" data-year-range="2024-Present"></span>
+                        <span class="job-period">2024-Present</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Local City Government</span>
@@ -652,7 +623,7 @@
                             <span class="employment-type employment-type-contract" aria-label="Contract Position">Contract</span>
                             <span class="badge badge-orange">Public Trust Clearance</span>
                         </div>
-                        <span class="job-period" data-year-range="2024"></span>
+                        <span class="job-period">2024</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Legal Technology Organization/Federal Contractor</span>
@@ -680,7 +651,7 @@
                         <div>
                             <span class="job-title">Principal Identity and Access Management, Security Architect</span>
                         </div>
-                        <span class="job-period" data-year-range="2022-2024"></span>
+                        <span class="job-period">2022-2024</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Major National Retail Company</span>
@@ -718,7 +689,7 @@
                             <span class="employment-type employment-type-contract" aria-label="Contract Position">Contract</span>
                             <span class="badge badge-orange">Public Trust Clearance</span>
                         </div>
-                        <span class="job-period" data-year-range="2022"></span>
+                        <span class="job-period">2022</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Federal</span>
@@ -748,7 +719,7 @@
                             <span class="job-title">Cloud Vulnerability, Analyst</span>
                             <span class="employment-type employment-type-contract" aria-label="Contract Position">Contract</span>
                         </div>
-                        <span class="job-period" data-year-range="2021"></span>
+                        <span class="job-period">2021</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Non-profit Healthcare</span>
@@ -774,7 +745,7 @@
                         <div>
                             <span class="job-title">Privileged Access Management, Architect</span>
                         </div>
-                        <span class="job-period" data-year-range="2019-2021"></span>
+                        <span class="job-period">2019-2021</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Pharmaceutical Company</span>
@@ -804,7 +775,7 @@
                         <div>
                             <span class="job-title">Identity and Access Management, Analyst</span>
                         </div>
-                        <span class="job-period" data-year-range="2019"></span>
+                        <span class="job-period">2019</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Financial Services</span>
@@ -831,7 +802,7 @@
                         <div>
                             <span class="job-title">Customer Identity & Access Management, Engineer</span>
                         </div>
-                        <span class="job-period" data-year-range="2015-2019"></span>
+                        <span class="job-period">2015-2019</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Digital Security Consulting Firm</span>
@@ -858,7 +829,7 @@
                         <div>
                             <span class="job-title">Cloud Security Operations</span>
                         </div>
-                        <span class="job-period" data-year-range="2011-2015"></span>
+                        <span class="job-period">2011-2015</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Cybersecurity Consulting Firm</span>
@@ -885,7 +856,7 @@
                         <div>
                             <span class="job-title">Systems Administrator II</span>
                         </div>
-                        <span class="job-period" data-year-range="2009-2011"></span>
+                        <span class="job-period">2009-2011</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">PC Repair</span>
@@ -905,7 +876,7 @@
                         <div>
                             <span class="job-title">IT Support Associate II</span>
                         </div>
-                        <span class="job-period" data-year-range="2006-2009"></span>
+                        <span class="job-period">2006-2009</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Major National Electronics Retail Company</span>
@@ -934,7 +905,7 @@
                             <span class="job-title">Events Coordinator</span>
                             <span class="badge badge-green">Volunteer</span>
                         </div>
-                        <span class="job-period" data-year-range="2024-Present"></span>
+                        <span class="job-period">2024-Present</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Technology Organization/Non-Profit Volunteer</span>
@@ -1057,18 +1028,6 @@
             const today = new Date();
             const quoteIndex = today.getDate() % quotes.length;
             document.getElementById("quote").textContent = quotes[quoteIndex];
-
-            // Convert date ranges to year-only format
-            const periods = document.querySelectorAll('.job-period');
-            periods.forEach(period => {
-                const range = period.getAttribute('data-year-range');
-                if (range.includes('-')) {
-                    const [start, end] = range.split('-');
-                    period.textContent = `${start.split(' ')[0]}–${end.split(' ')[0]}`;
-                } else {
-                    period.textContent = range.split(' ')[0];
-                }
-            });
 
             // Company name hover effect
             const companyNames = document.querySelectorAll('.company-name');
