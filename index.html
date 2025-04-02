@@ -372,6 +372,32 @@
             border-top: 1px dashed rgba(176, 176, 176, 0.3);
         }
         
+        /* Project styling */
+        .project {
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .project-org {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        
+        .project-date {
+            color: var(--text-secondary);
+        }
+        
         /* Quote of the day */
         .quote-of-the-day {
             grid-column: 1 / -1;
@@ -697,18 +723,58 @@
                 <ul class="details">
                     <li><a href="http://ronniebailey.cloud/documentation/documentationlanding.html" target="_blank">Documentation Repository</a></li>
                 </ul>
+                
+                <div class="project">
+                    <div class="project-header">
+                        <h3 class="project-title">ENTERPRISE-WIDE ZERO TRUST TRANSFORMATION</h3>
+                        <span class="project-date">2022</span>
+                    </div>
+                    <div class="project-org">Department of Homeland Security</div>
+                    <ul>
+                        <li>Led cross-functional team implementing Zero Trust Architecture across 200+ mission-critical applications</li>
+                        <li>Developed comprehensive security architecture incorporating micro-segmentation, just-in-time access, continuous verification, and least privilege enforcement</li>
+                        <li>Reduced lateral movement risk by 80% while cutting incident response time by 60%</li>
+                        <li>Project completed 3 months ahead of schedule, establishing new security baseline for federal systems</li>
+                    </ul>
+                </div>
+                
+                <div class="project">
+                    <div class="project-header">
+                        <h3 class="project-title">MULTI-CLOUD IAM CONSOLIDATION</h3>
+                        <span class="project-date">2023</span>
+                    </div>
+                    <div class="project-org">Kroger, Technology & Digital</div>
+                    <ul>
+                        <li>Unified disparate identity systems during migration to hybrid cloud environment spanning AWS and Azure</li>
+                        <li>Designed cloud-native IAM solution with centralized governance, automated workflows, and identity analytics</li>
+                        <li>Reduced operational costs by $1.2M annually while improving security posture</li>
+                        <li>Enabled seamless identity federation across platforms with 40+ integrated applications</li>
+                        <li>Implemented comprehensive IAM solution supporting 32,000+ global users</li>
+                    </ul>
+                </div>
+                
+                <div class="project">
+                    <div class="project-header">
+                        <h3 class="project-title">PRIVILEGED ACCESS SECURITY TRANSFORMATION</h3>
+                        <span class="project-date">2024</span>
+                    </div>
+                    <div class="project-org">LexisNexis & USPTO</div>
+                    <ul>
+                        <li>Spearheaded enterprise-wide privileged access security program incorporating modern PAM solutions</li>
+                        <li>Implemented Just-In-Time access, behavioral analytics, and continuous monitoring</li>
+                        <li>Developed comprehensive secret management solution for applications and DevOps pipelines</li>
+                        <li>Reduced privileged credential exposure by 90% while enabling automated auditing and compliance reporting</li>
+                        <li>Solution became reference architecture for other federal agencies</li>
+                    </ul>
+                </div>
             </div>
             
             <!-- Awards Section -->
             <div class="section">
                 <h2>Awards</h2>
                 <ul class="details">
-                    <li><strong>Security Leadership Award</strong></li>
-                    <li><span class="badge">Accessia Health</span></li>
-                    <li><span class="badge">2021</span></li>
-                    <li><strong>Best Security Team Award</strong></li>
-                    <li><span class="badge">Kroger Technology & Digital</span></li>
-                    <li><span class="badge">2023</span></li>
+                    <li><strong>Security Leadership Award</strong> - Accessia Health (2021)</li>
+                    <li><strong>Best Security Team Award</strong> - Kroger Technology & Digital (2023)</li>
                 </ul>
             </div>
             
