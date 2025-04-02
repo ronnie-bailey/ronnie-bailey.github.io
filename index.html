@@ -247,15 +247,24 @@
         
         .job-header {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 0.75rem;
+            gap: 0.5rem;
         }
         
-        .job-title-date {
+        .job-title-container {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            gap: 1rem;
+            gap: 0.5rem;
+        }
+        
+        .job-date {
+            font-weight: 500;
+            color: var(--text-secondary);
+            white-space: nowrap;
         }
         
         /* Updated badge styles */
@@ -273,7 +282,6 @@
         .contract-badge {
             display: inline-flex;
             align-items: center;
-            margin-left: 0.5rem;
             font-size: 0.8rem;
             font-weight: 500;
             padding: 0.15rem 0.5rem;
@@ -286,7 +294,6 @@
         .clearance-badge {
             display: inline-flex;
             align-items: center;
-            margin-left: 0.5rem;
             font-size: 0.8rem;
             font-weight: 500;
             padding: 0.15rem 0.5rem;
@@ -299,7 +306,6 @@
         .volunteer-badge {
             display: inline-flex;
             align-items: center;
-            margin-left: 0.5rem;
             font-size: 0.8rem;
             font-weight: 500;
             padding: 0.15rem 0.5rem;
@@ -307,6 +313,13 @@
             background-color: rgba(78, 205, 196, 0.15);
             color: #4ecdc4;
             border: 1px solid #4ecdc4;
+        }
+        
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
         }
         
         .details {
@@ -725,11 +738,11 @@
                 <!-- Job 1 -->
                 <div class="job-description" style="display:none;">
                     <div class="job-header">
-                        <div class="job-title-date">
+                        <div class="job-title-container">
                             <span class="badge">IAM & Security Forensics Engineer</span>
                             <span class="contract-badge">CONTRACT</span>
                         </div>
-                        <span>Dec 2024 - Present</span>
+                        <span class="job-date">Dec 2024 - Present</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Local City Government</span>
@@ -753,12 +766,12 @@
                 <!-- Job 2 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div class="job-title-date">
-                            <span class="badge">Threat Detection & Automation Architect</span>
+                        <div class="job-title-container">
+                            <span class="badge">Threat Detection/Security Automation Architect</span>
                             <span class="contract-badge">CONTRACT</span>
                             <span class="clearance-badge">PUBLIC TRUST CLEARANCE</span>
                         </div>
-                        <span>2024 - Present</span>
+                        <span class="job-date">2024 - Present</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Legal Technology Organization/Federal Contractor</span>
@@ -782,10 +795,10 @@
                 <!-- Job 3 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div class="job-title-date">
+                        <div class="job-title-container">
                             <span class="badge">Principal Identity and Access Management, Security Architect</span>
                         </div>
-                        <span>2022 - 2024</span>
+                        <span class="job-date">2022 - 2024</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Major National Retail Company</span>
@@ -809,12 +822,12 @@
                 <!-- Job 4 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div class="job-title-date">
+                        <div class="job-title-container">
                             <span class="badge">Customer Identity & Access Management, Architect</span>
                             <span class="contract-badge">CONTRACT</span>
                             <span class="clearance-badge">PUBLIC TRUST CLEARANCE</span>
                         </div>
-                        <span>2022 - 2022</span>
+                        <span class="job-date">2022 - 2022</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Federal</span>
@@ -837,11 +850,11 @@
                 <!-- Job 5 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div class="job-title-date">
+                        <div class="job-title-container">
                             <span class="badge">Cloud Vulnerability, Analyst</span>
                             <span class="contract-badge">CONTRACT</span>
                         </div>
-                        <span>2021 - 2021</span>
+                        <span class="job-date">2021 - 2021</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Non-profit Healthcare</span>
@@ -864,10 +877,10 @@
                 <!-- Job 6 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div class="job-title-date">
+                        <div class="job-title-container">
                             <span class="badge">Privileged Access Management, Architect</span>
                         </div>
-                        <span>2019 - 2021</span>
+                        <span class="job-date">2019 - 2021</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Pharmaceutical Company</span>
@@ -893,11 +906,11 @@
                 <!-- Job 7 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div class="job-title-date">
+                        <div class="job-title-container">
                             <span class="badge">Identity and Access Management, Analyst</span>
                             <span class="contract-badge">CONTRACT</span>
                         </div>
-                        <span>2019 - 2019</span>
+                        <span class="job-date">2019 - 2019</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Financial Services</span>
@@ -918,10 +931,10 @@
                 <!-- Job 8 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div class="job-title-date">
+                        <div class="job-title-container">
                             <span class="badge">Customer Identity & Access Management, Engineer</span>
                         </div>
-                        <span>2015 - 2019</span>
+                        <span class="job-date">2015 - 2019</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Digital Security Consulting Firm</span>
@@ -943,10 +956,10 @@
                 <!-- Job 9 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div class="job-title-date">
+                        <div class="job-title-container">
                             <span class="badge">Cloud Security Operations</span>
                         </div>
-                        <span>2011 - 2015</span>
+                        <span class="job-date">2011 - 2015</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Cybersecurity Consulting Firm</span>
@@ -968,10 +981,10 @@
                 <!-- Job 10 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div class="job-title-date">
+                        <div class="job-title-container">
                             <span class="badge">Systems Administrator II</span>
                         </div>
-                        <span>2009 - 2011</span>
+                        <span class="job-date">2009 - 2011</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">PC Repair</span>
@@ -989,10 +1002,10 @@
                 <!-- Job 11 -->
                 <div class="job-description">
                     <div class="job-header">
-                        <div class="job-title-date">
+                        <div class="job-title-container">
                             <span class="badge">IT Support Associate II</span>
                         </div>
-                        <span>2006 - 2009</span>
+                        <span class="job-date">2006 - 2009</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Major National Electronics Retail Company</span>
@@ -1015,11 +1028,11 @@
                 <h2>Volunteer</h2>
                 <div class="job-description">
                     <div class="job-header">
-                        <div class="job-title-date">
+                        <div class="job-title-container">
                             <span class="badge">Events Coordinator</span>
                             <span class="volunteer-badge">VOLUNTEER</span>
                         </div>
-                        <span>2024 - Present</span>
+                        <span class="job-date">2024 - Present</span>
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Technology Organization/Non-Profit Volunteer</span>
