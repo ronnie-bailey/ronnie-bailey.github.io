@@ -936,7 +936,7 @@
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Fortune 50 Retail Technology & Innovation Center</span>
-                        <span class="real-name">Kroger, Technology & Digital Department</span>
+                        <span class="real-name">Kroger Technology & Digital Department</span>
                     </span>
                     <ul>
                         <li><span class="highlight">Privileged Access Security:</span> Implemented OneIdentity Safeguard/TPAM, aligning workflows with NIST 800-53 within <span class="highlight">6 months</span> and incorporating just-in-time privilege elevation.</li>
@@ -992,7 +992,7 @@
                     </div>
                     <span class="company-name">
                         <span class="placeholder">National Patient Assistance Organization (Non-Profit)</span>
-                        <span class="real-name">Accessia Healthcare</span>
+                        <span class="real-name">Accessia Health</span>
                     </span>
                     <ul>
                         <li><span class="highlight">Single Sign-On Implementation:</span> Deployed PingFederate and Citrix NetScaler with <span class="highlight">99.9% uptime</span> for healthcare applications.</li>
@@ -1072,7 +1072,7 @@
                     </div>
                     <span class="company-name">
                         <span class="placeholder">Enterprise-Level IT Security Solutions Provider</span>
-                        <span class="real-name">Wellsecured IT</span>
+                        <span class="real-name">WellSecured IT</span>
                     </span>
                     <ul>
                         <li><span class="highlight">IAM Transformation:</span> Led migration to ForgeRock Identity Management, standardizing identity lifecycle workflows for hybrid environments.</li>
@@ -1405,8 +1405,10 @@
                     const targetSection = document.getElementById(targetId);
                     if (targetSection) {
                         targetSection.style.backgroundColor = 'var(--highlight-bg)';
+                        targetSection.style.borderLeft = '3px solid var(--primary-color)';
                         setTimeout(() => {
                             targetSection.style.backgroundColor = 'transparent';
+                            targetSection.style.borderLeft = 'none';
                         }, 2000);
                     }
                 });
