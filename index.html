@@ -66,7 +66,7 @@
             background-color: rgba(92, 207, 230, 0.1);
         }
         
-        /* Header using flow.gif banner */
+        /* Banner styling - MODIFIED to use flow.gif */
         .banner-wrapper {
             position: relative;
             width: 100%;
@@ -93,7 +93,7 @@
             background: linear-gradient(to bottom, rgba(18,18,18,0.2) 0%, rgba(18,18,18,0.1) 40%, rgba(18,18,18,0.5) 80%, var(--bg-color) 100%);
         }
         
-        /* Main gray container */
+        /* Layout containers */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -109,8 +109,8 @@
             z-index: 2;
         }
         
-        /* Header content inside the container */
-        header.header {
+        /* Header Section - MODIFIED to match Ronnie Bailey Resume 2 */
+        .header {
             grid-column: 1 / -1;
             display: flex;
             flex-direction: column;
@@ -190,19 +190,6 @@
         .section {
             margin-bottom: var(--section-spacing);
             scroll-margin-top: 80px;
-            transition: background-color 0.3s ease;
-            border-radius: var(--border-radius);
-            padding: 0.5rem;
-        }
-        
-        .section:target {
-            background-color: var(--highlight-bg);
-            animation: highlight-fade 3s ease-out;
-        }
-        
-        @keyframes highlight-fade {
-            0% { background-color: var(--highlight-bg); }
-            100% { background-color: transparent; }
         }
         
         .section h2 {
@@ -223,16 +210,11 @@
             font-weight: 600;
         }
         
-        /* Left and Right Columns */
-        .left-column,
-        .right-column {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        /* Skills section */
+        .skills-section {
+            margin-bottom: 1.5rem;
         }
         
-        /* (Left Column – (a) Content) */
-        /* Core Competencies & related sections */
         .skills-section ul {
             list-style: none;
         }
@@ -249,21 +231,17 @@
             font-weight: 600;
         }
         
-        /* Common styles for job/project lists and details */
-        .details,
-        .project ul,
-        .job-description ul {
-            list-style-type: none;
+        /* Job descriptions */
+        .job-description {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed rgba(92, 207, 230, 0.2);
         }
         
-        .details li,
-        .project ul li,
-        .job-description ul li {
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+        .job-description:last-child {
+            border-bottom: none;
         }
         
-        .project-header,
         .job-header {
             display: flex;
             flex-wrap: wrap;
@@ -273,9 +251,20 @@
             gap: 0.5rem;
         }
         
-        .separator, .bio-link { /* already defined above */ }
+        .job-title-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+        }
         
-        /* Badge styles (unchanged) */
+        .job-date {
+            font-weight: 500;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+        
+        /* Badge styles */
         .badge {
             background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: var(--bg-color);
@@ -323,6 +312,28 @@
             border: 1px solid #4ecdc4;
         }
         
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
+        }
+        
+        .details {
+            list-style-type: none;
+        }
+        
+        .details li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .details ul {
+            list-style-type: disc;
+            margin-left: 1.25rem;
+            margin-top: 0.25rem;
+        }
+        
         /* Company name hover effect */
         .company-name {
             cursor: pointer;
@@ -342,7 +353,113 @@
             display: none;
         }
         
-        /* Quote styling (unchanged) */
+        /* Job details lists */
+        .job-description ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 0.75rem;
+        }
+        
+        .job-description li {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .job-description li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+        
+        .job-skills {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 0.75rem;
+            padding-top: 0.5rem;
+            border-top: 1px dashed rgba(176, 176, 176, 0.3);
+        }
+        
+        /* Project styling */
+        .project {
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .project-org {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        
+        .project-date {
+            color: var(--text-secondary);
+        }
+        
+        /* Consulting Engagements */
+        .consulting-section {
+            margin-bottom: 2.5rem;
+            padding: 1.25rem;
+            background-color: var(--highlight-bg);
+            border-radius: var(--border-radius);
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .consulting-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .consulting-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-right: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .consulting-date {
+            color: var(--text-secondary);
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+        
+        .consulting-org {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .consulting-environment {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            font-style: italic;
+        }
+        
+        .consulting-environment strong {
+            color: var(--primary-color);
+            font-style: normal;
+        }
+        
+        /* Quote of the day */
         .quote-of-the-day {
             grid-column: 1 / -1;
             text-align: center;
@@ -354,7 +471,7 @@
             border-top: 2px dashed var(--primary-color);
             border-radius: 0 0 var(--border-radius) var(--border-radius);
             z-index: 1;
-            background: linear-gradient(135deg, rgba(18,18,18,0.9), rgba(30,30,30,0.9));
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9), rgba(30, 30, 30, 0.9));
         }
         
         .quote-of-the-day::before {
@@ -364,9 +481,34 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(12,36,48,0.7), rgba(32,58,67,0.7));
+            background: linear-gradient(135deg, rgba(12, 36, 48, 0.7), rgba(32, 58, 67, 0.7));
             z-index: -1;
             border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+        
+        /* Links styling */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        .icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        
+        /* Highlight important metrics */
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
         }
         
         /* Responsive design */
@@ -374,6 +516,26 @@
             .container {
                 grid-template-columns: 1fr;
                 padding: 1rem;
+            }
+            
+            .header {
+                padding: 1rem 0;
+            }
+            
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+            
+            .separator, .bio-link {
+                font-size: 2rem;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
             }
             
             .banner {
@@ -395,6 +557,7 @@
         @media (max-width: 600px) {
             .banner {
                 height: 150px;
+                padding-bottom: 30px;
             }
             
             .header-links {
@@ -407,6 +570,7 @@
             }
         }
         
+        /* Print styles */
         @media print {
             .quick-nav, .header-links {
                 display: none;
@@ -429,589 +593,783 @@
     </style>
 </head>
 <body>
-  <!-- Sticky Navigation -->
-  <div class="quick-nav">
-    <a href="#skills">Core Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#consulting">Consulting</a>
-    <a href="#education">Education</a>
-  </div>
-
-  <!-- Banner -->
-  <div class="banner-wrapper">
-    <div class="banner"></div>
-  </div>
-
-  <!-- Main Container (Gray Template) -->
-  <div class="container">
-    <!-- Header (shown in the gray box) -->
-    <header class="header">
-      <div class="header-top">
-        <h1>RONNIE BAILEY</h1>
-        <span class="separator">|</span>
-        <a href="narrative.html" class="bio-link">BIO</a>
-      </div>
-      <p>Principal Cybersecurity &amp; IAM Strategist</p>
-      <p>✉️ <a href="mailto:opportunities@ronniebailey.cloud">opportunities@ronniebailey.cloud</a> | 📞 <a href="tel:+8048031311">+1 (804) 803-1311</a></p>
-      <div class="header-links">
-        <a href="https://calendly.com/ronniebailey" target="_blank">Schedule Appointment</a>
-        <a href="Resume.pdf" download="Ronnie Bailey Resume.pdf">Download PDF</a>
-        <a href="Resume.docx" download="Ronnie Bailey Resume.docx">Download WORD</a>
-        <a href="https://www.linkedin.com/in/ronniebailey" target="_blank">LinkedIn Profile</a>
-      </div>
-    </header>
-    
-    <!-- Two Columns -->
-    <div class="left-column">
-      <!-- (a) Left Column Content -->
-      <!-- Core Competencies -->
-      <div class="section" id="skills">
-        <h2>Core Competencies</h2>
-        <div class="skills-section">
-          <h3>Identity and Access Management (IAM)</h3>
-          <ul>
-            <li>Active Directory and LDAP <span>(8+ years)</span></li>
-            <li>CyberArk <span>(7+ years)</span></li>
-            <li>ForgeRock IDM <span>(5+ years)</span></li>
-            <li>Microsoft Azure AD/Entra ID <span>(7+ years)</span></li>
-            <li>Microsoft Multi-Factor Authentication (MFA)</li>
-            <li>Okta <span>(6+ years)</span></li>
-            <li>OneIdentity Safeguard and TPAM <span>(2+ years)</span></li>
-            <li>SailPoint <span>(6+ years)</span></li>
-            <li>Saviynt <span>(3+ years)</span></li>
-            <li>Varonis <span>(4+ years)</span></li>
-          </ul>
-        </div>
-        <div class="skills-section">
-          <h3>Cloud &amp; Identity Security</h3>
-          <ul>
-            <li>AWS <span>(4+ years)</span></li>
-            <li>Entra ID <span>(7+ years)</span></li>
-            <li>Google Cloud Platform (GCP) <span>(3+ years)</span></li>
-            <li>Microsoft 365 <span>(7+ years)</span></li>
-            <li>Microsoft Azure <span>(7+ years)</span></li>
-            <li>Secureworks/Sophos</li>
-            <li>Abnormal Security</li>
-            <li>Taegis Secureworks</li>
-            <li>Sophos Central</li>
-            <li>Checkpoint Identity</li>
-          </ul>
-        </div>
-        <div class="skills-section">
-          <h3>Endpoint &amp; Threat Protection</h3>
-          <ul>
-            <li>Carbon Black <span>(4+ years)</span></li>
-            <li>CrowdStrike (Falcon) <span>(5+ years)</span></li>
-            <li>Infoblox</li>
-            <li>Microsoft Defender for Identity <span>(7+ years)</span></li>
-            <li>Microsoft DLP</li>
-            <li>Palo Alto <span>(6+ years)</span></li>
-            <li>Sophos MDR</li>
-          </ul>
-        </div>
-        <div class="skills-section">
-          <h3>Identity &amp; Access Governance</h3>
-          <ul>
-            <li>ADManager Plus</li>
-            <li>One Identity Starling</li>
-            <li>Bitsight</li>
-            <li>Change Management Process</li>
-            <li>DRATA</li>
-            <li>Fortinet <span>(5+ years)</span></li>
-            <li>Nessus <span>(6+ years)</span></li>
-            <li>Qualys <span>(7+ years)</span></li>
-            <li>Varonis <span>(4+ years)</span></li>
-          </ul>
-        </div>
-        <div class="skills-section">
-          <h3>Collaboration &amp; Workflow Management</h3>
-          <ul>
-            <li>Confluence <span>(5+ years)</span></li>
-            <li>Jira <span>(4+ years)</span></li>
-            <li>SharePoint/Teams <span>(5+ years)</span></li>
-            <li>Lucid Visual Collaboration Suite</li>
-          </ul>
-        </div>
-        <div class="skills-section">
-          <h3>Automation &amp; Scripting</h3>
-          <ul>
-            <li>COBOL <span>(3+ years)</span></li>
-            <li>PowerShell <span>(7+ years)</span></li>
-            <li>Python <span>(5+ years)</span></li>
-            <li>HTML <span>(6+ years)</span></li>
-          </ul>
-        </div>
-        <div class="skills-section">
-          <h3>Other Technical Expertise</h3>
-          <ul>
-            <li>Exchange Admin Center</li>
-            <li>Microsoft Exchange Online</li>
-            <li>Aristotle Insight</li>
-          </ul>
-        </div>
-      </div>
-      
-      <!-- Achievements -->
-      <div class="section">
-        <h2>Achievements</h2>
-        <ul class="details">
-          <li>Outstanding Security Consultant Award, (2020)</li>
-          <li>Excellence in Identity Security, (2018)</li>
-        </ul>
-      </div>
-      
-      <!-- Key Projects -->
-      <div class="section">
-        <h2>Key Projects</h2>
-        <!-- Zero Trust Project -->
-        <div class="project">
-          <div class="project-header">
-            <h3 class="project-title">ENTERPRISE-WIDE ZERO TRUST TRANSFORMATION</h3>
-            <span class="project-date">2022</span>
-          </div>
-          <div class="project-org">Department of Homeland Security</div>
-          <ul>
-            <li>Led cross-functional team implementing Zero Trust Architecture across 200+ mission-critical applications</li>
-            <li>Developed comprehensive security architecture incorporating micro-segmentation, just-in-time access, continuous verification, and least privilege enforcement</li>
-            <li>Reduced lateral movement risk by 80% while cutting incident response time by 60%</li>
-            <li>Project completed 3 months ahead of schedule, establishing new security baseline for federal systems</li>
-          </ul>
-        </div>
-        <!-- Multi-Cloud Project -->
-        <div class="project">
-          <div class="project-header">
-            <h3 class="project-title">MULTI-CLOUD IAM CONSOLIDATION</h3>
-            <span class="project-date">2023</span>
-          </div>
-          <div class="project-org">Kroger, Technology &amp; Digital</div>
-          <ul>
-            <li>Unified disparate identity systems during migration to hybrid cloud environment spanning AWS and Azure</li>
-            <li>Designed cloud-native IAM solution with centralized governance, automated workflows, and identity analytics</li>
-            <li>Reduced operational costs by $1.2M annually while improving security posture</li>
-            <li>Enabled seamless identity federation across platforms with 40+ integrated applications</li>
-            <li>Implemented comprehensive IAM solution supporting 32,000+ global users</li>
-          </ul>
-        </div>
-        <!-- One Identity Safeguard Project -->
-        <div class="project">
-          <div class="project-header">
-            <h3 class="project-title">ONE IDENTITY SAFEGUARD PRIVILEGED ACCESS RE-IMPLEMENTATION</h3>
-            <span class="project-date">2024</span>
-          </div>
-          <div class="project-org">LexisNexis &amp; USPTO</div>
-          <ul>
-            <li>Redesigned and operationalized the One Identity Safeguard platform for enterprise-wide privileged access control across hybrid infrastructure.</li>
-            <li>Documented and validated existing server states, including baseline configuration, session policy, partition mapping, and access workflows.</li>
-            <li>Executed full offboarding and re-onboarding of privileged assets—ensuring secure session recording, account rotation, and access policy re-alignment.</li>
-            <li>Integrated AD security groups for dynamic partition control, implemented managed account governance, and enforced dual-approval workflows for high-sensitivity systems.</li>
-            <li>Validated privileged session integrity, audited Safeguard logs, and resolved system policy enforcement issues.</li>
-            <li>Authored change management documentation, lifecycle policy, and emergency access protocols to meet compliance with NIST, CIS, and internal audits.</li>
-            <li>Interfaced with stakeholders and vendor PMs to bridge internal readiness gaps with third-party consulting.</li>
-            <li>Provided post-deployment verification across Safeguard versions (7.5.1) and ensured technical continuity in a VM-based environment.</li>
-          </ul>
-        </div>
-        <!-- Privileged Access Security Transformation -->
-        <div class="project">
-          <div class="project-header">
-            <h3 class="project-title">PRIVILEGED ACCESS SECURITY TRANSFORMATION</h3>
-            <span class="project-date">2024</span>
-          </div>
-          <div class="project-org">LexisNexis &amp; USPTO</div>
-          <ul>
-            <li>Spearheaded enterprise-wide privileged access security program incorporating modern PAM solutions</li>
-            <li>Implemented Just-In-Time access, behavioral analytics, and continuous monitoring</li>
-            <li>Developed comprehensive secret management solution for applications and DevOps pipelines</li>
-            <li>Reduced privileged credential exposure by 90% with automated auditing and compliance reporting</li>
-            <li>Solution became reference architecture for other federal agencies</li>
-          </ul>
-        </div>
-      </div>
-      
-      <!-- Awards -->
-      <div class="section">
-        <h2>Awards</h2>
-        <ul class="details">
-          <li><strong>Security Leadership Award</strong> - Accessia Health (2021)</li>
-          <li><strong>Best Security Team Award</strong> - Kroger Technology &amp; Digital (2023)</li>
-        </ul>
-      </div>
-      
-      <!-- Passions -->
-      <div class="section">
-        <h2>Passions</h2>
-        <p>Community Volunteering</p>
-        <p>Cybersecurity Trends and Developments</p>
-        <p>Gardening</p>
-        <p>Scifi Books</p>
-        <p>
-          <img src="fr/france.png" class="icon" alt="France Flag Icon" />
-          <a href="fr/fr.html" target="_blank">Version Française</a>
-        </p>
-      </div>
+    <!-- Sticky Navigation -->
+    <div class="quick-nav">
+        <a href="#skills">Core Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#consulting">Consulting</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
     </div>
-    
-    <div class="right-column">
-      <!-- (b) Right Column Content -->
-      <!-- Professional Overview -->
-      <div class="section">
-        <h2>Professional Overview</h2>
-        <p>
-          Principal Cybersecurity &amp; IAM Strategist dedicated to navigating complex corporate ecosystems with adaptability and a critical eye. I bring over 15 years of experience securing organizations across diverse industries. Passionate about designing innovative security solutions, implementing scalable systems, and empowering businesses to thrive in an increasingly digital world. Recognized for leadership in IAM, Zero Trust strategies, and enhancing cloud security. Dedicated to creating resilient infrastructures and driving operational excellence.
-        </p>
-      </div>
-      
-      <!-- Professional Experience -->
-      <div class="section" id="experience">
-        <h2>Professional Experience</h2>
-        <!-- Threat Detection/Security Automation Architect -->
-        <div class="job-description">
-          <div class="job-header">
-            <div class="job-title-container">
-              <span class="badge">Threat Detection/Security Automation Architect</span>
-              <span class="contract-badge">CONTRACT</span>
-              <span class="clearance-badge">PUBLIC TRUST CLEARANCE</span>
-            </div>
-            <span class="job-date">2024 - Present</span>
-          </div>
-          <span class="company-name">
-            <span class="placeholder">Federal Contractor, Legal Technology Organization</span>
-          </span>
-          <ul>
-            <li><span class="highlight">Threat Detection Integration:</span> Engineered solutions using CrowdStrike Falcon, Microsoft Defender, Palo Alto, and Checkpoint Identity Security to reduce incident response time by 90%.</li>
-            <li><span class="highlight">Zero Trust Implementation:</span> Constructed framework with Just-In-Time provisioning and risk-based authentication, reducing standing privileges by 60% with continuous monitoring (NIST 800-207).</li>
-            <li><span class="highlight">Privileged Access Management:</span> Utilized One Identity Safeguard, Secureworks Taegis, and Sophos MDR to monitor privileged sessions and respond to threats across 500+ systems.</li>
-            <li><span class="highlight">IAM Modernization:</span> Migrated legacy platforms to Microsoft Identity Platform and Okta, enabling passwordless authentication for 15,000+ users.</li>
-            <li><span class="highlight">Federated Authentication:</span> Integrated Auth0 for OAuth2/OpenID Connect-based SSO supporting FedRAMP and NIST 800-53.</li>
-            <li><span class="highlight">Digital Forensics:</span> Designed forensic response plans using Secureworks Taegis and The Sleuth Kit (NIST 800-86).</li>
-            <li><span class="highlight">Cloud Security:</span> Led Azure security blueprint development integrating NIST 800-53, CIS, and HIPAA frameworks.</li>
-            <li><span class="highlight">Multi-Cloud Security:</span> Enforced security controls across AWS, Azure, and GCP with centralized CSPM.</li>
-            <li><span class="highlight">Identity Governance:</span> Unified IAM tools using One Identity, ADManager Plus, and Microsoft Entra ID with AI analytics.</li>
-            <li><span class="highlight">Microsoft 365 Security:</span> Overhauled Exchange Online with DLP and conditional access to mitigate insider threats.</li>
-          </ul>
-          <p class="job-skills">Skills: Entra ID · Active Directory · Azure AD · RSA · CrowdStrike · SSO/MFA · Zero Trust · PowerShell · Python · Bash · Windows/Linux · PKI · NIST/ISO · Technical Documentation</p>
-        </div>
-        
-        <!-- Principal Identity and Access Management, Security Architect -->
-        <div class="job-description">
-          <div class="job-header">
-            <div class="job-title-container">
-              <span class="badge">Principal Identity and Access Management, Security Architect</span>
-            </div>
-            <span class="job-date">2022 - 2024</span>
-          </div>
-          <span class="company-name">
-            <span class="placeholder">Major National Retail Company (Kroger Technology & Digital Department)</span>
-          </span>
-          <ul>
-            <li><span class="highlight">Privileged Access Security:</span> Implemented OneIdentity Safeguard/TPAM (6 months) with just-in-time privilege elevation.</li>
-            <li><span class="highlight">Endpoint Protection:</span> Deployed CrowdStrike Falcon, reducing malware incidents by 45% across 2,000+ endpoints.</li>
-            <li><span class="highlight">Cloud Identity Management:</span> Engineered modernization using Entra ID/Azure AD for 12,000+ users with Kubernetes integration.</li>
-            <li><span class="highlight">Virtualization Strategy:</span> Standardized VMware vSphere environments to improve uptime and reduce costs.</li>
-            <li><span class="highlight">Container Security:</span> Designed pod identity solution for AKS, eliminating static credentials.</li>
-            <li><span class="highlight">Authentication Modernization:</span> Integrated Okta SSO/MFA across 40+ apps, reducing password resets.</li>
-            <li><span class="highlight">Access Control:</span> Streamlined AD with RBAC/conditional access, cutting unauthorized access by 30%.</li>
-            <li><span class="highlight">Account Lifecycle Management:</span> Automated HIPAA-compliant processes for 20,000+ accounts.</li>
-            <li><span class="highlight">Global Identity Provisioning:</span> Led 32,000+ user implementation, reducing onboarding time by 55%.</li>
-            <li><span class="highlight">Data Governance:</span> Enhanced security with Varonis for SOX/GDPR compliance.</li>
-          </ul>
-          <p class="job-skills">Skills: Microsoft Azure AD/Entra ID · OneIdentity Safeguard · TPAM · CrowdStrike · Active Directory · Okta · SSO/MFA · Varonis · PowerShell · Account Lifecycle Management · Technical Debt Management · Global Collaboration</p>
-        </div>
-        
-        <!-- Customer Identity & Access Management, Architect -->
-        <div class="job-description">
-          <div class="job-header">
-            <div class="job-title-container">
-              <span class="badge">Customer Identity &amp; Access Management, Architect</span>
-              <span class="contract-badge">CONTRACT</span>
-              <span class="clearance-badge">PUBLIC TRUST CLEARANCE</span>
-            </div>
-            <span class="job-date">2022 - 2022</span>
-          </div>
-          <span class="company-name">
-            <span class="placeholder">Federal Contractor (DHS, OCIO, US Secret Service)</span>
-          </span>
-          <ul>
-            <li><span class="highlight">Privileged Access:</span> Streamlined CyberArk PAM to 100% NIST 800-53 compliance.</li>
-            <li><span class="highlight">Network Security:</span> Deployed Fortinet FortiGate firewalls and micro-segmentation per CISA Zero Trust.</li>
-            <li><span class="highlight">Enterprise IAM:</span> Integrated AD, OAuth 2.0, and SAML 2.0 for 100+ legacy systems.</li>
-            <li><span class="highlight">Serverless Security:</span> Implemented secure practices for GCP functions with least privilege.</li>
-            <li><span class="highlight">Risk-Based Control:</span> Mapped 75+ systems reducing high-risk accounts by 35%.</li>
-            <li><span class="highlight">Cloud Migration:</span> Led GCP migration for 50+ systems achieving FedRAMP Moderate.</li>
-            <li><span class="highlight">Identity Governance:</span> Enforced Saviynt policies for 15,000+ user accounts.</li>
-            <li><span class="highlight">Security Certification:</span> Spearheaded ISO 27001 for DHS ISMS.</li>
-            <li><span class="highlight">Agile Development:</span> Used PowerShell, Python, Java for FISMA-compliant enhancements.</li>
-          </ul>
-          <p class="job-skills">Skills: CyberArk · GCP · FISMA Compliance · PowerShell · Python · Java · Active Directory · OAuth · SAML · Fortinet · Zero Trust · FedRAMP · ISO 27001 · Saviynt · Qualys</p>
-        </div>
-        
-        <!-- Cloud Vulnerability, Analyst -->
-        <div class="job-description">
-          <div class="job-header">
-            <div class="job-title-container">
-              <span class="badge">Cloud Vulnerability, Analyst</span>
-              <span class="contract-badge">CONTRACT</span>
-            </div>
-            <span class="job-date">2021 - 2021</span>
-          </div>
-          <span class="company-name">
-            <span class="placeholder">Non-profit Healthcare (Accessia Health)</span>
-          </span>
-          <ul>
-            <li><span class="highlight">Single Sign-On:</span> Deployed PingFederate and Citrix NetScaler with 99.9% uptime.</li>
-            <li><span class="highlight">Privileged Access:</span> Led CyberArk implementation with NIST 800-53 alignment.</li>
-            <li><span class="highlight">Threat Detection:</span> Engineered Defender for Identity integration, reducing unauthorized access by 75%.</li>
-            <li><span class="highlight">Cloud-Native Security:</span> Implemented proxies and service meshes for AWS microservices.</li>
-            <li><span class="highlight">Identity Architecture:</span> Designed framework integrating Azure AD and PingFederate for 5,000+ identities.</li>
-            <li><span class="highlight">Behavioral Authentication:</span> Implemented UEBA for compromised credentials.</li>
-            <li><span class="highlight">Secure Communications:</span> Modernized SSL/TLS for 150+ domains at 100% compliance.</li>
-            <li><span class="highlight">Risk Management:</span> Led vulnerability assessments per NIST 800-53 and HIPAA.</li>
-            <li><span class="highlight">Compliance Automation:</span> Automated reporting for SOX, GDPR, and HIPAA via PingFederate logs.</li>
-          </ul>
-          <p class="job-skills">Skills: HIPAA/NIST Compliance · Vulnerability Assessment · Healthcare IT · Microsoft Defender · MFA Implementation · SSL/TLS Management · EHR/PACS · Auth0 · CyberArk · Regulatory Compliance</p>
-        </div>
-        
-        <!-- Privileged Access Management, Architect -->
-        <div class="job-description">
-          <div class="job-header">
-            <div class="job-title-container">
-              <span class="badge">Privileged Access Management, Architect</span>
-            </div>
-            <span class="job-date">2019 - 2021</span>
-          </div>
-          <span class="company-name">
-            <span class="placeholder">Pharmaceutical Company (Indivior Pharmaceuticals)</span>
-          </span>
-          <ul>
-            <li><span class="highlight">Privileged Account Security:</span> Deployed BeyondTrust PAM for 1,200+ privileged accounts.</li>
-            <li><span class="highlight">Conditional Access:</span> Developed role/location/device policies in Entra ID.</li>
-            <li><span class="highlight">Cloud Security:</span> Designed GCP security framework with IAM and Security Command Center.</li>
-            <li><span class="highlight">SSO &amp; MFA:</span> Integrated Azure AD/Entra ID for streamlined verification.</li>
-            <li><span class="highlight">Data Protection:</span> Implemented BitLocker &amp; backups to secure ePHI.</li>
-            <li><span class="highlight">Continuous Authentication:</span> Applied risk-based, context-aware access policies.</li>
-            <li><span class="highlight">Infrastructure Security:</span> Integrated Terraform guardrails from deployment to runtime.</li>
-            <li><span class="highlight">Identity Lifecycle:</span> Engineered SailPoint workflows for 500+ employees.</li>
-            <li><span class="highlight">Identity Governance:</span> Led SailPoint IdentityNow implementation for distributed workforce.</li>
-            <li><span class="highlight">Least Privilege:</span> Mapped 200+ job functions to minimal privilege roles.</li>
-            <li><span class="highlight">Mobile Device Security:</span> Utilized Microsoft Intune for MDM and remote access.</li>
-            <li><span class="highlight">Endpoint Protection:</span> Maintained Carbon Black for threat hunting and enforcement.</li>
-          </ul>
-          <p class="job-skills">Skills: Microsoft Azure AD/Entra ID · SSO/MFA · BitLocker · Intune · Active Directory · Linux · SailPoint IdentityNow · GCP · BeyondTrust · Carbon Black · PowerShell · Python</p>
-        </div>
-        
-        <!-- Identity and Access Management, Analyst -->
-        <div class="job-description">
-          <div class="job-header">
-            <div class="job-title-container">
-              <span class="badge">Identity and Access Management, Analyst</span>
-              <span class="contract-badge">CONTRACT</span>
-            </div>
-            <span class="job-date">2019 - 2019</span>
-          </div>
-          <span class="company-name">
-            <span class="placeholder">Financial Services (Wells Fargo Bank)</span>
-          </span>
-          <ul>
-            <li><span class="highlight">Zero Trust:</span> Designed the bank's first Zero Trust-aligned framework, reducing exceptions by 35%.</li>
-            <li><span class="highlight">Security Automation:</span> Used Microsoft Defender auto-remediation to cut SOC tasks by 30%.</li>
-            <li><span class="highlight">Customer Authentication:</span> Engineered ADFS progressive profiling with 99.9% uptime.</li>
-            <li><span class="highlight">Multi-Cloud Governance:</span> Implemented consistent identity controls across AWS and Azure.</li>
-            <li><span class="highlight">Regulatory Compliance:</span> Enforced FFIEC/GLBA via SCCM and Office 365 controls.</li>
-            <li><span class="highlight">Identity Management:</span> Maintained 12,000+ accounts via automated lifecycle workflows.</li>
-            <li><span class="highlight">Security Training:</span> Reduced phishing response time through staff education.</li>
-          </ul>
-          <p class="job-skills">Skills: IAM Compliance · Agile/Waterfall · Active Directory · Office 365 · SCCM · VMware · Microsoft Defender · Splunk · COBOL · Security Awareness</p>
-        </div>
-        
-        <!-- Customer Identity & Access Management, Engineer -->
-        <div class="job-description">
-          <div class="job-header">
-            <div class="job-title-container">
-              <span class="badge">Customer Identity &amp; Access Management, Engineer</span>
-            </div>
-            <span class="job-date">2015 - 2019</span>
-          </div>
-          <span class="company-name">
-            <span class="placeholder">Digital Security Consulting Firm (WellSecured IT)</span>
-          </span>
-          <ul>
-            <li><span class="highlight">IAM Transformation:</span> Led migration to ForgeRock, standardizing identity lifecycle workflows.</li>
-            <li><span class="highlight">Access Control:</span> Developed conditional access policies using Microsoft Defender for privileged accounts.</li>
-            <li><span class="highlight">Security Monitoring:</span> Integrated Splunk with IAM tools to achieve ISO/NIST compliance.</li>
-            <li><span class="highlight">API Security:</span> Implemented OAuth2/OpenID for cloud-native application APIs.</li>
-            <li><span class="highlight">Cloud Identity:</span> Built AWS IAM roles and encryption protocols across multi-cloud.</li>
-            <li><span class="highlight">Secure Access:</span> Designed Citrix-based security for financial clients' mission-critical applications.</li>
-            <li><span class="highlight">Customer Auth:</span> Spearheaded Auth0 integration balancing security with user experience.</li>
-            <li><span class="highlight">Security Automation:</span> Partnered with DevOps to streamline log analysis and incident response.</li>
-          </ul>
-          <p class="job-skills">Skills: ForgeRock IDM · Splunk · ISO/IEC 27001 · NIST · Ping Identity · Citrix · VMware · VirtualBox · Hyper-V · PowerShell · AWS · Auth0 · Identity Lifecycle</p>
-        </div>
-        
-        <!-- Cloud Security Operations -->
-        <div class="job-description">
-          <div class="job-header">
-            <div class="job-title-container">
-              <span class="badge">Cloud Security Operations</span>
-            </div>
-            <span class="job-date">2011 - 2015</span>
-          </div>
-          <span class="company-name">
-            <span class="placeholder">Cybersecurity Consulting Firm (Cloudcentria Security)</span>
-          </span>
-          <ul>
-            <li><span class="highlight">Threat Response:</span> Neutralized multi-vector DDoS attacks with 99.99% uptime.</li>
-            <li><span class="highlight">Identity Integration:</span> Pioneered Azure AD patterns for hybrid environments.</li>
-            <li><span class="highlight">Digital Forensics:</span> Led investigation to recover stolen IP and set up evidence protocols.</li>
-            <li><span class="highlight">Cloud Protection:</span> Secured IaaS, PaaS, and serverless on AWS.</li>
-            <li><span class="highlight">Compliance:</span> Developed NIST 800-53/ISO 27001 policies with 100% audit success.</li>
-            <li><span class="highlight">Vulnerability Management:</span> Scaled Nessus across 15,000+ assets in AWS/Azure.</li>
-            <li><span class="highlight">Authentication Unification:</span> Integrated Ping Identity with Okta, reducing helpdesk requests.</li>
-            <li><span class="highlight">Security Training:</span> Educated analysts in Kali Linux pentesting methodologies.</li>
-          </ul>
-          <p class="job-skills">Skills: Policy Development · Kali Linux · Penetration Testing · Ping Identity · Active Directory · Azure AD/Entra ID · DDoS Mitigation · Nessus · Digital Forensics · The Sleuth Kit · Incident Response</p>
-        </div>
-        
-        <!-- Systems Administrator II -->
-        <div class="job-description">
-          <div class="job-header">
-            <div class="job-title-container">
-              <span class="badge">Systems Administrator II</span>
-            </div>
-            <span class="job-date">2009 - 2011</span>
-          </div>
-          <span class="company-name">
-            <span class="placeholder">National Tech Repair &amp; Services Franchise (uBreakiFix)</span>
-          </span>
-          <ul>
-            <li><span class="highlight">Technical Support:</span> Provided first-level support for hardware, software, and network issues.</li>
-            <li><span class="highlight">Incident Management:</span> Prioritized tickets based on impact to meet SLA targets.</li>
-            <li><span class="highlight">Customer Service:</span> Ensured high satisfaction through prompt support and documentation.</li>
-          </ul>
-          <p class="job-skills">Skills: GRC · Strategy &amp; Leadership · Technical Support · Hardware/Software Troubleshooting · SLA Management</p>
-        </div>
-        
-        <!-- IT Support Associate II -->
-        <div class="job-description">
-          <div class="job-header">
-            <div class="job-title-container">
-              <span class="badge">IT Support Associate II</span>
-            </div>
-            <span class="job-date">2006 - 2009</span>
-          </div>
-          <span class="company-name">
-            <span class="placeholder">Former Fortune 500 Electronics Retailer (Circuit City)</span>
-          </span>
-          <ul>
-            <li><span class="highlight">Technical Support:</span> Provided troubleshooting for computer and electronic products.</li>
-            <li><span class="highlight">Product Setup:</span> Assisted customers with configuration and installations.</li>
-            <li><span class="highlight">Hardware Repair:</span> Performed basic repairs or coordinated with service providers.</li>
-            <li><span class="highlight">Inventory Management:</span> Maintained stock and ensured product availability.</li>
-            <li><span class="highlight">Customer Engagement:</span> Collaborated with sales to align solutions with needs.</li>
-            <li><span class="highlight">Product Knowledge:</span> Stayed current on trends; updated demo areas.</li>
-          </ul>
-          <p class="job-skills">Skills: GRC · Strategy &amp; Leadership · Technical Proficiency · Customer Support · Product Knowledge · Hardware Repair · Inventory Management</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Quote of the Day -->
-  <div class="quote-of-the-day" id="quote"></div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const quotes = [
-        "The future of technology is not in our ability to create machines but in our understanding of how those machines can reshape the soul of humanity.",
-        "The only constant in the evolution of technology is its refusal to remain constrained by the imagination of its creators.",
-        "Every algorithm is a seed planted in the soil of time, destined to grow into solutions for problems we cannot yet see.",
-        "Progress is a paradox: it marches forward yet always loops back to confront the humanity it serves.",
-        "A truly advanced society is one where technology fades into the background, empowering individuals without demanding their attention.",
-        "The challenge of the future will not be building machines that think like us but ensuring we continue to think for ourselves.",
-        "Technology's ultimate triumph lies not in its complexity, but in its simplicity—when it becomes indistinguishable from the human condition.",
-        "In every byte of data lies the possibility of a universe rewritten, a future reimagined.",
-        "The architects of tomorrow must balance the weight of progress with the fragility of wisdom.",
-        "Civilizations rise and fall, but the code we leave behind will outlast the stars themselves.",
-        "Technology thrives where curiosity dares to tread.",
-        "The future belongs to those who code the unknown.",
-        "Every invention is a whisper from tomorrow's possibilities.",
-        "A world driven by technology must pause to ask who drives the driver.",
-        "Progress is not about faster machines but about better questions.",
-        "We shape technology, and in turn, it reshapes us.",
-        "The most powerful tool is not the machine but the mind that wields it.",
-        "In the silence of progress, the loudest voice is innovation.",
-        "The future of technology is a mirror reflecting the best and worst of our humanity.",
-        "As we automate tasks, let us not automate our ethics.",
-        "A truly intelligent machine understands the value of human ignorance.",
-        "Technology's greatest gift is the power to dream beyond our limitations.",
-        "We are not just building tools; we are constructing futures.",
-        "The code of tomorrow is written in the language of imagination.",
-        "Innovation is the art of turning impossibilities into inevitabilities.",
-        "The future is not built by engineers alone but by the dreams they dare to engineer.",
-        "The pace of technology is irrelevant if it leaves humanity behind.",
-        "Every byte of progress must carry the weight of responsibility.",
-        "The more we delegate to machines, the more we must reclaim what makes us human.",
-        "The limits of technology are set only by the boundaries of our courage to explore.",
-        "True advancement lies not in making life easier but in making it richer.",
-        "The architects of the future must code with care for every line creates a legacy.",
-        "Technology without wisdom is power without purpose.",
-        "In the race to innovate, we must not outrun our conscience.",
-        "Every breakthrough is a doorway to a world we are not yet ready to face.",
-        "The greatest risk in technology is believing it has all the answers.",
-        "In the hands of the wise, technology is a tool; in the hands of the careless, a weapon.",
-        "The future of technology is the art of blending complexity with simplicity.",
-        "True progress is measured not by speed but by direction.",
-        "Machines may calculate, but only humans can aspire.",
-        "The algorithms of tomorrow will be written not just with logic but with empathy.",
-        "Every technological leap is a step into uncharted ethical territory.",
-        "A future ruled by machines is no future at all unless guided by human purpose.",
-        "Technology must serve the soul, not enslave it.",
-        "The architects of the digital age are the philosophers of tomorrow.",
-        "Humanity's greatest challenge is to remain human in the age of machines.",
-        "A connected world demands a connected conscience.",
-        "We must code the future with both precision and humility.",
-        "The real innovation lies in using technology to ask, not answer, the biggest questions.",
-        "The foundation of the future is built not with machines, but with the dreams they inspire."
-      ];
-      
-      const today = new Date();
-      const quoteIndex = today.getDate() % quotes.length;
-      document.getElementById("quote").textContent = quotes[quoteIndex];
-      
-      function replaceTextOnHover() {
-        const companyNames = document.querySelectorAll('.company-name');
-        companyNames.forEach(name => {
-          const placeholder = name.querySelector('.placeholder');
-          const realName = name.querySelector('.real-name');
-          name.addEventListener('mouseover', () => {
-            placeholder.style.display = 'none';
-            realName.style.display = 'inline';
-          });
-          name.addEventListener('mouseout', () => {
-            placeholder.style.display = 'inline';
-            realName.style.display = 'none';
-          });
+    <!-- Banner - Modified to use flow.gif -->
+    <div class="banner-wrapper">
+        <div class="banner"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section - Modified to match "Ronnie Bailey Resume 2" -->
+        <header class="header">
+            <div class="header-top">
+                <h1>RONNIE BAILEY</h1>
+                <span class="separator">|</span>
+                <a href="narrative.html" class="bio-link">BIO</a>
+            </div>
+            <p>Principal Cybersecurity & IAM Strategist</p>
+            <p>✉️ <a href="mailto:opportunities@ronniebailey.cloud">opportunities@ronniebailey.cloud</a> | 📞 <a href="tel:+8048031311">+1 (804) 803-1311</a></p>
+            <div class="header-links">
+                <a href="https://calendly.com/ronniebailey" target="_blank">Schedule Appointment</a>
+                <a href="Resume.pdf" download="Ronnie Bailey Resume.pdf">Download PDF</a>
+                <a href="Resume.docx" download="Ronnie Bailey Resume.docx">Download WORD</a>
+                <a href="https://www.linkedin.com/in/ronniebailey" target="_blank">LinkedIn Profile</a>
+            </div>
+        </header>
+
+        <!-- Left Column -->
+        <div class="left-column">
+            <!-- Core Competencies Section -->
+            <div class="section" id="skills">
+                <h2>Core Competencies</h2>
+                
+                <div class="skills-section">
+                    <h3>Identity and Access Management (IAM)</h3>
+                    <ul>
+                        <li>Active Directory and LDAP <span>(8+ years)</span></li>
+                        <li>CyberArk <span>(7+ years)</span></li>
+                        <li>ForgeRock IDM <span>(5+ years)</span></li>
+                        <li>Microsoft Azure AD/Entra ID <span>(7+ years)</span></li>
+                        <li>Microsoft Multi-Factor Authentication (MFA)</li>
+                        <li>Okta <span>(6+ years)</span></li>
+                        <li>OneIdentity Safeguard and TPAM <span>(2+ years)</span></li>
+                        <li>SailPoint <span>(6+ years)</span></li>
+                        <li>Saviynt <span>(3+ years)</span></li>
+                        <li>Varonis <span>(4+ years)</span></li>
+                    </ul>
+                </div>
+                
+                <div class="skills-section">
+                    <h3>Cloud & Identity Security</h3>
+                    <ul>
+                        <li>AWS<span> (4+ years)</span></li>
+                        <li>Entra ID <span>(7+ years)</span></li>
+                        <li>Google Cloud Platform (GCP) <span>(3+ years)</span></li>
+                        <li>Microsoft 365 <span>(7+ years)</span></li>
+                        <li>Microsoft Azure <span>(7+ years)</span></li>
+                        <li>Secureworks/Sophos</li>
+                        <li>Abnormal Security</li>
+                        <li>Taegis Secureworks</li>
+                        <li>Sophos Central</li>
+                        <li>Checkpoint Identity</li>
+                    </ul>
+                </div>
+                
+                <div class="skills-section">
+                    <h3>Endpoint & Threat Protection</h3>
+                    <ul>
+                        <li>Carbon Black <span>(4+ years)</span></li>
+                        <li>CrowdStrike (Falcon) <span>(5+ years)</span></li>
+                        <li>Infoblox</li>
+                        <li>Microsoft Defender for Identity <span>(7+ years)</span></li>
+                        <li>Microsoft DLP</li>
+                        <li>Palo Alto <span>(6+ years)</span></li>
+                        <li>Sophos MDR</li>
+                    </ul>
+                </div>
+                
+                <div class="skills-section">
+                    <h3>Identity & Access Governance</h3>
+                    <ul>
+                        <li>ADManager Plus</li>
+                        <li>One Identity Starling</li>
+                        <li>Bitsight</li>
+                        <li>Change Management Process</li>
+                        <li>DRATA</li>
+                        <li>Fortinet <span>(5+ years)</span></li>
+                        <li>Nessus <span>(6+ years)</span></li>
+                        <li>Qualys <span>(7+ years)</span></li>
+                        <li>Varonis <span>(4+ years)</span></li>
+                    </ul>
+                </div>
+                
+                <div class="skills-section">
+                    <h3>Collaboration & Workflow Management</h3>
+                    <ul>
+                        <li>Confluence <span>(5+ years)</span></li>
+                        <li>Jira <span>(4+ years)</span></li>
+                        <li>SharePoint/Teams <span>(5+ years)</span></li>
+                        <li>Lucid Visual Collaboration Suite</li>
+                    </ul>
+                </div>
+                
+                <div class="skills-section">
+                    <h3>Automation & Scripting</h3>
+                    <ul>
+                        <li>COBOL <span>(3+ years)</span></li>
+                        <li>PowerShell <span>(7+ years)</span></li>
+                        <li>Python <span>(5+ years)</span></li>
+                        <li>HTML <span>(6+ years)</span></li>
+                    </ul>
+                </div>
+                
+                <div class="skills-section">
+                    <h3>Other Technical Expertise</h3>
+                    <ul>
+                        <li>Exchange Admin Center</li>
+                        <li>Microsoft Exchange Online</li>
+                        <li>Aristotle Insight</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Achievements Section -->
+            <div class="section">
+                <h2>Achievements</h2>
+                <ul class="details">
+                    <li>Outstanding Security Consultant Award, (2020)</li>
+                    <li>Excellence in Identity Security, (2018)</li>
+                </ul>
+            </div>
+            
+            <!-- Projects Section -->
+            <div class="section" id="projects">
+                <h2>Key Projects</h2>
+                <div class="project">
+                    <div class="project-header">
+                        <h3 class="project-title">ENTERPRISE-WIDE ZERO TRUST TRANSFORMATION</h3>
+                        <span class="project-date">2022</span>
+                    </div>
+                    <div class="project-org">Department of Homeland Security</div>
+                    <ul>
+                        <li>Led cross-functional team implementing Zero Trust Architecture across <span class="highlight">200+ mission-critical applications</span></li>
+                        <li>Developed comprehensive security architecture incorporating micro-segmentation, just-in-time access, continuous verification, and least privilege enforcement</li>
+                        <li><span class="highlight">Reduced lateral movement risk by 80%</span> while cutting incident response time by 60%</li>
+                        <li>Project completed <span class="highlight">3 months ahead of schedule</span>, establishing new security baseline for federal systems</li>
+                    </ul>
+                </div>
+                
+                <div class="project">
+                    <div class="project-header">
+                        <h3 class="project-title">MULTI-CLOUD IAM CONSOLIDATION</h3>
+                        <span class="project-date">2023</span>
+                    </div>
+                    <div class="project-org">Kroger, Technology & Digital</div>
+                    <ul>
+                        <li>Unified disparate identity systems during migration to hybrid cloud environment spanning AWS and Azure</li>
+                        <li>Designed cloud-native IAM solution with centralized governance, automated workflows, and identity analytics</li>
+                        <li><span class="highlight">Reduced operational costs by $1.2M annually</span> while improving security posture</li>
+                        <li>Enabled seamless identity federation across platforms with <span class="highlight">40+ integrated applications</span></li>
+                        <li>Implemented comprehensive IAM solution supporting <span class="highlight">32,000+ global users</span></li>
+                    </ul>
+                </div>
+
+                <div class="project">
+                    <div class="project-header">
+                        <h3 class="project-title">ONE IDENTITY SAFEGUARD PRIVILEGED ACCESS RE-IMPLEMENTATION</h3>
+                        <span class="project-date">2024</span>
+                    </div>
+                    <div class="project-org">LexisNexis & USPTO</div>
+                    <ul>
+                        <li>Redesigned and operationalized the One Identity Safeguard platform for enterprise-wide privileged access control across hybrid infrastructure.</li>
+                        <li>Documented and validated existing server states, including baseline configuration, session policy, partition mapping, and access workflows.</li>
+                        <li>Executed full offboarding and re-onboarding of privileged assets—ensuring secure session recording, account rotation, and access policy re-alignment.</li>
+                        <li>Integrated AD security groups for dynamic partition control, implemented managed account governance, and enforced dual-approval workflows for high-sensitivity systems.</li>
+                        <li>Validated privileged session integrity, audited Safeguard logs, resolved system policy enforcement issues, and coordinated cert-based authentication reconfiguration leveraging wildcard certificates retrieved from Keeper.</li>
+                        <li>Authored and structured change management documentation, lifecycle policy, and emergency access protocols to meet compliance with NIST, CIS, and internal audit controls.</li>
+                        <li>Interfaced with stakeholders and vendor PMs to bridge gaps between internal readiness and third-party consulting engagement.</li>
+                        <li>Provided post-deployment verification across Safeguard versions (7.5.1), documented CLI/GUI limitations, and ensured technical continuity despite restricted administrative scope within a VM-based operational environment.</li>
+                    </ul>
+                </div>
+                
+                <div class="project">
+                    <div class="project-header">
+                        <h3 class="project-title">PRIVILEGED ACCESS SECURITY TRANSFORMATION</h3>
+                        <span class="project-date">2024</span>
+                    </div>
+                    <div class="project-org">LexisNexis & USPTO</div>
+                    <ul>
+                        <li>Spearheaded enterprise-wide privileged access security program incorporating modern PAM solutions</li>
+                        <li>Implemented Just-In-Time access, behavioral analytics, and continuous monitoring</li>
+                        <li>Developed comprehensive secret management solution for applications and DevOps pipelines</li>
+                        <li><span class="highlight">Reduced privileged credential exposure by 90%</span> while enabling automated auditing and compliance reporting</li>
+                        <li>Solution became reference architecture for other federal agencies</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Awards Section -->
+            <div class="section">
+                <h2>Awards</h2>
+                <ul class="details">
+                    <li><strong>Security Leadership Award</strong> - Accessia Health (2021)</li>
+                    <li><strong>Best Security Team Award</strong> - Kroger Technology & Digital (2023)</li>
+                </ul>
+            </div>
+            
+            <!-- Passions Section -->
+            <div class="section">
+                <h2>Passions</h2>
+                <p>Community Volunteering</p>
+                <p>Cybersecurity Trends and Developments</p>
+                <p>Gardening</p>
+                <p>Scifi Books</p>
+                <p><img src="fr/france.png" class="icon"><a href="fr/fr.html" target="_blank">Version Française</a></p>
+            </div>
+        </div>
+        
+        <!-- Right Column -->
+        <div class="right-column">
+            <!-- Professional Overview -->
+            <div class="section">
+                <h2>Professional Overview</h2>
+                <p>Principal Cybersecurity & IAM Strategist dedicated to navigating complex corporate ecosystems with adaptability and a critical eye. I bring over 15 years of experience securing organizations across diverse industries. Passionate about designing innovative security solutions, implementing scalable systems, and empowering businesses to thrive in an increasingly digital world. Recognized for leadership in IAM, Zero Trust strategies, and enhancing cloud security. Dedicated to creating resilient infrastructures and driving operational excellence.</p>
+            </div>
+            
+            <!-- Professional Experience -->
+            <div class="section" id="experience">
+                <h2>Professional Experience</h2>
+                
+                <!-- Job 1 -->
+                <div class="job-description" style="display:none;">
+                    <div class="job-header">
+                        <div class="job-title-container">
+                            <span class="badge">IAM & Security Forensics Engineer</span>
+                            <span class="contract-badge">CONTRACT</span>
+                        </div>
+                        <span class="job-date">Dec 2024 - Present</span>
+                    </div>
+                    <span class="company-name">
+                        <span class="placeholder">Local City Government</span>
+                        <span class="real-name">City of Chesapeake, VA</span>
+                    </span>
+                    <ul>
+                        <li>Implemented and managed IAM solutions using One Identity, ADManager Plus, and Microsoft 365, ensuring secure identity governance and streamlined user lifecycle management.</li>
+                        <li>Conducted forensic security investigations using Secureworks Taegis and Sophos MDR, identifying threat vectors and mitigating security breaches.</li>
+                        <li>Developed and enforced access control policies, reducing unauthorized access incidents and improving overall security posture.</li>
+                        <li>Led cloud security initiatives across AWS, Azure, and GCP, aligning security frameworks with NIST 800-53, CIS, and HIPAA compliance standards.</li>
+                        <li>Designed and managed Microsoft 365 & Exchange Online security policies, leveraging DLP and Abnormal Security to prevent phishing and account takeovers.</li>
+                        <li>Utilized Python and PowerShell for security automation, streamlining IAM provisioning, auditing, and policy enforcement.</li>
+                        <li>Integrated One Identity Starling for privileged access management, reducing manual administrative efforts and increasing operational efficiency.</li>
+                        <li>Performed risk assessments and third-party security evaluations using Bitsight and DRATA to enhance vendor risk management strategies.</li>
+                        <li>Managed security infrastructure using Palo Alto, Checkpoint Identity Security, and Microsoft Defender for endpoint protection.</li>
+                        <li>Led incident response efforts, leveraging forensic analysis and security monitoring tools to detect, contain, and remediate cybersecurity threats.</li>
+                    </ul>
+                    <p class="job-skills">Skills: IAM Solutions · One Identity · ADManager Plus · Microsoft 365 · Forensic Security · Secureworks Taegis · Sophos MDR · Cloud Security · AWS/Azure/GCP · NIST Standards · Compliance (HIPAA, CIS) · PowerShell · Python · Incident Response</p>
+                </div>
+                
+                <!-- Job 2 -->
+                <div class="job-description">
+                    <div class="job-header">
+                        <div class="job-title-container">
+                            <span class="badge">Threat Detection/Security Automation Architect</span>
+                            <span class="contract-badge">CONTRACT</span>
+                            <span class="clearance-badge">PUBLIC TRUST CLEARANCE</span>
+                        </div>
+                        <span class="job-date">2024 - Present</span>
+                    </div>
+                    <span class="company-name">
+                        <span class="placeholder">Federal Contractor, Legal Technology Organization</span>
+                        <span class="real-name">LexisNexis / United States Patent and Trademark Office</span>
+                    </span>
+                    <ul>
+                        <li><span class="highlight">Threat Detection Integration:</span> Engineered solutions using CrowdStrike Falcon, Microsoft Defender, Palo Alto, and Checkpoint Identity Security, correlating telemetry across platforms to <span class="highlight">reduce incident response time by 90%</span>.</li>
+                        <li><span class="highlight">Zero Trust Implementation:</span> Constructed framework with Just-In-Time provisioning and risk-based authentication, <span class="highlight">reducing standing privileges by 60%</span> while implementing continuous authentication monitoring aligned with NIST 800-207.</li>
+                        <li><span class="highlight">Privileged Access Management:</span> Utilized One Identity Safeguard, Secureworks Taegis, and Sophos MDR in tandem to monitor privileged sessions, detect anomalous behavior, and respond to threats across <span class="highlight">500+ hybrid systems</span>.</li>
+                        <li><span class="highlight">IAM Modernization:</span> Migrated legacy platforms to Microsoft Identity Platform and Okta, enabling FIDO2/WebAuthn passwordless authentication, adaptive MFA, and lifecycle automation using PowerShell and Python for <span class="highlight">15,000+ users</span>.</li>
+                        <li><span class="highlight">Federated Authentication Integration:</span> Integrated Auth0 into enterprise IAM stack to enable OAuth2/OpenID Connect-based SSO across internal apps, supporting FedRAMP and NIST 800-53-compliant authentication workflows.</li>
+                        <li><span class="highlight">Digital Forensics:</span> Designed and executed forensic response plans using Secureworks Taegis and The Sleuth Kit, implementing NIST 800-86-aligned chain-of-custody workflows to preserve evidence integrity.</li>
+                        <li><span class="highlight">Cloud Security:</span> Led Azure security blueprint development, integrating NIST 800-53, CIS, and HIPAA frameworks, while automating compliance validation and reporting workflows across Microsoft 365.</li>
+                        <li><span class="highlight">Multi-Cloud Security:</span> Implemented consistent security controls and policy enforcement across AWS, Azure, and GCP environments with centralized CSPM integration and automated misconfiguration detection.</li>
+                        <li><span class="highlight">Identity Governance:</span> Unified fragmented IAM tools into enterprise-wide architecture using One Identity, ADManager Plus, and Microsoft Entra ID with AI-driven identity analytics and policy-based provisioning.</li>
+                        <li><span class="highlight">Microsoft 365 Security:</span> Overhauled Exchange Online with DLP, data classification, and conditional access policies to mitigate insider threats and enforce Zero Trust access principles.</li>
+                    </ul>
+                    <p class="job-skills">Skills: Entra ID · Active Directory · Azure Active Directory · RSA · Crowdstrike · SSO/MFA · Zero Trust Architecture · PowerShell · Python · Bash · Windows/Linux Servers · PKI · NIST/ISO Standards · Technical Documentation</p>
+                </div>
+                
+                <!-- Job 3 -->
+                <div class="job-description">
+                    <div class="job-header">
+                        <div class="job-title-container">
+                            <span class="badge">Principal Identity and Access Management, Security Architect</span>
+                        </div>
+                        <span class="job-date">2022 - 2024</span>
+                    </div>
+                    <span class="company-name">
+                        <span class="placeholder">Major National Retail Company</span>
+                        <span class="real-name">Kroger, Technology & Digital Department</span>
+                    </span>
+                    <ul>
+                        <li><span class="highlight">Privileged Access Security:</span> Implemented OneIdentity Safeguard/TPAM, aligning workflows with NIST 800-53 within <span class="highlight">6 months</span> and incorporating just-in-time privilege elevation.</li>
+                        <li><span class="highlight">Endpoint Protection:</span> Deployed CrowdStrike Falcon, <span class="highlight">reducing malware incidents by 45%</span> across 2,000+ endpoints.</li>
+                        <li><span class="highlight">Cloud Identity Management:</span> Engineered security modernization using Entra ID/Azure AD for <span class="highlight">12,000+ hybrid users</span> with Kubernetes service identity integration.</li>
+                        <li><span class="highlight">Virtualization Strategy:</span> Standardized infrastructure using VMware vSphere across production and test environments, improving system uptime and reducing operational costs through centralized VM lifecycle management.</li>
+                        <li><span class="highlight">Container Security:</span> Designed pod identity solution for Azure Kubernetes Service (AKS), eliminating the need for static credentials in containerized applications.</li>
+                        <li><span class="highlight">Authentication Modernization:</span> Integrated Okta SSO/MFA across <span class="highlight">40+ apps</span>, implementing risk-based authentication, and reducing password-reset tickets.</li>
+                        <li><span class="highlight">Access Control:</span> Streamlined Active Directory with RBAC/conditional access, <span class="highlight">cutting unauthorized access by 30%</span>.</li>
+                        <li><span class="highlight">Account Lifecycle Management:</span> Automated processes ensuring HIPAA compliance for <span class="highlight">20,000+ accounts</span>.</li>
+                        <li><span class="highlight">Global Identity Provisioning:</span> Led implementation for <span class="highlight">32,000+ users</span> across US/UK teams, <span class="highlight">cutting onboarding time by 55%</span>.</li>
+                        <li><span class="highlight">Data Governance:</span> Enhanced security with Varonis, improving audit readiness for SOX/GDPR compliance.</li>
+                    </ul>
+                    <p class="job-skills">Skills: Microsoft Azure AD/Entra ID · OneIdentity Safeguard · TPAM · CrowdStrike · Active Directory · Okta · SSO/MFA · Varonis · PowerShell · Account Lifecycle Management · Technical Debt Management · Global Team Collaboration</p>
+                </div>
+                
+                <!-- Job 4 -->
+                <div class="job-description">
+                    <div class="job-header">
+                        <div class="job-title-container">
+                            <span class="badge">Customer Identity & Access Management, Architect</span>
+                            <span class="contract-badge">CONTRACT</span>
+                            <span class="clearance-badge">PUBLIC TRUST CLEARANCE</span>
+                        </div>
+                        <span class="job-date">2022 - 2022</span>
+                    </div>
+                    <span class="company-name">
+                        <span class="placeholder">Federal Contractor</span>
+                        <span class="real-name">Department of Homeland Security, OCIO, United States Secret Service</span>
+                    </span>
+                    <ul>
+                        <li><span class="highlight">Privileged Access Management:</span> Streamlined CyberArk's PAM workflows, achieving <span class="highlight">100% compliance</span> with NIST 800-53.</li>
+                        <li><span class="highlight">Network Security:</span> Deployed Fortinet FortiGate firewalls and micro-segmentation, achieving full CISA Zero Trust compliance.</li>
+                        <li><span class="highlight">Enterprise IAM Strategy:</span> Positioned IAM as the cornerstone of DHS security, integrating Active Directory, OAuth 2.0, and SAML 2.0 for <span class="highlight">100+ legacy systems</span>.</li>
+                        <li><span class="highlight">Serverless Security:</span> Implemented secure identity practices for serverless functions in GCP, enabling principle of least privilege with function-level permissions.</li>
+                        <li><span class="highlight">Risk-Based Access Control:</span> Mapped <span class="highlight">75+ systems</span> to business-criticality tiers, <span class="highlight">reducing high-risk privileged accounts by 35%</span>.</li>
+                        <li><span class="highlight">Cloud Migration Security:</span> Orchestrated GCP migration for <span class="highlight">50+ on-premises systems</span>, enabling FedRAMP Moderate authorization with comprehensive SIEM integration.</li>
+                        <li><span class="highlight">Identity Governance:</span> Enforced granular access policies via Saviynt across <span class="highlight">15,000+ user accounts</span>.</li>
+                        <li><span class="highlight">Security Certification:</span> Spearheaded ISO 27001 certification for DHS's Information Security Management System.</li>
+                        <li><span class="highlight">Agile Development:</span> Utilized Agile, SCRUM, and scripting languages (PowerShell, Python, Java) to enhance system resilience and efficiency in alignment with FISMA compliance and security standards.</li>
+                    </ul>
+                    <p class="job-skills">Skills: CyberArk · Google Cloud Platform (GCP) · FISMA Compliance · PowerShell · Python · Java · Active Directory · OAuth · SAML · Fortinet · Zero Trust Architecture · FedRAMP · ISO 27001 · Saviynt · Qualys</p>
+                </div>
+                
+                <!-- Job 5 -->
+                <div class="job-description">
+                    <div class="job-header">
+                        <div class="job-title-container">
+                            <span class="badge">Cloud Vulnerability, Analyst</span>
+                            <span class="contract-badge">CONTRACT</span>
+                        </div>
+                        <span class="job-date">2021 - 2021</span>
+                    </div>
+                    <span class="company-name">
+                        <span class="placeholder">Non-profit Healthcare</span>
+                        <span class="real-name">Accessia Healthcare</span>
+                    </span>
+                    <ul>
+                        <li><span class="highlight">Single Sign-On Implementation:</span> Deployed PingFederate and Citrix NetScaler with <span class="highlight">99.9% uptime</span> for healthcare applications.</li>
+                        <li><span class="highlight">Privileged Access Security:</span> Spearheaded CyberArk implementation with NIST 800-53-aligned credential vaulting.</li>
+                        <li><span class="highlight">Threat Detection:</span> Engineered Microsoft Defender for Identity integration, <span class="highlight">reducing unauthorized access incidents by 75%</span>.</li>
+                        <li><span class="highlight">Cloud-Native Security:</span> Implemented identity-aware proxies and service meshes for securing microservices architecture in AWS.</li>
+                        <li><span class="highlight">Identity Architecture:</span> Designed framework integrating Azure AD and PingFederate for <span class="highlight">5,000+ hybrid identities</span>.</li>
+                        <li><span class="highlight">Behavioral Authentication:</span> Implemented user and entity behavior analytics (UEBA) to detect compromised credentials and insider threats.</li>
+                        <li><span class="highlight">Secure Communications:</span> Modernized SSL/TLS protocols for <span class="highlight">150+ domains</span>, maintaining 100% compliance.</li>
+                        <li><span class="highlight">Risk Management:</span> Led vulnerability assessments aligned with NIST 800-53 and HIPAA standards.</li>
+                        <li><span class="highlight">Compliance Automation:</span> Implemented reporting via PingFederate logs for SOX, GDPR, and HIPAA audits.</li>
+                    </ul>
+                    <p class="job-skills">Skills: HIPAA/NIST Compliance · Vulnerability Assessment · Healthcare IT · Microsoft Defender · MFA Implementation · SSL/TLS Management · EHR/PACS Systems · Auth0 · CyberArk · Regulatory Compliance (SOX, GDPR)</p>
+                </div>
+                
+                <!-- Job 6 -->
+                <div class="job-description">
+                    <div class="job-header">
+                        <div class="job-title-container">
+                            <span class="badge">Privileged Access Management, Architect</span>
+                        </div>
+                        <span class="job-date">2019 - 2021</span>
+                    </div>
+                    <span class="company-name">
+                        <span class="placeholder">Pharmaceutical Company</span>
+                        <span class="real-name">Indivior Pharmaceuticals</span>
+                    </span>
+                    <ul>
+                        <li><span class="highlight">Privileged Account Security:</span> Deployed BeyondTrust PAM, securing <span class="highlight">1,200+ privileged accounts</span> with SOX-compliant audit controls.</li>
+                        <li><span class="highlight">Conditional Access:</span> Architected role-based, location-based, and device-compliance policies in Microsoft Entra ID.</li>
+                        <li><span class="highlight">Cloud Security:</span> Designed GCP security framework using Google IAM and Security Command Center for real-time threat detection.</li>
+                        <li><span class="highlight">SSO & MFA Integration:</span> Integrated Azure AD/Entra ID to enhance user verification and streamline access management.</li>
+                        <li><span class="highlight">Data Protection:</span> Implemented BitLocker encryption and backup policies to safeguard ePHI across all endpoints.</li>
+                        <li><span class="highlight">Continuous Authentication:</span> Implemented risk-based authentication with context-aware access policies to dynamically adjust security requirements.</li>
+                        <li><span class="highlight">Infrastructure-as-Code Security:</span> Integrated security guardrails into Terraform deployments, ensuring compliance from deployment to runtime.</li>
+                        <li><span class="highlight">Identity Lifecycle Management:</span> Engineered SailPoint provisioning/deprovisioning workflows for <span class="highlight">500+ employees</span>.</li>
+                        <li><span class="highlight">Identity Governance:</span> Led SailPoint IdentityNow implementation, enabling centralized governance for distributed workforce.</li>
+                        <li><span class="highlight">Least Privilege Implementation:</span> Mapped <span class="highlight">200+ job functions</span> to least-privilege roles, eliminating segregation-of-duties conflicts.</li>
+                        <li><span class="highlight">Mobile Device Security:</span> Designed IAM solutions using Microsoft Intune for secure mobile device management and remote access enforcement.</li>
+                        <li><span class="highlight">Endpoint Protection:</span> Maintained Carbon Black for threat hunting, policy enforcement, and incident response.</li>
+                    </ul>
+                    <p class="job-skills">Skills: Microsoft Azure AD/Entra ID · SSO/MFA · BitLocker · Microsoft Intune · Active Directory · Linux Administration · SailPoint IdentityNow · Google Cloud Platform (GCP) · BeyondTrust · Carbon Black · PowerShell · Python</p>
+                </div>
+                
+                <!-- Job 7 -->
+                <div class="job-description">
+                    <div class="job-header">
+                        <div class="job-title-container">
+                            <span class="badge">Identity and Access Management, Analyst</span>
+                            <span class="contract-badge">CONTRACT</span>
+                        </div>
+                        <span class="job-date">2019 - 2019</span>
+                    </div>
+                    <span class="company-name">
+                        <span class="placeholder">Financial Services</span>
+                        <span class="real-name">Wells Fargo Bank</span>
+                    </span>
+                    <ul>
+                        <li><span class="highlight">Zero Trust Architecture:</span> Designed the bank's first Zero Trust-aligned IAM framework, <span class="highlight">reducing policy exceptions by 35%</span>.</li>
+                        <li><span class="highlight">Security Automation:</span> Leveraged Microsoft Defender's auto-remediation capabilities, <span class="highlight">cutting manual SOC tasks by 30%</span>.</li>
+                        <li><span class="highlight">Customer Authentication:</span> Engineered progressive profiling workflows using ADFS with <span class="highlight">99.9% portal uptime</span>.</li>
+                        <li><span class="highlight">Multi-Cloud Security Governance:</span> Implemented consistent identity controls across AWS and Azure environments.</li>
+                        <li><span class="highlight">Regulatory Compliance:</span> Enforced FFIEC and GLBA requirements via SCCM and Office 365 access controls.</li>
+                        <li><span class="highlight">Identity Management:</span> Maintained <span class="highlight">12,000+ user accounts</span> across hybrid environments through automated lifecycle workflows.</li>
+                        <li><span class="highlight">Security Training:</span> Conducted staff education on best practices, reducing phishing incident response time.</li>
+                    </ul>
+                    <p class="job-skills">Skills: IAM Compliance · Agile/Waterfall Methodologies · Active Directory · Office 365 · SCCM · VMware · Microsoft Defender · Splunk · COBOL · Security Awareness Training</p>
+                </div>
+                
+                <!-- Job 8 -->
+                <div class="job-description">
+                    <div class="job-header">
+                        <div class="job-title-container">
+                            <span class="badge">Customer Identity & Access Management, Engineer</span>
+                        </div>
+                        <span class="job-date">2015 - 2019</span>
+                    </div>
+                    <span class="company-name">
+                        <span class="placeholder">Digital Security Consulting Firm</span>
+                        <span class="real-name">Wellsecured IT</span>
+                    </span>
+                    <ul>
+                        <li><span class="highlight">IAM Transformation:</span> Led migration to ForgeRock Identity Management, standardizing identity lifecycle workflows for hybrid environments.</li>
+                        <li><span class="highlight">Access Control:</span> Architected conditional access policies using Microsoft Defender for privileged account management.</li>
+                        <li><span class="highlight">Security Monitoring:</span> Integrated Splunk with IAM tools, achieving ISO/IEC 27001 and NIST 800-53 compliance.</li>
+                        <li><span class="highlight">API Security:</span> Implemented OAuth 2.0 and OpenID Connect protocols for securing cloud-native application APIs.</li>
+                        <li><span class="highlight">Cloud Identity Security:</span> Built AWS IAM roles and encryption protocols across multi-cloud environments.</li>
+                        <li><span class="highlight">Secure Access Solutions:</span> Designed Citrix-based security for financial services clients' mission-critical applications.</li>
+                        <li><span class="highlight">Customer Authentication:</span> Spearheaded Auth0 integration for client-facing portals, balancing security with user experience.</li>
+                        <li><span class="highlight">Security Automation:</span> Partnered with DevOps teams to streamline log analysis and incident response.</li>
+                    </ul>
+                    <p class="job-skills">Skills: ForgeRock IDM · Splunk · ISO/IEC 27001 · NIST Standards · Ping Identity · Citrix · VMware · VirtualBox · Hyper-V · PowerShell · AWS · Auth0 · Identity Lifecycle Management</p>
+                </div>
+                
+                <!-- Job 9 -->
+                <div class="job-description">
+                    <div class="job-header">
+                        <div class="job-title-container">
+                            <span class="badge">Cloud Security Operations</span>
+                        </div>
+                        <span class="job-date">2011 - 2015</span>
+                    </div>
+                    <span class="company-name">
+                        <span class="placeholder">Cybersecurity Consulting Firm</span>
+                        <span class="real-name">Cloudcentria Security</span>
+                    </span>
+                    <ul>
+                        <li><span class="highlight">Threat Response:</span> Neutralized multi-vector DDoS attacks targeting financial sector clients with <span class="highlight">99.99% uptime</span>.</li>
+                        <li><span class="highlight">Identity Integration:</span> Pioneered Azure AD patterns for hybrid environments, adopted by Microsoft partner network.</li>
+                        <li><span class="highlight">Digital Forensics:</span> Led investigation recovering stolen intellectual property, establishing cloud evidence handling protocols.</li>
+                        <li><span class="highlight">Cloud Workload Protection:</span> Implemented comprehensive security for IaaS, PaaS, and serverless deployments across AWS environments.</li>
+                        <li><span class="highlight">Compliance Management:</span> Developed NIST 800-53 and ISO 27001-aligned policies with <span class="highlight">100% audit success</span>.</li>
+                        <li><span class="highlight">Vulnerability Management:</span> Scaled Nessus-based assessments to <span class="highlight">15,000+ assets</span> in AWS/Azure infrastructure.</li>
+                        <li><span class="highlight">Authentication Unification:</span> Integrated Ping Identity with Okta across SaaS platforms, reducing helpdesk requests.</li>
+                        <li><span class="highlight">Security Training:</span> Educated analysts in Kali Linux penetration testing methodologies for cloud environments.</li>
+                    </ul>
+                    <p class="job-skills">Skills: Policy Development · Kali Linux · Penetration Testing · Ping Identity · Active Directory · Azure AD/Entra ID · DDoS Mitigation · Nessus · Digital Forensics · The Sleuth Kit · Incident Response</p>
+                </div>
+                
+                <!-- Job 10 -->
+                <div class="job-description">
+                    <div class="job-header">
+                        <div class="job-title-container">
+                            <span class="badge">Systems Administrator II</span>
+                        </div>
+                        <span class="job-date">2009 - 2011</span>
+                    </div>
+                    <span class="company-name">
+                        <span class="placeholder">PC Repair</span>
+                        <span class="real-name">uBreakiFix</span>
+                    </span>
+                    <ul>
+                        <li><span class="highlight">Technical Support:</span> Delivered first-level support for hardware, software, and network issues via phone, email, and in-person.</li>
+                        <li><span class="highlight">Incident Management:</span> Assessed and prioritized tickets based on impact and urgency to meet SLA targets.</li>
+                        <li><span class="highlight">Customer Service:</span> Maintained high satisfaction through timely support and detailed documentation of service desk activities.</li>
+                    </ul>
+                    <p class="job-skills">Skills: Governance, Risk Management, and Compliance (GRC) · Strategy and Leadership · Technical Proficiency and Innovation · Technical Support · Hardware/Software Troubleshooting · SLA Management</p>
+                </div>
+                
+                <!-- Job 11 -->
+                <div class="job-description">
+                    <div class="job-header">
+                        <div class="job-title-container">
+                            <span class="badge">IT Support Associate II</span>
+                        </div>
+                        <span class="job-date">2006 - 2009</span>
+                    </div>
+                    <span class="company-name">
+                        <span class="placeholder">Major National Electronics Retail Company</span>
+                        <span class="real-name">Circuit City</span>
+                    </span>
+                    <ul>
+                        <li><span class="highlight">Technical Support:</span> Provided troubleshooting for computer and electronic products, resolving hardware and software issues.</li>
+                        <li><span class="highlight">Product Setup:</span> Assisted customers with initial configuration, software installations, and feature explanations.</li>
+                        <li><span class="highlight">Hardware Repair:</span> Conducted basic repairs or coordinated with authorized service providers.</li>
+                        <li><span class="highlight">Inventory Management:</span> Maintained stock of computer accessories and ensured product availability.</li>
+                        <li><span class="highlight">Customer Engagement:</span> Collaborated with sales team to align technology solutions with customer needs.</li>
+                        <li><span class="highlight">Product Knowledge:</span> Stayed current on technology trends and updated demo areas to reflect latest offerings.</li>
+                    </ul>
+                    <p class="job-skills">Skills: Governance, Risk Management, and Compliance (GRC) · Strategy and Leadership · Technical Proficiency and Innovation · Customer Support · Product Knowledge · Hardware Repair · Inventory Management</p>
+                </div>
+            </div>
+            
+            <!-- Consulting Engagements Section -->
+            <div class="section" id="consulting">
+                <h2>Enterprise IAM Implementations & Consulting Engagements</h2>
+                
+                <div class="consulting-section">
+                    <div class="consulting-header">
+                        <h3 class="consulting-title">Senior IAM Implementation Consultant</h3>
+                        <span class="consulting-date">2021</span>
+                    </div>
+                    <div class="consulting-org">Lands' End - Directory Authentication Implementation</div>
+                    <div class="consulting-environment"><strong>Environment:</strong> Ping Identity, Active Directory, LDAP, PowerShell, ServiceNow ITSM, OAuth 2.0</div>
+                    <ul>
+                        <li>Designed and implemented a specialized authentication directory with selective attribute filtering for secure external partner access.</li>
+                        <li>Built PingFederate authentication policies with core MFA capabilities that balanced security requirements with usability.</li>
+                        <li>Implemented essential OpenID Connect components for customer-facing applications, enhancing digital shopping experience.</li>
+                        <li>Articulated practical security recommendations that aligned IAM strategy with business objectives for leadership approval.</li>
+                        <li>Created integrated troubleshooting tools for the helpdesk with ServiceNow ITSM integration, reducing resolution time for common issues.</li>
+                    </ul>
+                </div>
+                
+                <div class="consulting-section">
+                    <div class="consulting-header">
+                        <h3 class="consulting-title">Senior IAM Automation Engineer</h3>
+                        <span class="consulting-date">2022</span>
+                    </div>
+                    <div class="consulting-org">Lithia Motors - Enterprise Provisioning Automation</div>
+                    <div class="consulting-environment"><strong>Environment:</strong> Entra ID, PowerShell 7, ServiceNow CMDB, Azure Event Hub, Defender EDR, KQL queries</div>
+                    <ul>
+                        <li>Developed comprehensive PowerShell scripts that automated provisioning for <span class="highlight">15,000+ user accounts</span> across two business units, demonstrating a <span class="highlight">60% reduction in processing time</span>.</li>
+                        <li>Created custom Azure Log Analytics workspaces to monitor critical provisioning workflows, giving real-time visibility into account creation.</li>
+                        <li>Implemented standardized workflows between US and UK IT teams, establishing consistent provisioning practices across regions.</li>
+                        <li>Remediated key technical debt issues from legacy provisioning practices and implemented Defender EDR policies that improved security posture.</li>
+                        <li>Built automated compliance reporting using KQL queries against Azure Sentinel data, providing leadership with actionable metrics.</li>
+                    </ul>
+                </div>
+                
+                <div class="consulting-section">
+                    <div class="consulting-header">
+                        <h3 class="consulting-title">Federal ICAM Security Consultant</h3>
+                        <span class="consulting-date">2023</span>
+                    </div>
+                    <div class="consulting-org">U.S. Department of Veterans Affairs - ICAM Security Analysis</div>
+                    <div class="consulting-environment"><strong>Environment:</strong> SailPoint IdentityIQ, OKTA Lifecycle Management, CyberArk PAM, Azure Log Analytics, Winlogbeat, JIRA</div>
+                    <ul>
+                        <li>Conducted comprehensive analysis of privileged accounts across Federal systems, using CyberArk PAM to identify and categorize security gaps.</li>
+                        <li>Created automated reports that helped the team identify and remediate non-PIV compliant accounts, <span class="highlight">improving compliance metrics by 35%</span>.</li>
+                        <li>Designed integration approach between SailPoint and OKTA platforms, establishing the foundation for streamlined identity governance.</li>
+                        <li>Implemented CyberArk policies aligned with Azure AD Conditional Access rules, enhancing security while maintaining operational efficiency.</li>
+                        <li>Established centralized logging for key identity events via Azure Event Hub, creating a unified view of authentication activities.</li>
+                    </ul>
+                </div>
+                
+                <div class="consulting-section">
+                    <div class="consulting-header">
+                        <h3 class="consulting-title">Cloud IAM Security Architect</h3>
+                        <span class="consulting-date">2024</span>
+                    </div>
+                    <div class="consulting-org">Westinghouse Nuclear Energy - Cloud IAM Implementation</div>
+                    <div class="consulting-environment"><strong>Environment:</strong> Azure Entra ID, ADFS, Conditional Access, Azure Sentinel, Defender for Cloud, ServiceNow ITSM</div>
+                    <ul>
+                        <li>Designed and implemented a federated identity architecture enabling secure nuclear data processing in the initial cloud environment.</li>
+                        <li>Built a multi-factor authentication solution using Azure AD that met nuclear industry security standards for the first phase of deployment.</li>
+                        <li>Implemented comprehensive Conditional Access policies covering all critical access scenarios for cloud resources.</li>
+                        <li>Worked directly with product owners to deploy Just-In-Time access through Privileged Identity Management for administrator accounts.</li>
+                        <li>Created and executed a thorough security testing protocol ensuring compliance with regulatory requirements for the initial deployment.</li>
+                    </ul>
+                </div>
+                
+                <div class="consulting-section">
+                    <div class="consulting-header">
+                        <h3 class="consulting-title">Identity Security Solutions Architect</h3>
+                        <span class="consulting-date">2024</span>
+                    </div>
+                    <div class="consulting-org">City of Chesapeake - Identity Threat Protection Implementation</div>
+                    <div class="consulting-environment"><strong>Environment:</strong> CrowdStrike Falcon Identity Protection, Active Directory, Azure Sentinel, Elastic Logstash, NXlog, Palo Alto Firewalls</div>
+                    <ul>
+                        <li>Integrated CrowdStrike Falcon with existing identity systems, establishing real-time monitoring of authentication activities.</li>
+                        <li>Implemented comprehensive Active Directory security controls, including a tiered administrative model for privileged access.</li>
+                        <li>Configured NXlog agents on domain controllers to forward authentication events to a central repository with basic analytics rules.</li>
+                        <li>Developed a practical role-based access control framework for critical municipal systems, balancing security with operational needs.</li>
+                        <li>Created and delivered focused training sessions for IT staff on identity threat detection using real-world attack scenarios.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Volunteer Section -->
+            <div class="section">
+                <h2>Volunteer</h2>
+                <div class="job-description">
+                    <div class="job-header">
+                        <div class="job-title-container">
+                            <span class="badge">Events Coordinator</span>
+                            <span class="volunteer-badge">VOLUNTEER</span>
+                        </div>
+                        <span class="job-date">2024 - Present</span>
+                    </div>
+                    <span class="company-name">
+                        <span class="placeholder">Technology Organization/Non-Profit Volunteer</span>
+                        <span class="real-name">Blacks in Technology: Richmond, Virginia Chapter (Volunteer)</span>
+                    </span>
+                    <ul>
+                        <li>Event Planning: Organized technology-focused events including webinars, workshops, and networking meetups to foster community engagement.</li>
+                        <li>Stakeholder Coordination: Collaborated with tech speakers, sponsors, and volunteers to ensure seamless event execution.</li>
+                        <li>Event Promotion: Managed outreach through social media and marketing channels to maximize attendance and participation.</li>
+                        <li>Logistics Management: Handled event logistics such as venue selection, scheduling, and registration processes.</li>
+                        <li>Continuous Improvement: Collected and analyzed attendee feedback to enhance the quality and impact of future events.</li>
+                        <li>Content Creation: Produced post-event content including summaries, interviews, and blog posts to highlight community insights and outcomes.</li>
+                    </ul>
+                    <p class="job-skills">Skills: Event Planning · Tech Community Engagement · Public Speaking · Content Creation · Social Media Marketing · Networking · Leadership</p>
+                </div>
+            </div>
+            
+            <!-- Education Section -->
+            <div class="section" id="education">
+                <h2>Education</h2>
+                <ul class="details">
+                    <li>
+                        <strong>Bachelor's of Science in Cybersecurity</strong>, University of Richmond 
+                        <span> | 2025</span>
+                        <ul>
+                            <li>Relevant Coursework: Network Security, Cryptography, Ethical Hacking</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Associate of Applied Science in Information Systems</strong>, Reynolds College 
+                        <span> | 2021</span>
+                        <ul>
+                            <li>Relevant Coursework: Database Management, Web Development, Programming Fundamentals</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Certifications Section -->
+            <div class="section">
+                <h2>Certifications</h2>
+                <ul class="details">
+                    <li><strong>AZ-900</strong>, Microsoft Azure Fundamentals <span> | 2025</span></li>
+                    <li><strong>Cybersecurity Essentials</strong>, Cisco <span> | 2021</span></li>
+                    <li><strong>IBM Cloud Essentials</strong>, IBM <span> | 2021</span></li>
+                    <li><strong>Network Administration</strong>, Reynolds College <span> | 2020</span></li>
+                </ul>
+            </div>
+            
+            <!-- Awards and Honors Section -->
+            <div class="section">
+                <h2>Awards and Honors</h2>
+                <ul class="details">
+                    <li><strong>Human Rights Education Training:</strong> US Institute of Diplomacy and Human Rights <span> | 2023</span></li>
+                    <li><strong>Phi Theta Kappa Honor Society</strong>, International Honor Society <span> | 2018</span></li>
+                    <li><strong>Dean's List</strong>, Reynolds College <span> | 2018</span></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Quote of the Day -->
+        <div class="quote-of-the-day" id="quote"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const quotes = [
+                "The future of technology is not in our ability to create machines but in our understanding of how those machines can reshape the soul of humanity.",
+                "The only constant in the evolution of technology is its refusal to remain constrained by the imagination of its creators.",
+                "Every algorithm is a seed planted in the soil of time, destined to grow into solutions for problems we cannot yet see.",
+                "Progress is a paradox: it marches forward yet always loops back to confront the humanity it serves.",
+                "A truly advanced society is one where technology fades into the background, empowering individuals without demanding their attention.",
+                "The challenge of the future will not be building machines that think like us but ensuring we continue to think for ourselves.",
+                "Technology's ultimate triumph lies not in its complexity, but in its simplicity—when it becomes indistinguishable from the human condition.",
+                "In every byte of data lies the possibility of a universe rewritten, a future reimagined.",
+                "The architects of tomorrow must balance the weight of progress with the fragility of wisdom.",
+                "Civilizations rise and fall, but the code we leave behind will outlast the stars themselves.",
+                "Technology thrives where curiosity dares to tread.",
+                "The future belongs to those who code the unknown.",
+                "Every invention is a whisper from tomorrow's possibilities.",
+                "A world driven by technology must pause to ask who drives the driver.",
+                "Progress is not about faster machines but about better questions.",
+                "We shape technology, and in turn, it reshapes us.",
+                "The most powerful tool is not the machine but the mind that wields it.",
+                "In the silence of progress, the loudest voice is innovation.",
+                "The future of technology is a mirror reflecting the best and worst of our humanity.",
+                "As we automate tasks, let us not automate our ethics.",
+                "A truly intelligent machine understands the value of human ignorance.",
+                "Technology's greatest gift is the power to dream beyond our limitations.",
+                "We are not just building tools; we are constructing futures.",
+                "The code of tomorrow is written in the language of imagination.",
+                "Innovation is the art of turning impossibilities into inevitabilities.",
+                "The future is not built by engineers alone but by the dreams they dare to engineer.",
+                "The pace of technology is irrelevant if it leaves humanity behind.",
+                "Every byte of progress must carry the weight of responsibility.",
+                "The more we delegate to machines, the more we must reclaim what makes us human.",
+                "The limits of technology are set only by the boundaries of our courage to explore.",
+                "True advancement lies not in making life easier but in making it richer.",
+                "The architects of the future must code with care for every line creates a legacy.",
+                "Technology without wisdom is power without purpose.",
+                "In the race to innovate, we must not outrun our conscience.",
+                "Every breakthrough is a doorway to a world we are not yet ready to face.",
+                "The greatest risk in technology is believing it has all the answers.",
+                "In the hands of the wise, technology is a tool; in the hands of the careless, a weapon.",
+                "The future of technology is the art of blending complexity with simplicity.",
+                "True progress is measured not by speed but by direction.",
+                "Machines may calculate, but only humans can aspire.",
+                "The algorithms of tomorrow will be written not just with logic but with empathy.",
+                "Every technological leap is a step into uncharted ethical territory.",
+                "A future ruled by machines is no future at all unless guided by human purpose.",
+                "Technology must serve the soul, not enslave it.",
+                "The architects of the digital age are the philosophers of tomorrow.",
+                "Humanity's greatest challenge is to remain human in the age of machines.",
+                "A connected world demands a connected conscience.",
+                "We must code the future with both precision and humility.",
+                "The real innovation lies in using technology to ask, not answer, the biggest questions.",
+                "The foundation of the future is built not with machines, but with the dreams they inspire."
+            ];
+
+            const today = new Date();
+            const quoteIndex = today.getDate() % quotes.length;
+            document.getElementById("quote").textContent = quotes[quoteIndex];
+
+            function replaceTextOnHover() {
+                const companyNames = document.querySelectorAll('.company-name');
+                companyNames.forEach(name => {
+                    const placeholder = name.querySelector('.placeholder');
+                    const realName = name.querySelector('.real-name');
+                    name.addEventListener('mouseover', () => {
+                        placeholder.style.display = 'none';
+                        realName.style.display = 'inline';
+                    });
+                    name.addEventListener('mouseout', () => {
+                        placeholder.style.display = 'inline';
+                        realName.style.display = 'none';
+                    });
+                });
+            }
+
+            replaceTextOnHover();
+            
+            document.querySelectorAll('.quick-nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    document.querySelectorAll('.section').forEach(section => {
+                        section.style.backgroundColor = 'transparent';
+                    });
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.style.backgroundColor = 'var(--highlight-bg)';
+                        targetSection.style.borderLeft = '3px solid var(--primary-color)';
+                        setTimeout(() => {
+                            targetSection.style.backgroundColor = 'transparent';
+                            targetSection.style.borderLeft = 'none';
+                        }, 2000);
+                    }
+                });
+            });
         });
-      }
-      
-      replaceTextOnHover();
-      
-      document.querySelectorAll('.quick-nav a').forEach(link => {
-        link.addEventListener('click', function() {
-          document.querySelectorAll('.section').forEach(section => {
-            section.style.backgroundColor = 'transparent';
-          });
-          const targetId = this.getAttribute('href').substring(1);
-          const targetSection = document.getElementById(targetId);
-          if (targetSection) {
-            targetSection.style.backgroundColor = 'var(--highlight-bg)';
-            targetSection.style.borderLeft = '3px solid var(--primary-color)';
-            setTimeout(() => {
-              targetSection.style.backgroundColor = 'transparent';
-              targetSection.style.borderLeft = 'none';
-            }, 2000);
-          }
-        });
-      });
-    });
-  </script>
+    </script>
 </body>
 </html>
