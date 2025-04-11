@@ -213,6 +213,19 @@
         .section {
             margin-bottom: var(--section-spacing);
             scroll-margin-top: 80px;
+            transition: background-color 0.3s ease;
+            border-radius: var(--border-radius);
+            padding: 0.5rem;
+        }
+        
+        .section:target {
+            background-color: var(--highlight-bg);
+            animation: highlight-fade 3s ease-out;
+        }
+        
+        @keyframes highlight-fade {
+            0% { background-color: var(--highlight-bg); }
+            100% { background-color: transparent; }
         }
         
         .section h2 {
@@ -766,7 +779,7 @@
                         <h3 class="project-title">ENTERPRISE-WIDE ZERO TRUST TRANSFORMATION</h3>
                         <span class="project-date">2022</span>
                     </div>
-                    <div class="project-org">Department of Homeland Security</div>
+                    <div class="project-org">Elite Federal Law Enforcement Technology Division</div>
                     <ul>
                         <li>Led cross-functional team implementing Zero Trust Architecture across <span class="highlight">200+ mission-critical applications</span></li>
                         <li>Developed comprehensive security architecture incorporating micro-segmentation, just-in-time access, continuous verification, and least privilege enforcement</li>
@@ -780,7 +793,7 @@
                         <h3 class="project-title">MULTI-CLOUD IAM CONSOLIDATION</h3>
                         <span class="project-date">2023</span>
                     </div>
-                    <div class="project-org">Kroger, Technology & Digital</div>
+                    <div class="project-org">Fortune 50 Retail Technology & Innovation Center</div>
                     <ul>
                         <li>Unified disparate identity systems during migration to hybrid cloud environment spanning AWS and Azure</li>
                         <li>Designed cloud-native IAM solution with centralized governance, automated workflows, and identity analytics</li>
@@ -795,7 +808,7 @@
                         <h3 class="project-title">ONE IDENTITY SAFEGUARD PRIVILEGED ACCESS RE-IMPLEMENTATION</h3>
                         <span class="project-date">2024</span>
                     </div>
-                    <div class="project-org">LexisNexis & USPTO</div>
+                    <div class="project-org">Leading Global Legal Information & Analytics Provider + Federal Intellectual Property Governing Authority</div>
                     <ul>
                         <li>Redesigned and operationalized the One Identity Safeguard platform for enterprise-wide privileged access control across hybrid infrastructure.</li>
                         <li>Documented and validated existing server states, including baseline configuration, session policy, partition mapping, and access workflows.</li>
@@ -813,7 +826,7 @@
                         <h3 class="project-title">PRIVILEGED ACCESS SECURITY TRANSFORMATION</h3>
                         <span class="project-date">2024</span>
                     </div>
-                    <div class="project-org">LexisNexis & USPTO</div>
+                    <div class="project-org">Leading Global Legal Information & Analytics Provider + Federal Intellectual Property Governing Authority</div>
                     <ul>
                         <li>Spearheaded enterprise-wide privileged access security program incorporating modern PAM solutions</li>
                         <li>Implemented Just-In-Time access, behavioral analytics, and continuous monitoring</li>
@@ -866,7 +879,7 @@
                         <span class="job-date">Dec 2024 - Present</span>
                     </div>
                     <span class="company-name">
-                        <span class="placeholder">Local City Government</span>
+                        <span class="placeholder">Prominent Mid-Atlantic Municipal Government</span>
                         <span class="real-name">City of Chesapeake, VA</span>
                     </span>
                     <ul>
@@ -895,7 +908,7 @@
                         <span class="job-date">2024 - Present</span>
                     </div>
                     <span class="company-name">
-                        <span class="placeholder">Federal Contractor, Legal Technology Organization</span>
+                        <span class="placeholder">Leading Global Legal Information & Analytics Provider + Federal Intellectual Property Governing Authority</span>
                         <span class="real-name">LexisNexis / United States Patent and Trademark Office</span>
                     </span>
                     <ul>
@@ -922,8 +935,8 @@
                         <span class="job-date">2022 - 2024</span>
                     </div>
                     <span class="company-name">
-                        <span class="placeholder">Major National Retail Company</span>
-                        <span class="real-name">Kroger, Technology & Digital Department</span>
+                        <span class="placeholder">Fortune 50 Retail Technology & Innovation Center</span>
+                        <span class="real-name">Kroger Technology & Digital Department</span>
                     </span>
                     <ul>
                         <li><span class="highlight">Privileged Access Security:</span> Implemented OneIdentity Safeguard/TPAM, aligning workflows with NIST 800-53 within <span class="highlight">6 months</span> and incorporating just-in-time privilege elevation.</li>
@@ -951,7 +964,7 @@
                         <span class="job-date">2022 - 2022</span>
                     </div>
                     <span class="company-name">
-                        <span class="placeholder">Federal Contractor</span>
+                        <span class="placeholder">Elite Federal Law Enforcement Technology Division</span>
                         <span class="real-name">Department of Homeland Security, OCIO, United States Secret Service</span>
                     </span>
                     <ul>
@@ -978,8 +991,8 @@
                         <span class="job-date">2021 - 2021</span>
                     </div>
                     <span class="company-name">
-                        <span class="placeholder">Non-profit Healthcare</span>
-                        <span class="real-name">Accessia Healthcare</span>
+                        <span class="placeholder">National Patient Assistance Organization (Non-Profit)</span>
+                        <span class="real-name">Accessia Health</span>
                     </span>
                     <ul>
                         <li><span class="highlight">Single Sign-On Implementation:</span> Deployed PingFederate and Citrix NetScaler with <span class="highlight">99.9% uptime</span> for healthcare applications.</li>
@@ -1004,7 +1017,7 @@
                         <span class="job-date">2019 - 2021</span>
                     </div>
                     <span class="company-name">
-                        <span class="placeholder">Pharmaceutical Company</span>
+                        <span class="placeholder">Global Specialty Pharmaceutical Innovator</span>
                         <span class="real-name">Indivior Pharmaceuticals</span>
                     </span>
                     <ul>
@@ -1034,7 +1047,7 @@
                         <span class="job-date">2019 - 2019</span>
                     </div>
                     <span class="company-name">
-                        <span class="placeholder">Financial Services</span>
+                        <span class="placeholder">Top 5 U.S. Banking & Financial Services Corporation</span>
                         <span class="real-name">Wells Fargo Bank</span>
                     </span>
                     <ul>
@@ -1058,8 +1071,8 @@
                         <span class="job-date">2015 - 2019</span>
                     </div>
                     <span class="company-name">
-                        <span class="placeholder">Digital Security Consulting Firm</span>
-                        <span class="real-name">Wellsecured IT</span>
+                        <span class="placeholder">Enterprise-Level IT Security Solutions Provider</span>
+                        <span class="real-name">WellSecured IT</span>
                     </span>
                     <ul>
                         <li><span class="highlight">IAM Transformation:</span> Led migration to ForgeRock Identity Management, standardizing identity lifecycle workflows for hybrid environments.</li>
@@ -1083,7 +1096,7 @@
                         <span class="job-date">2011 - 2015</span>
                     </div>
                     <span class="company-name">
-                        <span class="placeholder">Cybersecurity Consulting Firm</span>
+                        <span class="placeholder">Premier Cloud Cybersecurity Firm</span>
                         <span class="real-name">Cloudcentria Security</span>
                     </span>
                     <ul>
@@ -1108,7 +1121,7 @@
                         <span class="job-date">2009 - 2011</span>
                     </div>
                     <span class="company-name">
-                        <span class="placeholder">PC Repair</span>
+                        <span class="placeholder">National Tech Repair & Services Franchise</span>
                         <span class="real-name">uBreakiFix</span>
                     </span>
                     <ul>
@@ -1128,7 +1141,7 @@
                         <span class="job-date">2006 - 2009</span>
                     </div>
                     <span class="company-name">
-                        <span class="placeholder">Major National Electronics Retail Company</span>
+                        <span class="placeholder">Former Fortune 500 Consumer Electronics Retailer</span>
                         <span class="real-name">Circuit City</span>
                     </span>
                     <ul>
@@ -1152,7 +1165,7 @@
                         <h3 class="consulting-title">Senior IAM Implementation Consultant</h3>
                         <span class="consulting-date">2021</span>
                     </div>
-                    <div class="consulting-org">Lands' End - Directory Authentication Implementation</div>
+                    <div class="consulting-org">Fortune 500 Apparel and Lifestyle Merchandiser</div>
                     <div class="consulting-environment"><strong>Environment:</strong> Ping Identity, Active Directory, LDAP, PowerShell, ServiceNow ITSM, OAuth 2.0</div>
                     <ul>
                         <li>Designed and implemented a specialized authentication directory with selective attribute filtering for secure external partner access.</li>
@@ -1168,7 +1181,7 @@
                         <h3 class="consulting-title">Senior IAM Automation Engineer</h3>
                         <span class="consulting-date">2022</span>
                     </div>
-                    <div class="consulting-org">Lithia Motors - Enterprise Provisioning Automation</div>
+                    <div class="consulting-org">Leading National Automotive Retail Corporation</div>
                     <div class="consulting-environment"><strong>Environment:</strong> Entra ID, PowerShell 7, ServiceNow CMDB, Azure Event Hub, Defender EDR, KQL queries</div>
                     <ul>
                         <li>Developed comprehensive PowerShell scripts that automated provisioning for <span class="highlight">15,000+ user accounts</span> across two business units, demonstrating a <span class="highlight">60% reduction in processing time</span>.</li>
@@ -1184,7 +1197,7 @@
                         <h3 class="consulting-title">Federal ICAM Security Consultant</h3>
                         <span class="consulting-date">2023</span>
                     </div>
-                    <div class="consulting-org">U.S. Department of Veterans Affairs - ICAM Security Analysis</div>
+                    <div class="consulting-org">Major Federal Veterans Services Agency</div>
                     <div class="consulting-environment"><strong>Environment:</strong> SailPoint IdentityIQ, OKTA Lifecycle Management, CyberArk PAM, Azure Log Analytics, Winlogbeat, JIRA</div>
                     <ul>
                         <li>Conducted comprehensive analysis of privileged accounts across Federal systems, using CyberArk PAM to identify and categorize security gaps.</li>
@@ -1200,7 +1213,7 @@
                         <h3 class="consulting-title">Cloud IAM Security Architect</h3>
                         <span class="consulting-date">2024</span>
                     </div>
-                    <div class="consulting-org">Westinghouse Nuclear Energy - Cloud IAM Implementation</div>
+                    <div class="consulting-org">Global Nuclear Energy Solutions Provider</div>
                     <div class="consulting-environment"><strong>Environment:</strong> Azure Entra ID, ADFS, Conditional Access, Azure Sentinel, Defender for Cloud, ServiceNow ITSM</div>
                     <ul>
                         <li>Designed and implemented a federated identity architecture enabling secure nuclear data processing in the initial cloud environment.</li>
@@ -1216,7 +1229,7 @@
                         <h3 class="consulting-title">Identity Security Solutions Architect</h3>
                         <span class="consulting-date">2024</span>
                     </div>
-                    <div class="consulting-org">City of Chesapeake - Identity Threat Protection Implementation</div>
+                    <div class="consulting-org">Prominent Mid-Atlantic Municipal Government</div>
                     <div class="consulting-environment"><strong>Environment:</strong> CrowdStrike Falcon Identity Protection, Active Directory, Azure Sentinel, Elastic Logstash, NXlog, Palo Alto Firewalls</div>
                     <ul>
                         <li>Integrated CrowdStrike Falcon with existing identity systems, establishing real-time monitoring of authentication activities.</li>
@@ -1378,6 +1391,28 @@
             }
 
             replaceTextOnHover();
+
+            // Add click handler for nav links to highlight target section
+            document.querySelectorAll('.quick-nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    // Remove any existing highlights
+                    document.querySelectorAll('.section').forEach(section => {
+                        section.style.backgroundColor = 'transparent';
+                    });
+                    
+                    // Highlight target section
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.style.backgroundColor = 'var(--highlight-bg)';
+                        targetSection.style.borderLeft = '3px solid var(--primary-color)';
+                        setTimeout(() => {
+                            targetSection.style.backgroundColor = 'transparent';
+                            targetSection.style.borderLeft = 'none';
+                        }, 2000);
+                    }
+                });
+            });
         });
     </script>
 </body>
