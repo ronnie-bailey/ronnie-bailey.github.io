@@ -1,0 +1,123 @@
+Option Explicit
+
+' === CONFIGURE THESE TWO ===
+Const DATA_SHEET As String = "Main"  ' <-- change if your main sheet name differs
+Const MARKER_COL As Long = 1         ' <-- column number with the state marker (1=A, 2=B, etc.)
+
+' List of US states
+Private Function StateList() As Variant
+    StateList = Array("AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY")
+End Function
+
+' Returns TRUE if ch is an A–Z letter (after UCase)
+Private Function IsLetter(ByVal ch As String) As Boolean
+    If Len(ch) = 0 Then
+        IsLetter = False
+    Else
+        ch = UCase$(ch)
+        IsLetter = (ch >= "A" And ch <= "Z")
+    End If
+End Function
+
+' Extract a valid 2-letter state code from text, ensuring it's not inside a larger A–Z run
+Private Function GetStateFromText(ByVal s As String) As String
+    Dim states As Variant, i As Long, p As Long
+    Dim upS As String, beforeCh As String, afterCh As String
+
+    upS = UCase$(s)
+    states = StateList()
+
+    For i = LBound(states) To UBound(states)
+        p = InStr(1, upS, states(i), vbTextCompare)
+        Do While p > 0
+            ' Char before token
+            If p > 1 Then beforeCh = Mid$(upS, p - 1, 1) Else beforeCh = ""
+            ' Char after token (token length = 2)
+            If p + 2 <= Len(upS) Then afterCh = Mid$(upS, p + 2, 1) Else afterCh = ""
+
+            ' Accept only if not surrounded by letters (avoids matching "IN" inside words like "STRING")
+            If Not IsLetter(beforeCh) And Not IsLetter(afterCh) Then
+                GetStateFromText = states(i)
+                Exit Function
+            End If
+            p = InStr(p + 1, upS, states(i), vbTextCompare)
+        Loop
+    Next i
+
+    GetStateFromText = ""
+End Function
+
+' Ensure each state sheet exists; clear old rows; copy headers from data sheet
+Private Sub PrepareStateSheets(ByVal headerRange As Range)
+    Dim states As Variant, i As Long
+    Dim t As Worksheet
+
+    states = StateList()
+
+    For i = LBound(states) To UBound(states)
+        On Error Resume Next
+        Set t = ThisWorkbook.Worksheets(states(i))
+        On Error GoTo 0
+
+        If t Is Nothing Then
+            Set t = ThisWorkbook.Worksheets.Add(After:=Sheets(Sheets.Count))
+            t.Name = states(i)
+        End If
+
+        ' Copy header row to A1 (overwrite)
+        headerRange.Copy t.Range("A1")
+
+        ' Clear data rows below header
+        If t.Rows.Count > 1 Then
+            t.Rows("2:" & t.Rows.Count).ClearContents
+        End If
+
+        Set t = Nothing
+    Next i
+End Sub
+
+Public Sub SplitRowsByState()
+    Dim ws As Worksheet, lastRow As Long, lastCol As Long, r As Long
+    Dim st As String, t As Worksheet
+    Dim header As Range, targetCell As Range
+
+    On Error Resume Next
+    Set ws = ThisWorkbook.Worksheets(DATA_SHEET)
+    On Error GoTo 0
+    If ws Is Nothing Then
+        MsgBox "Sheet '" & DATA_SHEET & "' not found. Update DATA_SHEET constant.", vbExclamation
+        Exit Sub
+    End If
+
+    ' Detect last row/col (assumes headers in row 1)
+    lastRow = ws.Cells(ws.Rows.Count, MARKER_COL).End(xlUp).Row
+    lastCol = ws.Cells(1, ws.Columns.Count).End(xlToLeft).Column
+    If lastRow < 2 Then
+        MsgBox "No data rows found under headers.", vbExclamation
+        Exit Sub
+    End If
+
+    Set header = ws.Cells(1, 1).Resize(1, lastCol)
+
+    Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+
+    ' Prepare state sheets (ensure exist, copy header, clear old data)
+    PrepareStateSheets header
+
+    ' Copy rows to their state sheets
+    For r = 2 To lastRow
+        st = GetStateFromText(CStr(ws.Cells(r, MARKER_COL).Value))
+        If Len(st) = 2 Then
+            Set t = ThisWorkbook.Worksheets(st)
+            ' Find next empty row on target
+            Set targetCell = t.Cells(t.Rows.Count, 1).End(xlUp).Offset(1, 0)
+            ws.Cells(r, 1).Resize(1, lastCol).Copy targetCell
+        End If
+    Next r
+
+    Application.Calculation = xlCalculationAutomatic
+    Application.ScreenUpdating = True
+
+    MsgBox "Done. Rows copied to state sheets.", vbInformation
+End Sub
