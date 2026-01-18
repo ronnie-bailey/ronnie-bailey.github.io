@@ -1412,72 +1412,140 @@
             document.body.removeChild(link);
         }
 
-        // RSS News functionality
+        // RSS News functionality - UPDATED WITH YOUR FEEDS
         function fetchCybersecurityNews() {
             // Load fallback news immediately
             updateNewsTicker(getFallbackNews());
             
-            // Optionally try to fetch live feeds in background (non-blocking)
+            // Try to fetch live feeds from your specified sources
             const newsFeeds = [
-                'https://feeds.bleepingcomputer.com/feed/',
-                'https://www.darkreading.com/rss_simple.xml',
-                'https://feeds.infosecurity-magazine.com/infosecurity_news'
+                'https://www.darkreading.com/rss.xml',
+                'https://feeds.feedburner.com/TheHackersNews',
+                'https://isc.sans.edu/rssfeed_full.xml',
+                'https://www.cisa.gov/cybersecurity-advisories/all.xml',
+                'https://www.bleepingcomputer.com/feed/',
+                'https://threatpost.com/feed/',
+                'https://krebsonsecurity.com/feed/'
             ];
 
             const proxyUrl = 'https://api.allorigins.win/get?url=';
             const newsItems = [];
+            let completedFeeds = 0;
 
             newsFeeds.forEach(feed => {
-                fetch(proxyUrl + encodeURIComponent(feed), { timeout: 3000 })
-                    .then(response => response.json())
+                fetch(proxyUrl + encodeURIComponent(feed), { timeout: 4000 })
+                    .then(response => {
+                        if (!response.ok) throw new Error('Network response was not ok');
+                        return response.json();
+                    })
                     .then(data => {
                         try {
                             const parser = new DOMParser();
                             const xml = parser.parseFromString(data.contents, 'text/xml');
                             
+                            // Check for parsing errors
                             if (xml.getElementsByTagName('parsererror').length === 0) {
-                                const items = xml.querySelectorAll('item');
+                                // Handle different RSS formats
+                                let items = xml.querySelectorAll('item');
+                                if (items.length === 0) {
+                                    items = xml.querySelectorAll('entry'); // Some feeds use Atom format
+                                }
+                                
                                 let count = 0;
                                 items.forEach((item) => {
-                                    if (count < 2) {
-                                        const title = item.querySelector('title')?.textContent?.trim();
-                                        const link = item.querySelector('link')?.textContent?.trim();
+                                    if (count < 2) { // Take max 2 items per feed
+                                        let title = '';
+                                        let link = '#';
+                                        
+                                        // Try different title selectors
+                                        const titleEl = item.querySelector('title');
+                                        if (titleEl) {
+                                            title = titleEl.textContent?.trim() || '';
+                                        }
+                                        
+                                        // Try different link selectors
+                                        const linkEl = item.querySelector('link');
+                                        if (linkEl) {
+                                            // For Atom feeds, link might be in href attribute
+                                            link = linkEl.getAttribute('href') || linkEl.textContent?.trim() || '#';
+                                        }
+                                        
+                                        // For some feeds, guid might be the link
+                                        if (link === '#') {
+                                            const guidEl = item.querySelector('guid');
+                                            if (guidEl) {
+                                                link = guidEl.textContent?.trim() || '#';
+                                            }
+                                        }
+                                        
                                         if (title) {
+                                            // Clean up the title
+                                            title = title.replace(/<\/?[^>]+(>|$)/g, ""); // Remove HTML tags
+                                            title = title.substring(0, 120); // Limit length
+                                            
                                             newsItems.push({ 
-                                                title: title.substring(0, 100), 
-                                                link: link || '#' 
+                                                title: title, 
+                                                link: link,
+                                                source: getSourceName(feed)
                                             });
                                             count++;
                                         }
                                     }
                                 });
-                                
-                                if (newsItems.length >= 6) {
-                                    updateNewsTicker(newsItems);
-                                }
                             }
                         } catch (e) {
-                            console.log('Feed parse error');
+                            console.log('Feed parse error for:', feed, e);
                         }
                     })
                     .catch(err => {
-                        console.log('Feed fetch error');
+                        console.log('Feed fetch error for:', feed, err);
+                    })
+                    .finally(() => {
+                        completedFeeds++;
+                        // Update ticker when we have enough feeds loaded
+                        if (completedFeeds >= 3 && newsItems.length >= 8) {
+                            updateNewsTicker(newsItems);
+                        } else if (completedFeeds === newsFeeds.length) {
+                            // If all feeds are done, update with what we have
+                            if (newsItems.length > 0) {
+                                updateNewsTicker(newsItems);
+                            }
+                        }
                     });
             });
         }
 
+        function getSourceName(feedUrl) {
+            const sourceMap = {
+                'darkreading.com': 'Dark Reading',
+                'thehackersnews': 'The Hacker News',
+                'sans.edu': 'SANS ISC',
+                'cisa.gov': 'CISA',
+                'bleepingcomputer.com': 'BleepingComputer',
+                'threatpost.com': 'Threatpost',
+                'krebsonsecurity.com': 'Krebs on Security'
+            };
+            
+            for (const [key, name] of Object.entries(sourceMap)) {
+                if (feedUrl.includes(key)) {
+                    return name;
+                }
+            }
+            return 'Security News';
+        }
+
         function getFallbackNews() {
             return [
-                { title: "Zero Trust Architecture – Industry Standard for Enterprise Security", link: "https://www.nist.gov/publications/zero-trust-architecture" },
-                { title: "Identity & Access Management Implementations Hit Record Levels in 2024", link: "https://www.gartner.com/en/research/iam" },
-                { title: "Federal Agencies Prioritize Privilege Access Management for Critical Infrastructure", link: "https://www.cisa.gov/pam" },
-                { title: "Cloud Identity Security Breaches Decline with Federated Authentication", link: "https://www.cloudflare.com/learning/access-management/federated-identity-management/" },
-                { title: "FedRAMP Authorizations Accelerate with Streamlined Compliance Processes", link: "https://www.fedramp.gov/" },
-                { title: "Entra ID Adoption Reaches 85% Among Enterprise Organizations", link: "https://learn.microsoft.com/en-us/entra/identity/" },
-                { title: "Password-less Authentication Becomes Standard in Financial Services", link: "https://www.microsoft.com/en-us/security/business/solutions/passwordless-sign-in" },
-                { title: "PAM Solutions Prevent 90% of Lateral Movement Attacks", link: "https://www.beyondtrust.com/resources/whitepapers" },
-                { title: "Identity Governance Reduces Compliance Audit Costs by 40%", link: "https://www.gartner.com/en/research/identity-governance" },
-                { title: "Machine Learning Enhances Threat Detection in Identity Systems", link: "https://www.microsoft.com/en-us/security/business/ai-security" }
+                { title: "Zero Trust Architecture – Industry Standard for Enterprise Security", link: "https://www.nist.gov/publications/zero-trust-architecture", source: "NIST" },
+                { title: "Identity & Access Management Implementations Hit Record Levels in 2024", link: "https://www.gartner.com/en/research/iam", source: "Gartner" },
+                { title: "Federal Agencies Prioritize Privilege Access Management for Critical Infrastructure", link: "https://www.cisa.gov/pam", source: "CISA" },
+                { title: "Cloud Identity Security Breaches Decline with Federated Authentication", link: "https://www.cloudflare.com/learning/access-management/federated-identity-management/", source: "Cloudflare" },
+                { title: "FedRAMP Authorizations Accelerate with Streamlined Compliance Processes", link: "https://www.fedramp.gov/", source: "FedRAMP" },
+                { title: "Entra ID Adoption Reaches 85% Among Enterprise Organizations", link: "https://learn.microsoft.com/en-us/entra/identity/", source: "Microsoft" },
+                { title: "Password-less Authentication Becomes Standard in Financial Services", link: "https://www.microsoft.com/en-us/security/business/solutions/passwordless-sign-in", source: "Microsoft" },
+                { title: "PAM Solutions Prevent 90% of Lateral Movement Attacks", link: "https://www.beyondtrust.com/resources/whitepapers", source: "BeyondTrust" },
+                { title: "Identity Governance Reduces Compliance Audit Costs by 40%", link: "https://www.gartner.com/en/research/identity-governance", source: "Gartner" },
+                { title: "Machine Learning Enhances Threat Detection in Identity Systems", link: "https://www.microsoft.com/en-us/security/business/ai-security", source: "Microsoft" }
             ];
         }
 
@@ -1486,21 +1554,25 @@
             if (!tickerScroll) return;
             
             if (!newsItems || newsItems.length === 0) {
-                tickerScroll.innerHTML = '<a href="#" class="ticker-item">Cybersecurity news updates</a>';
+                tickerScroll.innerHTML = '<a href="#" class="ticker-item">Cybersecurity news updates loading...</a>';
                 return;
             }
             
-            const newsContent = newsItems.map(item => {
+            // Shuffle and take first 10 items
+            const shuffled = [...newsItems].sort(() => 0.5 - Math.random()).slice(0, 10);
+            
+            const newsContent = shuffled.map(item => {
                 const href = item.link || '#';
                 const title = item.title || 'Cybersecurity News';
-                return `<a href="${href}" target="_blank" class="ticker-item" rel="noopener noreferrer">${title}</a>`;
+                const source = item.source ? ` [${item.source}]` : '';
+                return `<a href="${href}" target="_blank" class="ticker-item" rel="noopener noreferrer">${title}${source}</a>`;
             }).join('');
             
             // Duplicate for seamless infinite loop
             tickerScroll.innerHTML = newsContent + newsContent;
         }
 
-        // Timeline click functionality - UPDATED to find all jobs
+        // Timeline click functionality
         function scrollToExperience(searchTerm) {
             const experienceItems = document.querySelectorAll('.experience-item');
             let found = false;
