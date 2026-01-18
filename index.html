@@ -65,7 +65,7 @@
             z-index: 100;
             background: var(--bg);
             border-bottom: 1px solid var(--border);
-            padding: 1.5rem 0;
+            padding: 1rem 0;
         }
 
         .header-wrapper {
@@ -75,50 +75,57 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
         }
 
-        nav {
+        /* Main Navigation */
+        .main-nav {
             display: flex;
-            gap: 2.5rem;
+            gap: 1.5rem;
             list-style: none;
             flex-wrap: wrap;
-            flex: 1;
         }
 
-        nav a {
+        .main-nav a {
             font-size: 0.85rem;
             color: var(--text-light);
             text-decoration: none;
             transition: color 0.2s;
             font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
         }
 
-        nav a:hover,
-        nav a.active {
+        .main-nav a:hover,
+        .main-nav a.active {
             color: var(--accent);
         }
 
-        .header-right {
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.2s ease;
+        }
+
+        .main-nav a:hover::after,
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+        /* Contact Bar */
+        .contact-bar {
             display: flex;
-            gap: 1.5rem;
             align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
-        .header-right a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.8rem;
-            transition: color 0.2s;
-        }
-
-        .header-right a:hover {
-            text-decoration: underline;
-        }
-
-        /* Availability Indicator */
         .availability-indicator {
             display: flex;
             align-items: center;
@@ -151,25 +158,35 @@
             color: var(--text);
         }
 
-        .download-btn {
-            background: var(--accent);
-            color: var(--bg);
-            padding: 0.6rem 1.2rem;
-            border: none;
-            border-radius: 3px;
-            font-weight: 700;
-            font-size: 0.75rem;
-            cursor: pointer;
-            text-decoration: none;
-            font-family: 'Inter', sans-serif;
-            transition: background 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
+        .contact-icons {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
         }
 
-        .download-btn:hover {
-            opacity: 0.9;
+        .contact-icons a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            padding: 0.5rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+        }
+
+        .contact-icons a:hover {
+            background: var(--bg-light);
+            color: var(--text);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
         }
 
         .theme-toggle {
@@ -178,17 +195,46 @@
             color: var(--text);
             font-size: 1rem;
             cursor: pointer;
-            padding: 0.5rem 0.75rem;
-            border-radius: 3px;
+            padding: 0.5rem;
+            border-radius: 4px;
             transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
         }
 
         .theme-toggle:hover {
             border-color: var(--accent);
             color: var(--accent);
+            background: var(--bg-light);
+        }
+
+        .download-btn {
+            background: var(--accent);
+            color: var(--bg);
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .download-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         /* Elevator sidebar */
@@ -281,7 +327,7 @@
             font-size: 0.85rem;
             font-weight: 500;
             transition: all 0.2s;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.25rem;
             border-radius: 4px;
             border: 1px solid var(--border);
             background: var(--bg-light);
@@ -406,49 +452,15 @@
             font-style: italic;
         }
 
-        /* Career Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
+        /* Simplified Career Timeline */
+        .timeline-compact {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--accent);
-            opacity: 0.3;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            padding-left: 1.5rem;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: -6px;
-            top: 0;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: var(--accent);
-            border: 3px solid var(--bg);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .timeline-item:hover .timeline-dot {
-            transform: scale(1.5);
-            box-shadow: 0 0 0 3px var(--accent);
-        }
-
-        .timeline-content {
+        .timeline-item-compact {
             padding: 1rem;
             background: var(--bg-light);
             border-radius: 4px;
@@ -457,19 +469,27 @@
             transition: transform 0.2s;
         }
 
-        .timeline-content:hover {
-            transform: translateX(5px);
+        .timeline-item-compact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        .timeline-content h4 {
-            font-size: 0.9rem;
+        .timeline-item-compact h4 {
+            font-size: 0.85rem;
             margin-bottom: 0.25rem;
             color: var(--text);
         }
 
-        .timeline-content p {
+        .timeline-item-compact p {
             font-size: 0.8rem;
             color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item-compact small {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            opacity: 0.8;
         }
 
         .projects-grid {
@@ -686,18 +706,20 @@
             .header-wrapper {
                 flex-direction: column;
                 gap: 1rem;
-                align-items: flex-start;
+                align-items: stretch;
             }
 
-            nav {
-                gap: 1.5rem;
+            .main-nav {
+                justify-content: center;
+                gap: 1rem;
                 width: 100%;
-                order: 3;
+                order: 2;
             }
 
-            .header-right {
+            .contact-bar {
                 width: 100%;
-                justify-content: flex-start;
+                justify-content: space-between;
+                order: 1;
             }
 
             .hero h1 {
@@ -723,6 +745,10 @@
                 justify-content: center;
                 padding: 0.75rem;
             }
+            
+            .timeline-compact {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 600px) {
@@ -734,22 +760,33 @@
                 font-size: 1.4rem;
             }
 
-            nav {
-                gap: 1rem;
+            .main-nav {
+                gap: 0.75rem;
                 font-size: 0.8rem;
             }
 
-            .download-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.7rem;
+            .contact-bar {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: stretch;
+            }
+
+            .contact-icons {
+                justify-content: center;
+            }
+
+            .action-buttons {
+                justify-content: center;
             }
 
             .availability-indicator {
-                padding: 0.3rem 0.6rem;
+                justify-content: center;
             }
 
             .ticker-item {
-                min-width: 300px;
+                min-width: 280px;
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
             }
         }
     </style>
@@ -757,38 +794,38 @@
 <body>
     <header>
         <div class="header-wrapper">
-            <nav>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#timeline">Timeline</a>
-                <a href="#bottom">Certifications</a>
-                <a href="#education">Education</a>
-            </nav>
-            <div class="header-right">
+            <div class="contact-bar">
                 <div class="availability-indicator">
                     <span class="status-dot"></span>
                     <span class="availability-text">Actively Seeking</span>
                 </div>
-                <a href="tel:+18048031311" title="Call me">
-                    <i class="fas fa-phone"></i>
-                    <span class="sr-only">Phone</span>
-                </a>
-                <a href="mailto:contact@ronniebailey.com" title="Email me">
-                    <i class="fas fa-envelope"></i>
-                    <span class="sr-only">Email</span>
-                </a>
-                <a href="https://www.linkedin.com/in/ronniebailey" target="_blank" title="LinkedIn Profile">
-                    <i class="fab fa-linkedin"></i>
-                    <span class="sr-only">LinkedIn</span>
-                </a>
-                <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode">
-                    <i class="fas fa-adjust"></i>
-                </button>
-                <button class="download-btn" onclick="downloadResume()" title="Download Resume">
-                    <i class="fas fa-download"></i> Resume
-                </button>
+                <div class="contact-icons">
+                    <a href="tel:+18048031311" title="Call me">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="mailto:contact@ronniebailey.com" title="Email me">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ronniebailey" target="_blank" title="LinkedIn Profile">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <div class="action-buttons">
+                    <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode">
+                        <i class="fas fa-adjust"></i>
+                    </button>
+                    <button class="download-btn" onclick="downloadResume()" title="Download Resume">
+                        <i class="fas fa-download"></i> Resume
+                    </button>
+                </div>
             </div>
+            <nav class="main-nav">
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#education">Education</a>
+            </nav>
         </div>
     </header>
 
@@ -827,7 +864,6 @@
             </div>
         </section>
 
-        <!-- Rest of your content remains exactly the same -->
         <section id="experience">
             <h2 class="section-title">Professional Experience</h2>
             
@@ -1035,7 +1071,7 @@
                 </div>
                 <div class="job-meta">
                     <span>Full-time</span>
-                    <span>2009 – 2011 · 2 yrs</span>
+                    <span>2009 – 2011</span>
                 </div>
                 <ul class="job-bullets">
                     <li>Technical Support: Delivered first-level support for hardware, software, and network issues via phone, email, and in-person.</li>
@@ -1053,7 +1089,7 @@
                 </div>
                 <div class="job-meta">
                     <span>Full-time</span>
-                    <span>2006 – 2009 · 3 yrs</span>
+                    <span>2006 – 2009</span>
                 </div>
                 <ul class="job-bullets">
                     <li>Technical Support: Provided troubleshooting for computer and electronic products, resolving hardware and software issues.</li>
@@ -1069,86 +1105,36 @@
 
         <section id="timeline">
             <h2 class="section-title">Career Timeline</h2>
-            <div class="timeline">
-                <div class="timeline-item" data-year="2024" onclick="scrollToExperience('LexisNexis')">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Lead Identity Security Architect</h4>
-                        <p>LexisNexis / USPTO</p>
-                        <small>2024 – Present</small>
-                    </div>
+            <div class="timeline-compact">
+                <div class="timeline-item-compact" onclick="scrollToExperience('LexisNexis')">
+                    <h4>Lead Identity Security Architect</h4>
+                    <p>LexisNexis / USPTO</p>
+                    <small>2024 – Present</small>
                 </div>
-                <div class="timeline-item" data-year="2022" onclick="scrollToExperience('Kroger')">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>IAM Architect</h4>
-                        <p>Kroger Technology & Digital</p>
-                        <small>2022 – 2024</small>
-                    </div>
+                <div class="timeline-item-compact" onclick="scrollToExperience('Kroger')">
+                    <h4>IAM Architect</h4>
+                    <p>Kroger Technology</p>
+                    <small>2022 – 2024</small>
                 </div>
-                <div class="timeline-item" data-year="2022" onclick="scrollToExperience('Homeland Security')">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Customer Identity & Access Management Architect</h4>
-                        <p>DHS / US Secret Service</p>
-                        <small>2022</small>
-                    </div>
+                <div class="timeline-item-compact" onclick="scrollToExperience('Homeland Security')">
+                    <h4>CIAM Architect</h4>
+                    <p>DHS / US Secret Service</p>
+                    <small>2022</small>
                 </div>
-                <div class="timeline-item" data-year="2021" onclick="scrollToExperience('Accessia Health')">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Cloud Vulnerability Analyst</h4>
-                        <p>Accessia Health</p>
-                        <small>2021</small>
-                    </div>
+                <div class="timeline-item-compact" onclick="scrollToExperience('Indivior Pharmaceuticals')">
+                    <h4>PAM Architect</h4>
+                    <p>Indivior Pharmaceuticals</p>
+                    <small>2019 – 2021</small>
                 </div>
-                <div class="timeline-item" data-year="2019" onclick="scrollToExperience('Indivior Pharmaceuticals')">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Privileged Access Management Architect</h4>
-                        <p>Indivior Pharmaceuticals</p>
-                        <small>2019 – 2021</small>
-                    </div>
+                <div class="timeline-item-compact" onclick="scrollToExperience('Wellsecured IT')">
+                    <h4>CIAM Engineer</h4>
+                    <p>Wellsecured IT</p>
+                    <small>2015 – 2019</small>
                 </div>
-                <div class="timeline-item" data-year="2019" onclick="scrollToExperience('Wells Fargo Bank')">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Identity and Access Management Analyst</h4>
-                        <p>Wells Fargo Bank</p>
-                        <small>2019</small>
-                    </div>
-                </div>
-                <div class="timeline-item" data-year="2015" onclick="scrollToExperience('Wellsecured IT')">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Customer Identity & Access Management Engineer</h4>
-                        <p>Wellsecured IT</p>
-                        <small>2015 – 2019</small>
-                    </div>
-                </div>
-                <div class="timeline-item" data-year="2011" onclick="scrollToExperience('Cloudcentria Security')">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Cloud Security Operations Lead</h4>
-                        <p>Cloudcentria Security</p>
-                        <small>2011 – 2015</small>
-                    </div>
-                </div>
-                <div class="timeline-item" data-year="2009" onclick="scrollToExperience('uBreakiFix')">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Systems Administrator</h4>
-                        <p>uBreakiFix</p>
-                        <small>2009 – 2011</small>
-                    </div>
-                </div>
-                <div class="timeline-item" data-year="2006" onclick="scrollToExperience('Circuit City')">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>IT Support Associate</h4>
-                        <p>Circuit City</p>
-                        <small>2006 – 2009</small>
-                    </div>
+                <div class="timeline-item-compact" onclick="scrollToExperience('Cloudcentria Security')">
+                    <h4>Cloud Security Lead</h4>
+                    <p>Cloudcentria Security</p>
+                    <small>2011 – 2015</small>
                 </div>
             </div>
         </section>
@@ -1332,48 +1318,44 @@
             </div>
         </section>
 
-        <section id="bottom">
-            <div class="cert-edu-grid">
-                <div class="cert-edu-section">
-                    <h3>Certifications</h3>
-                    <ul class="cert-list">
-                        <li class="cert-item">
-                            <div class="cert-title">AZ-900 – Microsoft Azure Fundamentals</div>
-                            <div class="cert-org">Microsoft</div>
-                            <div class="cert-date">In Progress | 2026</div>
-                        </li>
-                        <li class="cert-item">
-                            <div class="cert-title">Cybersecurity Essentials</div>
-                            <div class="cert-org">Cisco</div>
-                            <div class="cert-date">2021</div>
-                        </li>
-                        <li class="cert-item">
-                            <div class="cert-title">IBM Cloud Essentials</div>
-                            <div class="cert-org">IBM</div>
-                            <div class="cert-date">2021</div>
-                        </li>
-                        <li class="cert-item">
-                            <div class="cert-title">Network Administration</div>
-                            <div class="cert-org">Reynolds College</div>
-                            <div class="cert-date">2020</div>
-                        </li>
-                    </ul>
+        <section id="certifications">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-list">
+                <div class="cert-item">
+                    <div class="cert-title">AZ-900 – Microsoft Azure Fundamentals</div>
+                    <div class="cert-org">Microsoft</div>
+                    <div class="cert-date">In Progress | 2026</div>
                 </div>
+                <div class="cert-item">
+                    <div class="cert-title">Cybersecurity Essentials</div>
+                    <div class="cert-org">Cisco</div>
+                    <div class="cert-date">2021</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-title">IBM Cloud Essentials</div>
+                    <div class="cert-org">IBM</div>
+                    <div class="cert-date">2021</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-title">Network Administration</div>
+                    <div class="cert-org">Reynolds College</div>
+                    <div class="cert-date">2020</div>
+                </div>
+            </div>
+        </section>
 
-                <div class="cert-edu-section" id="education">
-                    <h3>Education</h3>
-                    <ul class="cert-list">
-                        <li class="cert-item">
-                            <div class="cert-title">Bachelor of Science in Cybersecurity</div>
-                            <div class="cert-org">University of Richmond</div>
-                            <div class="cert-date">In Progress</div>
-                        </li>
-                        <li class="cert-item">
-                            <div class="cert-title">Associate of Applied Science in Information Systems</div>
-                            <div class="cert-org">Reynolds College</div>
-                            <div class="cert-date">Completed</div>
-                        </li>
-                    </ul>
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="cert-list">
+                <div class="cert-item">
+                    <div class="cert-title">Bachelor of Science in Cybersecurity</div>
+                    <div class="cert-org">University of Richmond</div>
+                    <div class="cert-date">In Progress</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-title">Associate of Applied Science in Information Systems</div>
+                    <div class="cert-org">Reynolds College</div>
+                    <div class="cert-date">Completed</div>
                 </div>
             </div>
         </section>
@@ -1394,7 +1376,7 @@
         <div class="elevator-dot" data-section="projects" title="Projects"></div>
         <div class="elevator-dot" data-section="skills" title="Skills"></div>
         <div class="elevator-dot" data-section="timeline" title="Timeline"></div>
-        <div class="elevator-dot" data-section="bottom" title="Certifications"></div>
+        <div class="elevator-dot" data-section="certifications" title="Certifications"></div>
         <div class="elevator-dot" data-section="quote-section" title="Quote"></div>
     </div>
 
@@ -1456,31 +1438,6 @@
             "Every algorithm is a seed planted in the soil of time, destined to grow into solutions for problems we cannot yet see.",
             "Progress is a paradox: it marches forward yet always loops back to confront the humanity it serves.",
             "A truly advanced society is one where technology fades into the background, empowering individuals without demanding their attention.",
-            "The challenge of the future will not be building machines that think like us but ensuring we continue to think for ourselves.",
-            "Technology's ultimate triumph lies not in its complexity, but in its simplicity—when it becomes indistinguishable from the human condition.",
-            "In every byte of data lies the possibility of a universe rewritten, a future reimagined.",
-            "The architects of tomorrow must balance the weight of progress with the fragility of wisdom.",
-            "Civilizations rise and fall, but the code we leave behind will outlast the stars themselves.",
-            "Technology thrives where curiosity dares to tread.",
-            "The future belongs to those who code the unknown.",
-            "Every invention is a whisper from tomorrow's possibilities.",
-            "A world driven by technology must pause to ask who drives the driver.",
-            "Progress is not about faster machines but about better questions.",
-            "We shape technology, and in turn, it reshapes us.",
-            "The most powerful tool is not the machine but the mind that wields it.",
-            "In the silence of progress, the loudest voice is innovation.",
-            "The future of technology is a mirror reflecting the best and worst of our humanity.",
-            "As we automate tasks, let us not automate our ethics.",
-            "A truly intelligent machine understands the value of human ignorance.",
-            "Technology's greatest gift is the power to dream beyond our limitations.",
-            "We are not just building tools; we are constructing futures.",
-            "The code of tomorrow is written in the language of imagination.",
-            "Innovation is the art of turning impossibilities into inevitabilities.",
-            "The future is not built by engineers alone but by the dreams they dare to engineer.",
-            "The pace of technology is irrelevant if it leaves humanity behind.",
-            "Every byte of progress must carry the weight of responsibility.",
-            "The more we delegate to machines, the more we must reclaim what makes us human.",
-            "The limits of technology are set only by the boundaries of our courage to explore."
         ];
 
         // Resume download
@@ -1616,7 +1573,7 @@
             // Active navigation highlighting
             window.addEventListener('scroll', () => {
                 const sections = document.querySelectorAll('section[id]');
-                const navLinks = document.querySelectorAll('nav a');
+                const navLinks = document.querySelectorAll('.main-nav a');
                 
                 let current = '';
                 sections.forEach(section => {
