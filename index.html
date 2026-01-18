@@ -609,6 +609,9 @@
             display: flex;
             gap: 2rem;
             animation: scroll 35s linear infinite;
+            will-change: transform;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
         .ticker-item {
@@ -673,6 +676,53 @@
             margin-top: 3rem;
         }
 
+        /* Mobile touch improvements */
+        @media (hover: none) and (pointer: coarse) {
+            /* For touch devices */
+            .company-name {
+                cursor: default;
+            }
+            
+            .company-name:active .company-placeholder {
+                display: none;
+            }
+            
+            .company-name:active .company-real {
+                display: inline;
+            }
+            
+            /* Mobile touch targets */
+            .main-nav a,
+            .contact-icons a,
+            .theme-toggle,
+            .download-btn,
+            .hero-link {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            .main-nav a {
+                padding: 0.75rem 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .ticker-item {
+                touch-action: manipulation;
+            }
+        }
+
+        /* Always show real company name on very small screens */
+        @media (max-width: 600px) {
+            .company-placeholder {
+                display: none !important;
+            }
+            .company-real {
+                display: inline !important;
+            }
+        }
+
         @media (max-width: 900px) {
             .header-wrapper {
                 flex-direction: column;
@@ -719,6 +769,10 @@
             
             .timeline-compact {
                 grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+            
+            .ticker-item {
+                min-width: 320px;
             }
         }
 
@@ -1412,107 +1466,19 @@
             document.body.removeChild(link);
         }
 
-        // RSS News functionality - UPDATED WITH YOUR FEEDS
-        function fetchCybersecurityNews() {
-            // Load fallback news immediately
-            updateNewsTicker(getFallbackNews());
+        // RSS News functionality - IMPROVED VERSION
+        async function fetchWithTimeout(url, timeout = 5000) {
+            const controller = new AbortController();
+            const id = setTimeout(() => controller.abort(), timeout);
             
-            // Try to fetch live feeds from your specified sources
-            const newsFeeds = [
-                'https://www.darkreading.com/rss.xml',
-                'https://feeds.feedburner.com/TheHackersNews',
-                'https://isc.sans.edu/rssfeed_full.xml',
-                'https://www.cisa.gov/cybersecurity-advisories/all.xml',
-                'https://www.bleepingcomputer.com/feed/',
-                'https://threatpost.com/feed/',
-                'https://krebsonsecurity.com/feed/'
-            ];
-
-            const proxyUrl = 'https://api.allorigins.win/get?url=';
-            const newsItems = [];
-            let completedFeeds = 0;
-
-            newsFeeds.forEach(feed => {
-                fetch(proxyUrl + encodeURIComponent(feed), { timeout: 4000 })
-                    .then(response => {
-                        if (!response.ok) throw new Error('Network response was not ok');
-                        return response.json();
-                    })
-                    .then(data => {
-                        try {
-                            const parser = new DOMParser();
-                            const xml = parser.parseFromString(data.contents, 'text/xml');
-                            
-                            // Check for parsing errors
-                            if (xml.getElementsByTagName('parsererror').length === 0) {
-                                // Handle different RSS formats
-                                let items = xml.querySelectorAll('item');
-                                if (items.length === 0) {
-                                    items = xml.querySelectorAll('entry'); // Some feeds use Atom format
-                                }
-                                
-                                let count = 0;
-                                items.forEach((item) => {
-                                    if (count < 2) { // Take max 2 items per feed
-                                        let title = '';
-                                        let link = '#';
-                                        
-                                        // Try different title selectors
-                                        const titleEl = item.querySelector('title');
-                                        if (titleEl) {
-                                            title = titleEl.textContent?.trim() || '';
-                                        }
-                                        
-                                        // Try different link selectors
-                                        const linkEl = item.querySelector('link');
-                                        if (linkEl) {
-                                            // For Atom feeds, link might be in href attribute
-                                            link = linkEl.getAttribute('href') || linkEl.textContent?.trim() || '#';
-                                        }
-                                        
-                                        // For some feeds, guid might be the link
-                                        if (link === '#') {
-                                            const guidEl = item.querySelector('guid');
-                                            if (guidEl) {
-                                                link = guidEl.textContent?.trim() || '#';
-                                            }
-                                        }
-                                        
-                                        if (title) {
-                                            // Clean up the title
-                                            title = title.replace(/<\/?[^>]+(>|$)/g, ""); // Remove HTML tags
-                                            title = title.substring(0, 120); // Limit length
-                                            
-                                            newsItems.push({ 
-                                                title: title, 
-                                                link: link,
-                                                source: getSourceName(feed)
-                                            });
-                                            count++;
-                                        }
-                                    }
-                                });
-                            }
-                        } catch (e) {
-                            console.log('Feed parse error for:', feed, e);
-                        }
-                    })
-                    .catch(err => {
-                        console.log('Feed fetch error for:', feed, err);
-                    })
-                    .finally(() => {
-                        completedFeeds++;
-                        // Update ticker when we have enough feeds loaded
-                        if (completedFeeds >= 3 && newsItems.length >= 8) {
-                            updateNewsTicker(newsItems);
-                        } else if (completedFeeds === newsFeeds.length) {
-                            // If all feeds are done, update with what we have
-                            if (newsItems.length > 0) {
-                                updateNewsTicker(newsItems);
-                            }
-                        }
-                    });
-            });
+            try {
+                const response = await fetch(url, { signal: controller.signal });
+                clearTimeout(id);
+                return response;
+            } catch (error) {
+                clearTimeout(id);
+                throw error;
+            }
         }
 
         function getSourceName(feedUrl) {
@@ -1523,7 +1489,9 @@
                 'cisa.gov': 'CISA',
                 'bleepingcomputer.com': 'BleepingComputer',
                 'threatpost.com': 'Threatpost',
-                'krebsonsecurity.com': 'Krebs on Security'
+                'krebsonsecurity.com': 'Krebs on Security',
+                'securityweek.com': 'SecurityWeek',
+                'securitymagazine.com': 'Security Magazine'
             };
             
             for (const [key, name] of Object.entries(sourceMap)) {
@@ -1534,10 +1502,93 @@
             return 'Security News';
         }
 
+        async function fetchLiveNews() {
+            // Updated RSS feeds for current content
+            const newsFeeds = [
+                'https://feeds.feedburner.com/TheHackersNews?format=xml',
+                'https://www.bleepingcomputer.com/feed/',
+                'https://krebsonsecurity.com/feed/',
+                'https://www.securityweek.com/rss',
+                'https://www.darkreading.com/rss_simple.asp',
+                'https://www.cisa.gov/cybersecurity-advisories/all.xml',
+                'https://www.securitymagazine.com/rss/HomePage.rss'
+            ];
+            
+            const newsItems = [];
+            const currentDate = new Date();
+            const sixMonthsAgo = new Date(currentDate.getFullYear(), currentDate.getMonth() - 6, currentDate.getDate());
+            
+            // Fetch only the most reliable feeds
+            for (const feed of newsFeeds) {
+                try {
+                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed)}&callback=?`;
+                    const response = await fetchWithTimeout(proxyUrl, 4000);
+                    
+                    if (!response.ok) continue;
+                    
+                    const data = await response.json();
+                    const parser = new DOMParser();
+                    const xml = parser.parseFromString(data.contents, 'text/xml');
+                    
+                    // Parse items
+                    const items = xml.querySelectorAll('item, entry');
+                    let count = 0;
+                    
+                    items.forEach(item => {
+                        if (count < 3) {
+                            const titleEl = item.querySelector('title');
+                            const linkEl = item.querySelector('link');
+                            const pubDateEl = item.querySelector('pubDate') || item.querySelector('published') || item.querySelector('updated');
+                            
+                            if (titleEl) {
+                                let title = titleEl.textContent.trim();
+                                let link = '#';
+                                let pubDate = null;
+                                
+                                // Get link
+                                if (linkEl) {
+                                    link = linkEl.getAttribute('href') || linkEl.textContent.trim();
+                                }
+                                
+                                // Get date for filtering
+                                if (pubDateEl) {
+                                    pubDate = new Date(pubDateEl.textContent);
+                                }
+                                
+                                // Only include recent items (last 6 months) or items without dates
+                                if (!pubDate || pubDate > sixMonthsAgo) {
+                                    // Clean title
+                                    title = title.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 100);
+                                    
+                                    newsItems.push({
+                                        title: title,
+                                        link: link,
+                                        source: getSourceName(feed),
+                                        date: pubDate
+                                    });
+                                    count++;
+                                }
+                            }
+                        }
+                    });
+                } catch (error) {
+                    console.log(`Failed to fetch ${feed}:`, error);
+                }
+            }
+            
+            // Sort by date (most recent first)
+            return newsItems.sort((a, b) => {
+                if (!a.date) return 1;
+                if (!b.date) return -1;
+                return b.date - a.date;
+            });
+        }
+
         function getFallbackNews() {
+            const currentYear = new Date().getFullYear();
             return [
-                { title: "Zero Trust Architecture – Industry Standard for Enterprise Security", link: "https://www.nist.gov/publications/zero-trust-architecture", source: "NIST" },
-                { title: "Identity & Access Management Implementations Hit Record Levels in 2024", link: "https://www.gartner.com/en/research/iam", source: "Gartner" },
+                { title: `Zero Trust Architecture Becomes Standard for Enterprise Security in ${currentYear}`, link: "https://www.nist.gov/publications/zero-trust-architecture", source: "NIST" },
+                { title: `Identity & Access Management Implementations Hit Record Levels in ${currentYear}`, link: "https://www.gartner.com/en/research/iam", source: "Gartner" },
                 { title: "Federal Agencies Prioritize Privilege Access Management for Critical Infrastructure", link: "https://www.cisa.gov/pam", source: "CISA" },
                 { title: "Cloud Identity Security Breaches Decline with Federated Authentication", link: "https://www.cloudflare.com/learning/access-management/federated-identity-management/", source: "Cloudflare" },
                 { title: "FedRAMP Authorizations Accelerate with Streamlined Compliance Processes", link: "https://www.fedramp.gov/", source: "FedRAMP" },
@@ -1549,6 +1600,31 @@
             ];
         }
 
+        async function fetchCybersecurityNews() {
+            const tickerScroll = document.getElementById('ticker-scroll');
+            if (!tickerScroll) return;
+            
+            // Show loading state
+            tickerScroll.innerHTML = '<a href="#" class="ticker-item">Loading current cybersecurity news...</a>';
+            
+            try {
+                // Try to fetch live news first
+                const liveNews = await fetchLiveNews();
+                
+                if (liveNews.length >= 8) {
+                    updateNewsTicker(liveNews);
+                } else {
+                    // Fallback to curated news if not enough live items
+                    const fallbackNews = getFallbackNews();
+                    const combinedNews = [...liveNews, ...fallbackNews.slice(0, 10 - liveNews.length)];
+                    updateNewsTicker(combinedNews);
+                }
+            } catch (error) {
+                console.error('Error fetching news:', error);
+                updateNewsTicker(getFallbackNews());
+            }
+        }
+
         function updateNewsTicker(newsItems) {
             const tickerScroll = document.getElementById('ticker-scroll');
             if (!tickerScroll) return;
@@ -1558,10 +1634,10 @@
                 return;
             }
             
-            // Shuffle and take first 10 items
-            const shuffled = [...newsItems].sort(() => 0.5 - Math.random()).slice(0, 10);
+            // Take first 10 items
+            const displayItems = newsItems.slice(0, 10);
             
-            const newsContent = shuffled.map(item => {
+            const newsContent = displayItems.map(item => {
                 const href = item.link || '#';
                 const title = item.title || 'Cybersecurity News';
                 const source = item.source ? ` [${item.source}]` : '';
@@ -1570,6 +1646,90 @@
             
             // Duplicate for seamless infinite loop
             tickerScroll.innerHTML = newsContent + newsContent;
+        }
+
+        // Mobile ticker scrolling
+        function initializeTickerScrolling() {
+            const tickerScroll = document.getElementById('ticker-scroll');
+            if (!tickerScroll) return;
+            
+            // Check if mobile
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // Initialize mobile scrolling
+                let isScrolling = true;
+                let scrollPosition = 0;
+                const scrollSpeed = 0.8;
+                const tickerWidth = tickerScroll.scrollWidth / 2;
+                
+                function animateTicker() {
+                    if (isScrolling) {
+                        scrollPosition -= scrollSpeed;
+                        
+                        // Reset when scrolled completely
+                        if (Math.abs(scrollPosition) >= tickerWidth) {
+                            scrollPosition = 0;
+                        }
+                        
+                        tickerScroll.style.transform = `translateX(${scrollPosition}px)`;
+                    }
+                    requestAnimationFrame(animateTicker);
+                }
+                
+                // Start animation
+                animateTicker();
+                
+                // Touch events for pausing
+                tickerScroll.addEventListener('touchstart', () => {
+                    isScrolling = false;
+                });
+                
+                tickerScroll.addEventListener('touchend', () => {
+                    setTimeout(() => {
+                        isScrolling = true;
+                    }, 1000);
+                });
+            }
+        }
+
+        // Touch events for company names on mobile
+        function initializeTouchEvents() {
+            const companyNames = document.querySelectorAll('.company-name');
+            
+            companyNames.forEach(company => {
+                let touchTimer;
+                
+                company.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    touchTimer = setTimeout(() => {
+                        // Show real name on long press
+                        const placeholder = this.querySelector('.company-placeholder');
+                        const real = this.querySelector('.company-real');
+                        
+                        if (placeholder && real) {
+                            placeholder.style.display = 'none';
+                            real.style.display = 'inline';
+                            
+                            // Revert after 3 seconds
+                            setTimeout(() => {
+                                placeholder.style.display = 'inline';
+                                real.style.display = 'none';
+                            }, 3000);
+                        }
+                    }, 500); // 500ms long press
+                });
+                
+                company.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                    clearTimeout(touchTimer);
+                });
+                
+                company.addEventListener('touchmove', function(e) {
+                    e.preventDefault();
+                    clearTimeout(touchTimer);
+                });
+            });
         }
 
         // Timeline click functionality
@@ -1611,6 +1771,10 @@
             const today = new Date();
             const quoteIndex = today.getDate() % quotes.length;
             document.getElementById('quote-text').textContent = quotes[quoteIndex];
+
+            // Initialize mobile features
+            initializeTickerScrolling();
+            initializeTouchEvents();
 
             // Fetch RSS news
             fetchCybersecurityNews();
