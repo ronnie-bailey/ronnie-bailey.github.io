@@ -833,6 +833,10 @@
                 gap: 1.5rem !important;
             }
 
+            .hero > div > div:first-child {
+                width: 100% !important;
+            }
+
             .hero > div > div:last-child {
                 flex: 1 !important;
                 width: 100% !important;
@@ -842,6 +846,16 @@
 
             .hero > div > div:last-child img {
                 margin-top: 1rem !important;
+            }
+
+            .hero-links {
+                flex-direction: column !important;
+                gap: 0.75rem !important;
+            }
+
+            .hero-link {
+                justify-content: center !important;
+                padding: 0.75rem !important;
             }
         }
 
@@ -853,6 +867,10 @@
 
             .hero > div > div:last-child {
                 flex: 0 0 300px !important;
+            }
+
+            .hero-links {
+                gap: 1rem !important;
             }
         }
     </style>
@@ -905,25 +923,25 @@
                     <p>
                         Principal Identity Security Consultant with 15 years architecting identity security for Fortune 500 enterprises and federal agencies. Expert in Zero Trust architecture, privileged access management, and hybrid identity infrastructure. Technical escalation authority who designs frameworks, mentors teams, and resolves complex authentication failures.
                     </p>
+                    
+                    <div class="hero-links" style="margin-top: 1.5rem; margin-bottom: 0;">
+                        <a href="soon.html" target="_blank" class="hero-link" title="View my security code repository">
+                            <i class="fab fa-github hero-link-icon"></i>
+                            <span>Security Repository</span>
+                        </a>
+                        <a href="soon.html" target="_blank" class="hero-link" title="Read my IAM insights blog">
+                            <i class="fas fa-pen-nib hero-link-icon"></i>
+                            <span>IAM Insights Blog</span>
+                        </a>
+                        <a href="soon.html" class="hero-link" title="View detailed case studies">
+                            <i class="fas fa-chart-line hero-link-icon"></i>
+                            <span>Case Studies</span>
+                        </a>
+                    </div>
                 </div>
                 <div style="flex: 0 0 350px; margin-top: 0.5rem;">
                     <img src="me.png" alt="Ronnie Bailey" style="width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
                 </div>
-            </div>
-            
-            <div class="hero-links">
-                <a href="soon.html" target="_blank" class="hero-link" title="View my security code repository">
-                    <i class="fab fa-github hero-link-icon"></i>
-                    <span>Security Repository</span>
-                </a>
-                <a href="soon.html" target="_blank" class="hero-link" title="Read my IAM insights blog">
-                    <i class="fas fa-pen-nib hero-link-icon"></i>
-                    <span>IAM Insights Blog</span>
-                </a>
-                <a href="soon.html" class="hero-link" title="View detailed case studies">
-                    <i class="fas fa-chart-line hero-link-icon"></i>
-                    <span>Case Studies</span>
-                </a>
             </div>
         </section>
 
