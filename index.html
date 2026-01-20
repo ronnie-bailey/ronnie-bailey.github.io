@@ -273,46 +273,6 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Hero Links */
-        .hero-links {
-            display: flex;
-            gap: 1.25rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            padding: 0.7rem 1.25rem;
-            border-radius: 4px;
-            border: 1px solid var(--accent);
-            background: transparent;
-            flex: 1;
-            min-width: 200px;
-            justify-content: center;
-        }
-
-        .hero-link:hover {
-            text-decoration: none;
-            background: var(--accent);
-            color: var(--bg);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.2);
-        }
-
-        .hero-link-icon {
-            font-size: 1rem;
-            width: 20px;
-            text-align: center;
-        }
-
         section {
             margin-bottom: 4rem;
         }
@@ -836,32 +796,15 @@
                 gap: 1.5rem !important;
             }
 
-            .hero > div > div:first-child {
-                width: 100% !important;
-            }
-
             .hero > div > div:last-child {
                 flex: 1 !important;
                 width: 100% !important;
-                max-width: 280px !important;
+                max-width: 140px !important;
                 margin: 0 auto !important;
             }
 
             .hero > div > div:last-child img {
                 margin-top: 1rem !important;
-            }
-
-            .hero-links {
-                flex-direction: row !important;
-                gap: 1rem !important;
-                justify-content: flex-start !important;
-            }
-
-            .hero-link {
-                flex: 1 !important;
-                min-width: 160px !important;
-                padding: 0.65rem 1rem !important;
-                font-size: 0.8rem !important;
             }
         }
 
@@ -872,11 +815,7 @@
             }
 
             .hero > div > div:last-child {
-                flex: 0 0 300px !important;
-            }
-
-            .hero-links {
-                gap: 1rem !important;
+                flex: 0 0 150px !important;
             }
         }
     </style>
@@ -929,19 +868,8 @@
                     <p>
                         Principal Identity Security Consultant with 15 years architecting identity security for Fortune 500 enterprises and federal agencies. Expert in Zero Trust architecture, privileged access management, and hybrid identity infrastructure. Technical escalation authority who designs frameworks, mentors teams, and resolves complex authentication failures.
                     </p>
-                    
-                    <div class="hero-links" style="margin-top: 1.5rem; margin-bottom: 0;">
-                        <a href="https://cloudcentria.com" target="_blank" class="hero-link" title="Cloudcentria Security consulting">
-                            <i class="fas fa-shield-alt hero-link-icon"></i>
-                            <span>Cloudcentria Security</span>
-                        </a>
-                        <a href="soon.html" target="_blank" class="hero-link" title="Read my IAM insights blog">
-                            <i class="fas fa-pen-nib hero-link-icon"></i>
-                            <span>IAM Insights Blog</span>
-                        </a>
-                    </div>
                 </div>
-                <div style="flex: 0 0 350px; margin-top: 0.5rem;">
+                <div style="flex: 0 0 260px; margin-top: 0.5rem;">
                     <img src="me.png" alt="Ronnie Bailey" style="width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
                 </div>
             </div>
