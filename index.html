@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Ronnie Bailey - Principal Identity Security Consultant</title>
+    <title>Ronnie Bailey - Principal IAM Architect</title>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/>
-    <!-- FontAwesome for Professional Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --accent: #0f766e;
@@ -65,7 +63,7 @@
             z-index: 100;
             background: var(--bg);
             border-bottom: 1px solid var(--border);
-            padding: 1rem 0;
+            padding: 1.5rem 0;
         }
 
         .header-wrapper {
@@ -75,118 +73,95 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 1.5rem;
+            gap: 2rem;
             flex-wrap: wrap;
         }
 
-        /* Main Navigation */
-        .main-nav {
+        nav {
             display: flex;
-            gap: 1.5rem;
+            gap: 2.5rem;
             list-style: none;
             flex-wrap: wrap;
+            flex: 1;
         }
 
-        .main-nav a {
+        nav a {
             font-size: 0.85rem;
             color: var(--text-light);
             text-decoration: none;
             transition: color 0.2s;
             font-weight: 500;
-            padding: 0.5rem 0;
-            position: relative;
         }
 
-        .main-nav a:hover,
-        .main-nav a.active {
+        nav a:hover,
+        nav a.active {
             color: var(--accent);
         }
 
-        .main-nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.2s ease;
-        }
-
-        .main-nav a:hover::after,
-        .main-nav a.active::after {
-            width: 100%;
-        }
-
-        /* Contact Bar */
-        .contact-bar {
+        .header-right {
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .availability-indicator {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--bg-light);
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            display: inline-block;
-            background: #10b981;
-            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-            70% { box-shadow: 0 0 0 5px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-
-        .availability-text {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .contact-icons {
-            display: flex;
-            gap: 0.75rem;
+            gap: 1.5rem;
             align-items: center;
         }
 
-        .contact-icons a {
+        .header-right a {
             color: var(--accent);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-weight: 600;
+            font-size: 0.8rem;
             transition: color 0.2s;
-            padding: 0.5rem;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
         }
 
-        .contact-icons a:hover {
-            background: var(--bg-light);
-            color: var(--text);
+        .header-right a:hover {
+            text-decoration: underline;
         }
 
-        .action-buttons {
+        .theme-switcher {
             display: flex;
-            gap: 0.75rem;
+            gap: 0.5rem;
             align-items: center;
+        }
+
+        .theme-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-light);
+            padding: 0.4rem 0.7rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .theme-btn:hover,
+        .theme-btn.active {
+            background: var(--accent);
+            color: var(--bg);
+            border-color: var(--accent);
+        }
+
+        .download-btn {
+            background: var(--accent);
+            color: var(--bg);
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .download-btn:hover {
+            opacity: 0.9;
         }
 
         .theme-toggle {
@@ -195,46 +170,54 @@
             color: var(--text);
             font-size: 1rem;
             cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 4px;
+            padding: 0.5rem 0.75rem;
+            border-radius: 3px;
             transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-        }
-
-        .theme-toggle:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background: var(--bg-light);
-        }
-
-        .download-btn {
-            background: var(--accent);
-            color: var(--bg);
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.75rem;
-            cursor: pointer;
-            text-decoration: none;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .download-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Elevator sidebar */
+        .elevator {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 90;
+        }
+
+        .elevator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s;
+            background: transparent;
+        }
+
+        .elevator-dot:hover,
+        .elevator-dot.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            width: 12px;
+            height: 12px;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 1200px) {
+            .elevator {
+                display: none;
+            }
         }
 
         main {
@@ -260,9 +243,6 @@
             color: var(--accent);
             font-weight: 600;
             margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
         }
 
         .hero p {
@@ -270,44 +250,7 @@
             color: var(--text-light);
             line-height: 1.7;
             max-width: 700px;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Hero Links */
-        .hero-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            padding: 0.75rem 1.25rem;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-            background: var(--bg-light);
-        }
-
-        .hero-link:hover {
-            text-decoration: none;
-            border-color: var(--accent);
-            background: var(--bg);
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .hero-link-icon {
-            font-size: 1rem;
-            width: 20px;
-            text-align: center;
+            margin-bottom: 1rem;
         }
 
         section {
@@ -415,46 +358,6 @@
             font-style: italic;
         }
 
-        /* Simplified Career Timeline */
-        .timeline-compact {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .timeline-item-compact {
-            padding: 1rem;
-            background: var(--bg-light);
-            border-radius: 4px;
-            border-left: 3px solid var(--accent);
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .timeline-item-compact:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .timeline-item-compact h4 {
-            font-size: 0.85rem;
-            margin-bottom: 0.25rem;
-            color: var(--text);
-        }
-
-        .timeline-item-compact p {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-item-compact small {
-            font-size: 0.75rem;
-            color: var(--text-light);
-            opacity: 0.8;
-        }
-
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -537,18 +440,10 @@
             margin-bottom: 0.6rem;
         }
 
-        /* Updated Certifications & Education Section */
         .cert-edu-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
-        }
-
-        .cert-edu-section {
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: 3px;
-            background: var(--bg-light);
         }
 
         .cert-edu-section h3 {
@@ -609,9 +504,6 @@
             display: flex;
             gap: 2rem;
             animation: scroll 35s linear infinite;
-            will-change: transform;
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
         }
 
         .ticker-item {
@@ -650,7 +542,97 @@
             animation-play-state: paused;
         }
 
-        .quote-box {
+        .hero-photo {
+            position: relative;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .hero-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid transparent;
+            border-image: linear-gradient(135deg, var(--accent), var(--text-light), var(--bg)) 1;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        /* Binary dissolving border effect */
+        .binary-border {
+            position: absolute;
+            font-family: 'Courier Prime', monospace;
+            font-size: 10px;
+            font-weight: bold;
+            color: var(--accent);
+            opacity: 0.3;
+            user-select: none;
+            pointer-events: none;
+            white-space: pre;
+            line-height: 1;
+        }
+
+        .binary-border.top {
+            top: -12px;
+            left: 0;
+            right: 0;
+            animation: dissolve-top 8s linear infinite;
+        }
+
+        .binary-border.bottom {
+            bottom: -12px;
+            left: 0;
+            right: 0;
+            animation: dissolve-bottom 8s linear infinite;
+        }
+
+        .binary-border.left {
+            left: -12px;
+            top: 0;
+            bottom: 0;
+            animation: dissolve-left 8s linear infinite;
+        }
+
+        .binary-border.right {
+            right: -12px;
+            top: 0;
+            bottom: 0;
+            animation: dissolve-right 8s linear infinite;
+        }
+
+        @keyframes dissolve-top {
+            0% { opacity: 0; transform: translateX(100px); }
+            50% { opacity: 0.3; }
+            100% { opacity: 0; transform: translateX(-100px); }
+        }
+
+        @keyframes dissolve-bottom {
+            0% { opacity: 0; transform: translateX(-100px); }
+            50% { opacity: 0.3; }
+            100% { opacity: 0; transform: translateX(100px); }
+        }
+
+        @keyframes dissolve-left {
+            0% { opacity: 0; transform: translateY(100px); }
+            50% { opacity: 0.3; }
+            100% { opacity: 0; transform: translateY(-100px); }
+        }
+
+        @keyframes dissolve-right {
+            0% { opacity: 0; transform: translateY(-100px); }
+            50% { opacity: 0.3; }
+            100% { opacity: 0; transform: translateY(100px); }
+        }
             border: 1px solid var(--border);
             border-left: 3px solid var(--accent);
             padding: 2rem;
@@ -676,71 +658,22 @@
             margin-top: 3rem;
         }
 
-        /* Mobile touch improvements */
-        @media (hover: none) and (pointer: coarse) {
-            /* For touch devices */
-            .company-name {
-                cursor: default;
-            }
-            
-            .company-name:active .company-placeholder {
-                display: none;
-            }
-            
-            .company-name:active .company-real {
-                display: inline;
-            }
-            
-            /* Mobile touch targets */
-            .main-nav a,
-            .contact-icons a,
-            .theme-toggle,
-            .download-btn,
-            .hero-link {
-                min-height: 44px;
-                min-width: 44px;
-            }
-            
-            .main-nav a {
-                padding: 0.75rem 0.5rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            .ticker-item {
-                touch-action: manipulation;
-            }
-        }
-
-        /* Always show real company name on very small screens */
-        @media (max-width: 600px) {
-            .company-placeholder {
-                display: none !important;
-            }
-            .company-real {
-                display: inline !important;
-            }
-        }
-
         @media (max-width: 900px) {
             .header-wrapper {
                 flex-direction: column;
                 gap: 1rem;
-                align-items: stretch;
+                align-items: flex-start;
             }
 
-            .main-nav {
-                justify-content: center;
-                gap: 1rem;
+            nav {
+                gap: 1.5rem;
                 width: 100%;
-                order: 2;
+                order: 3;
             }
 
-            .contact-bar {
+            .header-right {
                 width: 100%;
-                justify-content: space-between;
-                order: 1;
+                justify-content: flex-start;
             }
 
             .hero h1 {
@@ -756,24 +689,6 @@
             .cert-edu-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .hero-links {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-            
-            .hero-link {
-                justify-content: center;
-                padding: 0.75rem;
-            }
-            
-            .timeline-compact {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            }
-            
-            .ticker-item {
-                min-width: 320px;
-            }
         }
 
         @media (max-width: 600px) {
@@ -785,37 +700,24 @@
                 font-size: 1.4rem;
             }
 
-            .main-nav {
-                gap: 0.75rem;
+            nav {
+                gap: 1rem;
                 font-size: 0.8rem;
             }
 
-            .contact-bar {
-                flex-direction: column;
-                gap: 0.75rem;
-                align-items: stretch;
-            }
-
-            .contact-icons {
-                justify-content: center;
-            }
-
-            .action-buttons {
-                justify-content: center;
-            }
-
-            .availability-indicator {
-                justify-content: center;
-            }
-
-            .ticker-item {
-                min-width: 280px;
-                font-size: 0.8rem;
+            .download-btn {
                 padding: 0.5rem 1rem;
+                font-size: 0.7rem;
             }
-            
-            .timeline-compact {
-                grid-template-columns: 1fr;
+
+            .theme-switcher {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .theme-btn {
+                flex: 1;
+                font-size: 0.65rem;
             }
         }
     </style>
@@ -823,72 +725,68 @@
 <body>
     <header>
         <div class="header-wrapper">
-            <div class="contact-bar">
-                <div class="availability-indicator">
-                    <span class="status-dot"></span>
-                    <span class="availability-text">Actively Seeking</span>
-                </div>
-                <div class="contact-icons">
-                    <a href="tel:+18046109719" title="Call me">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                    <a href="mailto:opportunities@ronniebailey.cloud" title="Email me">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/ronniebailey" target="_blank" title="LinkedIn Profile">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </div>
-                <div class="action-buttons">
-                    <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode">
-                        <i class="fas fa-adjust"></i>
-                    </button>
-                    <button class="download-btn" onclick="downloadResume()" title="Download Resume">
-                        <i class="fas fa-download"></i> Resume
-                    </button>
-                </div>
-            </div>
-            <nav class="main-nav">
+            <nav>
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
-                <a href="#certifications-education">Certifications & Education</a>
+                <a href="#bottom">Certifications</a>
+                <a href="#education">Education</a>
             </nav>
+            <div class="header-right">
+                <a href="tel:+18048031311">(804) 803-1311</a>
+                <a href="/cdn-cgi/l/email-protection#117e61617e6365647f786578746251637e7f7f78747370787d74683f727d7e6475">Email</a>
+                <a href="https://www.linkedin.com/in/ronniebailey" target="_blank">LinkedIn</a>
+                <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode">◐</button>
+                <button class="download-btn" onclick="downloadResume()">Resume</button>
+            </div>
         </div>
     </header>
 
     <main>
         <section class="hero">
-            <h1>Ronnie Bailey</h1>
-            <div class="hero-subtitle">
-                Principal Identity Security Consultant
-            </div>
-            <p>
-                Principal Identity Security Consultant with 15 years architecting identity security for Fortune 500 enterprises and federal agencies. Expert in Zero Trust architecture, privileged access management, and hybrid identity infrastructure. Technical escalation authority who designs frameworks, mentors teams, and resolves complex authentication failures.
-            </p>
-            
-            <div class="hero-links">
-                <a href="soon.html" target="_blank" class="hero-link" title="View my security code repository">
-                    <i class="fab fa-github hero-link-icon"></i>
-                    <span>Security Repository</span>
-                </a>
-                <a href="soon.html" target="_blank" class="hero-link" title="Read my IAM insights blog">
-                    <i class="fas fa-pen-nib hero-link-icon"></i>
-                    <span>IAM Insights Blog</span>
-                </a>
-                <a href="soon.html" class="hero-link" title="View detailed case studies">
-                    <i class="fas fa-chart-line hero-link-icon"></i>
-                    <span>Case Studies</span>
-                </a>
+            <div style="display: flex; gap: 3rem; align-items: flex-start;">
+                <div style="flex: 1;">
+                    <h1>Ronnie Bailey</h1>
+                    <div class="hero-subtitle">Principal IAM Architect</div>
+                    <p>
+                        Principal IAM Architect with 15 years architecting identity security for Fortune 500 enterprises and federal agencies. Expert in Zero Trust architecture, privileged access management, and hybrid identity infrastructure. Technical escalation authority who designs frameworks, mentors teams, and resolves complex authentication failures.
+                    </p>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">
+                        Richmond, VA
+                    </p>
+                </div>
+                <div style="flex: 0 0 300px; position: relative;">
+                    <div class="hero-photo">
+                        <img src="me.png" alt="Ronnie Bailey">
+                        <div class="binary-border top">01010110 01100001 01101100 01110101 01100101 01110011</div>
+                        <div class="binary-border bottom">01110000 01110010 01101111 01100010 01101001 01101110</div>
+                        <div class="binary-border left">1
+0
+1
+1
+0
+0
+1
+0
+1</div>
+                        <div class="binary-border right">0
+1
+0
+1
+1
+0
+0
+1
+0</div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="news-ticker">
             <h2 class="section-title">Cybersecurity News & Insights</h2>
             <div class="ticker-container">
-                <div class="ticker-scroll" id="ticker-scroll">
-                    <!-- News items will be loaded here -->
-                </div>
+                <div class="ticker-scroll" id="ticker-scroll"></div>
             </div>
         </section>
 
@@ -1090,101 +988,6 @@
                 </ul>
                 <div class="job-skills"><strong>Skills:</strong> NIST 800-53 · ISO 27001 · AWS · Azure · Nessus · Ping Identity · Okta · Auth0 · BeyondTrust · Entra ID · Splunk · Digital Forensics</div>
             </div>
-
-            <div class="experience-item">
-                <div class="job-title">Systems Administrator</div>
-                <div class="company-name">
-                    <span class="company-placeholder">Tech Repair & Support Services</span>
-                    <span class="company-real">uBreakiFix</span>
-                </div>
-                <div class="job-meta">
-                    <span>Full-time</span>
-                    <span>2009 – 2011</span>
-                </div>
-                <ul class="job-bullets">
-                    <li>Technical Support: Delivered first-level support for hardware, software, and network issues via phone, email, and in-person.</li>
-                    <li>Incident Management: Assessed and prioritized tickets based on impact and urgency to meet SLA targets.</li>
-                    <li>Customer Service: Maintained high satisfaction through timely support and detailed documentation of service desk activities.</li>
-                </ul>
-                <div class="job-skills"><strong>Skills:</strong> Technical Support · Incident Management · Customer Service · Hardware Repair · System Administration</div>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-title">IT Support Associate</div>
-                <div class="company-name">
-                    <span class="company-placeholder">Consumer Electronics Retailer</span>
-                    <span class="company-real">Circuit City</span>
-                </div>
-                <div class="job-meta">
-                    <span>Full-time</span>
-                    <span>2006 – 2009</span>
-                </div>
-                <ul class="job-bullets">
-                    <li>Technical Support: Provided troubleshooting for computer and electronic products, resolving hardware and software issues.</li>
-                    <li>Product Setup: Assisted customers with initial configuration, software installations, and feature explanations.</li>
-                    <li>Hardware Repair: Conducted basic repairs or coordinated with authorized service providers.</li>
-                    <li>Inventory Management: Maintained stock of computer accessories and ensured product availability.</li>
-                    <li>Customer Engagement: Collaborated with sales team to align technology solutions with customer needs.</li>
-                    <li>Product Knowledge: Stayed current on technology trends and updated demo areas to reflect latest offerings.</li>
-                </ul>
-                <div class="job-skills"><strong>Skills:</strong> Technical Support · Hardware Repair · Customer Service · Inventory Management · Product Knowledge</div>
-            </div>
-        </section>
-
-        <section id="timeline">
-            <h2 class="section-title">Career Timeline</h2>
-            <div class="timeline-compact">
-                <div class="timeline-item-compact" onclick="scrollToExperience('LexisNexis')">
-                    <h4>Lead Identity Security Architect</h4>
-                    <p>LexisNexis / USPTO</p>
-                    <small>2024 – Present</small>
-                </div>
-                <div class="timeline-item-compact" onclick="scrollToExperience('Kroger')">
-                    <h4>IAM Architect</h4>
-                    <p>Kroger Technology</p>
-                    <small>2022 – 2024</small>
-                </div>
-                <div class="timeline-item-compact" onclick="scrollToExperience('Homeland Security')">
-                    <h4>CIAM Architect</h4>
-                    <p>DHS / US Secret Service</p>
-                    <small>2022</small>
-                </div>
-                <div class="timeline-item-compact" onclick="scrollToExperience('Accessia Health')">
-                    <h4>Cloud Vulnerability Analyst</h4>
-                    <p>Accessia Health</p>
-                    <small>2021</small>
-                </div>
-                <div class="timeline-item-compact" onclick="scrollToExperience('Indivior Pharmaceuticals')">
-                    <h4>PAM Architect</h4>
-                    <p>Indivior Pharmaceuticals</p>
-                    <small>2019 – 2021</small>
-                </div>
-                <div class="timeline-item-compact" onclick="scrollToExperience('Wells Fargo Bank')">
-                    <h4>IAM Analyst</h4>
-                    <p>Wells Fargo Bank</p>
-                    <small>2019</small>
-                </div>
-                <div class="timeline-item-compact" onclick="scrollToExperience('Wellsecured IT')">
-                    <h4>CIAM Engineer</h4>
-                    <p>Wellsecured IT</p>
-                    <small>2015 – 2019</small>
-                </div>
-                <div class="timeline-item-compact" onclick="scrollToExperience('Cloudcentria Security')">
-                    <h4>Cloud Security Lead</h4>
-                    <p>Cloudcentria Security</p>
-                    <small>2011 – 2015</small>
-                </div>
-                <div class="timeline-item-compact" onclick="scrollToExperience('uBreakiFix')">
-                    <h4>Systems Administrator</h4>
-                    <p>uBreakiFix</p>
-                    <small>2009 – 2011</small>
-                </div>
-                <div class="timeline-item-compact" onclick="scrollToExperience('Circuit City')">
-                    <h4>IT Support Associate</h4>
-                    <p>Circuit City</p>
-                    <small>2006 – 2009</small>
-                </div>
-            </div>
         </section>
 
         <section id="projects">
@@ -1366,50 +1169,48 @@
             </div>
         </section>
 
-        <!-- Updated Certifications & Education Section -->
-        <section id="certifications-education">
-            <h2 class="section-title">Certifications & Education</h2>
+        <section id="bottom">
             <div class="cert-edu-grid">
                 <div class="cert-edu-section">
                     <h3>Certifications</h3>
-                    <div class="cert-list">
-                        <div class="cert-item">
+                    <ul class="cert-list">
+                        <li class="cert-item">
                             <div class="cert-title">AZ-900 – Microsoft Azure Fundamentals</div>
                             <div class="cert-org">Microsoft</div>
                             <div class="cert-date">In Progress | 2026</div>
-                        </div>
-                        <div class="cert-item">
+                        </li>
+                        <li class="cert-item">
                             <div class="cert-title">Cybersecurity Essentials</div>
                             <div class="cert-org">Cisco</div>
                             <div class="cert-date">2021</div>
-                        </div>
-                        <div class="cert-item">
+                        </li>
+                        <li class="cert-item">
                             <div class="cert-title">IBM Cloud Essentials</div>
                             <div class="cert-org">IBM</div>
                             <div class="cert-date">2021</div>
-                        </div>
-                        <div class="cert-item">
+                        </li>
+                        <li class="cert-item">
                             <div class="cert-title">Network Administration</div>
                             <div class="cert-org">Reynolds College</div>
                             <div class="cert-date">2020</div>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
-                
-                <div class="cert-edu-section">
+
+                <div class="cert-edu-section" id="education">
                     <h3>Education</h3>
-                    <div class="cert-list">
-                        <div class="cert-item">
+                    <ul class="cert-list">
+                        <li class="cert-item">
                             <div class="cert-title">Bachelor of Science in Cybersecurity</div>
                             <div class="cert-org">University of Richmond</div>
                             <div class="cert-date">In Progress</div>
-                        </div>
-                        <div class="cert-item">
+                        </li>
+                        <li class="cert-item">
                             <div class="cert-title">Associate of Applied Science in Information Systems</div>
                             <div class="cert-org">Reynolds College</div>
                             <div class="cert-date">Completed</div>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -1422,10 +1223,18 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Ronnie Bailey | Principal Identity Security Consultant</p>
+        <p>&copy; 2025 Ronnie Bailey | Principal IAM Architect</p>
     </footer>
 
-    <script>
+    <div class="elevator" id="elevator">
+        <div class="elevator-dot" data-section="experience" title="Experience"></div>
+        <div class="elevator-dot" data-section="projects" title="Projects"></div>
+        <div class="elevator-dot" data-section="skills" title="Skills"></div>
+        <div class="elevator-dot" data-section="bottom" title="Certifications"></div>
+        <div class="elevator-dot" data-section="quote-section" title="Quote"></div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Theme toggle
         const htmlElement = document.documentElement;
         const themeToggle = document.getElementById('theme-toggle');
@@ -1445,6 +1254,37 @@
             htmlElement.setAttribute('data-theme', savedTheme);
         }
 
+        // Elevator functionality
+        const elevatorDots = document.querySelectorAll('.elevator-dot');
+        const sections = document.querySelectorAll('section[id]');
+        
+        elevatorDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const sectionId = dot.getAttribute('data-section');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Update elevator indicator on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                if (window.pageYOffset >= section.offsetTop - 300) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            elevatorDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-section') === current) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+
         // Quotes
         const quotes = [
             "The future of technology is not in our ability to create machines but in our understanding of how those machines can reshape the soul of humanity.",
@@ -1452,225 +1292,146 @@
             "Every algorithm is a seed planted in the soil of time, destined to grow into solutions for problems we cannot yet see.",
             "Progress is a paradox: it marches forward yet always loops back to confront the humanity it serves.",
             "A truly advanced society is one where technology fades into the background, empowering individuals without demanding their attention.",
+            "The challenge of the future will not be building machines that think like us but ensuring we continue to think for ourselves.",
+            "Technology's ultimate triumph lies not in its complexity, but in its simplicity—when it becomes indistinguishable from the human condition.",
+            "In every byte of data lies the possibility of a universe rewritten, a future reimagined.",
+            "The architects of tomorrow must balance the weight of progress with the fragility of wisdom.",
+            "Civilizations rise and fall, but the code we leave behind will outlast the stars themselves.",
+            "Technology thrives where curiosity dares to tread.",
+            "The future belongs to those who code the unknown.",
+            "Every invention is a whisper from tomorrow's possibilities.",
+            "A world driven by technology must pause to ask who drives the driver.",
+            "Progress is not about faster machines but about better questions.",
+            "We shape technology, and in turn, it reshapes us.",
+            "The most powerful tool is not the machine but the mind that wields it.",
+            "In the silence of progress, the loudest voice is innovation.",
+            "The future of technology is a mirror reflecting the best and worst of our humanity.",
+            "As we automate tasks, let us not automate our ethics.",
+            "A truly intelligent machine understands the value of human ignorance.",
+            "Technology's greatest gift is the power to dream beyond our limitations.",
+            "We are not just building tools; we are constructing futures.",
+            "The code of tomorrow is written in the language of imagination.",
+            "Innovation is the art of turning impossibilities into inevitabilities.",
+            "The future is not built by engineers alone but by the dreams they dare to engineer.",
+            "The pace of technology is irrelevant if it leaves humanity behind.",
+            "Every byte of progress must carry the weight of responsibility.",
+            "The more we delegate to machines, the more we must reclaim what makes us human.",
+            "The limits of technology are set only by the boundaries of our courage to explore."
         ];
 
-        // Resume download
-        function downloadResume() {
-            const resumeUrl = 'resume.pdf';
-            const link = document.createElement('a');
-            link.href = resumeUrl;
-            link.download = 'RonnieBailey_Resume.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        // RSS News functionality - UPDATED WITH YOUR SPECIFIC FEEDS
-        async function fetchWithTimeout(url, timeout = 6000) {
-            const controller = new AbortController();
-            const id = setTimeout(() => controller.abort(), timeout);
-            
+        document.addEventListener('DOMContentLoaded', function() {
             try {
-                const response = await fetch(url, { signal: controller.signal });
-                clearTimeout(id);
-                return response;
-            } catch (error) {
-                clearTimeout(id);
-                throw error;
-            }
-        }
-
-        function getSourceName(feedUrl) {
-            const sourceMap = {
-                'darkreading.com': 'Dark Reading',
-                'thehackersnews': 'The Hacker News',
-                'sans.edu': 'SANS ISC',
-                'cisa.gov': 'CISA',
-                'bleepingcomputer.com': 'BleepingComputer',
-                'threatpost.com': 'Threatpost',
-                'krebsonsecurity.com': 'Krebs on Security'
-            };
-            
-            for (const [key, name] of Object.entries(sourceMap)) {
-                if (feedUrl.includes(key)) {
-                    return name;
+                // Set daily quote
+                const today = new Date();
+                const quoteIndex = today.getDate() % quotes.length;
+                const quoteElement = document.getElementById('quote-text');
+                if (quoteElement) {
+                    quoteElement.textContent = quotes[quoteIndex];
                 }
-            }
-            return 'Security News';
-        }
 
-        function parseDate(dateString) {
-            if (!dateString) return null;
-            
-            // Try multiple date formats
-            const dateFormats = [
-                Date.parse(dateString), // Standard parsing
-                dateString.match(/\d{4}-\d{2}-\d{2}/)?.[0], // YYYY-MM-DD
-                dateString.match(/\d{2}\s+[A-Za-z]+\s+\d{4}/)?.[0], // 01 Jan 2026
-                dateString.match(/[A-Za-z]+\s+\d{1,2},\s+\d{4}/)?.[0], // January 1, 2026
-            ];
-            
-            for (const format of dateFormats) {
-                if (format) {
-                    const date = new Date(format);
-                    if (!isNaN(date.getTime())) {
-                        return date;
-                    }
-                }
-            }
-            
-            return null;
-        }
+                // Load news ticker
+                setTimeout(() => {
+                    fetchCybersecurityNews();
+                }, 100);
 
-        async function fetchLiveNews() {
-            // YOUR SPECIFIED RSS FEEDS
-            const newsFeeds = [
-                'https://www.darkreading.com/rss.xml',
-                'https://feeds.feedburner.com/TheHackersNews',
-                'https://isc.sans.edu/rssfeed_full.xml',
-                'https://www.cisa.gov/cybersecurity-advisories/all.xml',
-                'https://www.bleepingcomputer.com/feed/',
-                'https://threatpost.com/feed/',
-                'https://krebsonsecurity.com/feed/'
-            ];
-            
-            const newsItems = [];
-            const currentYear = 2026; // Only show 2026 content
-            const startOf2026 = new Date('2026-01-01T00:00:00Z');
-            
-            // Fetch all feeds in parallel
-            const fetchPromises = newsFeeds.map(async (feed) => {
-                try {
-                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed)}`;
-                    const response = await fetchWithTimeout(proxyUrl, 5000);
+                // Scroll listeners for nav and elevator
+                window.addEventListener('scroll', () => {
+                    const sections = document.querySelectorAll('section[id]');
+                    const navLinks = document.querySelectorAll('nav a');
+                    const elevatorDots = document.querySelectorAll('.elevator-dot');
                     
-                    if (!response.ok) {
-                        console.log(`Failed to fetch ${feed}: ${response.status}`);
-                        return [];
-                    }
-                    
-                    const data = await response.json();
-                    const parser = new DOMParser();
-                    const xml = parser.parseFromString(data.contents, 'text/xml');
-                    
-                    // Check for parsing errors
-                    const parserError = xml.querySelector('parsererror');
-                    if (parserError) {
-                        console.log(`XML parsing error for ${feed}:`, parserError.textContent);
-                        return [];
-                    }
-                    
-                    // Parse items
-                    const items = xml.querySelectorAll('item, entry');
-                    const feedItems = [];
-                    let count = 0;
-                    
-                    items.forEach(item => {
-                        if (count < 5) { // Limit to 5 items per feed
-                            const titleEl = item.querySelector('title');
-                            const linkEl = item.querySelector('link');
-                            const pubDateEl = item.querySelector('pubDate') || 
-                                              item.querySelector('published') || 
-                                              item.querySelector('updated') || 
-                                              item.querySelector('dc\\:date') ||
-                                              item.querySelector('date');
-                            
-                            if (titleEl && linkEl) {
-                                let title = titleEl.textContent.trim();
-                                let link = linkEl.textContent || linkEl.getAttribute('href') || '#';
-                                let pubDate = null;
-                                
-                                // Get date
-                                if (pubDateEl) {
-                                    pubDate = parseDate(pubDateEl.textContent);
-                                }
-                                
-                                // Check if item is from 2026
-                                const is2026Item = pubDate ? 
-                                    (pubDate.getFullYear() === currentYear && pubDate >= startOf2026) : 
-                                    false;
-                                
-                                // If we have a date and it's 2026, add it
-                                // If no date, include it anyway (some feeds might not have dates)
-                                if (is2026Item || !pubDate) {
-                                    // Clean title
-                                    title = title.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 120);
-                                    
-                                    feedItems.push({
-                                        title: title,
-                                        link: link,
-                                        source: getSourceName(feed),
-                                        date: pubDate,
-                                        timestamp: pubDate ? pubDate.getTime() : Date.now()
-                                    });
-                                    count++;
-                                }
-                            }
+                    let current = '';
+                    sections.forEach(section => {
+                        if (pageYOffset >= section.offsetTop - 300) {
+                            current = section.getAttribute('id');
                         }
                     });
-                    
-                    return feedItems;
-                } catch (error) {
-                    console.log(`Error fetching ${feed}:`, error);
-                    return [];
-                }
-            });
-            
-            try {
-                const results = await Promise.allSettled(fetchPromises);
-                
-                results.forEach(result => {
-                    if (result.status === 'fulfilled' && result.value.length > 0) {
-                        newsItems.push(...result.value);
-                    }
+
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === current) {
+                            link.classList.add('active');
+                        }
+                    });
+
+                    elevatorDots.forEach(dot => {
+                        dot.classList.remove('active');
+                        if (dot.getAttribute('data-section') === current) {
+                            dot.classList.add('active');
+                        }
+                    });
                 });
-                
-                // Sort by date (most recent first)
-                return newsItems.sort((a, b) => b.timestamp - a.timestamp);
-            } catch (error) {
-                console.error('Error processing feeds:', error);
-                return [];
+            } catch (err) {
+                console.error('Init error:', err);
             }
+        });
+
+        function fetchCybersecurityNews() {
+            // Load fallback news immediately
+            updateNewsTicker(getFallbackNews());
+            
+            // Optionally try to fetch live feeds in background (non-blocking)
+            const newsFeeds = [
+                'https://feeds.bleepingcomputer.com/feed/',
+                'https://www.darkreading.com/rss_simple.xml',
+                'https://feeds.infosecurity-magazine.com/infosecurity_news'
+            ];
+
+            const proxyUrl = 'https://api.allorigins.win/get?url=';
+            const newsItems = [];
+
+            newsFeeds.forEach(feed => {
+                fetch(proxyUrl + encodeURIComponent(feed), { timeout: 3000 })
+                    .then(response => response.json())
+                    .then(data => {
+                        try {
+                            const parser = new DOMParser();
+                            const xml = parser.parseFromString(data.contents, 'text/xml');
+                            
+                            if (xml.getElementsByTagName('parsererror').length === 0) {
+                                const items = xml.querySelectorAll('item');
+                                let count = 0;
+                                items.forEach((item) => {
+                                    if (count < 2) {
+                                        const title = item.querySelector('title')?.textContent?.trim();
+                                        const link = item.querySelector('link')?.textContent?.trim();
+                                        if (title) {
+                                            newsItems.push({ 
+                                                title: title.substring(0, 100), 
+                                                link: link || '#' 
+                                            });
+                                            count++;
+                                        }
+                                    }
+                                });
+                                
+                                if (newsItems.length >= 6) {
+                                    updateNewsTicker(newsItems);
+                                }
+                            }
+                        } catch (e) {
+                            console.log('Feed parse error');
+                        }
+                    })
+                    .catch(err => {
+                        console.log('Feed fetch error');
+                    });
+            });
         }
 
         function getFallbackNews() {
-            // Fallback with 2026-focused content
             return [
-                { title: "Zero Trust Mandates Expand Across Federal Agencies in 2026", link: "https://www.cisa.gov/zero-trust", source: "CISA 2026" },
-                { title: "2026 Cybersecurity Forecast: AI-Powered Threats and Defenses", link: "https://www.darkreading.com/2026-forecast", source: "Dark Reading" },
-                { title: "New Identity Protection Standards Released for 2026 Compliance", link: "https://www.nist.gov/identity-2026", source: "NIST" },
-                { title: "Cloud Security Breaches Drop 40% with Advanced IAM Controls", link: "https://www.bleepingcomputer.com/cloud-security-2026", source: "BleepingComputer" },
-                { title: "Privileged Access Management Becomes Board-Level Priority in 2026", link: "https://threatpost.com/pam-2026", source: "Threatpost" },
-                { title: "Supply Chain Attacks Target Identity Infrastructure in 2026", link: "https://krebsonsecurity.com/supply-chain-2026", source: "Krebs" },
-                { title: "Automated Threat Hunting Scales Across Enterprises in 2026", link: "https://isc.sans.edu/threat-hunting-2026", source: "SANS ISC" },
-                { title: "Multi-Factor Authentication Adoption Hits 90% in Financial Sector", link: "https://www.thehackersnews.com/mfa-2026", source: "The Hacker News" },
-                { title: "Quantum-Resistant Cryptography Standards Finalized for 2026", link: "https://www.cisa.gov/quantum-2026", source: "CISA" },
-                { title: "Identity Governance Automation Cuts Compliance Costs by 60%", link: "https://www.darkreading.com/iga-2026", source: "Dark Reading" }
+                { title: "Zero Trust Architecture – Industry Standard for Enterprise Security", link: "https://www.nist.gov/publications/zero-trust-architecture" },
+                { title: "Identity & Access Management Implementations Hit Record Levels in 2024", link: "https://www.gartner.com/en/research/iam" },
+                { title: "Federal Agencies Prioritize Privilege Access Management for Critical Infrastructure", link: "https://www.cisa.gov/pam" },
+                { title: "Cloud Identity Security Breaches Decline with Federated Authentication", link: "https://www.cloudflare.com/learning/access-management/federated-identity-management/" },
+                { title: "FedRAMP Authorizations Accelerate with Streamlined Compliance Processes", link: "https://www.fedramp.gov/" },
+                { title: "Entra ID Adoption Reaches 85% Among Enterprise Organizations", link: "https://learn.microsoft.com/en-us/entra/identity/" },
+                { title: "Password-less Authentication Becomes Standard in Financial Services", link: "https://www.microsoft.com/en-us/security/business/solutions/passwordless-sign-in" },
+                { title: "PAM Solutions Prevent 90% of Lateral Movement Attacks", link: "https://www.beyondtrust.com/resources/whitepapers" },
+                { title: "Identity Governance Reduces Compliance Audit Costs by 40%", link: "https://www.gartner.com/en/research/identity-governance" },
+                { title: "Machine Learning Enhances Threat Detection in Identity Systems", link: "https://www.microsoft.com/en-us/security/business/ai-security" }
             ];
-        }
-
-        async function fetchCybersecurityNews() {
-            const tickerScroll = document.getElementById('ticker-scroll');
-            if (!tickerScroll) return;
-            
-            // Show loading state
-            tickerScroll.innerHTML = '<a href="#" class="ticker-item">Loading 2026 cybersecurity news...</a>';
-            
-            try {
-                // Try to fetch live news
-                const liveNews = await fetchLiveNews();
-                
-                if (liveNews.length >= 8) {
-                    updateNewsTicker(liveNews.slice(0, 10));
-                } else {
-                    // If not enough 2026 items, use fallback
-                    console.log(`Found ${liveNews.length} 2026 items, using fallback`);
-                    updateNewsTicker(getFallbackNews());
-                }
-            } catch (error) {
-                console.error('Error fetching news:', error);
-                updateNewsTicker(getFallbackNews());
-            }
         }
 
         function updateNewsTicker(newsItems) {
@@ -1678,225 +1439,18 @@
             if (!tickerScroll) return;
             
             if (!newsItems || newsItems.length === 0) {
-                tickerScroll.innerHTML = '<a href="#" class="ticker-item">Loading 2026 cybersecurity updates...</a>';
+                tickerScroll.innerHTML = '<a href="#" class="ticker-item">Cybersecurity news updates</a>';
                 return;
             }
             
-            // Take first 10 items
-            const displayItems = newsItems.slice(0, 10);
-            
-            const newsContent = displayItems.map(item => {
+            const newsContent = newsItems.map(item => {
                 const href = item.link || '#';
                 const title = item.title || 'Cybersecurity News';
-                const source = item.source ? ` [${item.source}]` : '';
-                const year = item.date ? ` (${item.date.getFullYear()})` : ' (2026)';
-                return `<a href="${href}" target="_blank" class="ticker-item" rel="noopener noreferrer">${title}${source}${year}</a>`;
+                return `<a href="${href}" target="_blank" class="ticker-item" rel="noopener noreferrer">${title}</a>`;
             }).join('');
             
             // Duplicate for seamless infinite loop
             tickerScroll.innerHTML = newsContent + newsContent;
         }
 
-        // Mobile ticker scrolling
-        function initializeTickerScrolling() {
-            const tickerScroll = document.getElementById('ticker-scroll');
-            if (!tickerScroll) return;
-            
-            // Check if mobile
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            
-            if (isMobile) {
-                // Initialize mobile scrolling
-                let isScrolling = true;
-                let scrollPosition = 0;
-                const scrollSpeed = 0.8;
-                let animationId;
-                
-                function animateTicker() {
-                    if (isScrolling) {
-                        const tickerWidth = tickerScroll.scrollWidth / 2;
-                        scrollPosition -= scrollSpeed;
-                        
-                        // Reset when scrolled completely
-                        if (Math.abs(scrollPosition) >= tickerWidth) {
-                            scrollPosition = 0;
-                        }
-                        
-                        tickerScroll.style.transform = `translateX(${scrollPosition}px)`;
-                    }
-                    animationId = requestAnimationFrame(animateTicker);
-                }
-                
-                // Start animation
-                animateTicker();
-                
-                // Touch events for pausing
-                tickerScroll.addEventListener('touchstart', () => {
-                    isScrolling = false;
-                    tickerScroll.style.animationPlayState = 'paused';
-                });
-                
-                tickerScroll.addEventListener('touchend', () => {
-                    setTimeout(() => {
-                        isScrolling = true;
-                        tickerScroll.style.animationPlayState = 'running';
-                    }, 1000);
-                });
-                
-                // Clean up animation on page hide
-                document.addEventListener('visibilitychange', () => {
-                    if (document.hidden) {
-                        cancelAnimationFrame(animationId);
-                    } else {
-                        animateTicker();
-                    }
-                });
-            }
-        }
-
-        // Touch events for company names on mobile
-        function initializeTouchEvents() {
-            const companyNames = document.querySelectorAll('.company-name');
-            
-            companyNames.forEach(company => {
-                let touchTimer;
-                let isLongPress = false;
-                
-                company.addEventListener('touchstart', function(e) {
-                    e.preventDefault();
-                    isLongPress = false;
-                    touchTimer = setTimeout(() => {
-                        isLongPress = true;
-                        // Show real name on long press
-                        const placeholder = this.querySelector('.company-placeholder');
-                        const real = this.querySelector('.company-real');
-                        
-                        if (placeholder && real) {
-                            placeholder.style.display = 'none';
-                            real.style.display = 'inline';
-                            
-                            // Revert after 3 seconds
-                            setTimeout(() => {
-                                if (isLongPress) {
-                                    placeholder.style.display = 'inline';
-                                    real.style.display = 'none';
-                                }
-                            }, 3000);
-                        }
-                    }, 500); // 500ms long press
-                });
-                
-                company.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    clearTimeout(touchTimer);
-                    if (!isLongPress && window.innerWidth <= 600) {
-                        // On small screens, show real name on tap
-                        const placeholder = this.querySelector('.company-placeholder');
-                        const real = this.querySelector('.company-real');
-                        
-                        if (placeholder && real) {
-                            placeholder.style.display = 'none';
-                            real.style.display = 'inline';
-                            
-                            // Revert after 2 seconds
-                            setTimeout(() => {
-                                placeholder.style.display = 'inline';
-                                real.style.display = 'none';
-                            }, 2000);
-                        }
-                    }
-                });
-                
-                company.addEventListener('touchmove', function(e) {
-                    e.preventDefault();
-                    clearTimeout(touchTimer);
-                    isLongPress = false;
-                });
-            });
-        }
-
-        // Timeline click functionality
-        function scrollToExperience(searchTerm) {
-            const experienceItems = document.querySelectorAll('.experience-item');
-            let found = false;
-            
-            experienceItems.forEach(item => {
-                const text = item.textContent.toLowerCase();
-                if (text.includes(searchTerm.toLowerCase())) {
-                    item.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    
-                    // Add highlight effect
-                    item.style.transition = 'all 0.3s ease';
-                    item.style.backgroundColor = 'var(--bg-light)';
-                    item.style.boxShadow = '0 0 0 2px var(--accent)';
-                    setTimeout(() => {
-                        item.style.backgroundColor = '';
-                        item.style.boxShadow = '';
-                    }, 2000);
-                    found = true;
-                }
-            });
-            
-            // If not found in experience section, try to find in other sections
-            if (!found) {
-                const allElements = document.querySelectorAll('*');
-                allElements.forEach(element => {
-                    if (element.textContent.toLowerCase().includes(searchTerm.toLowerCase())) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                });
-            }
-        }
-
-        // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set daily quote
-            const today = new Date();
-            const quoteIndex = today.getDate() % quotes.length;
-            document.getElementById('quote-text').textContent = quotes[quoteIndex];
-
-            // Initialize mobile features
-            initializeTickerScrolling();
-            initializeTouchEvents();
-
-            // Fetch RSS news
-            fetchCybersecurityNews();
-
-            // Active navigation highlighting
-            window.addEventListener('scroll', () => {
-                const sections = document.querySelectorAll('section[id]');
-                const navLinks = document.querySelectorAll('.main-nav a');
-                
-                let current = '';
-                sections.forEach(section => {
-                    if (pageYOffset >= section.offsetTop - 200) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').substring(1) === current) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-            
-            // Pause ticker on hover
-            const tickerScroll = document.getElementById('ticker-scroll');
-            if (tickerScroll) {
-                tickerScroll.addEventListener('mouseenter', () => {
-                    tickerScroll.style.animationPlayState = 'paused';
-                });
-                
-                tickerScroll.addEventListener('mouseleave', () => {
-                    tickerScroll.style.animationPlayState = 'running';
-                });
-            }
-        });
-
-        // Auto-refresh news every 30 minutes
-        setInterval(fetchCybersecurityNews, 30 * 60 * 1000);
-    </script>
-</body>
-</html>
+        function downloadRes
