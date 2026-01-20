@@ -817,6 +817,43 @@
             .timeline-compact {
                 grid-template-columns: 1fr;
             }
+
+            /* Hero section responsive adjustments */
+            .hero {
+                padding-bottom: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+
+            /* Stack hero content on mobile */
+            .hero > div {
+                flex-direction: column !important;
+                gap: 1.5rem !important;
+            }
+
+            .hero > div > div:last-child {
+                flex: 1 !important;
+                width: 100% !important;
+                max-width: 280px !important;
+                margin: 0 auto !important;
+            }
+
+            .hero > div > div:last-child img {
+                margin-top: 1rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Tablet adjustments */
+            .hero > div {
+                gap: 2rem !important;
+            }
+
+            .hero > div > div:last-child {
+                flex: 0 0 300px !important;
+            }
         }
     </style>
 </head>
@@ -859,7 +896,7 @@
 
     <main>
         <section class="hero">
-            <div style="display: flex; gap: 2rem; align-items: flex-start;">
+            <div style="display: flex; gap: 3rem; align-items: flex-start;">
                 <div style="flex: 1;">
                     <h1>Ronnie Bailey</h1>
                     <div class="hero-subtitle">
@@ -869,8 +906,8 @@
                         Principal Identity Security Consultant with 15 years architecting identity security for Fortune 500 enterprises and federal agencies. Expert in Zero Trust architecture, privileged access management, and hybrid identity infrastructure. Technical escalation authority who designs frameworks, mentors teams, and resolves complex authentication failures.
                     </p>
                 </div>
-                <div style="flex: 0 0 280px; margin-top: 0.5rem;">
-                    <img src="me.png" alt="Ronnie Bailey" style="width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block;">
+                <div style="flex: 0 0 350px; margin-top: 0.5rem;">
+                    <img src="me.png" alt="Ronnie Bailey" style="width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
                 </div>
             </div>
             
