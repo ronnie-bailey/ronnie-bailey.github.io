@@ -273,6 +273,43 @@
             margin-bottom: 1.5rem;
         }
 
+        /* Hero Links */
+        .hero-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            padding: 0.75rem 1.25rem;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            background: var(--bg-light);
+        }
+
+        .hero-link:hover {
+            text-decoration: none;
+            border-color: var(--accent);
+            background: var(--bg);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .hero-link-icon {
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+
         section {
             margin-bottom: 4rem;
         }
@@ -859,19 +896,27 @@
 
     <main>
         <section class="hero">
-            <div style="display: flex; gap: 3rem; align-items: flex-start;">
-                <div style="flex: 1;">
-                    <h1>Ronnie Bailey</h1>
-                    <div class="hero-subtitle">
-                        Principal Identity Security Consultant
-                    </div>
-                    <p>
-                        Principal Identity Security Consultant with 15 years architecting identity security for Fortune 500 enterprises and federal agencies. Expert in Zero Trust architecture, privileged access management, and hybrid identity infrastructure. Technical escalation authority who designs frameworks, mentors teams, and resolves complex authentication failures.
-                    </p>
-                </div>
-                <div style="flex: 0 0 260px; margin-top: 0.5rem;">
-                    <img src="me.png" alt="Ronnie Bailey" style="width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
-                </div>
+            <h1>Ronnie Bailey</h1>
+            <div class="hero-subtitle">
+                Principal Identity Security Consultant
+            </div>
+            <p>
+                Principal Identity Security Consultant with 15 years architecting identity security for Fortune 500 enterprises and federal agencies. Expert in Zero Trust architecture, privileged access management, and hybrid identity infrastructure. Technical escalation authority who designs frameworks, mentors teams, and resolves complex authentication failures.
+            </p>
+            
+            <div class="hero-links">
+                <a href="soon.html" target="_blank" class="hero-link" title="View my security code repository">
+                    <i class="fab fa-github hero-link-icon"></i>
+                    <span>Security Repository</span>
+                </a>
+                <a href="soon.html" target="_blank" class="hero-link" title="Read my IAM insights blog">
+                    <i class="fas fa-pen-nib hero-link-icon"></i>
+                    <span>IAM Insights Blog</span>
+                </a>
+                <a href="soon.html" class="hero-link" title="View detailed case studies">
+                    <i class="fas fa-chart-line hero-link-icon"></i>
+                    <span>Case Studies</span>
+                </a>
             </div>
         </section>
 
