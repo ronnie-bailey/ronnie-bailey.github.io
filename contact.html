@@ -27,15 +27,9 @@
             --bg-light: #1f2937;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -83,9 +77,7 @@
         }
 
         .main-nav a:hover,
-        .main-nav a.active {
-            color: var(--accent);
-        }
+        .main-nav a.active { color: var(--accent); }
 
         .main-nav a::after {
             content: '';
@@ -99,9 +91,7 @@
         }
 
         .main-nav a:hover::after,
-        .main-nav a.active::after {
-            width: 100%;
-        }
+        .main-nav a.active::after { width: 100%; }
 
         .contact-bar {
             display: flex;
@@ -219,32 +209,6 @@
             background: var(--bg-light);
         }
 
-        .download-btn {
-            background: var(--accent);
-            color: var(--bg);
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.75rem;
-            cursor: pointer;
-            text-decoration: none;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .download-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
         main {
             max-width: 1000px;
             margin: 0 auto;
@@ -309,10 +273,7 @@
             font-weight: 500;
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-        }
+        form { display: flex; flex-direction: column; }
 
         .form-section {
             margin-bottom: 2rem;
@@ -320,9 +281,7 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .form-section:last-of-type {
-            border-bottom: none;
-        }
+        .form-section:last-of-type { border-bottom: none; }
 
         .section-title {
             font-size: 0.9rem;
@@ -373,11 +332,7 @@
             min-height: 100px;
         }
 
-        fieldset {
-            border: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
+        fieldset { border: none; padding: 0; margin: 1rem 0; }
 
         legend {
             font-weight: 600;
@@ -407,9 +362,7 @@
         }
 
         .radio-option:hover,
-        .checkbox-option:hover {
-            background-color: var(--bg-light);
-        }
+        .checkbox-option:hover { background-color: var(--bg-light); }
 
         input[type="radio"],
         input[type="checkbox"] {
@@ -428,23 +381,9 @@
             gap: 2px;
         }
 
-        .option-label strong {
-            color: var(--text);
-            font-size: 0.95rem;
-        }
+        .option-label strong { color: var(--text); font-size: 0.95rem; }
 
-        .option-sublabel {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-
-        .disabled-option {
-            opacity: 0.5;
-        }
-
-        .disabled-option input {
-            cursor: not-allowed;
-        }
+        .option-sublabel { font-size: 0.85rem; color: var(--text-light); }
 
         .note {
             font-size: 0.85rem;
@@ -467,10 +406,7 @@
             display: none;
         }
 
-        .required {
-            color: #d32f2f;
-            margin-left: 4px;
-        }
+        .required { color: #d32f2f; margin-left: 4px; }
 
         button {
             padding: 0.75rem 1.5rem;
@@ -494,9 +430,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        button:active {
-            transform: translateY(0);
-        }
+        button:active { transform: translateY(0); }
 
         footer {
             border-top: 1px solid var(--border);
@@ -508,89 +442,28 @@
         }
 
         @media (max-width: 900px) {
-            .header-wrapper {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: stretch;
-            }
-
-            .main-nav {
-                justify-content: center;
-                width: 100%;
-                order: 2;
-            }
-
-            .contact-bar {
-                width: 100%;
-                order: 1;
-            }
-
-            .form-header h1 {
-                font-size: 1.8rem;
-            }
-
-            main {
-                padding: 2rem 1rem;
-            }
+            .header-wrapper { flex-direction: column; gap: 1rem; align-items: stretch; }
+            .main-nav { justify-content: center; width: 100%; order: 2; }
+            .contact-bar { width: 100%; order: 1; }
+            .form-header h1 { font-size: 1.8rem; }
+            main { padding: 2rem 1rem; }
         }
 
         @media (max-width: 600px) {
-            .header-wrapper {
-                flex-direction: column;
-            }
-
-            .form-header h1 {
-                font-size: 1.4rem;
-            }
-
-            .main-nav {
-                gap: 0.75rem;
-                font-size: 0.8rem;
-            }
-
-            .contact-bar {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-
-            .contact-icons {
-                justify-content: center;
-            }
-
-            .action-buttons {
-                justify-content: center;
-            }
-
-            .availability-indicator {
-                justify-content: center;
-                width: 100%;
-            }
-
-            .form-section {
-                margin-bottom: 1.5rem;
-                padding-bottom: 1.5rem;
-            }
-
-            button {
-                width: 100%;
-                align-self: stretch;
-            }
+            .header-wrapper { flex-direction: column; }
+            .form-header h1 { font-size: 1.4rem; }
+            .main-nav { gap: 0.75rem; font-size: 0.8rem; }
+            .contact-bar { flex-direction: column; gap: 0.75rem; }
+            .contact-icons { justify-content: center; }
+            .action-buttons { justify-content: center; }
+            .availability-indicator { justify-content: center; width: 100%; }
+            .form-section { margin-bottom: 1.5rem; padding-bottom: 1.5rem; }
+            button { width: 100%; align-self: stretch; }
         }
 
         @media (hover: none) and (pointer: coarse) {
-            .contact-icons a,
-            .theme-toggle,
-            .download-btn {
-                min-height: 44px;
-                min-width: 44px;
-            }
-
-            input[type="radio"],
-            input[type="checkbox"] {
-                width: 20px;
-                height: 20px;
-                margin-top: 2px;
-            }
+            .contact-icons a, .theme-toggle { min-height: 44px; min-width: 44px; }
+            input[type="radio"], input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; }
         }
     </style>
 </head>
@@ -601,15 +474,19 @@
                 <a href="index.html" class="home-btn" title="Back to home">
                     <i class="fas fa-home"></i>
                 </a>
+                <div class="availability-indicator">
+                    <span class="status-dot"></span>
+                    <span class="availability-text">Actively Seeking</span>
+                </div>
                 <div class="contact-icons">
-                    <a href="tel:+18046109719" title="Call me">
-                        <i class="fas fa-phone"></i>
-                    </a>
                     <a href="mailto:opportunities@ronniebailey.cloud" title="Email me">
                         <i class="fas fa-envelope"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/ronniebailey" target="_blank" title="LinkedIn Profile">
                         <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.ronniebailey.cloud" title="Portfolio Website">
+                        <i class="fas fa-globe"></i>
                     </a>
                 </div>
                 <div class="action-buttons">
@@ -619,9 +496,9 @@
                 </div>
             </div>
             <nav class="main-nav">
+                <a href="index.html#perspective">Perspective</a>
                 <a href="index.html#experience">Experience</a>
                 <a href="index.html#projects">Projects</a>
-                <a href="index.html#skills">Skills</a>
                 <a href="contact.html" class="active">Contact</a>
             </nav>
         </div>
@@ -630,48 +507,37 @@
     <main>
         <div class="form-header">
             <h1>Let's Talk</h1>
-            <p>Interested in discussing an opportunity? Fill out the form below. I'm selective about engagements—help me understand if this is a fit.</p>
+            <p>Interested in discussing an opportunity? Fill out the form below. A few details upfront helps us both figure out quickly whether this is worth a conversation.</p>
         </div>
 
         <div class="status-banner">
             <span class="status-indicator"></span>
-            <span class="status-banner-text">Currently open to principal-level opportunities and strategic consulting</span>
+            <span class="status-banner-text">Currently open to Director-level and Principal Architect opportunities full-time and strategic consulting</span>
         </div>
 
         <div class="success-message" id="successMessage">
-            ✓ Message received. I'll review and be in touch within 48 hours.
+            Message received. I will review and be in touch within 48 hours.
         </div>
 
         <form id="contactForm" action="https://formspree.io/f/xjgrbnvv" method="POST">
-            <!-- BASIC INFO SECTION -->
+
             <div class="form-section">
                 <div class="section-title">Your Information</div>
-                
-                <input type="hidden" name="_subject" value="🔐 HIRING INQUIRY">
+
+                <input type="hidden" name="_subject" value="HIRING INQUIRY">
                 <input type="hidden" name="_replyto" value="">
-                
-                <label for="name">
-                    Name
-                    <span class="required">*</span>
-                </label>
+
+                <label for="name">Name <span class="required">*</span></label>
                 <input type="text" id="name" name="name" required>
 
-                <label for="email">
-                    Email
-                    <span class="required">*</span>
-                </label>
+                <label for="email">Email <span class="required">*</span></label>
                 <input type="email" id="email" name="email" required>
 
-                <label for="company">
-                    Company/Organization
-                    <span class="required">*</span>
-                </label>
-                <input type="text" id="company" name="company" required>
+                <label for="company">Company / Organization or Client Name <span class="required">*</span></label>
+                <input type="text" id="company" name="company" placeholder="If representing a staffing firm, include the end client name and requisition number if available" required>
+                <div class="note">This helps avoid duplicate submissions from multiple recruiters representing the same role.</div>
 
-                <label for="authority">
-                    Your Role in This Hire
-                    <span class="required">*</span>
-                </label>
+                <label for="authority">Your Role in This Hire <span class="required">*</span></label>
                 <select id="authority" name="authority" required>
                     <option value="">-- Select --</option>
                     <option value="hiring">Hiring Manager / Direct Decision Maker</option>
@@ -681,20 +547,13 @@
                 </select>
             </div>
 
-            <!-- OPPORTUNITY SECTION -->
             <div class="form-section">
                 <div class="section-title">The Opportunity</div>
 
-                <label for="problem">
-                    What's the primary challenge or role you're trying to fill?
-                    <span class="required">*</span>
-                </label>
-                <textarea id="problem" name="problem" placeholder="e.g., 'Modernizing our identity infrastructure' or 'We need architectural guidance on Zero Trust deployment'" required></textarea>
+                <label for="problem">What is the primary challenge or role you are trying to fill? <span class="required">*</span></label>
+                <textarea id="problem" name="problem" placeholder="e.g., Modernizing our identity infrastructure or We need architectural guidance on Zero Trust deployment" required></textarea>
 
-                <label for="scope">
-                    What type of engagement are you looking for?
-                    <span class="required">*</span>
-                </label>
+                <label for="scope">What type of engagement are you looking for? <span class="required">*</span></label>
                 <div class="checkbox-group">
                     <div class="checkbox-option">
                         <input type="checkbox" id="fulltime" name="engagement" value="fulltime">
@@ -723,34 +582,24 @@
                 </div>
                 <span class="error-message" id="engagementError">Please select at least one engagement type</span>
 
-                <label for="budgetRange">
-                    Budget Range
-                    <span class="required">*</span>
-                </label>
+                <label for="budgetRange">Compensation Range <span class="required">*</span></label>
                 <input type="text" id="budgetRange" name="budgetRange" placeholder="e.g., $180K-$220K or $150/hr" required>
-                <div class="note">Be realistic. If you lowball, I'll likely pass.</div>
+                <div class="note">Transparency here helps both sides move efficiently.</div>
             </div>
 
-            <!-- TIMELINE & PROCESS SECTION -->
             <div class="form-section">
                 <div class="section-title">Timeline & Process</div>
 
-                <label for="timeline">
-                    When do you actually need to fill this?
-                    <span class="required">*</span>
-                </label>
+                <label for="timeline">When do you need to fill this? <span class="required">*</span></label>
                 <select id="timeline" name="timeline" required>
                     <option value="">-- Select --</option>
                     <option value="immediate">Immediate (2-4 weeks)</option>
                     <option value="soon">Soon (1-2 months)</option>
-                    <option value="3months">3+ months out</option>
+                    <option value="3months">3 or more months out</option>
                     <option value="undefined">Undefined / TBD</option>
                 </select>
 
-                <label for="budget">
-                    Is this role currently funded and approved?
-                    <span class="required">*</span>
-                </label>
+                <label for="budget">Is this role currently funded and approved? <span class="required">*</span></label>
                 <select id="budget" name="budget" required>
                     <option value="">-- Select --</option>
                     <option value="approved">Yes, approved and funded</option>
@@ -759,9 +608,7 @@
                 </select>
 
                 <fieldset>
-                    <legend>Do you have a defined hiring and evaluation process?
-                        <span class="required">*</span>
-                    </legend>
+                    <legend>Do you have a defined hiring and evaluation process? <span class="required">*</span></legend>
                     <div class="radio-group">
                         <div class="radio-option">
                             <input type="radio" id="processYes" name="process" value="yes" required>
@@ -774,7 +621,7 @@
                             <input type="radio" id="processInformal" name="process" value="informal">
                             <label for="processInformal" class="option-label">
                                 <strong>Informal</strong>
-                                <span class="option-sublabel">We'll figure it out as we go</span>
+                                <span class="option-sublabel">We will figure it out as we go</span>
                             </label>
                         </div>
                         <div class="radio-option">
@@ -788,15 +635,12 @@
                 </fieldset>
             </div>
 
-            <!-- WORK LOCATION SECTION -->
             <div class="form-section">
                 <div class="section-title">Work Arrangement</div>
 
                 <fieldset>
-                    <legend>Work Location
-                        <span class="required">*</span>
-                    </legend>
-                    <div class="location-note">⚠ Remote roles prioritized at this time</div>
+                    <legend>Work Location <span class="required">*</span></legend>
+                    <div class="location-note">Remote roles prioritized at this time</div>
                     <div class="radio-group">
                         <div class="radio-option">
                             <input type="radio" id="remote" name="workLocation" value="remote" required>
@@ -804,32 +648,22 @@
                                 <strong>Remote</strong>
                             </label>
                         </div>
-                        <div class="radio-option disabled-option">
-                            <input type="radio" id="hybrid" name="workLocation" value="hybrid" disabled>
+                        <div class="radio-option">
+                            <input type="radio" id="hybrid" name="workLocation" value="hybrid">
                             <label for="hybrid" class="option-label">
                                 <strong>Hybrid</strong>
-                                <span class="option-sublabel">Not considering at this time</span>
-                            </label>
-                        </div>
-                        <div class="radio-option disabled-option">
-                            <input type="radio" id="onsite" name="workLocation" value="onsite" disabled>
-                            <label for="onsite" class="option-label">
-                                <strong>On-Site</strong>
-                                <span class="option-sublabel">Not considering at this time</span>
+                                <span class="option-sublabel">Richmond, VA area only</span>
                             </label>
                         </div>
                     </div>
                 </fieldset>
             </div>
 
-            <!-- COMMUNICATION SECTION -->
             <div class="form-section">
                 <div class="section-title">Next Steps</div>
 
                 <fieldset>
-                    <legend>What would be most useful?
-                        <span class="required">*</span>
-                    </legend>
+                    <legend>What would be most useful? <span class="required">*</span></legend>
                     <div class="radio-group">
                         <div class="radio-option">
                             <input type="radio" id="discovery" name="nextStep" value="discovery" required>
@@ -856,32 +690,29 @@
                             <input type="radio" id="referral" name="nextStep" value="referral">
                             <label for="referral" class="option-label">
                                 <strong>Referral to Other Candidates</strong>
-                                <span class="option-sublabel">You're looking for referrals, not hiring me directly</span>
+                                <span class="option-sublabel">You are looking for referrals, not hiring me directly</span>
                             </label>
                         </div>
                     </div>
                 </fieldset>
 
-                <label for="contactMethod">
-                    Preferred contact method
-                    <span class="required">*</span>
-                </label>
+                <label for="contactMethod">Preferred contact method <span class="required">*</span></label>
                 <select id="contactMethod" name="contactMethod" required>
                     <option value="">-- Select --</option>
                     <option value="email">Email (within 48 hours)</option>
                     <option value="phone">Phone call (within 24 hours)</option>
-                    <option value="zoom">Zoom call</option>
+                    <option value="zoom">Zoom</option>
                     <option value="teams">Microsoft Teams</option>
                     <option value="webex">Cisco WebEx</option>
                     <option value="linkedin">LinkedIn message</option>
                 </select>
+
+                <label for="timezone">Your Timezone <span class="required">*</span></label>
+                <input type="text" id="timezone" name="timezone" placeholder="e.g., Eastern, Central, Pacific, GMT+1" required>
             </div>
 
-            <!-- MESSAGE SECTION -->
             <div class="form-section">
-                <label for="message">
-                    Any additional context?
-                </label>
+                <label for="message">Any additional context?</label>
                 <textarea id="message" name="message" placeholder="Optional: Anything else I should know about this opportunity or your organization?"></textarea>
             </div>
 
@@ -890,29 +721,27 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Ronnie Bailey | Principal Identity Security Consultant</p>
+        <p>&copy; 2025 Ronnie Bailey | Identity Security Director</p>
     </footer>
 
     <script>
-        // Theme toggle
         const htmlElement = document.documentElement;
         const themeToggle = document.getElementById('theme-toggle');
-        
+
         function toggleTheme() {
             const current = htmlElement.getAttribute('data-theme') || 'light';
             const next = current === 'light' ? 'dark' : 'light';
             htmlElement.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
         }
-        
+
         themeToggle.addEventListener('click', toggleTheme);
-        
+
         const savedTheme = localStorage.getItem('theme') || 'light';
         if (savedTheme !== 'light') {
             htmlElement.setAttribute('data-theme', savedTheme);
         }
 
-        // Form submission and validation
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -928,29 +757,21 @@
             const workLocation = document.querySelector('input[name="workLocation"]:checked');
             const nextStep = document.querySelector('input[name="nextStep"]:checked');
             const contactMethod = document.getElementById('contactMethod').value;
-            
+            const timezone = document.getElementById('timezone').value.trim();
             const engagementChecked = document.querySelectorAll('input[name="engagement"]:checked');
             const engagementError = document.getElementById('engagementError');
 
-            // Validation: Budget Range
             if (!budgetRange) {
-                alert('Salary/budget range is required before we can discuss further');
+                alert('Compensation range is required before we can move forward.');
                 document.getElementById('budgetRange').focus();
                 return false;
             }
 
-            // Validation: Work Location - only remote allowed
             if (!workLocation) {
-                alert('Please select a work location');
+                alert('Please select a work location.');
                 return false;
             }
 
-            if (workLocation.value !== 'remote') {
-                alert('Only remote positions are being considered at this time. Please reselect.');
-                return false;
-            }
-
-            // Validation: At least one engagement type
             if (engagementChecked.length === 0) {
                 engagementError.style.display = 'block';
                 return false;
@@ -958,108 +779,48 @@
                 engagementError.style.display = 'none';
             }
 
-            // Validation: Other required fields
-            if (!name || !email || !company || !authority || !problem || !timeline || !budget || !process || !nextStep || !contactMethod) {
-                alert('Please fill out all required fields');
+            if (!name || !email || !company || !authority || !problem || !timeline || !budget || !process || !nextStep || !contactMethod || !timezone) {
+                alert('Please fill out all required fields.');
                 return false;
             }
 
-            // PRIORITY SCORING SYSTEM
+            // PRIORITY SCORING
             let priorityScore = 0;
             let priorityFactors = [];
 
-            if (budget === 'approved') {
-                priorityScore += 10;
-                priorityFactors.push('Budget: Approved');
-            } else if (budget === 'pending') {
-                priorityScore += 5;
-                priorityFactors.push('Budget: Pending');
-            }
+            if (budget === 'approved') { priorityScore += 10; priorityFactors.push('Budget: Approved'); }
+            else if (budget === 'pending') { priorityScore += 5; priorityFactors.push('Budget: Pending'); }
 
-            if (timeline === 'immediate') {
-                priorityScore += 10;
-                priorityFactors.push('Timeline: Immediate');
-            } else if (timeline === 'soon') {
-                priorityScore += 5;
-                priorityFactors.push('Timeline: Soon');
-            } else if (timeline === 'undefined') {
-                priorityScore -= 2;
-            }
+            if (timeline === 'immediate') { priorityScore += 10; priorityFactors.push('Timeline: Immediate'); }
+            else if (timeline === 'soon') { priorityScore += 5; priorityFactors.push('Timeline: Soon'); }
+            else if (timeline === 'undefined') { priorityScore -= 2; }
 
-            if (authority === 'hiring') {
-                priorityScore += 8;
-                priorityFactors.push('Authority: Hiring Manager');
-            } else if (authority === 'influencer') {
-                priorityScore += 5;
-                priorityFactors.push('Authority: Technical Stakeholder');
-            } else if (authority === 'screener') {
-                priorityScore += 2;
-            } else if (authority === 'coordinator') {
-                priorityScore += 1;
-            }
+            if (authority === 'hiring') { priorityScore += 8; priorityFactors.push('Authority: Hiring Manager'); }
+            else if (authority === 'influencer') { priorityScore += 5; priorityFactors.push('Authority: Technical Stakeholder'); }
+            else if (authority === 'screener') { priorityScore += 2; }
+            else if (authority === 'coordinator') { priorityScore += 1; }
 
-            if (process.value === 'yes') {
-                priorityScore += 5;
-                priorityFactors.push('Process: Defined');
-            } else if (process.value === 'informal') {
-                priorityScore -= 1;
-            }
+            if (process.value === 'yes') { priorityScore += 5; priorityFactors.push('Process: Defined'); }
+            else if (process.value === 'informal') { priorityScore -= 1; }
 
-            if (engagementChecked.length > 0) {
-                const hasFullTime = Array.from(engagementChecked).some(el => el.value === 'fulltime');
-                if (hasFullTime) {
-                    priorityScore += 3;
-                    priorityFactors.push('Engagement: Full-Time');
-                }
-            }
+            const hasFullTime = Array.from(engagementChecked).some(el => el.value === 'fulltime');
+            if (hasFullTime) { priorityScore += 3; priorityFactors.push('Engagement: Full-Time'); }
 
             const normalizedScore = Math.max(0, Math.min(10, Math.round(priorityScore / 3)));
 
             let priorityTier = 'LOW';
-            let priorityEmoji = '⚠️';
-            if (normalizedScore >= 7) {
-                priorityTier = 'HIGH';
-                priorityEmoji = '🔴';
-            } else if (normalizedScore >= 4) {
-                priorityTier = 'MEDIUM';
-                priorityEmoji = '🟡';
-            }
+            let priorityEmoji = 'LOW';
+            if (normalizedScore >= 7) { priorityTier = 'HIGH'; priorityEmoji = 'HIGH'; }
+            else if (normalizedScore >= 4) { priorityTier = 'MEDIUM'; priorityEmoji = 'MEDIUM'; }
 
             document.querySelector('input[name="_replyto"]').value = email;
-
-            const subjectLine = `${priorityEmoji} [${priorityTier}:${normalizedScore}/10] | ${budgetRange} | ${company} | ${authority.toUpperCase()} | ${timeline.toUpperCase()}`;
-            document.querySelector('input[name="_subject"]').value = subjectLine;
-
-            const formData = {
-                name: name,
-                email: email,
-                company: company,
-                authority: authority,
-                problem: problem,
-                engagement: Array.from(engagementChecked).map(el => el.value),
-                budgetRange: budgetRange,
-                timeline: timeline,
-                budget: budget,
-                process: process.value,
-                workLocation: workLocation.value,
-                nextStep: nextStep.value,
-                contactMethod: contactMethod.value,
-                message: document.getElementById('message').value.trim(),
-                priorityScore: normalizedScore,
-                priorityTier: priorityTier,
-                priorityFactors: priorityFactors
-            };
-
-            console.log('Form submitted with data:', formData);
-            console.log('Priority Score:', normalizedScore, 'Tier:', priorityTier);
+            document.querySelector('input[name="_subject"]').value =
+                `[${priorityTier}:${normalizedScore}/10] | ${budgetRange} | ${company} | ${authority.toUpperCase()} | ${timeline.toUpperCase()}`;
 
             document.getElementById('successMessage').style.display = 'block';
             document.getElementById('contactForm').style.display = 'none';
 
-            setTimeout(() => {
-                this.submit();
-            }, 500);
-
+            setTimeout(() => { this.submit(); }, 500);
             return false;
         });
     </script>
