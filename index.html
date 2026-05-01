@@ -1602,13 +1602,12 @@
             }
         });
 
-        // Scroll reveal for job bullets
+        // Scroll reveal for job bullets - reveal only, never hide
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('revealed');
-                } else {
-                    entry.target.classList.remove('revealed');
+                    revealObserver.unobserve(entry.target);
                 }
             });
         }, {
