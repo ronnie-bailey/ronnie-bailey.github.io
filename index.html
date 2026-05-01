@@ -728,41 +728,51 @@
             margin-bottom: 0;
         }
 
-        /* Bullet reveal on scroll */
-        .job-bullets-wrapper {
-            overflow: hidden;
-            max-height: 0;
-            opacity: 0;
-            transform: translateY(-12px);
-            transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-                        opacity 0.5s ease,
-                        transform 0.5s ease;
-            will-change: max-height, opacity, transform;
-        }
+        
 
-        .job-bullets-wrapper.revealed {
-            max-height: 2000px;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Subtle reveal label */
-        .reveal-hint {
-            font-size: 0.75rem;
+        /* Toggle expand for job bullets */
+        .bullets-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
             color: var(--accent);
-            opacity: 0.6;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.5px;
-            transition: opacity 0.3s ease;
+            cursor: pointer;
+            margin-top: 0.75rem;
+            margin-bottom: 0;
+            letter-spacing: 0.3px;
+            border: none;
+            background: none;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            opacity: 0.8;
+            transition: opacity 0.2s;
             user-select: none;
         }
 
-        .job-bullets-wrapper.revealed ~ .reveal-hint,
-        .reveal-hint.hidden {
-            opacity: 0;
-            height: 0;
-            margin: 0;
+        .bullets-toggle:hover {
+            opacity: 1;
+        }
+
+        .bullets-toggle .toggle-icon {
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .bullets-toggle.open .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .job-bullets-collapsible {
+            max-height: 0;
             overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .job-bullets-collapsible.open {
+            max-height: 3000px;
         }
     </style>
 </head>
@@ -857,7 +867,10 @@
                 <p>I reported to the CISO every week, translating technical exposure into business decisions with named owners and defined outcomes. That reporting relationship kept identity on the leadership agenda and gave the program the organizational weight it needed to move forward.</p>
                 </div>
 
-                <div class="job-bullets-wrapper">
+                <button class="bullets-toggle" onclick="toggleBullets(this)">
+                    Full responsibilities <span class="toggle-icon">&#9660;</span>
+                </button>
+                <div class="job-bullets-collapsible">
                 <ul class="job-bullets">
                     <li>Own core identity security components across the enterprise IAM program for a hybrid workforce of more than 30,000 users spanning iHeartMedia, Katz Media Group, Triton Digital, Premiere Networks, and subsidiary brands across broadcast, ad-tech, syndication, and media representation.</li>
                     <li>Aligned security, IT, HR, and business stakeholders across a multi-subsidiary portfolio to drive identity maturity and risk reduction, establishing structured cross-functional communication between identity, SOC, and GRC teams that had historically operated in silos with limited coordination between them.</li>
@@ -897,7 +910,10 @@
                 <p>I rebuilt the One Identity Safeguard platform from scratch, fully offboarding and re-onboarding privileged assets, realigning session recording, and rewriting access policies against the actual security posture. I engineered threat correlation across CrowdStrike Falcon, Microsoft Defender, Palo Alto, and Checkpoint that improved detection quality and reduced response time through intelligent triage. I designed forensic response processes using Secureworks Taegis aligned to NIST 800-86 and translated technical findings into executive-level risk assessments that informed security investment decisions across both organizations.</p>
                 </div>
 
-                <div class="job-bullets-wrapper">
+                <button class="bullets-toggle" onclick="toggleBullets(this)">
+                    Full responsibilities <span class="toggle-icon">&#9660;</span>
+                </button>
+                <div class="job-bullets-collapsible">
                 <ul class="job-bullets">
                     <li>Designed Zero Trust architecture aligned to NIST 800-207 with JIT provisioning and continuous authentication monitoring, adjusting access decisions in real time based on behavioral risk signals.</li>
                     <li>Built behavioral risk evaluation models adjusting access decisions dynamically based on user activity and contextual identity signals.</li>
@@ -928,7 +944,10 @@
                 <p>I implemented PAM through One Identity Safeguard and TPAM with JIT elevation tied to ServiceNow approval workflows, connecting privileged access to the change management process. I deployed CrowdStrike Falcon across 2,000 endpoints and implemented Varonis for file access monitoring and data classification that strengthened SOX and GDPR audit readiness.</p>
                 </div>
 
-                <div class="job-bullets-wrapper">
+                <button class="bullets-toggle" onclick="toggleBullets(this)">
+                    Full responsibilities <span class="toggle-icon">&#9660;</span>
+                </button>
+                <div class="job-bullets-collapsible">
                 <ul class="job-bullets">
                     <li>Led identity provisioning for 32,000 users across US and UK operations while maintaining HIPAA compliance, implementing structured lifecycle controls and removing manual provisioning from the critical path.</li>
                     <li>Built role-aware provisioning workflows adapting access based on job function and peer access patterns, reducing inconsistent access assignments and privilege creep.</li>
@@ -960,7 +979,10 @@
                 <p>I led the ISO 27001 certification for the DHS Information Security Management System, building a governance framework that positioned the agency in a materially stronger compliance posture. The controls framework was adopted agency-wide. I orchestrated the GCP migration of more than 50 systems to FedRAMP Moderate authorization with continuous compliance monitoring and infrastructure-as-code security baselines. I implemented Saviynt for access governance across 15,000 users with entitlement reviews and separation-of-duties enforcement.</p>
                 </div>
 
-                <div class="job-bullets-wrapper">
+                <button class="bullets-toggle" onclick="toggleBullets(this)">
+                    Full responsibilities <span class="toggle-icon">&#9660;</span>
+                </button>
+                <div class="job-bullets-collapsible">
                 <ul class="job-bullets">
                     <li>Positioned IAM as a cornerstone of DHS security strategy, integrating Active Directory, OAuth 2.0, and SAML 2.0 across 100+ legacy systems in distributed federal infrastructure with automated federation trust management.</li>
                     <li>Spearheaded ISO 27001 certification for the DHS Information Security Management System, establishing an enterprise security governance framework with automated control validation that was adopted agency-wide.</li>
@@ -987,7 +1009,10 @@
                 <p>I led vulnerability management aligned to NIST 800-53 and HIPAA, prioritizing risk by exploitability, business criticality, and threat intelligence. I deployed PingFederate and Citrix NetScaler for high-availability authentication across mission-critical applications, designed credential vaulting and rotation that eliminated static privileged credentials, and introduced certificate lifecycle management across 150 domains that replaced a manual tracking process. I embedded security review into the infrastructure change process using policy-as-code frameworks, moving compliance enforcement to the point of change rather than discovery at audit.</p>
                 </div>
 
-                <div class="job-bullets-wrapper">
+                <button class="bullets-toggle" onclick="toggleBullets(this)">
+                    Full responsibilities <span class="toggle-icon">&#9660;</span>
+                </button>
+                <div class="job-bullets-collapsible">
                 <ul class="job-bullets">
                     <li>Led vulnerability management aligned to NIST 800-53 and HIPAA across enterprise systems, prioritizing remediation based on exploitability, business criticality, and threat intelligence.</li>
                     <li>Built audit-ready compliance reporting via PingFederate logs supporting SOX, GDPR, and HIPAA requirements with real-time dashboards for continuous authentication visibility.</li>
@@ -1016,7 +1041,10 @@
                 <p>I designed Entra ID risk-based access policies with adaptive scoring, embedded Terraform guardrails with policy validation directly into the deployment pipeline, and briefed executive leadership regularly translating security risks into business impact through data-driven dashboards.</p>
                 </div>
 
-                <div class="job-bullets-wrapper">
+                <button class="bullets-toggle" onclick="toggleBullets(this)">
+                    Full responsibilities <span class="toggle-icon">&#9660;</span>
+                </button>
+                <div class="job-bullets-collapsible">
                 <ul class="job-bullets">
                     <li>Led enterprise PAM transformation, mapping more than 200 job functions into structured least privilege RBAC models to systematically reduce excessive access across enterprise applications.</li>
                     <li>Deployed BeyondTrust PAM securing approximately 1,200 privileged accounts, enforcing SOX-compliant credential rotation, session monitoring, and audit controls while eliminating standing privileged access for routine operations.</li>
@@ -1048,7 +1076,10 @@
                 <p>I designed a Zero Trust-aligned IAM framework with continuous verification and risk-based access controls synchronized across cloud platforms through infrastructure-as-code. I built ADFS progressive profiling workflows with intelligent session management and fraud detection for customer-facing banking applications. I maintained 12,000 accounts through lifecycle workflows that kept access aligned with HR system changes. I ran security education alongside phishing response workflows that reduced incident response time by a meaningful margin, giving staff both the awareness and the process to act on it.</p>
                 </div>
 
-                <div class="job-bullets-wrapper">
+                <button class="bullets-toggle" onclick="toggleBullets(this)">
+                    Full responsibilities <span class="toggle-icon">&#9660;</span>
+                </button>
+                <div class="job-bullets-collapsible">
                 <ul class="job-bullets">
                     <li>Designed a Zero Trust-aligned IAM framework with risk-based access controls, applying continuous verification and intelligent policy recommendations driven by historical access patterns.</li>
                     <li>Built consistent identity controls across AWS and Azure environments using infrastructure-as-code for policy synchronization across cloud platforms.</li>
@@ -1078,7 +1109,10 @@
                 <p>Workday-to-Active Directory-to-Entra provisioning failures were a consistent escalation. I traced failures across the full hybrid identity stack to resolve them and built the provisioning diagnostic capability that became a defining strength at the senior level. I led the ForgeRock IAM migration with workflow standardization that reduced provisioning delays, and integrated Splunk for identity monitoring supporting ISO/IEC 27001 and NIST 800-53 compliance.</p>
                 </div>
 
-                <div class="job-bullets-wrapper">
+                <button class="bullets-toggle" onclick="toggleBullets(this)">
+                    Full responsibilities <span class="toggle-icon">&#9660;</span>
+                </button>
+                <div class="job-bullets-collapsible">
                 <ul class="job-bullets">
                     <li>Designed and implemented unified Zero Trust frameworks across Azure, GCP, and M365, aligning Conditional Access, PIM, and JIT workflows to reduce standing privileges by over 70% while strengthening overall security posture.</li>
                     <li>Served as the technical escalation authority for business-critical IAM failures: certificate expirations, broken SAML trusts, provisioning system outages. When automated remediation and support tiers couldn't resolve it, the problem came to me.</li>
@@ -1114,7 +1148,10 @@
                 <p>I led a forensic investigation that recovered stolen intellectual property. The evidence collection and chain-of-custody processes I built during that investigation were adopted as standard practice within the organization. I optimized Entra ID Connect sync logic and hybrid sync rules, normalizing attributes and UPN conventions across cloud and on-premises environments.</p>
                 </div>
 
-                <div class="job-bullets-wrapper">
+                <button class="bullets-toggle" onclick="toggleBullets(this)">
+                    Full responsibilities <span class="toggle-icon">&#9660;</span>
+                </button>
+                <div class="job-bullets-collapsible">
                 <ul class="job-bullets">
                     <li>Built cloud security and identity programs from the ground up across AWS and hybrid environments, establishing foundational IAM controls, governance models, and policy-as-code frameworks aligned to NIST 800-53 and ISO 27001.</li>
                     <li>Designed identity federation across SaaS platforms including Okta, Auth0, and application providers, resolving authentication failures and enabling centralized access control.</li>
@@ -1140,7 +1177,10 @@
                 </div>
                 <div class="job-summary">uBreakiFix is a technology repair and support services company providing hardware repair, diagnostics, and technical support for consumer electronics and computing devices. This role represented the entry point into professional technical work, establishing the customer-facing communication, incident prioritization, and systematic problem-solving disciplines that underpin every senior engagement that followed.</div>
 
-                <div class="job-bullets-wrapper">
+                <button class="bullets-toggle" onclick="toggleBullets(this)">
+                    Full responsibilities <span class="toggle-icon">&#9660;</span>
+                </button>
+                <div class="job-bullets-collapsible">
                 <ul class="job-bullets">
                     <li>Technical Support: Delivered first-level support for hardware, software, and network issues via phone, email, and in-person.</li>
                     <li>Incident Management: Assessed and prioritized tickets based on impact and urgency to meet SLA targets.</li>
@@ -1159,7 +1199,10 @@
                     <span>Full-time</span>
                     <span>2006 – 2009</span>
                 </div>
-                <div class="job-bullets-wrapper">
+                <button class="bullets-toggle" onclick="toggleBullets(this)">
+                    Full responsibilities <span class="toggle-icon">&#9660;</span>
+                </button>
+                <div class="job-bullets-collapsible">
                 <ul class="job-bullets">
                     <li>Technical Support: Provided troubleshooting for computer and electronic products, resolving hardware and software issues.</li>
                     <li>Product Setup: Assisted customers with initial configuration, software installations, and feature explanations.</li>
@@ -1602,22 +1645,7 @@
             }
         });
 
-        // Scroll reveal for job bullets - reveal only, never hide
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.05,
-            rootMargin: '0px 0px -40px 0px'
-        });
-
-        document.querySelectorAll('.job-bullets-wrapper').forEach(el => {
-            revealObserver.observe(el);
-        });
+        
 
     </script>
 </body>
