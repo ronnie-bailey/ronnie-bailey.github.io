@@ -711,6 +711,59 @@
             .hero > div { gap: 2rem !important; }
             .hero > div > div:last-child { flex: 0 0 150px !important; }
         }
+
+        /* Job summary always visible */
+        .job-summary {
+            font-size: 0.92rem;
+            color: var(--text-light);
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+
+        .job-summary p {
+            margin-bottom: 0.9rem;
+        }
+
+        .job-summary p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Bullet reveal on scroll */
+        .job-bullets-wrapper {
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(-12px);
+            transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.5s ease,
+                        transform 0.5s ease;
+            will-change: max-height, opacity, transform;
+        }
+
+        .job-bullets-wrapper.revealed {
+            max-height: 2000px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Subtle reveal label */
+        .reveal-hint {
+            font-size: 0.75rem;
+            color: var(--accent);
+            opacity: 0.6;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s ease;
+            user-select: none;
+        }
+
+        .job-bullets-wrapper.revealed ~ .reveal-hint,
+        .reveal-hint.hidden {
+            opacity: 0;
+            height: 0;
+            margin: 0;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -798,9 +851,13 @@
                 </div>
 
                 <div class="job-summary">
-                    iHeartMedia is the number one audio company in America, reaching 9 out of 10 Americans every month. The corporate portfolio includes Katz Media Group, representing over 3,500 radio stations and 450 television stations nationally; Triton Digital, a global audio ad-tech SaaS platform operating across more than 50 countries; Premiere Networks, the largest radio syndication company in the United States; and a broad set of subsidiary brands spanning broadcast, podcast production, digital streaming, and national advertising sales. The identity environment reflects that scale and complexity, with multiple business units, multiple technology stacks, and multiple regulatory and operational requirements all converging on a single identity infrastructure. Brought in to own core identity security components across the enterprise IAM program, inheriting a fragmented environment with inconsistent controls, unclear ownership, and limited coordination across security, identity, and compliance functions.
+                <p>iHeartMedia is the largest audio company in America, with a portfolio spanning Katz Media Group, Triton Digital, Premiere Networks, and subsidiary brands across broadcast, ad-tech, syndication, and national advertising sales. I served as the senior identity authority across that portfolio, owning core components of the enterprise IAM program across a 30,000-user hybrid environment.</p>
+                <p>The most consequential work was organizational before it was technical. Security, IT, and HR had no shared framework connecting identity decisions across the business. I built the ownership model, the RACI structure, and the escalation paths that gave those teams a consistent foundation. That structure reduced cross-team escalations and gave the Conditional Access program the accountability it needed to hold under scrutiny.</p>
+                <p>I directed a 60-policy Conditional Access estate covering biometric authentication, geofencing, device compliance, and risk-based access decisions. The governance model I put in place reduced authentication incidents and policy violations across the application portfolio. I inherited the privileged access posture in a degraded state and rebuilt it around BeyondTrust and Entra ID PIM, designing the approval workflows and audit structure that turned a platform into a governed program.</p>
+                <p>I reported to the CISO every week, translating technical exposure into business decisions with named owners and defined outcomes. That reporting relationship kept identity on the leadership agenda and gave the program the organizational weight it needed to move forward.</p>
                 </div>
 
+                <div class="job-bullets-wrapper">
                 <ul class="job-bullets">
                     <li>Own core identity security components across the enterprise IAM program for a hybrid workforce of more than 30,000 users spanning iHeartMedia, Katz Media Group, Triton Digital, Premiere Networks, and subsidiary brands across broadcast, ad-tech, syndication, and media representation.</li>
                     <li>Aligned security, IT, HR, and business stakeholders across a multi-subsidiary portfolio to drive identity maturity and risk reduction, establishing structured cross-functional communication between identity, SOC, and GRC teams that had historically operated in silos with limited coordination between them.</li>
@@ -821,11 +878,12 @@
                     <li>Serve as the senior technical escalation authority for IAM incidents across a workforce of more than 30,000 users, resolving AADSTS errors, Conditional Access misconfigurations, federation trust breakdowns, and access outages when standard support paths and resolution workflows cannot close the incident.</li>
                     <li>Deliver weekly identity risk reporting directly to the CISO, translating technical exposure into prioritized business decisions with clear ownership, accountability, and measurable risk reduction.</li>
                 </ul>
+                </div>
                 <div class="job-skills"><strong>Skills:</strong> Entra ID · Active Directory · BeyondTrust PAM · Azure Logic Apps · AWS IAM · Google Cloud Identity · Workday · SAML · OIDC · Azure Key Vault · Conditional Access · Entra ID PIM · Microsoft Defender · MAM · PowerShell · Python · Zero Trust · SCIM · ServiceNow · Genea</div>
             </div>
 
             <div class="experience-item">
-                <div class="job-title">Identity Security Director</div>
+                <div class="job-title">Lead Identity Security Architect</div>
                 <div class="company-name">
                     LexisNexis / United States Patent and Trademark Office
                 </div>
@@ -833,8 +891,13 @@
                     <span>Contract | Public Trust Clearance</span>
                     <span>04/2024 – 06/2025</span>
                 </div>
-                <div class="job-summary">LexisNexis is a global provider of legal, regulatory, and business information and analytics serving customers in more than 150 countries with a workforce of about 10,000 employees and annual revenue of approximately 2.2 billion dollars. Part of RELX Group, the company serves law firms, corporations, government agencies, and academic institutions through platforms including Lexis Advance and a growing suite of AI-powered legal research tools. The United States Patent and Trademark Office is the federal agency under the Department of Commerce responsible for granting patents and registering trademarks, employing more than 14,000 federal workers across headquarters in Alexandria, Virginia and regional offices nationwide. Together these two engagements represented a dual mandate: enterprise commercial identity governance at a global information company and federal identity security under Public Trust Clearance at one of the most critical intellectual property agencies in the United States government.</div>
+                <div class="job-summary">
+                <p>This engagement ran across two distinct environments. LexisNexis is a global legal information and analytics company serving customers in more than 150 countries. The United States Patent and Trademark Office operates under Public Trust Clearance where compliance expectations are institutional and the architecture decisions I made had direct federal implications.</p>
+                <p>My work centered on Zero Trust design aligned to NIST 800-207, making foundational decisions about how trust gets established, under what conditions it gets revoked, and how behavioral signals feed into access decisions in real time. That architecture extended across Azure, AWS, and GCP with centralized CSPM integration and Infrastructure-as-Code policy enforcement that removed manual validation from the compliance lifecycle.</p>
+                <p>I rebuilt the One Identity Safeguard platform from scratch, fully offboarding and re-onboarding privileged assets, realigning session recording, and rewriting access policies against the actual security posture. I engineered threat correlation across CrowdStrike Falcon, Microsoft Defender, Palo Alto, and Checkpoint that improved detection quality and reduced response time through intelligent triage. I designed forensic response processes using Secureworks Taegis aligned to NIST 800-86 and translated technical findings into executive-level risk assessments that informed security investment decisions across both organizations.</p>
+                </div>
 
+                <div class="job-bullets-wrapper">
                 <ul class="job-bullets">
                     <li>Designed Zero Trust architecture aligned to NIST 800-207 with JIT provisioning and continuous authentication monitoring, adjusting access decisions in real time based on behavioral risk signals.</li>
                     <li>Built behavioral risk evaluation models adjusting access decisions dynamically based on user activity and contextual identity signals.</li>
@@ -846,6 +909,7 @@
                     <li>Designed forensic response processes using Secureworks Taegis aligned to NIST 800-86, ensuring defensible evidence handling and investigation integrity.</li>
                     <li>Translated complex architecture and security findings into business impact for executive stakeholders, enabling informed decision-making on risk and remediation priorities.</li>
                 </ul>
+                </div>
                 <div class="job-skills"><strong>Skills:</strong> Zero Trust · Entra ID · Azure · GCP · AWS · NIST 800-53 · CIS Controls · MITRE ATT&CK · One Identity Safeguard · CrowdStrike · Microsoft Defender · Palo Alto · Auth0 · SAML · OIDC · OAuth2 · PowerShell · Python · Incident Response</div>
             </div>
 
@@ -858,8 +922,13 @@
                     <span>Full-time</span>
                     <span>12/2022 – 02/2024</span>
                 </div>
-                <div class="job-summary">Kroger is the largest supermarket chain in the United States and one of the largest private-sector employers in the country, ranked 25th on the Fortune 500 with approximately 150 billion dollars in annual revenue and a workforce of about 420,000 associates across more than 2,700 grocery stores, fuel centers, and pharmacies nationwide. The Technology and Digital Department is the engineering and platform organization responsible for enterprise technology infrastructure, e-commerce operations, and digital transformation initiatives spanning both US and UK markets. Working within this environment meant operating at Fortune 50 scale across a hybrid workforce with stringent HIPAA compliance requirements, multi-region provisioning complexity, and a growing containerized infrastructure footprint.</div>
+                <div class="job-summary">
+                <p>Kroger is the largest supermarket chain in the United States, ranked 25th on the Fortune 500 with approximately 150 billion dollars in annual revenue. I came into the Technology and Digital Department as the IAM architect responsible for modernizing identity across a hybrid environment where legacy access models had accumulated over years of rapid growth across US and UK markets.</p>
+                <p>I architected identity provisioning across 32,000 users under HIPAA compliance, designing workflows that adapted access based on job function and peer patterns. That work removed manual provisioning from the critical path and measurably reduced both provisioning time and the inconsistent access assignments that had been generating compliance risk. I integrated Entra ID across 12,000 hybrid users, retiring legacy authentication patterns across the application landscape, and designed the AKS workload identity solution that eliminated static credentials from containerized environments through workload identity federation.</p>
+                <p>I implemented PAM through One Identity Safeguard and TPAM with JIT elevation tied to ServiceNow approval workflows, connecting privileged access to the change management process. I deployed CrowdStrike Falcon across 2,000 endpoints and implemented Varonis for file access monitoring and data classification that strengthened SOX and GDPR audit readiness.</p>
+                </div>
 
+                <div class="job-bullets-wrapper">
                 <ul class="job-bullets">
                     <li>Led identity provisioning for 32,000 users across US and UK operations while maintaining HIPAA compliance, implementing structured lifecycle controls and removing manual provisioning from the critical path.</li>
                     <li>Built role-aware provisioning workflows adapting access based on job function and peer access patterns, reducing inconsistent access assignments and privilege creep.</li>
@@ -872,6 +941,7 @@
                     <li>Deployed Varonis for file access monitoring and data classification, strengthening SOX and GDPR audit readiness through continuous policy validation.</li>
                     <li>Streamlined Active Directory using RBAC and Conditional Access to reduce policy drift and improve access governance consistency.</li>
                 </ul>
+                </div>
                 <div class="job-skills"><strong>Skills:</strong> Entra ID · Azure AD · OneIdentity Safeguard · TPAM · Ping Identity · Okta · CrowdStrike · Varonis · VMware · Kubernetes · AKS · ServiceNow · NIST 800-53 · PowerShell · Python</div>
             </div>
 
@@ -884,8 +954,13 @@
                     <span>Contract | Public Trust Clearance</span>
                     <span>02/2022 – 12/2022</span>
                 </div>
-                <div class="job-summary">The Department of Homeland Security is one of the largest federal agencies in the United States, responsible for counterterrorism, border security, cybersecurity, and disaster response. The Office of the Chief Information Officer oversees the enterprise technology and identity infrastructure supporting DHS operations and its component agencies. The US Secret Service is among the most security-sensitive components within that portfolio, responsible for the protection of the President, Vice President, and senior officials as well as the investigation of financial crimes. This engagement required working under Public Trust Clearance within a zero-tolerance security posture, delivering identity architecture across more than 100 legacy systems and supporting a FedRAMP Moderate cloud migration under active federal compliance requirements.</div>
+                <div class="job-summary">
+                <p>The US Secret Service operates within the Department of Homeland Security with one of the most demanding security profiles in the federal government. I worked within the OCIO under Public Trust Clearance, architecting identity solutions where compliance requirements were federal and the tolerance for gaps was effectively zero.</p>
+                <p>I designed CIAM architecture across more than 100 legacy federal systems integrating Active Directory, OAuth 2.0, and SAML 2.0 federation, enforcing consistent policy across environments with significantly different technical assumptions without disrupting operational continuity.</p>
+                <p>I led the ISO 27001 certification for the DHS Information Security Management System, building a governance framework that positioned the agency in a materially stronger compliance posture. The controls framework was adopted agency-wide. I orchestrated the GCP migration of more than 50 systems to FedRAMP Moderate authorization with continuous compliance monitoring and infrastructure-as-code security baselines. I implemented Saviynt for access governance across 15,000 users with entitlement reviews and separation-of-duties enforcement.</p>
+                </div>
 
+                <div class="job-bullets-wrapper">
                 <ul class="job-bullets">
                     <li>Positioned IAM as a cornerstone of DHS security strategy, integrating Active Directory, OAuth 2.0, and SAML 2.0 across 100+ legacy systems in distributed federal infrastructure with automated federation trust management.</li>
                     <li>Spearheaded ISO 27001 certification for the DHS Information Security Management System, establishing an enterprise security governance framework with automated control validation that was adopted agency-wide.</li>
@@ -894,6 +969,7 @@
                     <li>Enforced granular access policies via Saviynt across 15,000+ user accounts with automated entitlement reviews and separation-of-duties enforcement, dramatically reducing manual certification effort through intelligent access analytics.</li>
                     <li>Delivered Agile-based security automation using PowerShell, Python, and Java aligned to FISMA compliance, producing reusable modules adopted across DHS security teams.</li>
                 </ul>
+                </div>
                 <div class="job-skills"><strong>Skills:</strong> CyberArk · GCP · FISMA · FedRAMP · ISO 27001 · Saviynt · PowerShell · Python · Java · Active Directory · OAuth 2.0 · SAML 2.0 · Zero Trust Architecture</div>
             </div>
 
@@ -906,8 +982,12 @@
                     <span>Contract</span>
                     <span>07/2021 – 12/2021</span>
                 </div>
-                <div class="job-summary">Accessia Health is a national non-profit organization providing patient assistance programs for individuals who cannot afford prescription medications, serving patients across the United States through partnerships with pharmaceutical manufacturers and healthcare providers. As a healthcare organization handling sensitive patient data, the environment carried full HIPAA compliance obligations alongside SOX and GDPR requirements, operating cloud infrastructure in AWS with a distributed application stack that included PingFederate for authentication and Citrix NetScaler for application delivery. The engagement focused on vulnerability management, cloud security, and identity controls within a regulated non-profit healthcare context.</div>
+                <div class="job-summary">
+                <p>Accessia Health is a national non-profit providing patient assistance programs for individuals who cannot afford prescription medications, carrying full HIPAA, SOX, and GDPR obligations across cloud infrastructure in AWS. A security failure here does not just create compliance exposure. It has downstream consequences for patients who depend on the organization's ability to operate.</p>
+                <p>I led vulnerability management aligned to NIST 800-53 and HIPAA, prioritizing risk by exploitability, business criticality, and threat intelligence. I deployed PingFederate and Citrix NetScaler for high-availability authentication across mission-critical applications, designed credential vaulting and rotation that eliminated static privileged credentials, and introduced certificate lifecycle management across 150 domains that replaced a manual tracking process. I embedded security review into the infrastructure change process using policy-as-code frameworks, moving compliance enforcement to the point of change rather than discovery at audit.</p>
+                </div>
 
+                <div class="job-bullets-wrapper">
                 <ul class="job-bullets">
                     <li>Led vulnerability management aligned to NIST 800-53 and HIPAA across enterprise systems, prioritizing remediation based on exploitability, business criticality, and threat intelligence.</li>
                     <li>Built audit-ready compliance reporting via PingFederate logs supporting SOX, GDPR, and HIPAA requirements with real-time dashboards for continuous authentication visibility.</li>
@@ -917,6 +997,7 @@
                     <li>Embedded security review into the infrastructure change process using policy-as-code frameworks, catching compliance violations before deployment rather than after.</li>
                     <li>Managed certificate lifecycle across a portfolio of 150 domains ensuring continuous compliance and eliminating manual tracking overhead.</li>
                 </ul>
+                </div>
                 <div class="job-skills"><strong>Skills:</strong> HIPAA · NIST 800-53 · SOX · GDPR · PingFederate · Citrix NetScaler · AWS · PowerShell · CyberArk · Vulnerability Assessment</div>
             </div>
 
@@ -929,8 +1010,13 @@
                     <span>Full-time</span>
                     <span>10/2019 – 07/2021</span>
                 </div>
-                <div class="job-summary">Indivior is a publicly traded global specialty pharmaceutical company headquartered in Richmond, Virginia, focused on the development and commercialization of treatments for opioid use disorder. The company operates across 14 locations worldwide with a workforce of about 1,000 employees, annual revenue of approximately 1.2 billion dollars, and a product portfolio available in more than 30 countries. As a pharmaceutical organization, Indivior operates under stringent regulatory requirements including SOX compliance, HIPAA obligations for patient data, and GxP standards governing drug development and manufacturing systems. The identity environment spanned a distributed global workforce with cloud infrastructure across GCP and Azure, a substantial privileged access surface across business-critical pharmaceutical systems, and endpoint security requirements tied directly to patient data protection.</div>
+                <div class="job-summary">
+                <p>Indivior is a publicly traded global specialty pharmaceutical company focused on treatments for opioid use disorder, operating across 14 locations worldwide under SOX, HIPAA, and GxP standards with annual revenue of approximately 1.2 billion dollars. Access failures in pharmaceutical environments carry regulatory consequences that touch the integrity of the drug development and manufacturing record.</p>
+                <p>I led the PAM transformation starting with role mapping across more than 200 job functions, establishing least privilege RBAC models that reflected actual work patterns rather than accumulated access history. I deployed BeyondTrust to secure approximately 1,200 privileged accounts with SOX-compliant credential rotation, session monitoring, and audit controls. The result was a privileged access program that was better documented, better aligned to SOX audit requirements, and no longer dependent on standing access for routine operations.</p>
+                <p>I designed Entra ID risk-based access policies with adaptive scoring, embedded Terraform guardrails with policy validation directly into the deployment pipeline, and briefed executive leadership regularly translating security risks into business impact through data-driven dashboards.</p>
+                </div>
 
+                <div class="job-bullets-wrapper">
                 <ul class="job-bullets">
                     <li>Led enterprise PAM transformation, mapping more than 200 job functions into structured least privilege RBAC models to systematically reduce excessive access across enterprise applications.</li>
                     <li>Deployed BeyondTrust PAM securing approximately 1,200 privileged accounts, enforcing SOX-compliant credential rotation, session monitoring, and audit controls while eliminating standing privileged access for routine operations.</li>
@@ -944,6 +1030,7 @@
                     <li>Supported incident response through analysis of privileged account activity and identification of misuse patterns across enterprise endpoints.</li>
                     <li>Briefed executive leadership on security risks, compliance gaps, and mitigation strategies, translating technical findings into business impact through data-driven risk dashboards.</li>
                 </ul>
+                </div>
                 <div class="job-skills"><strong>Skills:</strong> BeyondTrust · CyberArk · Entra ID · Azure AD · GCP · Microsoft Intune · Carbon Black · SOX Compliance · Terraform · PowerShell · Python</div>
             </div>
 
@@ -956,8 +1043,12 @@
                     <span>Contract</span>
                     <span>04/2019 – 10/2019</span>
                 </div>
-                <div class="job-summary">Wells Fargo is one of the largest banks in the United States, serving millions of retail and commercial customers with annual revenue exceeding 80 billion dollars. As a federally regulated financial institution, the environment carried FFIEC and GLBA compliance requirements, rigorous audit obligations, and a hybrid infrastructure spanning AWS and Azure with more than 12,000 managed user accounts. This engagement focused on Zero Trust IAM framework design, cloud identity governance, and operational lifecycle management within one of the most heavily regulated sectors in the country.</div>
+                <div class="job-summary">
+                <p>Wells Fargo is one of the largest banks in the United States, operating under FFIEC and GLBA compliance requirements with the examination scrutiny that federal financial regulation demands. I contributed identity controls to an environment where consistency and audit-readiness were baseline expectations across a hybrid infrastructure spanning AWS and Azure.</p>
+                <p>I designed a Zero Trust-aligned IAM framework with continuous verification and risk-based access controls synchronized across cloud platforms through infrastructure-as-code. I built ADFS progressive profiling workflows with intelligent session management and fraud detection for customer-facing banking applications. I maintained 12,000 accounts through lifecycle workflows that kept access aligned with HR system changes. I ran security education alongside phishing response workflows that reduced incident response time by a meaningful margin, giving staff both the awareness and the process to act on it.</p>
+                </div>
 
+                <div class="job-bullets-wrapper">
                 <ul class="job-bullets">
                     <li>Designed a Zero Trust-aligned IAM framework with risk-based access controls, applying continuous verification and intelligent policy recommendations driven by historical access patterns.</li>
                     <li>Built consistent identity controls across AWS and Azure environments using infrastructure-as-code for policy synchronization across cloud platforms.</li>
@@ -968,6 +1059,7 @@
                     <li>Ran staff security education alongside phishing response workflows, significantly reducing incident response time through orchestrated investigation and remediation.</li>
                     <li>Briefed upper management on cloud security risks and mitigation strategies using risk dashboards that provided actionable recommendations and continuous visibility into posture trends.</li>
                 </ul>
+                </div>
                 <div class="job-skills"><strong>Skills:</strong> Zero Trust Architecture · AWS · Azure · ADFS · Office 365 · SCCM · Microsoft Defender · FFIEC · GLBA · Agile · Waterfall</div>
             </div>
 
@@ -980,8 +1072,13 @@
                     <span>Full-time</span>
                     <span>10/2015 – 01/2019</span>
                 </div>
-                <div class="job-summary">Wellsecured IT is an enterprise IT security solutions provider serving clients across financial services, healthcare, and regulated industries. Working within a managed security and consulting model meant operating across multiple client environments simultaneously, each with its own identity stack, compliance posture, and technical debt. This role served as the primary IAM engineering and escalation function across the client portfolio, spanning Azure, GCP, and M365 implementations with a consistent focus on Zero Trust adoption, certificate lifecycle management, and Workday-to-Active Directory provisioning integrity. The breadth of exposure across fragmented multi-client environments built the diagnostic and architectural depth that carried forward through every senior engagement that followed.</div>
+                <div class="job-summary">
+                <p>Wellsecured IT served clients across financial services, healthcare, and regulated industries. As a CIAM engineer working across multiple client environments simultaneously, I built the diagnostic and engineering depth that shaped my approach to every senior role that followed.</p>
+                <p>I designed Zero Trust frameworks across Azure, GCP, and M365, reducing standing privilege by over 70 percent through Conditional Access, PIM, and JIT workflow design. I built certificate lifecycle management across more than 100 enterprise applications. Authentication outages caused by expired or misaligned certificates were a recurring problem across several client environments before this work. They were not after it.</p>
+                <p>Workday-to-Active Directory-to-Entra provisioning failures were a consistent escalation. I traced failures across the full hybrid identity stack to resolve them and built the provisioning diagnostic capability that became a defining strength at the senior level. I led the ForgeRock IAM migration with workflow standardization that reduced provisioning delays, and integrated Splunk for identity monitoring supporting ISO/IEC 27001 and NIST 800-53 compliance.</p>
+                </div>
 
+                <div class="job-bullets-wrapper">
                 <ul class="job-bullets">
                     <li>Designed and implemented unified Zero Trust frameworks across Azure, GCP, and M365, aligning Conditional Access, PIM, and JIT workflows to reduce standing privileges by over 70% while strengthening overall security posture.</li>
                     <li>Served as the technical escalation authority for business-critical IAM failures: certificate expirations, broken SAML trusts, provisioning system outages. When automated remediation and support tiers couldn't resolve it, the problem came to me.</li>
@@ -998,6 +1095,7 @@
                     <li>Built AWS IAM roles and encryption protocols across multi-cloud environments with automated policy enforcement ensuring consistent least-privilege patterns at scale.</li>
                     <li>Partnered with DevOps to embed automated log analysis and incident response directly into CI/CD pipelines.</li>
                 </ul>
+                </div>
                 <div class="job-skills"><strong>Skills:</strong> ForgeRock IDM · Splunk · ISO/IEC 27001 · NIST 800-53 · Ping Identity · Citrix · VMware · PowerShell · AWS · Auth0 · Azure AD · Workday · ActiveIDM</div>
             </div>
 
@@ -1010,8 +1108,13 @@
                     <span>Full-time</span>
                     <span>06/2011 – 12/2015</span>
                 </div>
-                <div class="job-summary">Cloudcentria Security is a cloud cybersecurity firm delivering identity architecture, security operations, and managed security services across enterprise AWS and hybrid environments. This was the foundational role that established the core competencies in cloud identity, security governance, and forensic investigation that carried forward through every subsequent engagement. Working across IaaS, PaaS, and serverless environments at a time when cloud security practices were still maturing meant building frameworks and protocols from first principles, several of which became standard practice within the organization and informed approaches adopted more broadly across the industry.</div>
+                <div class="job-summary">
+                <p>I started this work when cloud security was still finding its footing. I built identity and security programs across AWS and hybrid environments, establishing IAM controls, governance models, and policy-as-code frameworks aligned to NIST 800-53 and ISO 27001.</p>
+                <p>I scaled vulnerability management to an environment exceeding 15,000 assets across AWS and Azure, prioritizing by exploitability and business impact. I owned the federation infrastructure across SaaS platforms directly, managing SAML, OIDC, and OAuth2 trust relationships and resolving authentication failures and metadata exchange issues with SaaS vendors before they became outages.</p>
+                <p>I led a forensic investigation that recovered stolen intellectual property. The evidence collection and chain-of-custody processes I built during that investigation were adopted as standard practice within the organization. I optimized Entra ID Connect sync logic and hybrid sync rules, normalizing attributes and UPN conventions across cloud and on-premises environments.</p>
+                </div>
 
+                <div class="job-bullets-wrapper">
                 <ul class="job-bullets">
                     <li>Built cloud security and identity programs from the ground up across AWS and hybrid environments, establishing foundational IAM controls, governance models, and policy-as-code frameworks aligned to NIST 800-53 and ISO 27001.</li>
                     <li>Designed identity federation across SaaS platforms including Okta, Auth0, and application providers, resolving authentication failures and enabling centralized access control.</li>
@@ -1022,6 +1125,7 @@
                     <li>Administered BeyondTrust Password Safe with secret rotation and vault access workflows, eliminating credential sprawl through JIT tied to approved change management processes.</li>
                     <li>Partnered with SOC teams during active incidents supporting containment, investigation, and remediation efforts including analysis of token misuse and privileged session activity.</li>
                 </ul>
+                </div>
                 <div class="job-skills"><strong>Skills:</strong> NIST 800-53 · ISO 27001 · AWS · Azure · Nessus · Ping Identity · Okta · Auth0 · BeyondTrust · Entra ID · Splunk · Digital Forensics</div>
             </div>
 
@@ -1036,11 +1140,13 @@
                 </div>
                 <div class="job-summary">uBreakiFix is a technology repair and support services company providing hardware repair, diagnostics, and technical support for consumer electronics and computing devices. This role represented the entry point into professional technical work, establishing the customer-facing communication, incident prioritization, and systematic problem-solving disciplines that underpin every senior engagement that followed.</div>
 
+                <div class="job-bullets-wrapper">
                 <ul class="job-bullets">
                     <li>Technical Support: Delivered first-level support for hardware, software, and network issues via phone, email, and in-person.</li>
                     <li>Incident Management: Assessed and prioritized tickets based on impact and urgency to meet SLA targets.</li>
                     <li>Customer Service: Maintained high satisfaction through timely support and detailed documentation of service desk activities.</li>
                 </ul>
+                </div>
                 <div class="job-skills"><strong>Skills:</strong> Technical Support · Incident Management · Customer Service · Hardware Repair · System Administration</div>
             </div>
 
@@ -1053,6 +1159,7 @@
                     <span>Full-time</span>
                     <span>2006 – 2009</span>
                 </div>
+                <div class="job-bullets-wrapper">
                 <ul class="job-bullets">
                     <li>Technical Support: Provided troubleshooting for computer and electronic products, resolving hardware and software issues.</li>
                     <li>Product Setup: Assisted customers with initial configuration, software installations, and feature explanations.</li>
@@ -1061,6 +1168,7 @@
                     <li>Customer Engagement: Collaborated with sales team to align technology solutions with customer needs.</li>
                     <li>Product Knowledge: Stayed current on technology trends and updated demo areas to reflect latest offerings.</li>
                 </ul>
+                </div>
                 <div class="job-skills"><strong>Skills:</strong> Technical Support · Hardware Repair · Customer Service · Inventory Management · Product Knowledge</div>
             </div>
         </section>
@@ -1493,6 +1601,25 @@
                 tickerScroll.addEventListener('mouseleave', () => { tickerScroll.style.animationPlayState = 'running'; });
             }
         });
+
+        // Scroll reveal for job bullets
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                } else {
+                    entry.target.classList.remove('revealed');
+                }
+            });
+        }, {
+            threshold: 0.05,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.job-bullets-wrapper').forEach(el => {
+            revealObserver.observe(el);
+        });
+
     </script>
 </body>
 </html>
