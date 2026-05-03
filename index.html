@@ -249,16 +249,22 @@
         }
 
         .experience-item {
-            display: grid;
-            grid-template-columns: 190px 1fr;
-            gap: 2.5rem;
+            display: block;
             padding: 2.5rem 0;
             border-top: 1px solid var(--border-light);
         }
 
         .experience-item:first-of-type { border-top: none; padding-top: 0; }
 
-        .exp-left {}
+        .exp-meta-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .exp-left { min-width: 180px; }
 
         .job-title {
             font-size: 0.8rem;
@@ -355,60 +361,79 @@
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            align-items: stretch;
         }
 
         .project-card {
-            background: var(--bg-secondary);
+            background: var(--bg);
             border-radius: 18px;
-            padding: 1.5rem;
-            border: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 1.75rem;
+            border: 1px solid var(--border-light);
+            border-top: 4px solid var(--accent);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,113,227,0.1);
+            border-color: var(--accent);
+        }
+
+        .project-card-top {
+            margin-bottom: 1rem;
         }
 
         .project-title {
-            font-size: 0.88rem;
-            font-weight: 600;
+            font-size: 0.92rem;
+            font-weight: 700;
             color: var(--text);
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.3rem;
             line-height: 1.3;
         }
 
         .project-client {
-            font-size: 0.7rem;
-            font-weight: 500;
+            font-size: 0.72rem;
+            font-weight: 600;
             color: var(--accent);
             margin-bottom: 0.15rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .project-year {
+            display: inline-block;
             font-size: 0.68rem;
-            color: var(--text-tertiary);
-            margin-bottom: 0.85rem;
+            color: var(--bg);
+            background: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            font-weight: 500;
         }
 
-        .project-list { list-style: none; padding: 0; }
+        .project-list { list-style: none; padding: 0; flex: 1; }
 
         .project-list li {
-            font-size: 0.76rem;
+            font-size: 0.78rem;
             color: var(--text-secondary);
-            line-height: 1.5;
-            padding: 0.18rem 0;
+            line-height: 1.55;
+            padding: 0.25rem 0;
             display: flex;
-            gap: 0.45rem;
+            gap: 0.5rem;
             align-items: flex-start;
+            border-bottom: 1px solid var(--border-light);
         }
+
+        .project-list li:last-child { border-bottom: none; }
 
         .project-list li::before {
             content: "";
-            width: 4px;
-            height: 4px;
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
             background: var(--accent);
             flex-shrink: 0;
@@ -614,22 +639,24 @@
         <div class="experience-wrap">
             
             <div class="experience-item">
-                <div class="job-title">Enterprise IAM Program Director</div>
-                <div class="company-name">
+                <div class="exp-meta-row">
+                    <div class="exp-left">
+                        <div class="job-title">Enterprise IAM Program Director</div>
+                        <div class="company-name">
                     iHeartMedia
                 </div>
-                <div class="job-meta">
+                        <div class="job-meta">
                     <span>Full-time</span>
                     <span>06/2025 – Present</span>
                 </div>
-
+                    </div>
+                </div>
                 <div class="job-summary">
                 <p>iHeartMedia is the largest audio company in America, with a portfolio spanning Katz Media Group, Triton Digital, Premiere Networks, and subsidiary brands across broadcast, ad-tech, syndication, and national advertising sales. I served as the senior identity authority across that portfolio, owning core components of the enterprise IAM program across a 30,000-user hybrid environment.</p>
                 <p>The most consequential work was organizational before it was technical. Security, IT, and HR had no shared framework connecting identity decisions across the business. I built the ownership model, the RACI structure, and the escalation paths that gave those teams a consistent foundation. That structure reduced cross-team escalations and gave the Conditional Access program the accountability it needed to hold under scrutiny.</p>
                 <p>I directed a 60-policy Conditional Access estate covering biometric authentication, geofencing, device compliance, and risk-based access decisions. The governance model I put in place reduced authentication incidents and policy violations across the application portfolio. I inherited the privileged access posture in a degraded state and rebuilt it around BeyondTrust and Entra ID PIM, designing the approval workflows and audit structure that turned a platform into a governed program.</p>
                 <p>I reported to the CISO every week, translating technical exposure into business decisions with named owners and defined outcomes. That reporting relationship kept identity on the leadership agenda and gave the program the organizational weight it needed to move forward.</p>
                 </div>
-
                 <ul class="job-bullets">
                     <li>Own core identity security components across the enterprise IAM program for a hybrid workforce of more than 30,000 users spanning iHeartMedia, Katz Media Group, Triton Digital, Premiere Networks, and subsidiary brands across broadcast, ad-tech, syndication, and media representation.</li>
                     <li>Aligned security, IT, HR, and business stakeholders across a multi-subsidiary portfolio to drive identity maturity and risk reduction, establishing structured cross-functional communication between identity, SOC, and GRC teams that had historically operated in silos with limited coordination between them.</li>
@@ -651,23 +678,24 @@
                     <li>Deliver weekly identity risk reporting directly to the CISO, translating technical exposure into prioritized business decisions with clear ownership, accountability, and measurable risk reduction.</li>
                 </ul>
                 <div class="job-skills"><strong>Skills:</strong> Entra ID · Active Directory · BeyondTrust PAM · Azure Logic Apps · AWS IAM · Google Cloud Identity · Workday · SAML · OIDC · Azure Key Vault · Conditional Access · Entra ID PIM · Microsoft Defender · MAM · PowerShell · Python · Zero Trust · SCIM · ServiceNow · Genea</div>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-title">Lead Identity Security Architect</div>
-                <div class="company-name">
+            </div><div class="experience-item">
+                <div class="exp-meta-row">
+                    <div class="exp-left">
+                        <div class="job-title">Lead Identity Security Architect</div>
+                        <div class="company-name">
                     LexisNexis / United States Patent and Trademark Office
                 </div>
-                <div class="job-meta">
+                        <div class="job-meta">
                     <span>Contract | Public Trust Clearance</span>
                     <span>04/2024 – 06/2025</span>
+                </div>
+                    </div>
                 </div>
                 <div class="job-summary">
                 <p>This engagement ran across two distinct environments. LexisNexis is a global legal information and analytics company serving customers in more than 150 countries. The United States Patent and Trademark Office operates under Public Trust Clearance where compliance expectations are institutional and the architecture decisions I made had direct federal implications.</p>
                 <p>My work centered on Zero Trust design aligned to NIST 800-207, making foundational decisions about how trust gets established, under what conditions it gets revoked, and how behavioral signals feed into access decisions in real time. That architecture extended across Azure, AWS, and GCP with centralized CSPM integration and Infrastructure-as-Code policy enforcement that removed manual validation from the compliance lifecycle.</p>
                 <p>I rebuilt the One Identity Safeguard platform from scratch, fully offboarding and re-onboarding privileged assets, realigning session recording, and rewriting access policies against the actual security posture. I engineered threat correlation across CrowdStrike Falcon, Microsoft Defender, Palo Alto, and Checkpoint that improved detection quality and reduced response time through intelligent triage. I designed forensic response processes using Secureworks Taegis aligned to NIST 800-86 and translated technical findings into executive-level risk assessments that informed security investment decisions across both organizations.</p>
                 </div>
-
                 <ul class="job-bullets">
                     <li>Designed Zero Trust architecture aligned to NIST 800-207 with JIT provisioning and continuous authentication monitoring, adjusting access decisions in real time based on behavioral risk signals.</li>
                     <li>Built behavioral risk evaluation models adjusting access decisions dynamically based on user activity and contextual identity signals.</li>
@@ -680,23 +708,24 @@
                     <li>Translated complex architecture and security findings into business impact for executive stakeholders, enabling informed decision-making on risk and remediation priorities.</li>
                 </ul>
                 <div class="job-skills"><strong>Skills:</strong> Zero Trust · Entra ID · Azure · GCP · AWS · NIST 800-53 · CIS Controls · MITRE ATT&CK · One Identity Safeguard · CrowdStrike · Microsoft Defender · Palo Alto · Auth0 · SAML · OIDC · OAuth2 · PowerShell · Python · Incident Response</div>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-title">Identity &amp; Access Management Architect</div>
-                <div class="company-name">
+            </div><div class="experience-item">
+                <div class="exp-meta-row">
+                    <div class="exp-left">
+                        <div class="job-title">Identity &amp; Access Management Architect</div>
+                        <div class="company-name">
                     Kroger, Technology &amp; Digital Department
                 </div>
-                <div class="job-meta">
+                        <div class="job-meta">
                     <span>Full-time</span>
                     <span>12/2022 – 02/2024</span>
+                </div>
+                    </div>
                 </div>
                 <div class="job-summary">
                 <p>Kroger is the largest supermarket chain in the United States, ranked 25th on the Fortune 500 with approximately 150 billion dollars in annual revenue. I came into the Technology and Digital Department as the IAM architect responsible for modernizing identity across a hybrid environment where legacy access models had accumulated over years of rapid growth across US and UK markets.</p>
                 <p>I architected identity provisioning across 32,000 users under HIPAA compliance, designing workflows that adapted access based on job function and peer patterns. That work removed manual provisioning from the critical path and measurably reduced both provisioning time and the inconsistent access assignments that had been generating compliance risk. I integrated Entra ID across 12,000 hybrid users, retiring legacy authentication patterns across the application landscape, and designed the AKS workload identity solution that eliminated static credentials from containerized environments through workload identity federation.</p>
                 <p>I implemented PAM through One Identity Safeguard and TPAM with JIT elevation tied to ServiceNow approval workflows, connecting privileged access to the change management process. I deployed CrowdStrike Falcon across 2,000 endpoints and implemented Varonis for file access monitoring and data classification that strengthened SOX and GDPR audit readiness.</p>
                 </div>
-
                 <ul class="job-bullets">
                     <li>Led identity provisioning for 32,000 users across US and UK operations while maintaining HIPAA compliance, implementing structured lifecycle controls and removing manual provisioning from the critical path.</li>
                     <li>Built role-aware provisioning workflows adapting access based on job function and peer access patterns, reducing inconsistent access assignments and privilege creep.</li>
@@ -710,23 +739,24 @@
                     <li>Streamlined Active Directory using RBAC and Conditional Access to reduce policy drift and improve access governance consistency.</li>
                 </ul>
                 <div class="job-skills"><strong>Skills:</strong> Entra ID · Azure AD · OneIdentity Safeguard · TPAM · Ping Identity · Okta · CrowdStrike · Varonis · VMware · Kubernetes · AKS · ServiceNow · NIST 800-53 · PowerShell · Python</div>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-title">Customer Identity & Access Management Architect</div>
-                <div class="company-name">
+            </div><div class="experience-item">
+                <div class="exp-meta-row">
+                    <div class="exp-left">
+                        <div class="job-title">Customer Identity & Access Management Architect</div>
+                        <div class="company-name">
                     Homeland Security, OCIO / US Secret Service
                 </div>
-                <div class="job-meta">
+                        <div class="job-meta">
                     <span>Contract | Public Trust Clearance</span>
                     <span>02/2022 – 12/2022</span>
+                </div>
+                    </div>
                 </div>
                 <div class="job-summary">
                 <p>The US Secret Service operates within the Department of Homeland Security with one of the most demanding security profiles in the federal government. I worked within the OCIO under Public Trust Clearance, architecting identity solutions where compliance requirements were federal and the tolerance for gaps was effectively zero.</p>
                 <p>I designed CIAM architecture across more than 100 legacy federal systems integrating Active Directory, OAuth 2.0, and SAML 2.0 federation, enforcing consistent policy across environments with significantly different technical assumptions without disrupting operational continuity.</p>
                 <p>I led the ISO 27001 certification for the DHS Information Security Management System, building a governance framework that positioned the agency in a materially stronger compliance posture. The controls framework was adopted agency-wide. I orchestrated the GCP migration of more than 50 systems to FedRAMP Moderate authorization with continuous compliance monitoring and infrastructure-as-code security baselines. I implemented Saviynt for access governance across 15,000 users with entitlement reviews and separation-of-duties enforcement.</p>
                 </div>
-
                 <ul class="job-bullets">
                     <li>Positioned IAM as a cornerstone of DHS security strategy, integrating Active Directory, OAuth 2.0, and SAML 2.0 across 100+ legacy systems in distributed federal infrastructure with automated federation trust management.</li>
                     <li>Spearheaded ISO 27001 certification for the DHS Information Security Management System, establishing an enterprise security governance framework with automated control validation that was adopted agency-wide.</li>
@@ -736,22 +766,23 @@
                     <li>Delivered Agile-based security automation using PowerShell, Python, and Java aligned to FISMA compliance, producing reusable modules adopted across DHS security teams.</li>
                 </ul>
                 <div class="job-skills"><strong>Skills:</strong> CyberArk · GCP · FISMA · FedRAMP · ISO 27001 · Saviynt · PowerShell · Python · Java · Active Directory · OAuth 2.0 · SAML 2.0 · Zero Trust Architecture</div>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-title">Cloud Vulnerability Analyst</div>
-                <div class="company-name">
+            </div><div class="experience-item">
+                <div class="exp-meta-row">
+                    <div class="exp-left">
+                        <div class="job-title">Cloud Vulnerability Analyst</div>
+                        <div class="company-name">
                     Accessia Health <span class="company-descriptor">National Non-Profit Patient Assistance</span>
                 </div>
-                <div class="job-meta">
+                        <div class="job-meta">
                     <span>Contract</span>
                     <span>07/2021 – 12/2021</span>
+                </div>
+                    </div>
                 </div>
                 <div class="job-summary">
                 <p>Accessia Health is a national non-profit providing patient assistance programs for individuals who cannot afford prescription medications, carrying full HIPAA, SOX, and GDPR obligations across cloud infrastructure in AWS. A security failure here does not just create compliance exposure. It has downstream consequences for patients who depend on the organization's ability to operate.</p>
                 <p>I led vulnerability management aligned to NIST 800-53 and HIPAA, prioritizing risk by exploitability, business criticality, and threat intelligence. I deployed PingFederate and Citrix NetScaler for high-availability authentication across mission-critical applications, designed credential vaulting and rotation that eliminated static privileged credentials, and introduced certificate lifecycle management across 150 domains that replaced a manual tracking process. I embedded security review into the infrastructure change process using policy-as-code frameworks, moving compliance enforcement to the point of change rather than discovery at audit.</p>
                 </div>
-
                 <ul class="job-bullets">
                     <li>Led vulnerability management aligned to NIST 800-53 and HIPAA across enterprise systems, prioritizing remediation based on exploitability, business criticality, and threat intelligence.</li>
                     <li>Built audit-ready compliance reporting via PingFederate logs supporting SOX, GDPR, and HIPAA requirements with real-time dashboards for continuous authentication visibility.</li>
@@ -762,23 +793,24 @@
                     <li>Managed certificate lifecycle across a portfolio of 150 domains ensuring continuous compliance and eliminating manual tracking overhead.</li>
                 </ul>
                 <div class="job-skills"><strong>Skills:</strong> HIPAA · NIST 800-53 · SOX · GDPR · PingFederate · Citrix NetScaler · AWS · PowerShell · CyberArk · Vulnerability Assessment</div>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-title">Privileged Access Management Architect</div>
-                <div class="company-name">
+            </div><div class="experience-item">
+                <div class="exp-meta-row">
+                    <div class="exp-left">
+                        <div class="job-title">Privileged Access Management Architect</div>
+                        <div class="company-name">
                     Indivior Pharmaceuticals <span class="company-descriptor">Global Specialty Pharmaceutical</span>
                 </div>
-                <div class="job-meta">
+                        <div class="job-meta">
                     <span>Full-time</span>
                     <span>10/2019 – 07/2021</span>
+                </div>
+                    </div>
                 </div>
                 <div class="job-summary">
                 <p>Indivior is a publicly traded global specialty pharmaceutical company focused on treatments for opioid use disorder, operating across 14 locations worldwide under SOX, HIPAA, and GxP standards with annual revenue of approximately 1.2 billion dollars. Access failures in pharmaceutical environments carry regulatory consequences that touch the integrity of the drug development and manufacturing record.</p>
                 <p>I led the PAM transformation starting with role mapping across more than 200 job functions, establishing least privilege RBAC models that reflected actual work patterns rather than accumulated access history. I deployed BeyondTrust to secure approximately 1,200 privileged accounts with SOX-compliant credential rotation, session monitoring, and audit controls. The result was a privileged access program that was better documented, better aligned to SOX audit requirements, and no longer dependent on standing access for routine operations.</p>
                 <p>I designed Entra ID risk-based access policies with adaptive scoring, embedded Terraform guardrails with policy validation directly into the deployment pipeline, and briefed executive leadership regularly translating security risks into business impact through data-driven dashboards.</p>
                 </div>
-
                 <ul class="job-bullets">
                     <li>Led enterprise PAM transformation, mapping more than 200 job functions into structured least privilege RBAC models to systematically reduce excessive access across enterprise applications.</li>
                     <li>Deployed BeyondTrust PAM securing approximately 1,200 privileged accounts, enforcing SOX-compliant credential rotation, session monitoring, and audit controls while eliminating standing privileged access for routine operations.</li>
@@ -793,22 +825,23 @@
                     <li>Briefed executive leadership on security risks, compliance gaps, and mitigation strategies, translating technical findings into business impact through data-driven risk dashboards.</li>
                 </ul>
                 <div class="job-skills"><strong>Skills:</strong> BeyondTrust · CyberArk · Entra ID · Azure AD · GCP · Microsoft Intune · Carbon Black · SOX Compliance · Terraform · PowerShell · Python</div>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-title">Identity &amp; Access Management Analyst</div>
-                <div class="company-name">
+            </div><div class="experience-item">
+                <div class="exp-meta-row">
+                    <div class="exp-left">
+                        <div class="job-title">Identity &amp; Access Management Analyst</div>
+                        <div class="company-name">
                     Wells Fargo Bank
                 </div>
-                <div class="job-meta">
+                        <div class="job-meta">
                     <span>Contract</span>
                     <span>04/2019 – 10/2019</span>
+                </div>
+                    </div>
                 </div>
                 <div class="job-summary">
                 <p>Wells Fargo is one of the largest banks in the United States, operating under FFIEC and GLBA compliance requirements with the examination scrutiny that federal financial regulation demands. I contributed identity controls to an environment where consistency and audit-readiness were baseline expectations across a hybrid infrastructure spanning AWS and Azure.</p>
                 <p>I designed a Zero Trust-aligned IAM framework with continuous verification and risk-based access controls synchronized across cloud platforms through infrastructure-as-code. I built ADFS progressive profiling workflows with intelligent session management and fraud detection for customer-facing banking applications. I maintained 12,000 accounts through lifecycle workflows that kept access aligned with HR system changes. I ran security education alongside phishing response workflows that reduced incident response time by a meaningful margin, giving staff both the awareness and the process to act on it.</p>
                 </div>
-
                 <ul class="job-bullets">
                     <li>Designed a Zero Trust-aligned IAM framework with risk-based access controls, applying continuous verification and intelligent policy recommendations driven by historical access patterns.</li>
                     <li>Built consistent identity controls across AWS and Azure environments using infrastructure-as-code for policy synchronization across cloud platforms.</li>
@@ -820,23 +853,24 @@
                     <li>Briefed upper management on cloud security risks and mitigation strategies using risk dashboards that provided actionable recommendations and continuous visibility into posture trends.</li>
                 </ul>
                 <div class="job-skills"><strong>Skills:</strong> Zero Trust Architecture · AWS · Azure · ADFS · Office 365 · SCCM · Microsoft Defender · FFIEC · GLBA · Agile · Waterfall</div>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-title">Customer Identity & Access Management Engineer</div>
-                <div class="company-name">
+            </div><div class="experience-item">
+                <div class="exp-meta-row">
+                    <div class="exp-left">
+                        <div class="job-title">Customer Identity & Access Management Engineer</div>
+                        <div class="company-name">
                     Wellsecured IT <span class="company-descriptor">Enterprise IT Security Solutions</span>
                 </div>
-                <div class="job-meta">
+                        <div class="job-meta">
                     <span>Full-time</span>
                     <span>10/2015 – 01/2019</span>
+                </div>
+                    </div>
                 </div>
                 <div class="job-summary">
                 <p>Wellsecured IT served clients across financial services, healthcare, and regulated industries. As a CIAM engineer working across multiple client environments simultaneously, I built the diagnostic and engineering depth that shaped my approach to every senior role that followed.</p>
                 <p>I designed Zero Trust frameworks across Azure, GCP, and M365, reducing standing privilege by over 70 percent through Conditional Access, PIM, and JIT workflow design. I built certificate lifecycle management across more than 100 enterprise applications. Authentication outages caused by expired or misaligned certificates were a recurring problem across several client environments before this work. They were not after it.</p>
                 <p>Workday-to-Active Directory-to-Entra provisioning failures were a consistent escalation. I traced failures across the full hybrid identity stack to resolve them and built the provisioning diagnostic capability that became a defining strength at the senior level. I led the ForgeRock IAM migration with workflow standardization that reduced provisioning delays, and integrated Splunk for identity monitoring supporting ISO/IEC 27001 and NIST 800-53 compliance.</p>
                 </div>
-
                 <ul class="job-bullets">
                     <li>Designed and implemented unified Zero Trust frameworks across Azure, GCP, and M365, aligning Conditional Access, PIM, and JIT workflows to reduce standing privileges by over 70% while strengthening overall security posture.</li>
                     <li>Served as the technical escalation authority for business-critical IAM failures: certificate expirations, broken SAML trusts, provisioning system outages. When automated remediation and support tiers couldn't resolve it, the problem came to me.</li>
@@ -854,23 +888,24 @@
                     <li>Partnered with DevOps to embed automated log analysis and incident response directly into CI/CD pipelines.</li>
                 </ul>
                 <div class="job-skills"><strong>Skills:</strong> ForgeRock IDM · Splunk · ISO/IEC 27001 · NIST 800-53 · Ping Identity · Citrix · VMware · PowerShell · AWS · Auth0 · Azure AD · Workday · ActiveIDM</div>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-title">Cloud Security Operations Lead</div>
-                <div class="company-name">
+            </div><div class="experience-item">
+                <div class="exp-meta-row">
+                    <div class="exp-left">
+                        <div class="job-title">Cloud Security Operations Lead</div>
+                        <div class="company-name">
                     Cloudcentria Security <span class="company-descriptor">Cloud Cybersecurity Firm</span>
                 </div>
-                <div class="job-meta">
+                        <div class="job-meta">
                     <span>Full-time</span>
                     <span>06/2011 – 12/2015</span>
+                </div>
+                    </div>
                 </div>
                 <div class="job-summary">
                 <p>I started this work when cloud security was still finding its footing. I built identity and security programs across AWS and hybrid environments, establishing IAM controls, governance models, and policy-as-code frameworks aligned to NIST 800-53 and ISO 27001.</p>
                 <p>I scaled vulnerability management to an environment exceeding 15,000 assets across AWS and Azure, prioritizing by exploitability and business impact. I owned the federation infrastructure across SaaS platforms directly, managing SAML, OIDC, and OAuth2 trust relationships and resolving authentication failures and metadata exchange issues with SaaS vendors before they became outages.</p>
                 <p>I led a forensic investigation that recovered stolen intellectual property. The evidence collection and chain-of-custody processes I built during that investigation were adopted as standard practice within the organization. I optimized Entra ID Connect sync logic and hybrid sync rules, normalizing attributes and UPN conventions across cloud and on-premises environments.</p>
                 </div>
-
                 <ul class="job-bullets">
                     <li>Built cloud security and identity programs from the ground up across AWS and hybrid environments, establishing foundational IAM controls, governance models, and policy-as-code frameworks aligned to NIST 800-53 and ISO 27001.</li>
                     <li>Designed identity federation across SaaS platforms including Okta, Auth0, and application providers, resolving authentication failures and enabling centralized access control.</li>
@@ -882,28 +917,27 @@
                     <li>Partnered with SOC teams during active incidents supporting containment, investigation, and remediation efforts including analysis of token misuse and privileged session activity.</li>
                 </ul>
                 <div class="job-skills"><strong>Skills:</strong> NIST 800-53 · ISO 27001 · AWS · Azure · Nessus · Ping Identity · Okta · Auth0 · BeyondTrust · Entra ID · Splunk · Digital Forensics</div>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-title">Systems Administrator</div>
-                <div class="company-name">
+            </div><div class="experience-item">
+                <div class="exp-meta-row">
+                    <div class="exp-left">
+                        <div class="job-title">Systems Administrator</div>
+                        <div class="company-name">
                     uBreakiFix <span class="company-descriptor">Tech Repair and Support</span>
                 </div>
-                <div class="job-meta">
+                        <div class="job-meta">
                     <span>Full-time</span>
                     <span>2009 – 2011</span>
                 </div>
+                    </div>
+                </div>
                 <div class="job-summary">uBreakiFix is a technology repair and support services company providing hardware repair, diagnostics, and technical support for consumer electronics and computing devices. This role represented the entry point into professional technical work, establishing the customer-facing communication, incident prioritization, and systematic problem-solving disciplines that underpin every senior engagement that followed.</div>
-
                 <ul class="job-bullets">
                     <li>Technical Support: Delivered first-level support for hardware, software, and network issues via phone, email, and in-person.</li>
                     <li>Incident Management: Assessed and prioritized tickets based on impact and urgency to meet SLA targets.</li>
                     <li>Customer Service: Maintained high satisfaction through timely support and detailed documentation of service desk activities.</li>
                 </ul>
                 <div class="job-skills"><strong>Skills:</strong> Technical Support · Incident Management · Customer Service · Hardware Repair · System Administration</div>
-            </div>
-
-            <div class="experience-item">
+            </div><div class="experience-item">
                 <div class="job-title">IT Support Associate</div>
                 <div class="company-name">
                     Circuit City <span class="company-descriptor">Consumer Electronics Retail</span>
@@ -1015,14 +1049,92 @@
     </main>
 
     <section id="news-ticker">
-        <div class="ticker-label">Industry News & Insights</div>
-        
-            <h2 class="section-title">Cybersecurity News & Insights</h2>
-            <div class="ticker-container">
-                <div class="ticker-scroll" id="ticker-scroll">
+        <div class="ticker-label">Industry News &amp; Insights</div>
+        <div class="ticker-wrapper">
+            <div class="ticker-track">
+                <div class="ticker-item">
+                    <div class="ticker-source">CISA</div>
+                    <div class="ticker-title">Zero Trust Mandates Expand Across Federal Agencies in 2026</div>
                 </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">Dark Reading</div>
+                    <div class="ticker-title">2026 Cybersecurity Forecast: AI-Powered Threats and Defenses</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">NIST</div>
+                    <div class="ticker-title">New Identity Protection Standards Released for 2026 Compliance</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">BleepingComputer</div>
+                    <div class="ticker-title">Cloud Security Breaches Drop 40% with Advanced IAM Controls</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">Threatpost</div>
+                    <div class="ticker-title">Privileged Access Management Becomes Board-Level Priority in 2026</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">Krebs on Security</div>
+                    <div class="ticker-title">Supply Chain Attacks Target Identity Infrastructure in 2026</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">SANS ISC</div>
+                    <div class="ticker-title">Automated Threat Hunting Scales Across Enterprises in 2026</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">The Hacker News</div>
+                    <div class="ticker-title">Multi-Factor Authentication Adoption Hits 90% in Financial Sector</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">CISA</div>
+                    <div class="ticker-title">Quantum-Resistant Cryptography Standards Finalized for 2026</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">Dark Reading</div>
+                    <div class="ticker-title">Identity Governance Automation Cuts Compliance Costs by 60%</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">CISA</div>
+                    <div class="ticker-title">Zero Trust Mandates Expand Across Federal Agencies in 2026</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">Dark Reading</div>
+                    <div class="ticker-title">2026 Cybersecurity Forecast: AI-Powered Threats and Defenses</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">NIST</div>
+                    <div class="ticker-title">New Identity Protection Standards Released for 2026 Compliance</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">BleepingComputer</div>
+                    <div class="ticker-title">Cloud Security Breaches Drop 40% with Advanced IAM Controls</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">Threatpost</div>
+                    <div class="ticker-title">Privileged Access Management Becomes Board-Level Priority in 2026</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">Krebs on Security</div>
+                    <div class="ticker-title">Supply Chain Attacks Target Identity Infrastructure in 2026</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">SANS ISC</div>
+                    <div class="ticker-title">Automated Threat Hunting Scales Across Enterprises in 2026</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">The Hacker News</div>
+                    <div class="ticker-title">Multi-Factor Authentication Adoption Hits 90% in Financial Sector</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">CISA</div>
+                    <div class="ticker-title">Quantum-Resistant Cryptography Standards Finalized for 2026</div>
+                </div>
+                <div class="ticker-item">
+                    <div class="ticker-source">Dark Reading</div>
+                    <div class="ticker-title">Identity Governance Automation Cuts Compliance Costs by 60%</div>
+                </div>
+                
             </div>
-        
+        </div>
     </section>
 
     <section id="quote-section">
