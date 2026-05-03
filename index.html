@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,17 +8,13 @@
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-
         :root {
             --bg: #ffffff;
             --bg-secondary: #f5f5f7;
-            --bg-tertiary: #fbfbfd;
             --text: #1d1d1f;
             --text-secondary: #6e6e73;
             --text-tertiary: #86868b;
             --accent: #0071e3;
-            --accent-hover: #0077ed;
-            --border: #d2d2d7;
             --border-light: #e8e8ed;
         }
 
@@ -33,6 +29,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* HEADER */
         header {
             position: sticky;
             top: 0;
@@ -41,7 +38,6 @@
             backdrop-filter: saturate(180%) blur(20px);
             -webkit-backdrop-filter: saturate(180%) blur(20px);
             border-bottom: 1px solid rgba(0,0,0,0.08);
-            padding: 0;
         }
 
         .header-wrapper {
@@ -52,7 +48,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .contact-bar {
@@ -65,10 +61,6 @@
             display: flex;
             align-items: center;
             gap: 0.4rem;
-            background: none;
-            border: none;
-            padding: 0;
-            border-radius: 0;
         }
 
         .status-dot {
@@ -77,7 +69,6 @@
             border-radius: 50%;
             background: #30d158;
             animation: pulse 2s infinite;
-            box-shadow: none;
         }
 
         @keyframes pulse {
@@ -92,7 +83,7 @@
             color: var(--text-tertiary);
         }
 
-        .contact-icons { display: flex; gap: 0.4rem; align-items: center; }
+        .contact-icons { display: flex; gap: 0.35rem; align-items: center; }
 
         .contact-icons a {
             color: var(--text-tertiary);
@@ -109,26 +100,6 @@
 
         .contact-icons a:hover { color: var(--accent); background: rgba(0,113,227,0.06); }
 
-        .action-buttons { display: flex; align-items: center; gap: 0.5rem; }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--text-tertiary);
-            font-size: 0.85rem;
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            transition: all 0.2s;
-            padding: 0;
-        }
-
-        .theme-toggle:hover { color: var(--accent); background: rgba(0,113,227,0.06); }
-
         .download-btn {
             font-size: 0.75rem;
             font-weight: 500;
@@ -136,7 +107,7 @@
             background: rgba(0,113,227,0.08);
             border: none;
             border-radius: 20px;
-            padding: 0.3rem 0.8rem;
+            padding: 0.3rem 0.85rem;
             cursor: pointer;
             text-decoration: none;
             font-family: inherit;
@@ -149,13 +120,12 @@
             text-transform: none;
         }
 
-        .download-btn:hover { background: rgba(0,113,227,0.14); transform: none; box-shadow: none; }
+        .download-btn:hover { background: rgba(0,113,227,0.14); }
 
         .main-nav {
             display: flex;
             gap: 1.8rem;
             list-style: none;
-            flex-wrap: nowrap;
         }
 
         .main-nav a {
@@ -165,12 +135,11 @@
             text-decoration: none;
             transition: color 0.2s;
             white-space: nowrap;
-            padding: 0;
         }
 
         .main-nav a:hover { color: var(--text); }
-        .main-nav a::after { display: none; }
 
+        /* MAIN */
         main {
             max-width: 1080px;
             margin: 0 auto;
@@ -181,7 +150,6 @@
         .hero {
             padding: 7rem 0 5rem;
             border-bottom: 1px solid var(--border-light);
-            margin-bottom: 0;
         }
 
         .hero-eyebrow {
@@ -203,14 +171,6 @@
             margin-bottom: 1.4rem;
         }
 
-        .hero-subtitle {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            letter-spacing: 0;
-        }
-
         .hero p {
             font-size: 1rem;
             font-weight: 300;
@@ -220,7 +180,7 @@
             margin-bottom: 2.5rem;
         }
 
-        .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .hero-links { display: flex; gap: 1rem; }
 
         .hero-link {
             display: inline-flex;
@@ -230,17 +190,17 @@
             font-weight: 500;
             color: var(--accent);
             text-decoration: none;
-            transition: gap 0.2s;
-            border: 1px solid rgba(0,113,227,0.2);
+            border: 1px solid rgba(0,113,227,0.25);
             border-radius: 20px;
             padding: 0.4rem 1rem;
+            transition: all 0.2s;
         }
 
-        .hero-link:hover { gap: 0.6rem; background: rgba(0,113,227,0.04); }
+        .hero-link:hover { background: rgba(0,113,227,0.04); }
         .hero-link-icon { font-size: 0.75rem; }
 
-        /* SECTION TITLES */
-        .section-title {
+        /* SECTION LABEL */
+        .section-label {
             font-size: 0.68rem;
             font-weight: 600;
             letter-spacing: 0.12em;
@@ -248,10 +208,11 @@
             color: var(--text-tertiary);
             margin-bottom: 2.5rem;
             padding-top: 5rem;
+            display: block;
         }
 
         /* PERSPECTIVE */
-        .perspective-section {
+        .perspective-wrap {
             display: grid;
             grid-template-columns: 220px 1fr;
             gap: 4rem;
@@ -260,18 +221,7 @@
             align-items: start;
         }
 
-        .perspective-section h2.section-title {
-            font-size: 0.68rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--text-tertiary);
-            margin-bottom: 1.5rem;
-            padding-top: 0;
-            grid-column: 1 / -1;
-        }
-
-        .perspective-left-head {
+        .perspective-sticky-head {
             font-family: Georgia, "Times New Roman", serif;
             font-size: 1.6rem;
             font-weight: 700;
@@ -282,21 +232,21 @@
             top: 72px;
         }
 
-        .perspective-body { }
-
-        .perspective-section p {
+        .perspective-body p {
             font-size: 0.92rem;
             font-weight: 300;
             color: var(--text-secondary);
             line-height: 1.8;
             margin-bottom: 1.3rem;
-            max-width: none;
         }
 
-        .perspective-section p:last-child { margin-bottom: 0; }
+        .perspective-body p:last-child { margin-bottom: 0; }
 
         /* EXPERIENCE */
-        #experience { padding-bottom: 5rem; border-bottom: 1px solid var(--border-light); }
+        .experience-wrap {
+            padding-bottom: 5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
 
         .experience-item {
             display: grid;
@@ -308,8 +258,10 @@
 
         .experience-item:first-of-type { border-top: none; padding-top: 0; }
 
+        .exp-left {}
+
         .job-title {
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             font-weight: 600;
             color: var(--text);
             margin-bottom: 0.25rem;
@@ -336,10 +288,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.1rem;
-            margin-bottom: 0;
-            background: none;
-            border: none;
-            padding: 0;
+            margin-top: 0.3rem;
         }
 
         .job-meta span {
@@ -363,7 +312,11 @@
         .job-summary p { margin-bottom: 0.75rem; }
         .job-summary p:last-child { margin-bottom: 0; }
 
-        .job-bullets { list-style: none; margin-bottom: 1rem; }
+        .job-bullets {
+            list-style: none;
+            margin-bottom: 1rem;
+            padding: 0;
+        }
 
         .job-bullets li {
             font-size: 0.78rem;
@@ -387,7 +340,10 @@
         .job-skills strong { font-weight: 500; color: var(--text-secondary); }
 
         /* PROJECTS */
-        #projects { padding-bottom: 5rem; border-bottom: 1px solid var(--border-light); }
+        .projects-wrap {
+            padding-bottom: 5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
 
         .projects-intro {
             font-size: 0.82rem;
@@ -429,8 +385,6 @@
             font-weight: 500;
             color: var(--accent);
             margin-bottom: 0.15rem;
-            text-transform: none;
-            letter-spacing: 0;
         }
 
         .project-year {
@@ -439,7 +393,7 @@
             margin-bottom: 0.85rem;
         }
 
-        .project-list { list-style: none; }
+        .project-list { list-style: none; padding: 0; }
 
         .project-list li {
             font-size: 0.76rem;
@@ -546,7 +500,6 @@
             margin: 0 auto;
             border: none;
             background: none;
-            text-align: center;
             padding: 0;
             border-radius: 0;
         }
@@ -569,26 +522,38 @@
             text-align: center;
         }
 
-        footer p { font-size: 0.73rem; color: var(--text-tertiary); line-height: 1.8; }
+        .footer-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .footer-inner p {
+            font-size: 0.73rem;
+            color: var(--text-tertiary);
+            line-height: 1.8;
+        }
+
+        .footer-inner a { color: inherit; text-decoration: none; }
 
         /* RESPONSIVE */
         @media (max-width: 860px) {
-            .perspective-section { grid-template-columns: 1fr; }
-            .perspective-left-head { position: static; font-size: 1.4rem; }
+            .perspective-wrap { grid-template-columns: 1fr; gap: 2rem; }
+            .perspective-sticky-head { position: static; font-size: 1.4rem; }
             .experience-item { grid-template-columns: 1fr; gap: 0.75rem; }
             .main-nav { display: none; }
-            .header-wrapper { height: auto; padding: 0.75rem 1rem; flex-wrap: wrap; }
+            .header-wrapper { flex-wrap: wrap; height: auto; padding: 0.75rem 1rem; }
         }
 
         @media (max-width: 600px) {
             main { padding: 0 1rem 3rem; }
             .hero { padding: 3.5rem 0 3rem; }
             .project-grid { grid-template-columns: 1fr; }
+            .section-label { padding-top: 3rem; }
         }
-
     </style>
 </head>
 <body>
+
     <header>
         <div class="header-wrapper">
             <div class="contact-bar">
@@ -600,21 +565,13 @@
                     <a href="mailto:opportunities@ronniebailey.cloud" title="Email me">
                         <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="https://www.ronniebailey.cloud" target="_blank" title="Portfolio Website">
-                        <i class="fas fa-globe"></i>
-                    </a>
                     <a href="https://www.linkedin.com/in/ronniebailey" target="_blank" title="LinkedIn Profile">
                         <i class="fab fa-linkedin"></i>
                     </a>
                 </div>
-                <div class="action-buttons">
-                    <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode">
-                        <i class="fas fa-adjust"></i>
-                    </button>
-                    <button class="download-btn" onclick="downloadResume()" title="Download Resume">
-                        <i class="fas fa-download"></i> Resume
-                    </button>
-                </div>
+                <button class="download-btn" onclick="downloadResume()" title="Download Resume">
+                    <i class="fas fa-download"></i> Resume
+                </button>
             </div>
             <nav class="main-nav">
                 <a href="#perspective">Perspective</a>
@@ -630,16 +587,16 @@
             <h1>Ronnie Bailey</h1>
             <p>15 years shaping how enterprise organizations secure, govern, and scale identity. Across Fortune 500 firms, federal agencies, and critical infrastructure, the work has always been the same at its core: make identity the thing that holds when everything else is under pressure.</p>
             <div class="hero-links">
-                <a href="contact.html" class="hero-link" title="Get in touch">
+                <a href="contact.html" class="hero-link">
                     <i class="fas fa-envelope hero-link-icon"></i>
                     <span>Let's Connect</span>
                 </a>
             </div>
         </section>
 
-        <section id="perspective" class="perspective-section">
-            <h2 class="section-title">Perspective</h2>
-            <div class="perspective-left-head">How I think about this work.</div>
+        <span class="section-label" id="perspective">Perspective</span>
+        <div class="perspective-wrap">
+            <div class="perspective-sticky-head">How I think about this work.</div>
             <div class="perspective-body">
                 <p>
                 The hardest problems in identity are rarely technical. The technical problems have answers. The hard problems are organizational: nobody owns the policy, the accountability structure was never defined, the exception became the rule, and by the time someone notices the debt is structural.
@@ -651,13 +608,11 @@
                 The most important work I do is translate. Technology decisions that are not understood by the people who fund them get defunded when priorities shift. Risk that is not legible to a CISO or a board does not get mitigated and usually ends up inherited by the next team. I own these programs end to end: governance, Zero Trust architecture, privileged access, federation, lifecycle management, and the CISO conversation that ties it all together. I can design the framework and I can also open a sign-in log and find what is breaking before it becomes an incident.
             </p>
             </div>
-        </section>
+        </div>
 
-        <section id="experience">
-            <h2 class="section-title">Experience</h2>
+        <span class="section-label" id="experience">Experience</span>
+        <div class="experience-wrap">
             
-            <h2 class="section-title">Professional Experience</h2>
-
             <div class="experience-item">
                 <div class="job-title">Enterprise IAM Program Director</div>
                 <div class="company-name">
@@ -968,13 +923,12 @@
                 <div class="job-skills"><strong>Skills:</strong> Technical Support · Hardware Repair · Customer Service · Inventory Management · Product Knowledge</div>
             </div>
         
-        </section>
+        </div>
 
-        <section id="projects">
-            <h2 class="section-title">Select Consulting Engagements</h2>
-            <p class="projects-intro">Short-term specialized implementations demonstrating rapid problem-solving across diverse industries.</p>
+        <span class="section-label" id="projects">Select Consulting Engagements</span>
+        <p class="projects-intro">Short-term specialized implementations demonstrating rapid problem-solving across diverse industries.</p>
+        <div class="projects-wrap">
             
-            <h2 class="section-title">Key Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-title">Nuclear Energy Cloud IAM Transformation</div>
@@ -1057,7 +1011,7 @@
                 </div>
             </div>
         
-        </section>
+        </div>
     </main>
 
     <section id="news-ticker">
@@ -1080,40 +1034,21 @@
     </section>
 
     <footer>
-        <div style="max-width:1080px;margin:0 auto;">
-            
-        <p>&copy; 2025 Ronnie Bailey | Identity Security Director</p>
-    
+        <div class="footer-inner">
+            <p>
+                <strong style="color:#6e6e73;">Education & Certifications</strong> &nbsp;&middot;&nbsp;
+                BS Cybersecurity, University of Richmond (In Progress) &nbsp;&middot;&nbsp;
+                AAS Information Systems, Reynolds College &nbsp;&middot;&nbsp;
+                AZ-900 Microsoft Azure Fundamentals (In Progress) &nbsp;&middot;&nbsp;
+                Cybersecurity Essentials, Cisco &nbsp;&middot;&nbsp;
+                IBM Cloud Essentials &nbsp;&middot;&nbsp;
+                Network Administration, Reynolds College
+            </p>
+            <p style="margin-top:0.75rem;">&copy; 2025 Ronnie Bailey &nbsp;&middot;&nbsp; Identity Security Director &nbsp;&middot;&nbsp; <a href="mailto:opportunities@ronniebailey.cloud">opportunities@ronniebailey.cloud</a></p>
         </div>
     </footer>
 
     <script>
-        
-        const htmlElement = document.documentElement;
-        const themeToggle = document.getElementById('theme-toggle');
-
-        function toggleTheme() {
-            const current = htmlElement.getAttribute('data-theme') || 'light';
-            const next = current === 'light' ? 'dark' : 'light';
-            htmlElement.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-        }
-
-        themeToggle.addEventListener('click', toggleTheme);
-
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme !== 'light') {
-            htmlElement.setAttribute('data-theme', savedTheme);
-        }
-
-        const quotes = [
-            "The future of technology is not in our ability to create machines but in our understanding of how those machines can reshape the soul of humanity.",
-            "The only constant in the evolution of technology is its refusal to remain constrained by the imagination of its creators.",
-            "Every algorithm is a seed planted in the soil of time, destined to grow into solutions for problems we cannot yet see.",
-            "Progress is a paradox: it marches forward yet always loops back to confront the humanity it serves.",
-            "A truly advanced society is one where technology fades into the background, empowering individuals without demanding their attention.",
-        ];
-
         function downloadResume() {
             const resumeUrl = 'resume.pdf';
             const link = document.createElement('a');
@@ -1124,287 +1059,15 @@
             document.body.removeChild(link);
         }
 
-        async function fetchWithTimeout(url, timeout = 6000) {
-            const controller = new AbortController();
-            const id = setTimeout(() => controller.abort(), timeout);
-            try {
-                const response = await fetch(url, { signal: controller.signal });
-                clearTimeout(id);
-                return response;
-            } catch (error) {
-                clearTimeout(id);
-                throw error;
-            }
-        }
-
-        function getSourceName(feedUrl) {
-            const sourceMap = {
-                'darkreading.com': 'Dark Reading',
-                'thehackersnews': 'The Hacker News',
-                'sans.edu': 'SANS ISC',
-                'cisa.gov': 'CISA',
-                'bleepingcomputer.com': 'BleepingComputer',
-                'threatpost.com': 'Threatpost',
-                'krebsonsecurity.com': 'Krebs on Security'
-            };
-            for (const [key, name] of Object.entries(sourceMap)) {
-                if (feedUrl.includes(key)) return name;
-            }
-            return 'Security News';
-        }
-
-        function parseDate(dateString) {
-            if (!dateString) return null;
-            const dateFormats = [
-                Date.parse(dateString),
-                dateString.match(/\d{4}-\d{2}-\d{2}/)?.[0],
-                dateString.match(/\d{2}\s+[A-Za-z]+\s+\d{4}/)?.[0],
-                dateString.match(/[A-Za-z]+\s+\d{1,2},\s+\d{4}/)?.[0],
-            ];
-            for (const format of dateFormats) {
-                if (format) {
-                    const date = new Date(format);
-                    if (!isNaN(date.getTime())) return date;
-                }
-            }
-            return null;
-        }
-
-        async function fetchLiveNews() {
-            const newsFeeds = [
-                'https://www.darkreading.com/rss.xml',
-                'https://feeds.feedburner.com/TheHackersNews',
-                'https://isc.sans.edu/rssfeed_full.xml',
-                'https://www.cisa.gov/cybersecurity-advisories/all.xml',
-                'https://www.bleepingcomputer.com/feed/',
-                'https://threatpost.com/feed/',
-                'https://krebsonsecurity.com/feed/'
-            ];
-
-            const newsItems = [];
-            const currentYear = 2026;
-            const startOf2026 = new Date('2026-01-01T00:00:00Z');
-
-            const fetchPromises = newsFeeds.map(async (feed) => {
-                try {
-                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed)}`;
-                    const response = await fetchWithTimeout(proxyUrl, 5000);
-                    if (!response.ok) return [];
-                    const data = await response.json();
-                    const parser = new DOMParser();
-                    const xml = parser.parseFromString(data.contents, 'text/xml');
-                    const parserError = xml.querySelector('parsererror');
-                    if (parserError) return [];
-                    const items = xml.querySelectorAll('item, entry');
-                    const feedItems = [];
-                    let count = 0;
-                    items.forEach(item => {
-                        if (count < 5) {
-                            const titleEl = item.querySelector('title');
-                            const linkEl = item.querySelector('link');
-                            const pubDateEl = item.querySelector('pubDate') ||
-                                item.querySelector('published') ||
-                                item.querySelector('updated') ||
-                                item.querySelector('dc\\:date') ||
-                                item.querySelector('date');
-                            if (titleEl && linkEl) {
-                                let title = titleEl.textContent.trim();
-                                let link = linkEl.textContent || linkEl.getAttribute('href') || '#';
-                                let pubDate = pubDateEl ? parseDate(pubDateEl.textContent) : null;
-                                const is2026Item = pubDate ? (pubDate.getFullYear() === currentYear && pubDate >= startOf2026) : false;
-                                if (is2026Item || !pubDate) {
-                                    title = title.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 120);
-                                    feedItems.push({ title, link, source: getSourceName(feed), date: pubDate, timestamp: pubDate ? pubDate.getTime() : Date.now() });
-                                    count++;
-                                }
-                            }
-                        }
-                    });
-                    return feedItems;
-                } catch (error) {
-                    return [];
-                }
-            });
-
-            try {
-                const results = await Promise.allSettled(fetchPromises);
-                results.forEach(result => {
-                    if (result.status === 'fulfilled' && result.value.length > 0) newsItems.push(...result.value);
-                });
-                return newsItems.sort((a, b) => b.timestamp - a.timestamp);
-            } catch (error) {
-                return [];
-            }
-        }
-
-        function getFallbackNews() {
-            return [
-                { title: "Zero Trust Mandates Expand Across Federal Agencies in 2026", link: "https://www.cisa.gov/zero-trust", source: "CISA 2026" },
-                { title: "2026 Cybersecurity Forecast: AI-Powered Threats and Defenses", link: "https://www.darkreading.com/2026-forecast", source: "Dark Reading" },
-                { title: "New Identity Protection Standards Released for 2026 Compliance", link: "https://www.nist.gov/identity-2026", source: "NIST" },
-                { title: "Cloud Security Breaches Drop 40% with Advanced IAM Controls", link: "https://www.bleepingcomputer.com/cloud-security-2026", source: "BleepingComputer" },
-                { title: "Privileged Access Management Becomes Board-Level Priority in 2026", link: "https://threatpost.com/pam-2026", source: "Threatpost" },
-                { title: "Supply Chain Attacks Target Identity Infrastructure in 2026", link: "https://krebsonsecurity.com/supply-chain-2026", source: "Krebs" },
-                { title: "Automated Threat Hunting Scales Across Enterprises in 2026", link: "https://isc.sans.edu/threat-hunting-2026", source: "SANS ISC" },
-                { title: "Multi-Factor Authentication Adoption Hits 90% in Financial Sector", link: "https://www.thehackersnews.com/mfa-2026", source: "The Hacker News" },
-                { title: "Quantum-Resistant Cryptography Standards Finalized for 2026", link: "https://www.cisa.gov/quantum-2026", source: "CISA" },
-                { title: "Identity Governance Automation Cuts Compliance Costs by 60%", link: "https://www.darkreading.com/iga-2026", source: "Dark Reading" }
-            ];
-        }
-
-        async function fetchCybersecurityNews() {
-            const tickerScroll = document.getElementById('ticker-scroll');
-            if (!tickerScroll) return;
-            tickerScroll.innerHTML = '<a href="#" class="ticker-item">Loading 2026 cybersecurity news...</a>';
-            try {
-                const liveNews = await fetchLiveNews();
-                if (liveNews.length >= 8) {
-                    updateNewsTicker(liveNews.slice(0, 10));
-                } else {
-                    updateNewsTicker(getFallbackNews());
-                }
-            } catch (error) {
-                updateNewsTicker(getFallbackNews());
-            }
-        }
-
-        function updateNewsTicker(newsItems) {
-            const tickerScroll = document.getElementById('ticker-scroll');
-            if (!tickerScroll) return;
-            if (!newsItems || newsItems.length === 0) {
-                tickerScroll.innerHTML = '<a href="#" class="ticker-item">Loading 2026 cybersecurity updates...</a>';
-                return;
-            }
-            const displayItems = newsItems.slice(0, 10);
-            const newsContent = displayItems.map(item => {
-                const href = item.link || '#';
-                const title = item.title || 'Cybersecurity News';
-                const source = item.source ? ` [${item.source}]` : '';
-                const year = item.date ? ` (${item.date.getFullYear()})` : ' (2026)';
-                return `<a href="${href}" target="_blank" class="ticker-item" rel="noopener noreferrer">${title}${source}${year}</a>`;
-            }).join('');
-            tickerScroll.innerHTML = newsContent + newsContent;
-        }
-
-        function initializeTickerScrolling() {
-            const tickerScroll = document.getElementById('ticker-scroll');
-            if (!tickerScroll) return;
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            if (isMobile) {
-                let isScrolling = true;
-                let scrollPosition = 0;
-                const scrollSpeed = 0.8;
-                let animationId;
-                function animateTicker() {
-                    if (isScrolling) {
-                        const tickerWidth = tickerScroll.scrollWidth / 2;
-                        scrollPosition -= scrollSpeed;
-                        if (Math.abs(scrollPosition) >= tickerWidth) scrollPosition = 0;
-                        tickerScroll.style.transform = `translateX(${scrollPosition}px)`;
-                    }
-                    animationId = requestAnimationFrame(animateTicker);
-                }
-                animateTicker();
-                tickerScroll.addEventListener('touchstart', () => { isScrolling = false; tickerScroll.style.animationPlayState = 'paused'; });
-                tickerScroll.addEventListener('touchend', () => { setTimeout(() => { isScrolling = true; tickerScroll.style.animationPlayState = 'running'; }, 1000); });
-                document.addEventListener('visibilitychange', () => {
-                    if (document.hidden) { cancelAnimationFrame(animationId); } else { animateTicker(); }
-                });
-            }
-        }
-
-        function initializeTouchEvents() {
-            const companyNames = document.querySelectorAll('.company-name');
-            companyNames.forEach(company => {
-                let touchTimer;
-                let isLongPress = false;
-                company.addEventListener('touchstart', function(e) {
-                    e.preventDefault();
-                    isLongPress = false;
-                    touchTimer = setTimeout(() => {
-                        isLongPress = true;
-                        const placeholder = this.querySelector('.company-placeholder');
-                        const real = this.querySelector('.company-real');
-                        if (placeholder && real) {
-                            placeholder.style.display = 'none';
-                            real.style.display = 'inline';
-                            setTimeout(() => { if (isLongPress) { placeholder.style.display = 'inline'; real.style.display = 'none'; } }, 3000);
-                        }
-                    }, 500);
-                });
-                company.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    clearTimeout(touchTimer);
-                    if (!isLongPress && window.innerWidth <= 600) {
-                        const placeholder = this.querySelector('.company-placeholder');
-                        const real = this.querySelector('.company-real');
-                        if (placeholder && real) {
-                            placeholder.style.display = 'none';
-                            real.style.display = 'inline';
-                            setTimeout(() => { placeholder.style.display = 'inline'; real.style.display = 'none'; }, 2000);
-                        }
-                    }
-                });
-                company.addEventListener('touchmove', function(e) { e.preventDefault(); clearTimeout(touchTimer); isLongPress = false; });
-            });
-        }
-
         function scrollToExperience(searchTerm) {
             const experienceItems = document.querySelectorAll('.experience-item');
             let found = false;
             experienceItems.forEach(item => {
                 const text = item.textContent.toLowerCase();
                 if (text.includes(searchTerm.toLowerCase())) {
-                    item.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    item.style.transition = 'all 0.3s ease';
-                    item.style.backgroundColor = 'var(--bg-light)';
-                    item.style.boxShadow = '0 0 0 2px var(--accent)';
-                    setTimeout(() => { item.style.backgroundColor = ''; item.style.boxShadow = ''; }, 2000);
-                    found = true;
-                }
-            });
-            if (!found) {
-                const allElements = document.querySelectorAll('*');
-                allElements.forEach(element => {
-                    if (element.textContent.toLowerCase().includes(searchTerm.toLowerCase())) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                });
-            }
-        }
+                    item.scrollIntoView({ behavior: 'smooth', block: 'center' }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date();
-            const quoteIndex = today.getDate() % quotes.length;
-            document.getElementById('quote-text').textContent = quotes[quoteIndex];
-
-            initializeTickerScrolling();
-            initializeTouchEvents();
-            fetchCybersecurityNews();
-
-            window.addEventListener('scroll', () => {
-                const sections = document.querySelectorAll('section[id]');
-                const navLinks = document.querySelectorAll('.main-nav a');
-                let current = '';
-                sections.forEach(section => {
-                    if (pageYOffset >= section.offsetTop - 200) current = section.getAttribute('id');
-                });
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').substring(1) === current) link.classList.add('active');
-                });
-            });
-
-            const tickerScroll = document.getElementById('ticker-scroll');
-            if (tickerScroll) {
-                tickerScroll.addEventListener('mouseenter', () => { tickerScroll.style.animationPlayState = 'paused'; });
-                tickerScroll.addEventListener('mouseleave', () => { tickerScroll.style.animationPlayState = 'running'; });
-            }
-        });
-
-        
-
-    
     </script>
+
 </body>
 </html>
