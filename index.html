@@ -700,9 +700,6 @@
             transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .job-bullets-collapsible.open {
-            max-height: 4200px;
-        }
 
         @media (hover: none) and (pointer: coarse) {
             .company-name { cursor: default; }
@@ -758,9 +755,6 @@
                 <div class="contact-icons">
                     <a href="mailto:opportunities@ronniebailey.cloud" title="Email me">
                         <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://www.ronniebailey.cloud" target="_blank" title="Portfolio Website">
-                        <i class="fas fa-globe"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/ronniebailey" target="_blank" title="LinkedIn Profile">
                         <i class="fab fa-linkedin"></i>
@@ -1561,6 +1555,21 @@
                 });
                 company.addEventListener('touchmove', function(e) { e.preventDefault(); clearTimeout(touchTimer); isLongPress = false; });
             });
+        }
+
+        function toggleBullets(button) {
+            const container = button.nextElementSibling;
+            if (!container) return;
+
+            const isOpen = container.classList.contains('open');
+            button.classList.toggle('open', !isOpen);
+            container.classList.toggle('open', !isOpen);
+
+            if (!isOpen) {
+                container.style.maxHeight = container.scrollHeight + 'px';
+            } else {
+                container.style.maxHeight = '0px';
+            }
         }
 
         function scrollToExperience(searchTerm) {
