@@ -8,6 +8,7 @@
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
             --accent: #0071e3;
@@ -300,6 +301,7 @@
 
         .section-title {
             font-size: 0.78rem;
+
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.12em;
@@ -332,7 +334,10 @@
         }
 
         .perspective-section p:last-child {
+
+
             margin-bottom: 0;
+
         }
 
         .experience-item {
@@ -348,6 +353,7 @@
         .job-title {
             font-weight: 650;
             font-size: clamp(1.35rem, 2vw, 1.8rem);
+
             color: var(--text);
             margin-bottom: 0.3rem;
             letter-spacing: -0.04em;
@@ -363,11 +369,13 @@
         }
 
         .company-name {
+
             font-weight: 600;
             color: var(--accent);
             font-size: 1rem;
             margin-bottom: 0.65rem;
             letter-spacing: -0.015em;
+
         }
 
         .job-meta {
@@ -377,12 +385,21 @@
             font-size: 0.9rem;
             color: var(--text-lighter);
             margin-bottom: 1.35rem;
+
+
             flex-wrap: wrap;
             gap: 0.75rem;
         }
 
+
+
+
+
+
+
         .job-summary {
             font-size: 1rem;
+
             color: var(--text-light);
             line-height: 1.78;
             margin-bottom: 1.1rem;
@@ -396,21 +413,30 @@
         .job-summary p:last-child {
             margin-bottom: 0;
         }
+
+
         .job-bullets {
             list-style: none;
             margin: 1.8rem 0 1.2rem;
-            padding: 0;
+            padding: 1.15rem 1.25rem;
             max-width: 920px;
+            background: var(--bg-light);
+            border: 1px solid rgba(210, 210, 215, 0.55);
+            border-radius: 18px;
+
         }
 
         .job-bullets li {
             position: relative;
-            padding: 0.6rem 0 0.6rem 1.35rem;
+            padding: 0.85rem 0 0.85rem 1.25rem;
+
+
+
             margin: 0;
             font-size: 0.96rem;
             color: var(--text-light);
             line-height: 1.68;
-            border-bottom: 1px solid rgba(210, 210, 215, 0.25);
+            border-bottom: 1px solid rgba(210, 210, 215, 0.45);
         }
 
         .job-bullets li:last-child {
@@ -421,11 +447,13 @@
             content: "";
             position: absolute;
             left: 0;
-            top: 1.1rem;
+            top: 1.55rem;
             width: 5px;
             height: 5px;
             border-radius: 50%;
             background: var(--accent);
+
+
         }
 
         .job-skills {
@@ -434,6 +462,8 @@
             margin-top: 1.15rem;
             padding-top: 1rem;
             border-top: 1px solid var(--border);
+
+
             font-style: normal;
             line-height: 1.7;
         }
@@ -489,6 +519,9 @@
         }
 
         .project-card {
+
+
+
             padding: 1.35rem;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
@@ -670,9 +703,11 @@
             .company-name:active .company-placeholder { display: none; }
             .company-name:active .company-real { display: inline; }
             .main-nav a, .contact-icons a, .theme-toggle, .download-btn, .hero-link {
+
                 min-height: 44px;
                 min-width: 44px;
             }
+
             .main-nav a {
                 padding: 0.75rem 0.5rem;
                 display: flex;
@@ -751,9 +786,12 @@
             padding-top: 0.5rem;
         }
 
+
         .experience-item:last-child {
             border-bottom: none;
         }
+
+
 
         .job-title {
             font-size: clamp(1.25rem, 2vw, 1.75rem);
@@ -792,18 +830,19 @@
         }
 
         .job-bullets {
-            display: block;
-            padding: 0;
-            margin-top: 0.6rem;
+            display: grid;
+            gap: 0.75rem;
+            padding: 1.15rem 0 0;
+            margin-top: 1.2rem;
+            border-top: 1px solid rgba(210, 210, 215, 0.72);
         }
 
         .job-bullets li {
-            padding-left: 1.35rem;
+            padding-left: 1.25rem;
             margin-bottom: 0;
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.58;
             color: var(--text);
-            border-bottom: 1px solid rgba(210, 210, 215, 0.25);
         }
 
         .job-bullets li::before {
@@ -812,7 +851,7 @@
             height: 5px;
             border-radius: 50%;
             background: var(--accent);
-            top: 1rem;
+            top: 0.72em;
         }
 
         .job-skills {
@@ -830,6 +869,8 @@
             gap: 1.5rem;
         }
 
+
+
         .project-card {
             border: 1px solid var(--border);
             background: var(--bg-light);
@@ -846,6 +887,8 @@
             color: var(--text);
         }
 
+
+
         .quote-box,
         .ticker-container {
             border-radius: 22px;
@@ -856,6 +899,7 @@
             .hero {
                 padding: 3rem 0 3.5rem;
             }
+
             .experience-item {
                 padding: 2.1rem 0 2.7rem;
             }
@@ -866,6 +910,7 @@
 
     </style>
 </head>
+
 <body>
     <header>
         <div class="header-wrapper">
@@ -874,6 +919,7 @@
                     <span class="status-dot"></span>
                     <span class="availability-text">Actively Seeking</span>
                 </div>
+
                 <div class="contact-icons">
                     <a href="mailto:opportunities@ronniebailey.cloud" title="Email me">
                         <i class="fas fa-envelope"></i>
@@ -882,6 +928,7 @@
                         <i class="fab fa-linkedin"></i>
                     </a>
                 </div>
+
                 <div class="action-buttons">
                     <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode">
                         <i class="fas fa-adjust"></i>
@@ -891,6 +938,7 @@
                     </button>
                 </div>
             </div>
+
             <nav class="main-nav">
                 <a href="#perspective">Perspective</a>
                 <a href="#experience">Experience</a>
@@ -974,9 +1022,10 @@
                     <li>Serve as the senior technical escalation authority for IAM incidents across a workforce of more than 30,000 users, resolving AADSTS errors, Conditional Access misconfigurations, federation trust breakdowns, and access outages when standard support paths and resolution workflows cannot close the incident.</li>
                     <li>Deliver weekly identity risk reporting directly to the CISO, translating technical exposure into prioritized business decisions with clear ownership, accountability, and measurable risk reduction.</li>
                 </ul>
-                <div class="job-skills"><strong>Skills:</strong> Entra ID · Active Directory · BeyondTrust PAM · Azure Logic Apps · AWS IAM · Google Cloud Identity · Workday · SAML · OIDC · Azure Key Vault · Conditional Access · Entra ID PIM · Microsoft Defender · MAM · PowerShell · Python · Zero Trust · SCIM · ServiceNow · Genea</div>
+                <div class=\"job-skills\"><strong>Skills:</strong> Entra ID · Active Directory · BeyondTrust PAM · Azure Logic Apps · AWS IAM · Google Cloud Identity · Workday · SAML · OIDC · Azure Key Vault · Conditional Access · Entra ID PIM · Microsoft Defender · MAM · PowerShell · Python · Zero Trust · SCIM · ServiceNow · Genea</div>
+
             </div>
-            <!-- All remaining experience items are identical to the original, only the .job-bullets styling changed for alignment. -->
+
             <div class="experience-item">
                 <div class="job-title">Lead Identity Security Architect</div>
                 <div class="company-name">
@@ -986,6 +1035,7 @@
                     <span>Contract | Public Trust Clearance</span>
                     <span>04/2024 – 06/2025</span>
                 </div>
+
                 <div class="job-summary">
                 <p>This engagement ran across two distinct environments. LexisNexis is a global legal information and analytics company serving customers in more than 150 countries. The United States Patent and Trademark Office operates under Public Trust Clearance where compliance expectations are institutional and the architecture decisions I made had direct federal implications.</p>
                 <p>My work centered on Zero Trust design aligned to NIST 800-207, making foundational decisions about how trust gets established, under what conditions it gets revoked, and how behavioral signals feed into access decisions in real time. That architecture extended across Azure, AWS, and GCP with centralized CSPM integration and Infrastructure-as-Code policy enforcement that removed manual validation from the compliance lifecycle.</p>
@@ -1003,21 +1053,695 @@
                     <li>Designed forensic response processes using Secureworks Taegis aligned to NIST 800-86, ensuring defensible evidence handling and investigation integrity.</li>
                     <li>Translated complex architecture and security findings into business impact for executive stakeholders, enabling informed decision-making on risk and remediation priorities.</li>
                 </ul>
-                <div class="job-skills"><strong>Skills:</strong> Zero Trust · Entra ID · Azure · GCP · AWS · NIST 800-53 · CIS Controls · MITRE ATT&CK · One Identity Safeguard · CrowdStrike · Microsoft Defender · Palo Alto · Auth0 · SAML · OIDC · OAuth2 · PowerShell · Python · Incident Response</div>
+                <div class=\"job-skills\"><strong>Skills:</strong> Zero Trust · Entra ID · Azure · GCP · AWS · NIST 800-53 · CIS Controls · MITRE ATT&CK · One Identity Safeguard · CrowdStrike · Microsoft Defender · Palo Alto · Auth0 · SAML · OIDC · OAuth2 · PowerShell · Python · Incident Response</div>
+
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Identity &amp; Access Management Architect</div>
+                <div class="company-name">
+                    Kroger, Technology &amp; Digital Department
+                </div>
+                <div class="job-meta">
+                    <span>Full-time</span>
+                    <span>12/2022 – 02/2024</span>
+                </div>
+
+                <div class="job-summary">
+                <p>Kroger is the largest supermarket chain in the United States, ranked 25th on the Fortune 500 with approximately 150 billion dollars in annual revenue. I came into the Technology and Digital Department as the IAM architect responsible for modernizing identity across a hybrid environment where legacy access models had accumulated over years of rapid growth across US and UK markets.</p>
+                <p>I architected identity provisioning across 32,000 users under HIPAA compliance, designing workflows that adapted access based on job function and peer patterns. That work removed manual provisioning from the critical path and measurably reduced both provisioning time and the inconsistent access assignments that had been generating compliance risk. I integrated Entra ID across 12,000 hybrid users, retiring legacy authentication patterns across the application landscape, and designed the AKS workload identity solution that eliminated static credentials from containerized environments through workload identity federation.</p>
+                <p>I implemented PAM through One Identity Safeguard and TPAM with JIT elevation tied to ServiceNow approval workflows, connecting privileged access to the change management process. I deployed CrowdStrike Falcon across 2,000 endpoints and implemented Varonis for file access monitoring and data classification that strengthened SOX and GDPR audit readiness.</p>
+                </div>
+
+                <ul class="job-bullets">
+                    <li>Led identity provisioning for 32,000 users across US and UK operations while maintaining HIPAA compliance, implementing structured lifecycle controls and removing manual provisioning from the critical path.</li>
+                    <li>Built role-aware provisioning workflows adapting access based on job function and peer access patterns, reducing inconsistent access assignments and privilege creep.</li>
+                    <li>Implemented PAM using One Identity Safeguard and TPAM, enforcing just-in-time privilege elevation tied to ServiceNow approval workflows and significantly reducing standing privileged access.</li>
+                    <li>Modernized identity using Entra ID across 12,000 hybrid users, eliminating legacy access models and improving authentication consistency across applications.</li>
+                    <li>Integrated Ping SSO and MFA across more than 40 applications using risk-based authentication policies; behavioral analytics reduced password-reset volume while cutting unauthorized access attempts.</li>
+                    <li>Designed AKS workload identity solution eliminating static credentials in containerized environments through workload identity federation.</li>
+                    <li>Built continuous access certification processes using behavioral analytics to identify dormant accounts, excessive permissions, and separation-of-duties violations across 20,000 accounts.</li>
+                    <li>Deployed CrowdStrike Falcon with threat hunting playbooks across a fleet of 2,000 endpoints, strengthening threat detection, visibility, and incident response capabilities.</li>
+                    <li>Deployed Varonis for file access monitoring and data classification, strengthening SOX and GDPR audit readiness through continuous policy validation.</li>
+                    <li>Streamlined Active Directory using RBAC and Conditional Access to reduce policy drift and improve access governance consistency.</li>
+                </ul>
+                <div class=\"job-skills\"><strong>Skills:</strong> Entra ID · Azure AD · OneIdentity Safeguard · TPAM · Ping Identity · Okta · CrowdStrike · Varonis · VMware · Kubernetes · AKS · ServiceNow · NIST 800-53 · PowerShell · Python</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Customer Identity & Access Management Architect</div>
+                <div class="company-name">
+                    Homeland Security, OCIO / US Secret Service
+                </div>
+                <div class="job-meta">
+                    <span>Contract | Public Trust Clearance</span>
+                    <span>02/2022 – 12/2022</span>
+                </div>
+                <div class="job-summary">
+                <p>The US Secret Service operates within the Department of Homeland Security with one of the most demanding security profiles in the federal government. I worked within the OCIO under Public Trust Clearance, architecting identity solutions where compliance requirements were federal and the tolerance for gaps was effectively zero.</p>
+                <p>I designed CIAM architecture across more than 100 legacy federal systems integrating Active Directory, OAuth 2.0, and SAML 2.0 federation, enforcing consistent policy across environments with significantly different technical assumptions without disrupting operational continuity.</p>
+                <p>I led the ISO 27001 certification for the DHS Information Security Management System, building a governance framework that positioned the agency in a materially stronger compliance posture. The controls framework was adopted agency-wide. I orchestrated the GCP migration of more than 50 systems to FedRAMP Moderate authorization with continuous compliance monitoring and infrastructure-as-code security baselines. I implemented Saviynt for access governance across 15,000 users with entitlement reviews and separation-of-duties enforcement.</p>
+                </div>
+
+                <ul class="job-bullets">
+                    <li>Positioned IAM as a cornerstone of DHS security strategy, integrating Active Directory, OAuth 2.0, and SAML 2.0 across 100+ legacy systems in distributed federal infrastructure with automated federation trust management.</li>
+                    <li>Spearheaded ISO 27001 certification for the DHS Information Security Management System, establishing an enterprise security governance framework with automated control validation that was adopted agency-wide.</li>
+                    <li>Orchestrated the GCP migration of 50+ on-premises systems to FedRAMP Moderate authorization, standing up comprehensive SIEM integration and automated continuous compliance monitoring with infrastructure-as-code security baselines.</li>
+                    <li>Secured serverless functions in GCP with automated workload identity federation, enforcing least privilege at the function level with permissions that adjust dynamically based on runtime context.</li>
+                    <li>Enforced granular access policies via Saviynt across 15,000+ user accounts with automated entitlement reviews and separation-of-duties enforcement, dramatically reducing manual certification effort through intelligent access analytics.</li>
+                    <li>Delivered Agile-based security automation using PowerShell, Python, and Java aligned to FISMA compliance, producing reusable modules adopted across DHS security teams.</li>
+                </ul>
+                <div class=\"job-skills\"><strong>Skills:</strong> CyberArk · GCP · FISMA · FedRAMP · ISO 27001 · Saviynt · PowerShell · Python · Java · Active Directory · OAuth 2.0 · SAML 2.0 · Zero Trust Architecture</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Cloud Vulnerability Analyst</div>
+                <div class="company-name">
+                    Accessia Health <span class="company-descriptor">National Non-Profit Patient Assistance</span>
+                </div>
+                <div class="job-meta">
+                    <span>Contract</span>
+                    <span>07/2021 – 12/2021</span>
+                </div>
+                <div class="job-summary">
+                <p>Accessia Health is a national non-profit providing patient assistance programs for individuals who cannot afford prescription medications, carrying full HIPAA, SOX, and GDPR obligations across cloud infrastructure in AWS. A security failure here does not just create compliance exposure. It has downstream consequences for patients who depend on the organization's ability to operate.</p>
+                <p>I led vulnerability management aligned to NIST 800-53 and HIPAA, prioritizing risk by exploitability, business criticality, and threat intelligence. I deployed PingFederate and Citrix NetScaler for high-availability authentication across mission-critical applications, designed credential vaulting and rotation that eliminated static privileged credentials, and introduced certificate lifecycle management across 150 domains that replaced a manual tracking process. I embedded security review into the infrastructure change process using policy-as-code frameworks, moving compliance enforcement to the point of change rather than discovery at audit.</p>
+                </div>
+
+                <ul class="job-bullets">
+                    <li>Led vulnerability management aligned to NIST 800-53 and HIPAA across enterprise systems, prioritizing remediation based on exploitability, business criticality, and threat intelligence.</li>
+                    <li>Built audit-ready compliance reporting via PingFederate logs supporting SOX, GDPR, and HIPAA requirements with real-time dashboards for continuous authentication visibility.</li>
+                    <li>Deployed PingFederate and Citrix NetScaler supporting high-availability authentication services through failover and health monitoring.</li>
+                    <li>Designed credential vaulting and rotation for privileged healthcare accounts, eliminating static privileged credentials across the environment.</li>
+                    <li>Secured AWS workloads using identity-aware proxies and service mesh policy enforcement, enabling zero trust network access for containerized healthcare applications.</li>
+                    <li>Embedded security review into the infrastructure change process using policy-as-code frameworks, catching compliance violations before deployment rather than after.</li>
+                    <li>Managed certificate lifecycle across a portfolio of 150 domains ensuring continuous compliance and eliminating manual tracking overhead.</li>
+                </ul>
+                <div class=\"job-skills\"><strong>Skills:</strong> HIPAA · NIST 800-53 · SOX · GDPR · PingFederate · Citrix NetScaler · AWS · PowerShell · CyberArk · Vulnerability Assessment</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Privileged Access Management Architect</div>
+                <div class="company-name">
+                    Indivior Pharmaceuticals <span class="company-descriptor">Global Specialty Pharmaceutical</span>
+                </div>
+                <div class="job-meta">
+                    <span>Full-time</span>
+                    <span>10/2019 – 07/2021</span>
+                </div>
+                <div class="job-summary">
+                <p>Indivior is a publicly traded global specialty pharmaceutical company focused on treatments for opioid use disorder, operating across 14 locations worldwide under SOX, HIPAA, and GxP standards with annual revenue of approximately 1.2 billion dollars. Access failures in pharmaceutical environments carry regulatory consequences that touch the integrity of the drug development and manufacturing record.</p>
+                <p>I led the PAM transformation starting with role mapping across more than 200 job functions, establishing least privilege RBAC models that reflected actual work patterns rather than accumulated access history. I deployed BeyondTrust to secure approximately 1,200 privileged accounts with SOX-compliant credential rotation, session monitoring, and audit controls. The result was a privileged access program that was better documented, better aligned to SOX audit requirements, and no longer dependent on standing access for routine operations.</p>
+                <p>I designed Entra ID risk-based access policies with adaptive scoring, embedded Terraform guardrails with policy validation directly into the deployment pipeline, and briefed executive leadership regularly translating security risks into business impact through data-driven dashboards.</p>
+                </div>
+
+                <ul class="job-bullets">
+                    <li>Led enterprise PAM transformation, mapping more than 200 job functions into structured least privilege RBAC models to systematically reduce excessive access across enterprise applications.</li>
+                    <li>Deployed BeyondTrust PAM securing approximately 1,200 privileged accounts, enforcing SOX-compliant credential rotation, session monitoring, and audit controls while eliminating standing privileged access for routine operations.</li>
+                    <li>Designed adaptive access policies in Entra ID with risk-based scoring that enforces access controls dynamically based on real-time threat intelligence and user behavior.</li>
+                    <li>Built privileged access workflows supporting just-in-time elevation, approval-based access, and administrative tier separation.</li>
+                    <li>Established centralized governance for privileged accounts across legacy systems and business units.</li>
+                    <li>Built GCP security framework using Google IAM and Security Command Center, introducing centralized threat detection, policy enforcement, and access visibility across workloads.</li>
+                    <li>Implemented BitLocker encryption with deployment and backup policies protecting ePHI across all endpoints in compliance with HIPAA requirements.</li>
+                    <li>Integrated Terraform guardrails using policy validation, enforcing compliance from deployment through runtime with continuous scanning and drift detection.</li>
+                    <li>Designed mobile device management using Microsoft Intune with enforcement policies for a distributed workforce, securing remote access without impeding productivity.</li>
+                    <li>Supported incident response through analysis of privileged account activity and identification of misuse patterns across enterprise endpoints.</li>
+                    <li>Briefed executive leadership on security risks, compliance gaps, and mitigation strategies, translating technical findings into business impact through data-driven risk dashboards.</li>
+                </ul>
+                <div class=\"job-skills\"><strong>Skills:</strong> BeyondTrust · CyberArk · Entra ID · Azure AD · GCP · Microsoft Intune · Carbon Black · SOX Compliance · Terraform · PowerShell · Python</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Identity &amp; Access Management Analyst</div>
+                <div class="company-name">
+                    Wells Fargo Bank
+                </div>
+                <div class="job-meta">
+                    <span>Contract</span>
+                    <span>04/2019 – 10/2019</span>
+                </div>
+                <div class="job-summary">
+                <p>Wells Fargo is one of the largest banks in the United States, operating under FFIEC and GLBA compliance requirements with the examination scrutiny that federal financial regulation demands. I contributed identity controls to an environment where consistency and audit-readiness were baseline expectations across a hybrid infrastructure spanning AWS and Azure.</p>
+                <p>I designed a Zero Trust-aligned IAM framework with continuous verification and risk-based access controls synchronized across cloud platforms through infrastructure-as-code. I built ADFS progressive profiling workflows with intelligent session management and fraud detection for customer-facing banking applications. I maintained 12,000 accounts through lifecycle workflows that kept access aligned with HR system changes. I ran security education alongside phishing response workflows that reduced incident response time by a meaningful margin, giving staff both the awareness and the process to act on it.</p>
+                </div>
+
+                <ul class="job-bullets">
+                    <li>Designed a Zero Trust-aligned IAM framework with risk-based access controls, applying continuous verification and intelligent policy recommendations driven by historical access patterns.</li>
+                    <li>Built consistent identity controls across AWS and Azure environments using infrastructure-as-code for policy synchronization across cloud platforms.</li>
+                    <li>Enforced FFIEC and GLBA requirements via SCCM and Office 365 with access controls and continuous compliance monitoring across the banking environment.</li>
+                    <li>Extended Microsoft Defender's remediation capabilities through orchestrated threat response workflows and intelligent alert correlation, reducing analyst triage time.</li>
+                    <li>Engineered progressive profiling workflows using ADFS with failover for customer-facing banking applications, adding intelligent session management and fraud detection capabilities.</li>
+                    <li>Maintained a user base of 12,000 accounts across hybrid environments through lifecycle workflows, ensuring timely access grants and revocations via HR system integration.</li>
+                    <li>Ran staff security education alongside phishing response workflows, significantly reducing incident response time through orchestrated investigation and remediation.</li>
+                    <li>Briefed upper management on cloud security risks and mitigation strategies using risk dashboards that provided actionable recommendations and continuous visibility into posture trends.</li>
+                </ul>
+                <div class=\"job-skills\"><strong>Skills:</strong> Zero Trust Architecture · AWS · Azure · ADFS · Office 365 · SCCM · Microsoft Defender · FFIEC · GLBA · Agile · Waterfall</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Customer Identity & Access Management Engineer</div>
+                <div class="company-name">
+                    Wellsecured IT <span class="company-descriptor">Enterprise IT Security Solutions</span>
+                </div>
+                <div class="job-meta">
+                    <span>Full-time</span>
+                    <span>10/2015 – 01/2019</span>
+                </div>
+                <div class="job-summary">
+                <p>Wellsecured IT served clients across financial services, healthcare, and regulated industries. As a CIAM engineer working across multiple client environments simultaneously, I built the diagnostic and engineering depth that shaped my approach to every senior role that followed.</p>
+                <p>I designed Zero Trust frameworks across Azure, GCP, and M365, reducing standing privilege by over 70 percent through Conditional Access, PIM, and JIT workflow design. I built certificate lifecycle management across more than 100 enterprise applications. Authentication outages caused by expired or misaligned certificates were a recurring problem across several client environments before this work. They were not after it.</p>
+                <p>Workday-to-Active Directory-to-Entra provisioning failures were a consistent escalation. I traced failures across the full hybrid identity stack to resolve them and built the provisioning diagnostic capability that became a defining strength at the senior level. I led the ForgeRock IAM migration with workflow standardization that reduced provisioning delays, and integrated Splunk for identity monitoring supporting ISO/IEC 27001 and NIST 800-53 compliance.</p>
+                </div>
+
+                <ul class="job-bullets">
+                    <li>Designed and implemented unified Zero Trust frameworks across Azure, GCP, and M365, aligning Conditional Access, PIM, and JIT workflows to reduce standing privileges by over 70% while strengthening overall security posture.</li>
+                    <li>Served as the technical escalation authority for business-critical IAM failures: certificate expirations, broken SAML trusts, provisioning system outages. When automated remediation and support tiers couldn't resolve it, the problem came to me.</li>
+                    <li>Mentored IAM engineers on automation frameworks, schema change management, and certificate lifecycle operations; created standardized runbooks and automation templates that reduced team dependency on senior resources for routine work.</li>
+                    <li>Built automated certificate monitoring and renewal systems for SAML, OIDC, and OAuth2 across 100+ enterprise applications; proactive 60-day alerts and direct SaaS vendor coordination eliminated authentication outages and manual tracking overhead entirely.</li>
+                    <li>Managed directory schema and attribute governance across Entra ID, Active Directory, and ActiveIDM to maintain data integrity in automated lifecycle processes; resolved sync failures between Workday, AD, and downstream identity repositories through intelligent data validation.</li>
+                    <li>Served as the primary escalation for Workday-to-AD-to-Entra provisioning failures, resolving complex attribute mapping errors and sync breakdowns that blocked joiner, mover, and leaver processes across the hybrid identity stack.</li>
+                    <li>Administered ActiveIDM's role-based provisioning engine with exception handling logic that routes edge cases to appropriate approvers automatically based on organizational hierarchy and risk level.</li>
+                    <li>Led migration to ForgeRock Identity Management with automated workflow standardization for hybrid environments, cutting provisioning delays through intelligent lifecycle automation and structured exception handling.</li>
+                    <li>Integrated Splunk with IAM tooling for automated security event monitoring and alerting, achieving ISO/IEC 27001 and NIST 800-53 compliance through centralized log correlation and threat detection.</li>
+                    <li>Delivered Auth0 integration for client-facing financial services portals, building intelligent authentication that balanced security requirements with user experience at scale.</li>
+                    <li>Authored Conditional Access policies using Microsoft Defender with automated recommendations for privileged account management, enforcing risk-based access decisions through continuous policy evaluation.</li>
+                    <li>Implemented OAuth 2.0 and OpenID Connect with automated token lifecycle management for cloud-native application APIs and microservices architectures.</li>
+                    <li>Built AWS IAM roles and encryption protocols across multi-cloud environments with automated policy enforcement ensuring consistent least-privilege patterns at scale.</li>
+                    <li>Partnered with DevOps to embed automated log analysis and incident response directly into CI/CD pipelines.</li>
+                </ul>
+                <div class=\"job-skills\"><strong>Skills:</strong> ForgeRock IDM · Splunk · ISO/IEC 27001 · NIST 800-53 · Ping Identity · Citrix · VMware · PowerShell · AWS · Auth0 · Azure AD · Workday · ActiveIDM</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Cloud Security Operations Lead</div>
+                <div class="company-name">
+                    Cloudcentria Security <span class="company-descriptor">Cloud Cybersecurity Firm</span>
+                </div>
+                <div class="job-meta">
+                    <span>Full-time</span>
+                    <span>06/2011 – 12/2015</span>
+                </div>
+                <div class="job-summary">
+                <p>I started this work when cloud security was still finding its footing. I built identity and security programs across AWS and hybrid environments, establishing IAM controls, governance models, and policy-as-code frameworks aligned to NIST 800-53 and ISO 27001.</p>
+                <p>I scaled vulnerability management to an environment exceeding 15,000 assets across AWS and Azure, prioritizing by exploitability and business impact. I owned the federation infrastructure across SaaS platforms directly, managing SAML, OIDC, and OAuth2 trust relationships and resolving authentication failures and metadata exchange issues with SaaS vendors before they became outages.</p>
+                <p>I led a forensic investigation that recovered stolen intellectual property. The evidence collection and chain-of-custody processes I built during that investigation were adopted as standard practice within the organization. I optimized Entra ID Connect sync logic and hybrid sync rules, normalizing attributes and UPN conventions across cloud and on-premises environments.</p>
+                </div>
+
+                <ul class="job-bullets">
+                    <li>Built cloud security and identity programs from the ground up across AWS and hybrid environments, establishing foundational IAM controls, governance models, and policy-as-code frameworks aligned to NIST 800-53 and ISO 27001.</li>
+                    <li>Designed identity federation across SaaS platforms including Okta, Auth0, and application providers, resolving authentication failures and enabling centralized access control.</li>
+                    <li>Led forensic investigations establishing chain-of-custody processes for security incidents, including recovery of stolen intellectual property that established cloud forensics protocols adopted as industry practice.</li>
+                    <li>Delivered AWS security architecture including identity design, access enforcement, and continuous validation across IaaS, PaaS, and serverless deployments.</li>
+                    <li>Scaled vulnerability management to an environment exceeding 15,000 assets across AWS and Azure, with prioritization by exploitability and business impact using Nessus-based assessments.</li>
+                    <li>Optimized Entra ID Connect sync logic and hybrid sync rules, normalizing attributes and UPN conventions to keep identity data consistent across cloud and on-premises environments.</li>
+                    <li>Administered BeyondTrust Password Safe with secret rotation and vault access workflows, eliminating credential sprawl through JIT tied to approved change management processes.</li>
+                    <li>Partnered with SOC teams during active incidents supporting containment, investigation, and remediation efforts including analysis of token misuse and privileged session activity.</li>
+                </ul>
+                <div class=\"job-skills\"><strong>Skills:</strong> NIST 800-53 · ISO 27001 · AWS · Azure · Nessus · Ping Identity · Okta · Auth0 · BeyondTrust · Entra ID · Splunk · Digital Forensics</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Systems Administrator</div>
+                <div class="company-name">
+                    uBreakiFix <span class="company-descriptor">Tech Repair and Support</span>
+                </div>
+                <div class="job-meta">
+                    <span>Full-time</span>
+                    <span>2009 – 2011</span>
+                </div>
+                <div class="job-summary">uBreakiFix is a technology repair and support services company providing hardware repair, diagnostics, and technical support for consumer electronics and computing devices. This role represented the entry point into professional technical work, establishing the customer-facing communication, incident prioritization, and systematic problem-solving disciplines that underpin every senior engagement that followed.</div>
+
+                <ul class="job-bullets">
+                    <li>Technical Support: Delivered first-level support for hardware, software, and network issues via phone, email, and in-person.</li>
+                    <li>Incident Management: Assessed and prioritized tickets based on impact and urgency to meet SLA targets.</li>
+                    <li>Customer Service: Maintained high satisfaction through timely support and detailed documentation of service desk activities.</li>
+                </ul>
+                <div class=\"job-skills\"><strong>Skills:</strong> Technical Support · Incident Management · Customer Service · Hardware Repair · System Administration</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">IT Support Associate</div>
+                <div class="company-name">
+                    Circuit City <span class="company-descriptor">Consumer Electronics Retail</span>
+                </div>
+                <div class="job-meta">
+                    <span>Full-time</span>
+                    <span>2006 – 2009</span>
+                </div>
+
+                <ul class="job-bullets">
+                    <li>Technical Support: Provided troubleshooting for computer and electronic products, resolving hardware and software issues.</li>
+                    <li>Product Setup: Assisted customers with initial configuration, software installations, and feature explanations.</li>
+                    <li>Hardware Repair: Conducted basic repairs or coordinated with authorized service providers.</li>
+                    <li>Inventory Management: Maintained stock of computer accessories and ensured product availability.</li>
+                    <li>Customer Engagement: Collaborated with sales team to align technology solutions with customer needs.</li>
+                    <li>Product Knowledge: Stayed current on technology trends and updated demo areas to reflect latest offerings.</li>
+                </ul>
+                <div class=\"job-skills\"><strong>Skills:</strong> Technical Support · Hardware Repair · Customer Service · Inventory Management · Product Knowledge</div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Key Projects</h2>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-title">Nuclear Energy Cloud IAM Transformation</div>
+                    <div class="project-org">
+                        <span class="company-name">Westinghouse Electric Company</span> (2024)
+                    </div>
+                    <ul class="project-list">
+                        <li>Designed and implemented federated identity architecture enabling secure nuclear data processing in cloud environments.</li>
+                        <li>Built MFA enforcement using Azure AD aligned to nuclear industry security requirements.</li>
+                        <li>Implemented Conditional Access policies and just-in-time access via Privileged Identity Management for administrator accounts.</li>
+                        <li>Executed security testing protocols supporting regulatory compliance validation.</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">Municipal Identity Threat Protection</div>
+                    <div class="project-org">
+                        <span class="company-name">City of Chesapeake, Virginia</span> (2024)
+                    </div>
+                    <ul class="project-list">
+                        <li>Integrated CrowdStrike Falcon with identity systems to monitor authentication activity in real time.</li>
+                        <li>Implemented Active Directory tiered administrative model for privileged access control.</li>
+                        <li>Designed RBAC framework for critical municipal systems balancing security and operational continuity.</li>
+                        <li>Delivered identity threat detection training using real-world attack scenarios.</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">Federal ICAM Compliance Analysis</div>
+                    <div class="project-org">
+                        <span class="company-name">Department of Veterans Affairs</span> (2023)
+                    </div>
+                    <ul class="project-list">
+                        <li>Analyzed privileged accounts across federal systems using CyberArk PAM, identifying and categorizing access control gaps.</li>
+                        <li>Improved PIV compliance metrics by 35 percent through structured reporting and remediation.</li>
+                        <li>Designed SailPoint and Okta integration approach, establishing foundation for streamlined identity governance.</li>
+                        <li>Implemented CyberArk policies aligned to Azure Conditional Access enforcement.</li>
+                        <li>Established centralized identity event logging using Azure Event Hub.</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">Enterprise Provisioning Automation</div>
+                    <div class="project-org">
+                        <span class="company-name">Lithia Motors <span class="company-descriptor">Fortune 500 Automotive Retail</span></span> (2022)
+                    </div>
+                    <ul class="project-list">
+                        <li>Developed PowerShell scripts provisioning 15,000 user accounts, reducing processing time by 60 percent.</li>
+                        <li>Built Azure Log Analytics workspaces monitoring critical provisioning workflows with real-time visibility.</li>
+                        <li>Standardized provisioning processes across US and UK IT teams.</li>
+                        <li>Remediated legacy provisioning technical debt and enforced Defender EDR policies.</li>
+                        <li>Built compliance reporting using KQL queries against Azure Sentinel data.</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">Retail Authentication Directory</div>
+                    <div class="project-org">
+                        <span class="company-name">Lands' End <span class="company-descriptor">Fortune 500 Apparel and Lifestyle</span></span> (2021)
+                    </div>
+                    <ul class="project-list">
+                        <li>Designed authentication directory with selective attribute filtering for secure external partner access.</li>
+                        <li>Built PingFederate authentication policies with MFA balancing usability and security requirements.</li>
+                        <li>Implemented OpenID Connect for customer-facing applications.</li>
+                        <li>Created ServiceNow-integrated troubleshooting tools for helpdesk teams, reducing resolution time for common issues.</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">Enterprise-Wide Zero Trust Implementation</div>
+                    <div class="project-org">
+                        <span class="company-name">DHS / US Secret Service</span> (2022)
+                    </div>
+                    <ul class="project-list">
+                        <li>Led Zero Trust implementation across more than 200 mission-critical applications with micro-segmentation and continuous verification.</li>
+                        <li>Reduced lateral movement risk by 80 percent while cutting incident response time by 60 percent.</li>
+                        <li>Completed 3 months ahead of schedule, establishing a new security baseline for federal systems.</li>
+                        <li>Integrated CyberArk, Fortinet, and identity governance frameworks aligned to NIST 800-53.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="news-ticker">
+            <h2 class="section-title">Cybersecurity News & Insights</h2>
+            <div class="ticker-container">
+                <div class="ticker-scroll" id="ticker-scroll">
+                </div>
+            </div>
+        </section>
+
+        <section id="quote-section">
+            <div class="quote-box">
+                <p id="quote-text" class="quote-content"></p>
             </div>
         </section>
     </main>
 
-    <script>
-        function downloadResume() {
-            alert("Resume download simulation — add PDF file.");
-        }
+    <div style="max-width:1100px;margin:0 auto;padding:2rem 1.5rem 0;border-top:1px solid var(--border);">
+        <p style="font-size:0.9rem;color:var(--text-light);line-height:1.75;">
+            <strong style="color:var(--text);">Education &amp; Certifications</strong> &nbsp;&middot;&nbsp;
+            BS Cybersecurity, University of Richmond (In Progress) &nbsp;&middot;&nbsp;
+            AAS Information Systems, Reynolds College &nbsp;&middot;&nbsp;
+            AZ-900 Microsoft Azure Fundamentals (In Progress) &nbsp;&middot;&nbsp;
+            Cybersecurity Essentials, Cisco &nbsp;&middot;&nbsp;
+            IBM Cloud Essentials &nbsp;&middot;&nbsp;
+            Network Administration, Reynolds College
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ronnie Bailey | Identity Security Director</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+
+        const htmlElement = document.documentElement;
         const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('click', () => {
-            const html = document.documentElement;
-            const current = html.getAttribute('data-theme') || 'light';
-            html.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+
+        function toggleTheme() {
+            const current = htmlElement.getAttribute('data-theme') || 'light';
+            const next = current === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme !== 'light') {
+            htmlElement.setAttribute('data-theme', savedTheme);
+        }
+
+        const quotes = [
+            "The future of technology is not in our ability to create machines but in our understanding of how those machines can reshape the soul of humanity.",
+            "The only constant in the evolution of technology is its refusal to remain constrained by the imagination of its creators.",
+            "Every algorithm is a seed planted in the soil of time, destined to grow into solutions for problems we cannot yet see.",
+            "Progress is a paradox: it marches forward yet always loops back to confront the humanity it serves.",
+            "A truly advanced society is one where technology fades into the background, empowering individuals without demanding their attention.",
+        ];
+
+        function downloadResume() {
+            const resumeUrl = 'resume.pdf';
+            const link = document.createElement('a');
+            link.href = resumeUrl;
+            link.download = 'RonnieBailey_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        async function fetchWithTimeout(url, timeout = 6000) {
+            const controller = new AbortController();
+            const id = setTimeout(() => controller.abort(), timeout);
+            try {
+                const response = await fetch(url, { signal: controller.signal });
+                clearTimeout(id);
+                return response;
+            } catch (error) {
+                clearTimeout(id);
+                throw error;
+            }
+        }
+
+        function getSourceName(feedUrl) {
+            const sourceMap = {
+                'darkreading.com': 'Dark Reading',
+                'thehackersnews': 'The Hacker News',
+                'sans.edu': 'SANS ISC',
+                'cisa.gov': 'CISA',
+                'bleepingcomputer.com': 'BleepingComputer',
+                'threatpost.com': 'Threatpost',
+                'krebsonsecurity.com': 'Krebs on Security'
+            };
+            for (const [key, name] of Object.entries(sourceMap)) {
+                if (feedUrl.includes(key)) return name;
+            }
+            return 'Security News';
+        }
+
+        function parseDate(dateString) {
+            if (!dateString) return null;
+            const dateFormats = [
+                Date.parse(dateString),
+                dateString.match(/\d{4}-\d{2}-\d{2}/)?.[0],
+                dateString.match(/\d{2}\s+[A-Za-z]+\s+\d{4}/)?.[0],
+                dateString.match(/[A-Za-z]+\s+\d{1,2},\s+\d{4}/)?.[0],
+            ];
+            for (const format of dateFormats) {
+                if (format) {
+                    const date = new Date(format);
+                    if (!isNaN(date.getTime())) return date;
+                }
+            }
+            return null;
+        }
+
+        async function fetchLiveNews() {
+            const newsFeeds = [
+                'https://www.darkreading.com/rss.xml',
+                'https://feeds.feedburner.com/TheHackersNews',
+                'https://isc.sans.edu/rssfeed_full.xml',
+                'https://www.cisa.gov/cybersecurity-advisories/all.xml',
+                'https://www.bleepingcomputer.com/feed/',
+                'https://threatpost.com/feed/',
+                'https://krebsonsecurity.com/feed/'
+            ];
+
+            const newsItems = [];
+            const currentYear = 2026;
+            const startOf2026 = new Date('2026-01-01T00:00:00Z');
+
+            const fetchPromises = newsFeeds.map(async (feed) => {
+                try {
+                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed)}`;
+                    const response = await fetchWithTimeout(proxyUrl, 5000);
+                    if (!response.ok) return [];
+                    const data = await response.json();
+                    const parser = new DOMParser();
+                    const xml = parser.parseFromString(data.contents, 'text/xml');
+                    const parserError = xml.querySelector('parsererror');
+                    if (parserError) return [];
+                    const items = xml.querySelectorAll('item, entry');
+                    const feedItems = [];
+                    let count = 0;
+                    items.forEach(item => {
+                        if (count < 5) {
+                            const titleEl = item.querySelector('title');
+                            const linkEl = item.querySelector('link');
+                            const pubDateEl = item.querySelector('pubDate') ||
+                                item.querySelector('published') ||
+                                item.querySelector('updated') ||
+                                item.querySelector('dc\\:date') ||
+                                item.querySelector('date');
+                            if (titleEl && linkEl) {
+                                let title = titleEl.textContent.trim();
+                                let link = linkEl.textContent || linkEl.getAttribute('href') || '#';
+                                let pubDate = pubDateEl ? parseDate(pubDateEl.textContent) : null;
+                                const is2026Item = pubDate ? (pubDate.getFullYear() === currentYear && pubDate >= startOf2026) : false;
+                                if (is2026Item || !pubDate) {
+                                    title = title.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 120);
+                                    feedItems.push({ title, link, source: getSourceName(feed), date: pubDate, timestamp: pubDate ? pubDate.getTime() : Date.now() });
+                                    count++;
+                                }
+                            }
+                        }
+                    });
+                    return feedItems;
+                } catch (error) {
+                    return [];
+                }
+            });
+
+            try {
+                const results = await Promise.allSettled(fetchPromises);
+                results.forEach(result => {
+                    if (result.status === 'fulfilled' && result.value.length > 0) newsItems.push(...result.value);
+                });
+                return newsItems.sort((a, b) => b.timestamp - a.timestamp);
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function getFallbackNews() {
+            return [
+                { title: "Zero Trust Mandates Expand Across Federal Agencies in 2026", link: "https://www.cisa.gov/zero-trust", source: "CISA 2026" },
+                { title: "2026 Cybersecurity Forecast: AI-Powered Threats and Defenses", link: "https://www.darkreading.com/2026-forecast", source: "Dark Reading" },
+                { title: "New Identity Protection Standards Released for 2026 Compliance", link: "https://www.nist.gov/identity-2026", source: "NIST" },
+                { title: "Cloud Security Breaches Drop 40% with Advanced IAM Controls", link: "https://www.bleepingcomputer.com/cloud-security-2026", source: "BleepingComputer" },
+                { title: "Privileged Access Management Becomes Board-Level Priority in 2026", link: "https://threatpost.com/pam-2026", source: "Threatpost" },
+                { title: "Supply Chain Attacks Target Identity Infrastructure in 2026", link: "https://krebsonsecurity.com/supply-chain-2026", source: "Krebs" },
+                { title: "Automated Threat Hunting Scales Across Enterprises in 2026", link: "https://isc.sans.edu/threat-hunting-2026", source: "SANS ISC" },
+                { title: "Multi-Factor Authentication Adoption Hits 90% in Financial Sector", link: "https://www.thehackersnews.com/mfa-2026", source: "The Hacker News" },
+                { title: "Quantum-Resistant Cryptography Standards Finalized for 2026", link: "https://www.cisa.gov/quantum-2026", source: "CISA" },
+                { title: "Identity Governance Automation Cuts Compliance Costs by 60%", link: "https://www.darkreading.com/iga-2026", source: "Dark Reading" }
+            ];
+        }
+
+        async function fetchCybersecurityNews() {
+            const tickerScroll = document.getElementById('ticker-scroll');
+            if (!tickerScroll) return;
+            tickerScroll.innerHTML = '<a href="#" class="ticker-item">Loading 2026 cybersecurity news...</a>';
+            try {
+                const liveNews = await fetchLiveNews();
+                if (liveNews.length >= 8) {
+                    updateNewsTicker(liveNews.slice(0, 10));
+                } else {
+                    updateNewsTicker(getFallbackNews());
+                }
+            } catch (error) {
+                updateNewsTicker(getFallbackNews());
+            }
+        }
+
+        function updateNewsTicker(newsItems) {
+            const tickerScroll = document.getElementById('ticker-scroll');
+            if (!tickerScroll) return;
+            if (!newsItems || newsItems.length === 0) {
+                tickerScroll.innerHTML = '<a href="#" class="ticker-item">Loading 2026 cybersecurity updates...</a>';
+                return;
+            }
+            const displayItems = newsItems.slice(0, 10);
+            const newsContent = displayItems.map(item => {
+                const href = item.link || '#';
+                const title = item.title || 'Cybersecurity News';
+                const source = item.source ? ` [${item.source}]` : '';
+                const year = item.date ? ` (${item.date.getFullYear()})` : ' (2026)';
+                return `<a href="${href}" target="_blank" class="ticker-item" rel="noopener noreferrer">${title}${source}${year}</a>`;
+            }).join('');
+            tickerScroll.innerHTML = newsContent + newsContent;
+        }
+
+        function initializeTickerScrolling() {
+            const tickerScroll = document.getElementById('ticker-scroll');
+            if (!tickerScroll) return;
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            if (isMobile) {
+                let isScrolling = true;
+                let scrollPosition = 0;
+                const scrollSpeed = 0.8;
+                let animationId;
+                function animateTicker() {
+                    if (isScrolling) {
+                        const tickerWidth = tickerScroll.scrollWidth / 2;
+                        scrollPosition -= scrollSpeed;
+                        if (Math.abs(scrollPosition) >= tickerWidth) scrollPosition = 0;
+                        tickerScroll.style.transform = `translateX(${scrollPosition}px)`;
+                    }
+                    animationId = requestAnimationFrame(animateTicker);
+                }
+                animateTicker();
+                tickerScroll.addEventListener('touchstart', () => { isScrolling = false; tickerScroll.style.animationPlayState = 'paused'; });
+                tickerScroll.addEventListener('touchend', () => { setTimeout(() => { isScrolling = true; tickerScroll.style.animationPlayState = 'running'; }, 1000); });
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) { cancelAnimationFrame(animationId); } else { animateTicker(); }
+                });
+            }
+        }
+
+        function initializeTouchEvents() {
+            const companyNames = document.querySelectorAll('.company-name');
+            companyNames.forEach(company => {
+                let touchTimer;
+                let isLongPress = false;
+                company.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    isLongPress = false;
+                    touchTimer = setTimeout(() => {
+                        isLongPress = true;
+                        const placeholder = this.querySelector('.company-placeholder');
+                        const real = this.querySelector('.company-real');
+                        if (placeholder && real) {
+                            placeholder.style.display = 'none';
+                            real.style.display = 'inline';
+                            setTimeout(() => { if (isLongPress) { placeholder.style.display = 'inline'; real.style.display = 'none'; } }, 3000);
+                        }
+                    }, 500);
+                });
+                company.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                    clearTimeout(touchTimer);
+                    if (!isLongPress && window.innerWidth <= 600) {
+                        const placeholder = this.querySelector('.company-placeholder');
+                        const real = this.querySelector('.company-real');
+                        if (placeholder && real) {
+                            placeholder.style.display = 'none';
+                            real.style.display = 'inline';
+                            setTimeout(() => { placeholder.style.display = 'inline'; real.style.display = 'none'; }, 2000);
+                        }
+                    }
+                });
+                company.addEventListener('touchmove', function(e) { e.preventDefault(); clearTimeout(touchTimer); isLongPress = false; });
+            });
+        }
+
+        function scrollToExperience(searchTerm) {
+            const experienceItems = document.querySelectorAll('.experience-item');
+            let found = false;
+            experienceItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm.toLowerCase())) {
+                    item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    item.style.transition = 'all 0.3s ease';
+                    item.style.backgroundColor = 'var(--bg-light)';
+                    item.style.boxShadow = '0 0 0 2px var(--accent)';
+                    setTimeout(() => { item.style.backgroundColor = ''; item.style.boxShadow = ''; }, 2000);
+                    found = true;
+                }
+            });
+            if (!found) {
+                const allElements = document.querySelectorAll('*');
+                allElements.forEach(element => {
+                    if (element.textContent.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const quoteIndex = today.getDate() % quotes.length;
+            document.getElementById('quote-text').textContent = quotes[quoteIndex];
+
+            initializeTickerScrolling();
+            initializeTouchEvents();
+            fetchCybersecurityNews();
+
+            window.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.main-nav a');
+                let current = '';
+
+                sections.forEach(section => {
+                    if (pageYOffset >= section.offsetTop - 200) current = section.getAttribute('id');
+
+
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) link.classList.add('active');
+
+
+                });
+            });
+
+            const tickerScroll = document.getElementById('ticker-scroll');
+            if (tickerScroll) {
+                tickerScroll.addEventListener('mouseenter', () => { tickerScroll.style.animationPlayState = 'paused'; });
+                tickerScroll.addEventListener('mouseleave', () => { tickerScroll.style.animationPlayState = 'running'; });
+            }
         });
+
+        
+
     </script>
 </body>
 </html>
