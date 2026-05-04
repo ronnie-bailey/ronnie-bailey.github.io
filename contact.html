@@ -8,297 +8,258 @@
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            --accent: #0f766e;
-            --text: #1f2937;
-            --text-light: #6b7280;
-            --border: #e5e7eb;
+            --accent: #0071e3;
+            --accent-soft: rgba(0, 113, 227, 0.10);
+            --text: #1d1d1f;
+            --text-light: #6e6e73;
+            --text-lighter: #86868b;
+            --border: #d2d2d7;
             --bg: #ffffff;
-            --bg-light: #f9fafb;
+            --bg-light: #f5f5f7;
+            --surface: rgba(255, 255, 255, 0.72);
+            --shadow: 0 18px 60px rgba(0, 0, 0, 0.08);
+            --radius: 28px;
+            --radius-small: 16px;
         }
 
         html[data-theme="dark"] {
-            --accent: #14b8a6;
-            --text: #f3f4f6;
-            --text-light: #d1d5db;
-            --border: #374151;
-            --bg: #111827;
-            --bg-light: #1f2937;
+            --accent: #2997ff;
+            --accent-soft: rgba(41, 151, 255, 0.14);
+            --text: #f5f5f7;
+            --text-light: #a1a1a6;
+            --text-lighter: #86868b;
+            --border: #2c2c2e;
+            --bg: #000000;
+            --bg-light: #1c1c1e;
+            --surface: rgba(28, 28, 30, 0.74);
+            --shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Inter, system-ui, sans-serif;
+            background:
+                radial-gradient(circle at 50% -10%, rgba(0, 113, 227, 0.10), transparent 36rem),
+                var(--bg);
             color: var(--text);
-            line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.65;
+            transition: background-color 0.25s ease, color 0.25s ease;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
 
         header {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: var(--bg);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 0;
+            background: var(--surface);
+            border-bottom: 1px solid rgba(210, 210, 215, 0.55);
+            backdrop-filter: saturate(180%) blur(24px);
+            -webkit-backdrop-filter: saturate(180%) blur(24px);
+            padding: 0.85rem 0;
         }
 
         .header-wrapper {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1.25rem;
             flex-wrap: wrap;
         }
 
         .main-nav {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.25rem;
             list-style: none;
             flex-wrap: wrap;
         }
 
         .main-nav a {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-light);
             text-decoration: none;
-            transition: color 0.2s;
+            transition: color 0.2s ease;
             font-weight: 500;
-            padding: 0.5rem 0;
-            position: relative;
+            letter-spacing: -0.01em;
+            padding: 0.35rem 0;
         }
 
         .main-nav a:hover,
-        .main-nav a.active { color: var(--accent); }
-
-        .main-nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.2s ease;
+        .main-nav a.active {
+            color: var(--text);
         }
-
-        .main-nav a:hover::after,
-        .main-nav a.active::after { width: 100%; }
 
         .contact-bar {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
         }
 
         .availability-indicator {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.45rem;
             background: var(--bg-light);
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            border: 1px solid var(--border);
+            padding: 0.38rem 0.75rem;
+            border-radius: 999px;
+            border: 1px solid rgba(210, 210, 215, 0.65);
         }
 
-        .status-dot {
-            width: 8px;
-            height: 8px;
+        .status-dot,
+        .status-indicator {
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
-            background: #10b981;
-            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
-            animation: pulse 2s infinite;
+            display: inline-block;
+            background: #34c759;
+            box-shadow: 0 0 0 4px rgba(52, 199, 89, 0.14);
+            animation: pulse 2.2s infinite;
+            flex-shrink: 0;
         }
 
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-            70% { box-shadow: 0 0 0 5px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(52, 199, 89, 0.25); }
+            70% { box-shadow: 0 0 0 7px rgba(52, 199, 89, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(52, 199, 89, 0); }
         }
 
         .availability-text {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 600;
             color: var(--text);
+            letter-spacing: -0.01em;
         }
 
-        .home-btn {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.2s;
-            padding: 0.5rem;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-        }
-
-        .home-btn:hover {
-            background: var(--bg-light);
-            color: var(--text);
-            border-color: var(--accent);
-        }
-
-        .contact-icons {
-            display: flex;
-            gap: 0.75rem;
-            align-items: center;
-        }
-
-        .contact-icons a {
-            color: var(--accent);
+        .home-btn,
+        .contact-icons a,
+        .theme-toggle {
+            color: var(--text-light);
             text-decoration: none;
             font-size: 0.9rem;
-            transition: color 0.2s;
-            padding: 0.5rem;
-            width: 36px;
-            height: 36px;
+            transition: all 0.2s ease;
+            border-radius: 999px;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
         }
 
-        .contact-icons a:hover {
+        .home-btn:hover,
+        .contact-icons a:hover,
+        .theme-toggle:hover {
             background: var(--bg-light);
             color: var(--text);
-            border-radius: 4px;
         }
 
+        .contact-icons,
         .action-buttons {
             display: flex;
-            gap: 0.75rem;
+            gap: 0.25rem;
             align-items: center;
-            margin: 0;
-        }
-
-        .theme-toggle {
-            background: none;
-            border: 1px solid var(--border);
-            color: var(--text);
-            font-size: 1rem;
-            cursor: pointer;
-            padding: 0;
-            border-radius: 4px;
-            transition: all 0.2s;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin: 0;
-        }
-
-        .theme-toggle:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background: var(--bg-light);
         }
 
         main {
-            max-width: 1000px;
+            max-width: 1080px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 5rem 1.5rem 2rem;
         }
 
         .form-header {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            padding: 4rem 0 3.5rem;
             border-bottom: 1px solid var(--border);
         }
 
         .form-header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+            font-size: clamp(3rem, 8vw, 5.4rem);
+            line-height: 0.98;
+            letter-spacing: -0.065em;
+            margin-bottom: 1rem;
+            font-weight: 750;
         }
 
         .form-header p {
-            font-size: 0.95rem;
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
             color: var(--text-light);
-            line-height: 1.7;
-            max-width: 700px;
+            line-height: 1.45;
+            max-width: 760px;
+            letter-spacing: -0.025em;
         }
 
-        .status-banner {
+        .status-banner,
+        .success-message {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 14px 16px;
-            background-color: rgba(15, 118, 110, 0.08);
-            border-left: 4px solid var(--accent);
-            border-radius: 4px;
+            gap: 0.75rem;
+            padding: 1rem 1.1rem;
+            background: var(--accent-soft);
+            border: 1px solid rgba(0, 113, 227, 0.20);
+            border-radius: var(--radius-small);
             margin-bottom: 2rem;
-        }
-
-        .status-banner .status-indicator {
-            width: 10px;
-            height: 10px;
-            background-color: var(--accent);
-            border-radius: 50%;
-            flex-shrink: 0;
-            box-shadow: 0 0 8px rgba(15, 118, 110, 0.6);
-            animation: pulse 2s infinite;
-        }
-
-        .status-banner-text {
-            font-size: 14px;
             color: var(--accent);
-            font-weight: 500;
+            font-size: 0.92rem;
+            font-weight: 600;
+            letter-spacing: -0.015em;
         }
 
         .success-message {
             display: none;
-            background-color: rgba(16, 185, 129, 0.08);
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            padding: 16px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            font-size: 14px;
-            font-weight: 500;
         }
 
-        form { display: flex; flex-direction: column; }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
 
         .form-section {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
+            padding: 2.4rem 0;
             border-bottom: 1px solid var(--border);
         }
 
-        .form-section:last-of-type { border-bottom: none; }
-
-        .section-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text);
-            margin-bottom: 1.5rem;
+        .form-section:last-of-type {
+            border-bottom: none;
         }
 
-        label {
-            display: block;
-            margin: 1rem 0 0.5rem 0;
-            cursor: pointer;
-            font-size: 0.95rem;
-            font-weight: 500;
+        .section-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.11em;
             color: var(--text);
+            margin-bottom: 1.5rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.4rem;
+        }
+
+        label,
+        legend {
+            display: block;
+            margin: 1rem 0 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 650;
+            color: var(--text);
+            letter-spacing: -0.015em;
         }
 
         input[type="text"],
@@ -306,46 +267,41 @@
         textarea,
         select {
             width: 100%;
-            padding: 0.75rem;
-            margin: 0.5rem 0 1rem 0;
+            padding: 0.9rem 1rem;
+            margin: 0.4rem 0 1rem;
             border: 1px solid var(--border);
-            border-radius: 4px;
-            font-family: 'Inter', sans-serif;
+            border-radius: 14px;
+            font-family: inherit;
             font-size: 0.95rem;
             line-height: 1.5;
-            background: var(--bg);
+            background: var(--bg-light);
             color: var(--text);
-            transition: border-color 0.2s, box-shadow 0.2s;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
         }
 
-        input[type="text"]:focus,
-        input[type="email"]:focus,
+        input:focus,
         textarea:focus,
         select:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+            background: var(--bg);
+            box-shadow: 0 0 0 4px var(--accent-soft);
         }
 
         textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 120px;
         }
 
-        fieldset { border: none; padding: 0; margin: 1rem 0; }
-
-        legend {
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            color: var(--text);
-            display: block;
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 1rem 0;
         }
 
         .radio-group,
         .checkbox-group {
-            display: flex;
-            flex-direction: column;
+            display: grid;
             gap: 0.75rem;
             margin-top: 0.75rem;
         }
@@ -355,21 +311,27 @@
             display: flex;
             align-items: flex-start;
             gap: 0.75rem;
-            padding: 0.75rem;
-            border-radius: 4px;
-            transition: background-color 0.2s;
+            padding: 0.9rem 1rem;
+            border-radius: 16px;
+            background: var(--bg-light);
+            border: 1px solid rgba(210, 210, 215, 0.55);
+            transition: all 0.2s ease;
             cursor: pointer;
         }
 
         .radio-option:hover,
-        .checkbox-option:hover { background-color: var(--bg-light); }
+        .checkbox-option:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+            border-color: transparent;
+        }
 
         input[type="radio"],
         input[type="checkbox"] {
-            margin-top: 3px;
+            margin-top: 4px;
             cursor: pointer;
-            width: 16px;
-            height: 16px;
+            width: 17px;
+            height: 17px;
             flex-shrink: 0;
             accent-color: var(--accent);
         }
@@ -379,94 +341,162 @@
             display: flex;
             flex-direction: column;
             gap: 2px;
+            margin: 0;
         }
 
-        .option-label strong { color: var(--text); font-size: 0.95rem; }
+        .option-label strong {
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 650;
+        }
 
-        .option-sublabel { font-size: 0.85rem; color: var(--text-light); }
+        .option-sublabel {
+            font-size: 0.84rem;
+            color: var(--text-light);
+            line-height: 1.45;
+        }
 
         .note {
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             color: var(--text-light);
-            margin-top: 0.5rem;
-            font-style: italic;
+            margin-top: -0.25rem;
+            margin-bottom: 0.9rem;
+            letter-spacing: -0.01em;
         }
 
         .location-note {
-            font-size: 0.85rem;
+            font-size: 0.86rem;
             color: var(--accent);
             margin: 0.75rem 0;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .error-message {
-            color: #d32f2f;
+            color: #ff3b30;
             font-size: 0.85rem;
             margin-top: 0.5rem;
             display: none;
         }
 
-        .required { color: #d32f2f; margin-left: 4px; }
+        .required {
+            color: #ff3b30;
+            margin-left: 4px;
+        }
 
-        button {
-            padding: 0.75rem 1.5rem;
-            background-color: var(--accent);
-            color: var(--bg);
+        button[type="submit"] {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 0.75rem 1.2rem;
             border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: all 0.2s;
+            border-radius: 999px;
+            font-weight: 650;
+            font-size: 0.88rem;
+            text-decoration: none;
+            font-family: inherit;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             margin-top: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
             align-self: flex-start;
+            cursor: pointer;
         }
 
-        button:hover {
-            opacity: 0.9;
+        button[type="submit"]:hover {
+            opacity: 0.92;
             transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 113, 227, 0.24);
         }
-
-        button:active { transform: translateY(0); }
 
         footer {
             border-top: 1px solid var(--border);
             padding: 2rem;
             text-align: center;
-            color: var(--text-light);
-            font-size: 0.85rem;
+            color: var(--text-lighter);
+            font-size: 0.82rem;
             margin-top: 3rem;
         }
 
         @media (max-width: 900px) {
-            .header-wrapper { flex-direction: column; gap: 1rem; align-items: stretch; }
-            .main-nav { justify-content: center; width: 100%; order: 2; }
-            .contact-bar { width: 100%; order: 1; }
-            .form-header h1 { font-size: 1.8rem; }
-            main { padding: 2rem 1rem; }
+            header {
+                position: static;
+            }
+
+            .header-wrapper {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+
+            .main-nav {
+                justify-content: center;
+                gap: 1rem;
+                width: 100%;
+                order: 2;
+            }
+
+            .contact-bar {
+                width: 100%;
+                justify-content: space-between;
+                order: 1;
+            }
+
+            main {
+                padding: 3rem 1rem 2rem;
+            }
+
+            .form-header {
+                padding: 3rem 0;
+            }
         }
 
         @media (max-width: 600px) {
-            .header-wrapper { flex-direction: column; }
-            .form-header h1 { font-size: 1.4rem; }
-            .main-nav { gap: 0.75rem; font-size: 0.8rem; }
-            .contact-bar { flex-direction: column; gap: 0.75rem; }
-            .contact-icons { justify-content: center; }
-            .action-buttons { justify-content: center; }
-            .availability-indicator { justify-content: center; width: 100%; }
-            .form-section { margin-bottom: 1.5rem; padding-bottom: 1.5rem; }
-            button { width: 100%; align-self: stretch; }
+            .contact-bar {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: stretch;
+            }
+
+            .contact-icons,
+            .action-buttons {
+                justify-content: center;
+            }
+
+            .availability-indicator {
+                justify-content: center;
+            }
+
+            .form-header h1 {
+                font-size: 3rem;
+            }
+
+            button[type="submit"] {
+                width: 100%;
+                align-self: stretch;
+            }
         }
 
         @media (hover: none) and (pointer: coarse) {
-            .contact-icons a, .theme-toggle { min-height: 44px; min-width: 44px; }
-            input[type="radio"], input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; }
+            .home-btn,
+            .contact-icons a,
+            .theme-toggle,
+            button[type="submit"] {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            input[type="radio"],
+            input[type="checkbox"] {
+                width: 20px;
+                height: 20px;
+                margin-top: 2px;
+            }
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="header-wrapper">
@@ -474,10 +504,12 @@
                 <a href="index.html" class="home-btn" title="Back to home">
                     <i class="fas fa-home"></i>
                 </a>
+
                 <div class="availability-indicator">
                     <span class="status-dot"></span>
                     <span class="availability-text">Actively Seeking</span>
                 </div>
+
                 <div class="contact-icons">
                     <a href="mailto:opportunities@ronniebailey.cloud" title="Email me">
                         <i class="fas fa-envelope"></i>
@@ -489,12 +521,14 @@
                         <i class="fas fa-globe"></i>
                     </a>
                 </div>
+
                 <div class="action-buttons">
                     <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode">
                         <i class="fas fa-adjust"></i>
                     </button>
                 </div>
             </div>
+
             <nav class="main-nav">
                 <a href="index.html#perspective">Perspective</a>
                 <a href="index.html#experience">Experience</a>
@@ -557,29 +591,33 @@
                 <div class="checkbox-group">
                     <div class="checkbox-option">
                         <input type="checkbox" id="fulltime" name="engagement" value="fulltime">
-                        <label for="fulltime" class="option-label" style="margin: 0;">
+                        <label for="fulltime" class="option-label">
                             <strong>Full-Time Hire</strong>
                         </label>
                     </div>
+
                     <div class="checkbox-option">
                         <input type="checkbox" id="contract" name="engagement" value="contract">
-                        <label for="contract" class="option-label" style="margin: 0;">
+                        <label for="contract" class="option-label">
                             <strong>Contract / Consulting Work</strong>
                         </label>
                     </div>
+
                     <div class="checkbox-option">
                         <input type="checkbox" id="advisory" name="engagement" value="advisory">
-                        <label for="advisory" class="option-label" style="margin: 0;">
+                        <label for="advisory" class="option-label">
                             <strong>Advisory / Strategic Guidance</strong>
                         </label>
                     </div>
+
                     <div class="checkbox-option">
                         <input type="checkbox" id="architecture" name="engagement" value="architecture">
-                        <label for="architecture" class="option-label" style="margin: 0;">
+                        <label for="architecture" class="option-label">
                             <strong>Architecture / Design Work</strong>
                         </label>
                     </div>
                 </div>
+
                 <span class="error-message" id="engagementError">Please select at least one engagement type</span>
 
                 <label for="budgetRange">Compensation Range <span class="required">*</span></label>
@@ -609,6 +647,7 @@
 
                 <fieldset>
                     <legend>Do you have a defined hiring and evaluation process? <span class="required">*</span></legend>
+
                     <div class="radio-group">
                         <div class="radio-option">
                             <input type="radio" id="processYes" name="process" value="yes" required>
@@ -617,6 +656,7 @@
                                 <span class="option-sublabel">We have clear steps and timeline</span>
                             </label>
                         </div>
+
                         <div class="radio-option">
                             <input type="radio" id="processInformal" name="process" value="informal">
                             <label for="processInformal" class="option-label">
@@ -624,6 +664,7 @@
                                 <span class="option-sublabel">We will figure it out as we go</span>
                             </label>
                         </div>
+
                         <div class="radio-option">
                             <input type="radio" id="processUnsure" name="process" value="unsure">
                             <label for="processUnsure" class="option-label">
@@ -641,6 +682,7 @@
                 <fieldset>
                     <legend>Work Location <span class="required">*</span></legend>
                     <div class="location-note">Remote roles prioritized at this time</div>
+
                     <div class="radio-group">
                         <div class="radio-option">
                             <input type="radio" id="remote" name="workLocation" value="remote" required>
@@ -648,6 +690,7 @@
                                 <strong>Remote</strong>
                             </label>
                         </div>
+
                         <div class="radio-option">
                             <input type="radio" id="hybrid" name="workLocation" value="hybrid">
                             <label for="hybrid" class="option-label">
@@ -664,6 +707,7 @@
 
                 <fieldset>
                     <legend>What would be most useful? <span class="required">*</span></legend>
+
                     <div class="radio-group">
                         <div class="radio-option">
                             <input type="radio" id="discovery" name="nextStep" value="discovery" required>
@@ -672,6 +716,7 @@
                                 <span class="option-sublabel">Understand the role and your needs better</span>
                             </label>
                         </div>
+
                         <div class="radio-option">
                             <input type="radio" id="proposal" name="nextStep" value="proposal">
                             <label for="proposal" class="option-label">
@@ -679,6 +724,7 @@
                                 <span class="option-sublabel">You want to explore a consulting arrangement</span>
                             </label>
                         </div>
+
                         <div class="radio-option">
                             <input type="radio" id="interview" name="nextStep" value="interview">
                             <label for="interview" class="option-label">
@@ -686,6 +732,7 @@
                                 <span class="option-sublabel">Ready to move forward with formal interviews</span>
                             </label>
                         </div>
+
                         <div class="radio-option">
                             <input type="radio" id="referral" name="nextStep" value="referral">
                             <label for="referral" class="option-label">
@@ -784,7 +831,6 @@
                 return false;
             }
 
-            // PRIORITY SCORING
             let priorityScore = 0;
             let priorityFactors = [];
 
@@ -809,15 +855,14 @@
             const normalizedScore = Math.max(0, Math.min(10, Math.round(priorityScore / 3)));
 
             let priorityTier = 'LOW';
-            let priorityEmoji = 'LOW';
-            if (normalizedScore >= 7) { priorityTier = 'HIGH'; priorityEmoji = 'HIGH'; }
-            else if (normalizedScore >= 4) { priorityTier = 'MEDIUM'; priorityEmoji = 'MEDIUM'; }
+            if (normalizedScore >= 7) { priorityTier = 'HIGH'; }
+            else if (normalizedScore >= 4) { priorityTier = 'MEDIUM'; }
 
             document.querySelector('input[name="_replyto"]').value = email;
             document.querySelector('input[name="_subject"]').value =
                 `[${priorityTier}:${normalizedScore}/10] | ${budgetRange} | ${company} | ${authority.toUpperCase()} | ${timeline.toUpperCase()}`;
 
-            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('successMessage').style.display = 'flex';
             document.getElementById('contactForm').style.display = 'none';
 
             setTimeout(() => { this.submit(); }, 500);
