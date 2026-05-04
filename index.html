@@ -709,6 +709,165 @@
             .timeline-compact { grid-template-columns: 1fr; }
             .hero { padding: 2.5rem 0 3rem; }
         }
+
+
+        /* Executive-weight tuning: Apple-inspired, but more authoritative */
+        main {
+            max-width: 1080px;
+        }
+
+        .hero {
+            padding: 5rem 0 5.25rem;
+            margin-bottom: 5rem;
+        }
+
+        .hero h1 {
+            font-weight: 750;
+        }
+
+        .hero-subtitle {
+            color: var(--text);
+            font-weight: 650;
+        }
+
+        .hero p {
+            max-width: 860px;
+        }
+
+        .section-title {
+            color: var(--text);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.11em;
+            border-top: 1px solid var(--border);
+            padding-top: 1.4rem;
+        }
+
+        .experience-item {
+            position: relative;
+            padding: 2.6rem 0 3.25rem;
+            margin-bottom: 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .experience-item:first-of-type {
+            padding-top: 0.5rem;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .job-title {
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+            line-height: 1.16;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.035em;
+            margin-bottom: 0.35rem;
+        }
+
+        .company-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: -0.015em;
+        }
+
+        .job-meta {
+            margin-top: 0.6rem;
+            margin-bottom: 1.35rem;
+            font-size: 0.86rem;
+            color: var(--text-light);
+        }
+
+        .job-summary {
+            max-width: 920px;
+            margin-bottom: 1.65rem;
+        }
+
+        .job-summary p,
+        .job-summary {
+            font-size: 1rem;
+            line-height: 1.72;
+            color: var(--text-light);
+            letter-spacing: -0.012em;
+        }
+
+        .job-bullets {
+            display: grid;
+            gap: 0.75rem;
+            padding: 1.15rem 0 0;
+            margin-top: 1.2rem;
+            border-top: 1px solid rgba(210, 210, 215, 0.72);
+        }
+
+        .job-bullets li {
+            padding-left: 1.25rem;
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            line-height: 1.58;
+            color: var(--text);
+        }
+
+        .job-bullets li::before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+            top: 0.72em;
+        }
+
+        .job-skills {
+            margin-top: 1.55rem;
+            padding: 0.95rem 1.05rem;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--bg-light);
+            font-size: 0.84rem;
+            line-height: 1.6;
+            font-style: normal;
+        }
+
+        .projects-grid {
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            border: 1px solid var(--border);
+            background: var(--bg-light);
+            border-radius: 22px;
+            padding: 1.35rem;
+        }
+
+        .project-title {
+            font-size: 1.05rem;
+            letter-spacing: -0.025em;
+        }
+
+        .project-list li {
+            color: var(--text);
+        }
+
+        .quote-box,
+        .ticker-container {
+            border-radius: 22px;
+            border: 1px solid var(--border);
+        }
+
+        @media (max-width: 700px) {
+            .hero {
+                padding: 3rem 0 3.5rem;
+            }
+            .experience-item {
+                padding: 2.1rem 0 2.7rem;
+            }
+            .job-bullets {
+                gap: 0.65rem;
+            }
+        }
+
     </style>
 </head>
 <body>
