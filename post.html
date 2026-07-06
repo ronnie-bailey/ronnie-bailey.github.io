@@ -1,323 +1,494 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Field Notes | Ronnie Bailey</title>
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Field Notes | Ronnie Bailey</title>
 
-    <style>
-        :root {
-            --accent: #0071e3;
-            --accent-soft: rgba(0, 113, 227, 0.10);
-            --text: #1d1d1f;
-            --text-light: #6e6e73;
-            --text-lighter: #86868b;
-            --border: #d2d2d7;
-            --bg: #ffffff;
-            --bg-light: #f5f5f7;
-            --surface: rgba(255, 255, 255, 0.72);
-            --shadow: 0 18px 60px rgba(0, 0, 0, 0.08);
-        }
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
 
-        html[data-theme="dark"] {
-            --accent: #2997ff;
-            --accent-soft: rgba(41, 151, 255, 0.14);
-            --text: #f5f5f7;
-            --text-light: #a1a1a6;
-            --text-lighter: #86868b;
-            --border: #2c2c2e;
-            --bg: #000000;
-            --bg-light: #1c1c1e;
-            --surface: rgba(28, 28, 30, 0.74);
-            --shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
-        }
+  <style>
+    :root {
+      --accent: #0071e3;
+      --text: #1d1d1f;
+      --text-light: #6e6e73;
+      --text-lighter: #86868b;
+      --border: #d2d2d7;
+      --bg: #ffffff;
+      --bg-light: #f5f5f7;
+      --surface: rgba(255,255,255,.72);
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    html[data-theme="dark"] {
+      --accent: #2997ff;
+      --text: #f5f5f7;
+      --text-light: #a1a1a6;
+      --text-lighter: #86868b;
+      --border: #2c2c2e;
+      --bg: #000000;
+      --bg-light: #1c1c1e;
+      --surface: rgba(28,28,30,.74);
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Inter, system-ui, sans-serif;
-            background: radial-gradient(circle at 50% -10%, rgba(0, 113, 227, 0.10), transparent 36rem), var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        header {
-            position: sticky; top: 0; z-index: 100;
-            background: var(--surface);
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: saturate(180%) blur(24px);
-            -webkit-backdrop-filter: saturate(180%) blur(24px);
-            padding: 0.85rem 0;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, system-ui, sans-serif;
+      background: radial-gradient(circle at 50% -10%, rgba(0,113,227,.10), transparent 36rem), var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-        .header-wrapper {
-            max-width: 1080px; margin: 0 auto; padding: 0 1.5rem;
-            display: flex; justify-content: space-between; align-items: center; gap: 1.25rem; flex-wrap: wrap;
-        }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(24px);
+      padding: .85rem 0;
+    }
 
-        .main-nav { display: flex; gap: 1.25rem; list-style: none; flex-wrap: wrap; }
-        .main-nav a {
-            font-size: 0.82rem; color: var(--text-light); text-decoration: none;
-            font-weight: 500; letter-spacing: -0.01em; padding: 0.35rem 0; transition: color 0.2s ease;
-        }
-        .main-nav a:hover, .main-nav a.active { color: var(--text); }
+    .header-wrapper {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
 
-        .theme-toggle {
-            color: var(--text-light); font-size: 0.9rem; border-radius: 999px;
-            display: flex; align-items: center; justify-content: center;
-            width: 36px; height: 36px; border: none; background: transparent; cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .theme-toggle:hover { background: var(--bg-light); color: var(--text); }
+    .main-nav {
+      display: flex;
+      gap: 1.25rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
 
-        main { max-width: 760px; margin: 0 auto; padding: 3.5rem 1.5rem 3rem; }
+    .main-nav a {
+      font-size: .82rem;
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-        .back-link {
-            display: inline-flex; align-items: center; gap: 0.45rem;
-            color: var(--text-light); text-decoration: none;
-            font-size: 0.85rem; font-weight: 600; margin-bottom: 2.25rem;
-            transition: color 0.2s ease;
-        }
-        .back-link:hover { color: var(--accent); }
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--text);
+    }
 
-        /* ---------- Banner: image, video, or gif ---------- */
-        .article-banner {
-            width: 100%;
-            border-radius: 22px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            margin-bottom: 2.25rem;
-            background: var(--bg-light);
-        }
-        .article-banner img, .article-banner video {
-            display: block; width: 100%; height: auto;
-            max-height: 520px; object-fit: cover;
-        }
+    .theme-toggle {
+      color: var(--text-light);
+      font-size: .9rem;
+      border-radius: 999px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
 
-        .article-meta {
-            font-size: 0.78rem; color: var(--text-lighter); font-weight: 600;
-            letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 0.8rem;
-        }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 3rem;
+    }
 
-        h1.article-title {
-            font-size: clamp(1.9rem, 5vw, 3rem);
-            letter-spacing: -0.05em; line-height: 1.08;
-            font-weight: 750; margin-bottom: 1rem;
-        }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 600;
+      margin-bottom: 2.25rem;
+    }
 
-        .article-tags { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-        .tag-chip {
-            font-size: 0.72rem; font-weight: 600; color: var(--text-light);
-            background: var(--bg-light); border: 1px solid var(--border);
-            padding: 0.22rem 0.65rem; border-radius: 999px; text-decoration: none;
-        }
-        .tag-chip:hover { color: var(--accent); }
+    .back-link:hover { color: var(--accent); }
 
-        /* ---------- Article body ---------- */
-        .article-body { font-size: 1.04rem; color: var(--text); letter-spacing: -0.012em; }
-        .article-body > * + * { margin-top: 1.2rem; }
-        .article-body p { color: var(--text); }
-        .article-body h2 { font-size: 1.45rem; letter-spacing: -0.035em; margin-top: 2.6rem; line-height: 1.25; }
-        .article-body h3 { font-size: 1.15rem; letter-spacing: -0.025em; margin-top: 2.1rem; }
-        .article-body a { color: var(--accent); text-decoration: none; }
-        .article-body a:hover { text-decoration: underline; }
-        .article-body ul, .article-body ol { padding-left: 1.4rem; }
-        .article-body li { margin-bottom: 0.5rem; color: var(--text); }
-        .article-body img, .article-body video {
-            max-width: 100%; height: auto; border-radius: 16px;
-            border: 1px solid var(--border); display: block; margin: 1.8rem auto;
-        }
-        .article-body blockquote {
-            border-left: 3px solid var(--accent);
-            padding: 0.35rem 0 0.35rem 1.15rem;
-            color: var(--text-light); font-size: 1.02rem;
-        }
-        .article-body code {
-            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-            font-size: 0.86em;
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 0.12em 0.4em;
-        }
-        .article-body pre {
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.1rem 1.25rem;
-            overflow-x: auto;
-        }
-        .article-body pre code { background: none; border: none; padding: 0; font-size: 0.85rem; line-height: 1.6; }
-        .article-body hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
-        .article-body table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
-        .article-body th, .article-body td { border: 1px solid var(--border); padding: 0.55rem 0.75rem; text-align: left; }
-        .article-body th { background: var(--bg-light); }
+    .article-banner {
+      width: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 2.25rem;
+      background: var(--bg-light);
+    }
 
-        .article-footer {
-            margin-top: 3.5rem; padding-top: 1.75rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.9rem; color: var(--text-light);
-        }
-        .article-footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .article-banner img,
+    .article-banner video {
+      display: block;
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+    }
 
-        .status-message { color: var(--text-light); font-size: 0.95rem; padding: 2rem 0; }
+    .article-meta {
+      font-size: .78rem;
+      color: var(--text-lighter);
+      font-weight: 600;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      margin-bottom: .8rem;
+    }
 
-        footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-lighter); font-size: 0.82rem; margin-top: 3rem; }
+    h1.article-title {
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      letter-spacing: -.05em;
+      line-height: 1.08;
+      font-weight: 750;
+      margin-bottom: 1rem;
+    }
 
-        @media (max-width: 900px) { header { position: static; } }
-        @media (max-width: 640px) {
-            main { padding: 2.25rem 1rem 2rem; }
-            .article-banner { border-radius: 16px; }
-        }
-    </style>
+    .article-tags {
+      display: flex;
+      gap: .45rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .tag-chip {
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--text-light);
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      padding: .22rem .65rem;
+      border-radius: 999px;
+    }
+
+    .article-body {
+      font-size: 1.04rem;
+      color: var(--text);
+    }
+
+    .article-body > * + * { margin-top: 1.2rem; }
+
+    .article-body h2 {
+      font-size: 1.45rem;
+      margin-top: 2.6rem;
+      line-height: 1.25;
+    }
+
+    .article-body h3 {
+      font-size: 1.15rem;
+      margin-top: 2.1rem;
+    }
+
+    .article-body a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .article-body a:hover { text-decoration: underline; }
+
+    .article-body ul,
+    .article-body ol {
+      padding-left: 1.4rem;
+    }
+
+    .article-body li {
+      margin-bottom: .5rem;
+    }
+
+    .article-body img,
+    .article-body video {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      display: block;
+      margin: 1.8rem auto;
+    }
+
+    .article-body blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.15rem;
+      color: var(--text-light);
+    }
+
+    .article-body code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: .86em;
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: .12em .4em;
+    }
+
+    .article-body pre {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.1rem 1.25rem;
+      overflow-x: auto;
+    }
+
+    .article-body pre code {
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .article-footer {
+      margin-top: 3.5rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border);
+      font-size: .9rem;
+      color: var(--text-light);
+    }
+
+    .article-footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .status-message {
+      color: var(--text-light);
+      font-size: .95rem;
+      padding: 2rem 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-lighter);
+      font-size: .82rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 640px) {
+      header { position: static; }
+      main { padding: 2.25rem 1rem 2rem; }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <div class="header-wrapper">
-            <nav class="main-nav">
-                <a href="index.html">Home</a>
-                <a href="index.html#experience">Experience</a>
-                <a href="index.html#projects">Projects</a>
-                <a href="blog.html" class="active">Field Notes</a>
-            </nav>
-            <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode"><i class="fas fa-adjust"></i></button>
-        </div>
-    </header>
+  <header>
+    <div class="header-wrapper">
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="blog.html" class="active">Field Notes</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode">
+        <i class="fas fa-adjust"></i>
+      </button>
+    </div>
+  </header>
 
-    <main>
-        <a class="back-link" href="blog.html"><i class="fas fa-arrow-left"></i> All notes</a>
-        <article id="article">
-            <p class="status-message">Loading…</p>
-        </article>
-    </main>
+  <main>
+    <a class="back-link" href="blog.html">
+      <i class="fas fa-arrow-left"></i> All notes
+    </a>
 
-    <footer>
-        <p>&copy; 2026 Ronnie Bailey | Identity Security Director</p>
-    </footer>
+    <article id="article">
+      <p class="status-message">Loading…</p>
+    </article>
+  </main>
 
-    <script>
-    /* =====================================================================
-       CONFIG — must match blog.html exactly.
-       ===================================================================== */
-const BLOG_CONFIG = {
-    owner:    "ronnie-bailey",
-    repo:     "ronnie-bailey.github.io",
-    branch:   "main",
-    postsDir: "posts"
-};
-    /* ===================================================================== */
+  <footer>
+    <p>&copy; 2026 Ronnie Bailey | Identity Security Director</p>
+  </footer>
+
+  <script>
+    const BLOG_CONFIG = {
+      owner: "ronnie-bailey",
+      repo: "ronnie-bailey.github.io",
+      branch: "main",
+      postsDir: "posts"
+    };
 
     const htmlElement = document.documentElement;
-    document.getElementById('theme-toggle').addEventListener('click', () => {
-        const next = (htmlElement.getAttribute('data-theme') || 'light') === 'light' ? 'dark' : 'light';
-        htmlElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-    });
-    if (localStorage.getItem('theme') === 'dark') htmlElement.setAttribute('data-theme', 'dark');
+    const article = document.getElementById("article");
 
-    const rawBase = () =>
-        `https://raw.githubusercontent.com/${BLOG_CONFIG.owner}/${BLOG_CONFIG.repo}/${BLOG_CONFIG.branch}/`;
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+      const next = htmlElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      htmlElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+
+    if (localStorage.getItem("theme") === "dark") {
+      htmlElement.setAttribute("data-theme", "dark");
+    }
+
+    function rawBase() {
+      return `https://raw.githubusercontent.com/${BLOG_CONFIG.owner}/${BLOG_CONFIG.repo}/${BLOG_CONFIG.branch}/`;
+    }
 
     function resolveAsset(path) {
-        if (!path) return null;
-        if (/^https?:\/\//i.test(path)) return path;
-        return rawBase() + path.replace(/^\.?\//, '');
+      if (!path) return "";
+      if (/^https?:\/\//i.test(path)) return path;
+      return rawBase() + path.replace(/^\.?\//, "");
+    }
+
+    function escapeHTML(value = "") {
+      const div = document.createElement("div");
+      div.textContent = value;
+      return div.innerHTML;
     }
 
     function parseFrontMatter(text) {
-        const meta = {};
-        let body = text;
-        const m = text.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?/);
-        if (m) {
-            body = text.slice(m[0].length);
-            m[1].split(/\r?\n/).forEach(line => {
-                const i = line.indexOf(':');
-                if (i > -1) meta[line.slice(0, i).trim().toLowerCase()] = line.slice(i + 1).trim();
-            });
-        }
-        return { meta, body };
+      const meta = {};
+      let body = text;
+
+      const match = text.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?/);
+
+      if (match) {
+        body = text.slice(match[0].length);
+
+        match[1].split(/\r?\n/).forEach(line => {
+          const index = line.indexOf(":");
+          if (index > -1) {
+            const key = line.slice(0, index).trim().toLowerCase();
+            const value = line.slice(index + 1).trim();
+            meta[key] = value;
+          }
+        });
+      }
+
+      return { meta, body };
     }
 
-    function formatDate(str) {
-        const d = new Date(str + 'T12:00:00');
-        if (isNaN(d)) return str || '';
-        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    function formatDate(value) {
+      if (!value) return "";
+      const date = new Date(value + "T12:00:00");
+      if (isNaN(date)) return value;
+
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
     }
 
-    // Banner handles image, gif, or video automatically by file extension.
     function bannerHTML(url, title) {
-        const ext = (url.split('?')[0].split('.').pop() || '').toLowerCase();
-        if (['mp4', 'webm', 'mov'].includes(ext)) {
-            return `<div class="article-banner"><video src="${url}" autoplay muted loop playsinline controls preload="metadata"></video></div>`;
-        }
-        return `<div class="article-banner"><img src="${url}" alt="${title.replace(/"/g, '&quot;')}"></div>`;
+      const ext = url.split("?")[0].split(".").pop().toLowerCase();
+
+      if (["mp4", "webm", "mov"].includes(ext)) {
+        return `
+          <div class="article-banner">
+            <video src="${url}" autoplay muted loop playsinline controls preload="metadata"></video>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="article-banner">
+          <img src="${url}" alt="${escapeHTML(title)}">
+        </div>
+      `;
     }
 
-    const esc = s => { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
+    function setupMarkdownRenderer() {
+      const renderer = new marked.Renderer();
+
+      renderer.image = function({ href, text }) {
+        const src = resolveAsset(href);
+        return `<img src="${src}" alt="${escapeHTML(text || "")}" loading="lazy">`;
+      };
+
+      return renderer;
+    }
 
     async function loadArticle() {
-        const el = document.getElementById('article');
-        const file = new URLSearchParams(location.search).get('p');
-        if (!file || !/^[\w.\-]+\.md$/.test(file)) {
-            el.innerHTML = '<p class="status-message">Note not found. <a href="blog.html">Back to all notes</a>.</p>';
-            return;
+      const file = new URLSearchParams(window.location.search).get("p");
+
+      if (!file || !/^[\w.\-]+\.md$/.test(file)) {
+        article.innerHTML = `
+          <p class="status-message">
+            Note not found. <a href="blog.html">Back to all notes</a>.
+          </p>
+        `;
+        return;
+      }
+
+      const postURL = rawBase() + BLOG_CONFIG.postsDir + "/" + file;
+
+      try {
+        const response = await fetch(postURL);
+
+        if (!response.ok) {
+          throw new Error(`Fetch failed: ${response.status} ${response.statusText}`);
         }
-        try {
-            const url = rawBase() + BLOG_CONFIG.postsDir + '/' + file;
-            const res = await fetch(url);
-            if (!res.ok) throw new Error('fetch failed');
-            const text = await res.text();
-            const { meta, body } = parseFrontMatter(text);
 
-            const title = meta.title || file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '').replace(/-/g, ' ');
-            const dateFromName = (file.match(/^(\d{4}-\d{2}-\d{2})/) || [])[1];
-            const date = meta.date || dateFromName || '';
-            const tags = (meta.tags || '').split(',').map(t => t.trim()).filter(Boolean);
-            const banner = resolveAsset(meta.banner);
-            const words = body.trim().split(/\s+/).length;
-            const readTime = Math.max(1, Math.round(words / 200)) + ' min read';
+        const text = await response.text();
+        const { meta, body } = parseFrontMatter(text);
 
-            document.title = title + ' | Field Notes | Ronnie Bailey';
+        const title =
+          meta.title ||
+          file
+            .replace(/^\d{4}-\d{2}-\d{2}-/, "")
+            .replace(/\.md$/, "")
+            .replace(/-/g, " ");
 
-            // Resolve relative image paths inside the markdown body against the repo
-            marked.use({
-                renderer: {
-                    image(href, t, alt) {
-                        const src = resolveAsset(typeof href === 'string' ? href : href.href);
-                        return `<img src="${src}" alt="${(alt || '')}" loading="lazy">`;
-                    }
-                }
-            });
+        const dateFromFile = (file.match(/^(\d{4}-\d{2}-\d{2})/) || [])[1];
+        const date = meta.date || dateFromFile || "";
 
-            el.innerHTML = `
-                ${banner ? bannerHTML(banner, title) : ''}
-                <div class="article-meta">${esc(formatDate(date))} &nbsp;·&nbsp; ${esc(readTime)}</div>
-                <h1 class="article-title">${esc(title)}</h1>
-                ${tags.length ? `<div class="article-tags">${tags.map(t => `<span class="tag-chip">${esc(t)}</span>`).join('')}</div>` : ''}
-                <div class="article-body">${marked.parse(body)}</div>
-                <div class="article-footer">
-                    Written by Ronnie Bailey. Questions or disagreements welcome —
-                    <a href="mailto:opportunities@ronniebailey.cloud">get in touch</a> or find me on
-                    <a href="https://www.linkedin.com/in/ronniebailey" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
-                </div>
-            `;
-} catch (err) {
-    console.error("Post load error:", err);
-    el.innerHTML = `
-        <p class="status-message">
-            Couldn't load this note.<br>
-            Tried URL: ${rawBase() + BLOG_CONFIG.postsDir + '/' + file}
-        </p>
-    `;
-}
+        const tags = (meta.tags || "")
+          .split(",")
+          .map(tag => tag.trim())
+          .filter(Boolean);
+
+        const banner = meta.banner ? resolveAsset(meta.banner) : "";
+        const words = body.trim() ? body.trim().split(/\s+/).length : 0;
+        const readTime = Math.max(1, Math.round(words / 200)) + " min read";
+        const renderer = setupMarkdownRenderer();
+
+        document.title = `${title} | Field Notes | Ronnie Bailey`;
+
+        article.innerHTML = `
+          ${banner ? bannerHTML(banner, title) : ""}
+
+          <div class="article-meta">
+            ${escapeHTML(formatDate(date))} &nbsp;·&nbsp; ${escapeHTML(readTime)}
+          </div>
+
+          <h1 class="article-title">${escapeHTML(title)}</h1>
+
+          ${
+            tags.length
+              ? `<div class="article-tags">
+                  ${tags.map(tag => `<span class="tag-chip">${escapeHTML(tag)}</span>`).join("")}
+                </div>`
+              : ""
+          }
+
+          <div class="article-body">
+            ${marked.parse(body, { renderer })}
+          </div>
+
+          <div class="article-footer">
+            Written by Ronnie Bailey. Questions or disagreements welcome —
+            <a href="mailto:opportunities@ronniebailey.cloud">get in touch</a> or find me on
+            <a href="https://www.linkedin.com/in/ronniebailey" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+          </div>
+        `;
+      } catch (error) {
+        console.error("Post load error:", error);
+
+        article.innerHTML = `
+          <p class="status-message">
+            Couldn't load this note.<br><br>
+            Tried:<br>
+            <code>${escapeHTML(postURL)}</code><br><br>
+            <a href="blog.html">Back to all notes</a>.
+          </p>
+        `;
+      }
+    }
 
     loadArticle();
-    </script>
+  </script>
 </body>
 </html>
