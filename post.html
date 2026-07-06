@@ -307,10 +307,15 @@ const BLOG_CONFIG = {
                     <a href="https://www.linkedin.com/in/ronniebailey" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
                 </div>
             `;
-        } catch (err) {
-            el.innerHTML = '<p class="status-message">Couldn\'t load this note. <a href="blog.html">Back to all notes</a>.</p>';
-        }
-    }
+} catch (err) {
+    console.error("Post load error:", err);
+    el.innerHTML = `
+        <p class="status-message">
+            Couldn't load this note.<br>
+            Tried URL: ${rawBase() + BLOG_CONFIG.postsDir + '/' + file}
+        </p>
+    `;
+}
 
     loadArticle();
     </script>
