@@ -1,0 +1,44 @@
+<svg viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram comparing where the industry conversation is versus where most environments are, with the risk living in the gap between them" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f16"/>
+      <stop offset="100%" stop-color="#0d1420"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ff9f0a"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="660" rx="24" fill="url(#bg2)"/>
+
+  <!-- Left panel: the conversation -->
+  <rect x="60" y="70" width="460" height="460" rx="20" fill="none" stroke="#2997ff" stroke-width="1.6" opacity="0.85"/>
+  <text x="290" y="120" text-anchor="middle" font-size="15" fill="#8aa4c4" font-weight="700" letter-spacing="3">THE CONVERSATION · 2026</text>
+
+  <text x="100" y="185" font-size="21" fill="#e8edf4" font-weight="600">Agentic AI identity governance</text>
+  <text x="100" y="245" font-size="21" fill="#e8edf4" font-weight="600">Secretless, ephemeral credentials</text>
+  <text x="100" y="305" font-size="21" fill="#e8edf4" font-weight="600">Continuous attestation</text>
+  <text x="100" y="365" font-size="21" fill="#e8edf4" font-weight="600">Just-in-time machine access</text>
+  <text x="100" y="425" font-size="21" fill="#e8edf4" font-weight="600">Behavior-based machine trust</text>
+
+  <text x="100" y="495" font-size="15" fill="#8aa4c4">Where the vendors, analysts, and</text>
+  <text x="100" y="516" font-size="15" fill="#8aa4c4">conference tracks already live.</text>
+
+  <!-- Right panel: the environment -->
+  <rect x="680" y="70" width="460" height="460" rx="20" fill="none" stroke="#5a6b80" stroke-width="1.6" stroke-dasharray="7 7" opacity="0.9"/>
+  <text x="910" y="120" text-anchor="middle" font-size="15" fill="#8aa4c4" font-weight="700" letter-spacing="3">MOST ENVIRONMENTS</text>
+
+  <text x="720" y="185" font-size="21" fill="#e8edf4" font-weight="600">No reliable NHI inventory</text>
+  <text x="720" y="245" font-size="21" fill="#e8edf4" font-weight="600">No ownership model</text>
+  <text x="720" y="305" font-size="21" fill="#e8edf4" font-weight="600">Static keys in code and file shares</text>
+  <text x="720" y="365" font-size="21" fill="#e8edf4" font-weight="600">Rotation as an exception</text>
+  <text x="720" y="425" font-size="21" fill="#e8edf4" font-weight="600">Credentials that outlive their creators</text>
+
+  <text x="720" y="495" font-size="15" fill="#8aa4c4">Where the audit findings, incident</text>
+  <text x="720" y="516" font-size="15" fill="#8aa4c4">reports, and quiet exposure live.</text>
+
+  <!-- The gap -->
+  <line x1="530" y1="300" x2="670" y2="300" stroke="#ff9f0a" stroke-width="2.4" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="600" y="278" text-anchor="middle" font-size="16" fill="#ff9f0a" font-weight="700">the gap</text>
+
+  <text x="600" y="595" text-anchor="middle" font-size="17" fill="#e8edf4" font-weight="600">The risk is not being behind the conversation. The risk is not knowing by how much.</text>
+</svg>

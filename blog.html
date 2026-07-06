@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Field Notes | Ronnie Bailey</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --accent: #0071e3;
+            --accent-soft: rgba(0, 113, 227, 0.10);
+            --text: #1d1d1f;
+            --text-light: #6e6e73;
+            --text-lighter: #86868b;
+            --border: #d2d2d7;
+            --bg: #ffffff;
+            --bg-light: #f5f5f7;
+            --surface: rgba(255, 255, 255, 0.72);
+            --shadow: 0 18px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        html[data-theme="dark"] {
+            --accent: #2997ff;
+            --accent-soft: rgba(41, 151, 255, 0.14);
+            --text: #f5f5f7;
+            --text-light: #a1a1a6;
+            --text-lighter: #86868b;
+            --border: #2c2c2e;
+            --bg: #000000;
+            --bg-light: #1c1c1e;
+            --surface: rgba(28, 28, 30, 0.74);
+            --shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Inter, system-ui, sans-serif;
+            background: radial-gradient(circle at 50% -10%, rgba(0, 113, 227, 0.10), transparent 36rem), var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: saturate(180%) blur(24px);
+            -webkit-backdrop-filter: saturate(180%) blur(24px);
+            padding: 0.85rem 0;
+        }
+
+        .header-wrapper {
+            max-width: 1080px; margin: 0 auto; padding: 0 1.5rem;
+            display: flex; justify-content: space-between; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+        }
+
+        .main-nav { display: flex; gap: 1.25rem; list-style: none; flex-wrap: wrap; }
+        .main-nav a {
+            font-size: 0.82rem; color: var(--text-light); text-decoration: none;
+            font-weight: 500; letter-spacing: -0.01em; padding: 0.35rem 0; transition: color 0.2s ease;
+        }
+        .main-nav a:hover, .main-nav a.active { color: var(--text); }
+
+        .header-actions { display: flex; gap: 0.45rem; align-items: center; }
+        .theme-toggle {
+            color: var(--text-light); font-size: 0.9rem; border-radius: 999px;
+            display: flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; border: none; background: transparent; cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .theme-toggle:hover { background: var(--bg-light); color: var(--text); }
+
+        main { max-width: 1080px; margin: 0 auto; padding: 4rem 1.5rem 3rem; }
+
+        .notes-hero { padding: 1.5rem 0 3rem; border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+        .notes-hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: -0.055em; font-weight: 750; line-height: 1.02; margin-bottom: 0.9rem; }
+        .notes-hero p { font-size: clamp(1rem, 1.8vw, 1.2rem); color: var(--text-light); max-width: 700px; letter-spacing: -0.02em; }
+
+        .layout { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 3rem; align-items: start; }
+
+        /* ---------- Post cards ---------- */
+        .post-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+        .post-card {
+            display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 1.35rem;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 1.1rem;
+            text-decoration: none; color: inherit;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .post-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+        .post-card-media {
+            width: 100%; aspect-ratio: 16 / 10;
+            border-radius: 14px; overflow: hidden;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .post-card-media img, .post-card-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .post-card-media .media-fallback { color: var(--text-lighter); font-size: 1.4rem; }
+
+        .post-card-body { display: flex; flex-direction: column; gap: 0.4rem; min-width: 0; }
+        .post-card-meta { font-size: 0.76rem; color: var(--text-lighter); font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase; }
+        .post-card-title { font-size: 1.18rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.25; color: var(--text); }
+        .post-card-summary { font-size: 0.92rem; color: var(--text-light); line-height: 1.6; }
+        .post-card-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto; padding-top: 0.6rem; }
+        .tag-chip {
+            font-size: 0.7rem; font-weight: 600; color: var(--text-light);
+            background: var(--bg); border: 1px solid var(--border);
+            padding: 0.2rem 0.6rem; border-radius: 999px; white-space: nowrap;
+        }
+
+        /* ---------- Sidebar / tag cloud ---------- */
+        .sidebar { position: sticky; top: 5.5rem; }
+        .sidebar-section {
+            background: var(--bg-light); border: 1px solid var(--border);
+            border-radius: 22px; padding: 1.35rem; margin-bottom: 1.25rem;
+        }
+        .sidebar-title {
+            font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.11em; color: var(--text); margin-bottom: 1rem;
+        }
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem 0.7rem; align-items: baseline; }
+        .tag-cloud button {
+            font-family: inherit; border: none; background: none; cursor: pointer;
+            color: var(--text-light); font-weight: 600; letter-spacing: -0.01em;
+            padding: 0.1rem 0.15rem; border-radius: 6px;
+            transition: color 0.15s ease;
+        }
+        .tag-cloud button:hover { color: var(--accent); }
+        .tag-cloud button.active { color: var(--accent); }
+        .tag-cloud .tag-count { font-size: 0.65em; color: var(--text-lighter); font-weight: 500; margin-left: 2px; }
+
+        .clear-filter {
+            display: none; margin-top: 1rem; font-size: 0.78rem; font-weight: 600;
+            color: var(--accent); background: none; border: none; cursor: pointer; font-family: inherit; padding: 0;
+        }
+        .clear-filter.visible { display: inline; }
+
+        .status-message { color: var(--text-light); font-size: 0.95rem; padding: 2rem 0; }
+        .status-message a { color: var(--accent); }
+
+        footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-lighter); font-size: 0.82rem; margin-top: 3rem; }
+
+        @media (prefers-reduced-motion: reduce) { .post-card { transition: none; } }
+
+        @media (max-width: 900px) {
+            header { position: static; }
+            .layout { grid-template-columns: 1fr; gap: 2rem; }
+            .sidebar { position: static; order: -1; }
+            .sidebar-section { padding: 1.1rem 1.25rem; }
+        }
+
+        @media (max-width: 640px) {
+            .post-card { grid-template-columns: 1fr; gap: 0.9rem; }
+            .post-card-media { aspect-ratio: 16 / 8; }
+            main { padding: 2.5rem 1rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-wrapper">
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="index.html#perspective">Perspective</a>
+                <a href="index.html#experience">Experience</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="blog.html" class="active">Field Notes</a>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode"><i class="fas fa-adjust"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="notes-hero">
+            <h1>Field Notes</h1>
+            <p>Working notes from fifteen years in identity security: failure modes, decisions, and the reasoning behind them. Written for practitioners, and for my future self.</p>
+        </section>
+
+        <div class="layout">
+            <div>
+                <div class="post-list" id="post-list">
+                    <p class="status-message">Loading notes…</p>
+                </div>
+            </div>
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Topics</div>
+                    <div class="tag-cloud" id="tag-cloud"><span style="color:var(--text-lighter);font-size:0.85rem;">…</span></div>
+                    <button class="clear-filter" id="clear-filter">Show all notes</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ronnie Bailey | Identity Security Director</p>
+    </footer>
+
+    <script>
+    /* =====================================================================
+       CONFIG — the only thing you ever need to edit in this file.
+       Point it at the GitHub repo that hosts this site.
+       ===================================================================== */
+    const BLOG_CONFIG = {
+        owner:    "YOUR-GITHUB-USERNAME",   // e.g. "ronnieblog"
+        repo:     "YOUR-REPO-NAME",         // e.g. "ronnieblog.github.io"
+        branch:   "main",
+        postsDir: "posts"                   // folder in the repo where .md files live
+    };
+    /* ===================================================================== */
+
+    // ---------- theme (shared with the portfolio pages) ----------
+    const htmlElement = document.documentElement;
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+        const next = (htmlElement.getAttribute('data-theme') || 'light') === 'light' ? 'dark' : 'light';
+        htmlElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+    });
+    if (localStorage.getItem('theme') === 'dark') htmlElement.setAttribute('data-theme', 'dark');
+
+    // ---------- helpers ----------
+    const rawBase = () =>
+        `https://raw.githubusercontent.com/${BLOG_CONFIG.owner}/${BLOG_CONFIG.repo}/${BLOG_CONFIG.branch}/`;
+
+    function resolveAsset(path) {
+        if (!path) return null;
+        if (/^https?:\/\//i.test(path)) return path;
+        // relative paths are resolved against the repo root
+        return rawBase() + path.replace(/^\.?\//, '');
+    }
+
+    function parseFrontMatter(text) {
+        const meta = {};
+        let body = text;
+        const m = text.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?/);
+        if (m) {
+            body = text.slice(m[0].length);
+            m[1].split(/\r?\n/).forEach(line => {
+                const i = line.indexOf(':');
+                if (i > -1) meta[line.slice(0, i).trim().toLowerCase()] = line.slice(i + 1).trim();
+            });
+        }
+        return { meta, body };
+    }
+
+    function firstParagraph(markdown, maxLen = 200) {
+        const cleaned = markdown
+            .replace(/```[\s\S]*?```/g, '')          // code blocks
+            .replace(/^#{1,6}\s.*$/gm, '')           // headings
+            .replace(/!\[[^\]]*\]\([^)]*\)/g, '')    // images
+            .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') // links -> text
+            .replace(/[*_`>#]/g, '')
+            .split(/\n\s*\n/).map(s => s.trim()).find(s => s.length > 0) || '';
+        return cleaned.length > maxLen ? cleaned.slice(0, maxLen).replace(/\s+\S*$/, '') + '…' : cleaned;
+    }
+
+    function formatDate(str) {
+        const d = new Date(str + 'T12:00:00');
+        if (isNaN(d)) return str || '';
+        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function mediaElement(url, alt) {
+        const ext = (url.split('?')[0].split('.').pop() || '').toLowerCase();
+        if (['mp4', 'webm', 'mov'].includes(ext)) {
+            return `<video src="${url}" autoplay muted loop playsinline preload="metadata"></video>`;
+        }
+        return `<img src="${url}" alt="${alt.replace(/"/g, '&quot;')}" loading="lazy">`;
+    }
+
+    function readingTime(markdown) {
+        const words = markdown.trim().split(/\s+/).length;
+        return Math.max(1, Math.round(words / 200)) + ' min read';
+    }
+
+    const esc = s => { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
+
+    // ---------- load & render ----------
+    let allPosts = [];
+    let activeTag = null;
+
+    async function loadPosts() {
+        const listEl = document.getElementById('post-list');
+        try {
+            const apiUrl = `https://api.github.com/repos/${BLOG_CONFIG.owner}/${BLOG_CONFIG.repo}/contents/${BLOG_CONFIG.postsDir}?ref=${BLOG_CONFIG.branch}`;
+            const res = await fetch(apiUrl);
+            if (!res.ok) throw new Error('GitHub API returned ' + res.status);
+            const files = (await res.json())
+                .filter(f => f.type === 'file' && f.name.endsWith('.md') && !f.name.startsWith('_'));
+
+            if (files.length === 0) {
+                listEl.innerHTML = '<p class="status-message">No notes yet. The first one is on its way.</p>';
+                document.getElementById('tag-cloud').innerHTML = '';
+                return;
+            }
+
+            const posts = await Promise.all(files.map(async f => {
+                try {
+                    const r = await fetch(f.download_url);
+                    const text = await r.text();
+                    const { meta, body } = parseFrontMatter(text);
+                    const dateFromName = (f.name.match(/^(\d{4}-\d{2}-\d{2})/) || [])[1];
+                    return {
+                        file: f.name,
+                        title: meta.title || f.name.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '').replace(/-/g, ' '),
+                        date: meta.date || dateFromName || '',
+                        tags: (meta.tags || '').split(',').map(t => t.trim().toLowerCase()).filter(Boolean),
+                        banner: resolveAsset(meta.banner),
+                        summary: meta.summary || firstParagraph(body),
+                        readTime: readingTime(body)
+                    };
+                } catch (e) { return null; }
+            }));
+
+            allPosts = posts.filter(Boolean).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+            renderTagCloud();
+            renderPosts();
+        } catch (err) {
+            listEl.innerHTML = `<p class="status-message">Couldn't load notes right now. If you're the site owner: check the <code>BLOG_CONFIG</code> owner/repo values in blog.html, and note that this page only works once published (not when opened as a local file).</p>`;
+        }
+    }
+
+    function renderPosts() {
+        const listEl = document.getElementById('post-list');
+        const visible = activeTag ? allPosts.filter(p => p.tags.includes(activeTag)) : allPosts;
+        if (visible.length === 0) {
+            listEl.innerHTML = '<p class="status-message">No notes with that tag yet.</p>';
+            return;
+        }
+        listEl.innerHTML = visible.map(p => `
+            <a class="post-card" href="post.html?p=${encodeURIComponent(p.file)}">
+                <div class="post-card-media">
+                    ${p.banner ? mediaElement(p.banner, p.title) : '<span class="media-fallback"><i class="fas fa-fingerprint"></i></span>'}
+                </div>
+                <div class="post-card-body">
+                    <div class="post-card-meta">${esc(formatDate(p.date))} &nbsp;·&nbsp; ${esc(p.readTime)}</div>
+                    <div class="post-card-title">${esc(p.title)}</div>
+                    <div class="post-card-summary">${esc(p.summary)}</div>
+                    ${p.tags.length ? `<div class="post-card-tags">${p.tags.map(t => `<span class="tag-chip">${esc(t)}</span>`).join('')}</div>` : ''}
+                </div>
+            </a>
+        `).join('');
+    }
+
+    function renderTagCloud() {
+        const counts = {};
+        allPosts.forEach(p => p.tags.forEach(t => { counts[t] = (counts[t] || 0) + 1; }));
+        const entries = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+        const cloudEl = document.getElementById('tag-cloud');
+        if (entries.length === 0) { cloudEl.innerHTML = '<span style="color:var(--text-lighter);font-size:0.85rem;">Tags will appear as notes are published.</span>'; return; }
+        const max = entries[0][1], min = entries[entries.length - 1][1];
+        cloudEl.innerHTML = entries.map(([tag, count]) => {
+            const scale = max === min ? 0.5 : (count - min) / (max - min);
+            const size = (0.78 + scale * 0.32).toFixed(2);
+            return `<button data-tag="${esc(tag)}" style="font-size:${size}rem">${esc(tag)}<span class="tag-count">${count}</span></button>`;
+        }).join('');
+        cloudEl.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                activeTag = activeTag === btn.dataset.tag ? null : btn.dataset.tag;
+                cloudEl.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.tag === activeTag));
+                document.getElementById('clear-filter').classList.toggle('visible', !!activeTag);
+                renderPosts();
+            });
+        });
+    }
+
+    document.getElementById('clear-filter').addEventListener('click', () => {
+        activeTag = null;
+        document.querySelectorAll('#tag-cloud button').forEach(b => b.classList.remove('active'));
+        document.getElementById('clear-filter').classList.remove('visible');
+        renderPosts();
+    });
+
+    loadPosts();
+    </script>
+</body>
+</html>
