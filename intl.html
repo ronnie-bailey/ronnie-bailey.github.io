@@ -4,11 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ronnie Bailey — Global Perspective</title>
-<meta name="description" content="Ronnie Bailey: identity security architect with global security experience, cross-cultural communication, language study, public service, and international engagement.">
+<meta name="description" content="Ronnie Bailey: identity security architect with global security experience, language study, public service, and cross-cultural engagement.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -16,7 +16,7 @@
   --atlas:#0d2b47;
   --atlas-2:#123a5e;
   --line:#2a5378;
-  --line-soft:rgba(122,168,205,.14);
+  --line-soft:rgba(122,168,205,.16);
   --ink:#e9e4d4;
   --ink-dim:#b9c6d2;
   --steel:#7fa3c2;
@@ -24,17 +24,623 @@
   --gilt-bright:#e3c06a;
   --card:rgba(10,34,56,.72);
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+
 body{
-  font-family:'Spectral',Georgia,serif;
-  background:linear-gradient(160deg,var(--abyss),var(--atlas) 45%,var(--atlas-2));
+  font-family:'Spectral', Georgia, serif;
+  background:linear-gradient(160deg,var(--abyss),var(--atlas) 48%,var(--atlas-2));
   color:var(--ink);
   line-height:1.65;
   min-height:100vh;
   overflow-x:hidden;
 }
-.atmosphere{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+
+h1,h2,h3{font-family:'Cinzel',serif}
+.meta,.role,.tag,.sec-eyebrow,footer,nav a{font-family:'IBM Plex Mono',monospace}
+
+.shell{
+  position:relative;
+  z-index:2;
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 clamp(20px,4vw,56px);
+}
+
+.vignette{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:radial-gradient(ellipse at 50% 35%,transparent 40%,rgba(4,14,24,.62) 100%);
+}
+
+.compass{
+  position:fixed;
+  top:-14vmin;
+  left:-14vmin;
+  width:58vmin;
+  height:58vmin;
+  opacity:.10;
+  z-index:1;
+  pointer-events:none;
+  animation:churn 240s linear infinite;
+}
+
+@keyframes churn{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+header{
+  min-height:88vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:clamp(60px,10vh,120px) 0;
+}
+
+.overline{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--steel);
+  margin-bottom:26px;
+}
+
+.overline span{
+  display:inline-block;
+  width:44px;
+  height:1px;
+  background:var(--gilt);
+  vertical-align:middle;
+  margin-right:16px;
+}
+
+h1{
+  font-size:clamp(2.25rem,6vw,4.4rem);
+  line-height:1.12;
+  letter-spacing:.20em;
+  text-transform:uppercase;
+  font-weight:500;
+}
+
+h1 .gilt{color:var(--gilt-bright)}
+
+.hero-sub{
+  margin-top:24px;
+  max-width:760px;
+  color:var(--ink-dim);
+  font-size:clamp(1.02rem,1.6vw,1.18rem);
+  font-weight:300;
+}
+
+nav{
+  margin-top:54px;
+  max-width:480px;
+  border-left:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+}
+
+nav a{
+  padding:12px 22px;
+  color:var(--ink-dim);
+  text-decoration:none;
+  text-transform:uppercase;
+  font-size:.75rem;
+  letter-spacing:.15em;
+  border-bottom:1px solid rgba(122,168,205,.10);
+  background:linear-gradient(90deg,rgba(127,163,194,.07),transparent 70%);
+}
+
+nav a:hover{
+  color:var(--gilt-bright);
+  background:linear-gradient(90deg,rgba(201,164,74,.14),transparent 75%);
+}
+
+section{padding:clamp(56px,9vh,105px) 0}
+
+.sec-head{margin-bottom:42px}
+
+.sec-eyebrow{
+  font-size:.68rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--gilt);
+  margin-bottom:12px;
+}
+
+h2{
+  font-size:clamp(1.4rem,3vw,2rem);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-weight:500;
+}
+
+.sec-note{
+  margin-top:14px;
+  max-width:760px;
+  color:var(--ink-dim);
+  font-size:1.02rem;
+  font-weight:300;
+}
+
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:34px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line-soft);
+  padding:28px;
+}
+
+.card h3{
+  font-size:1rem;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+.card ul{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:13px;
+}
+
+.card li{
+  color:var(--ink-dim);
+  font-weight:300;
+  padding-left:24px;
+  position:relative;
+}
+
+.card li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.72em;
+  width:12px;
+  height:1px;
+  background:var(--gilt);
+}
+
+.tags{
+  margin-top:28px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.tag{
+  border:1px solid var(--line);
+  background:rgba(13,43,71,.48);
+  color:var(--ink-dim);
+  padding:8px 15px;
+  font-size:.72rem;
+  letter-spacing:.08em;
+}
+
+.ledger{display:flex;flex-direction:column}
+
+.entry{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:28px;
+  padding:30px 26px;
+  border-top:1px solid var(--line-soft);
+}
+
+.entry:last-child{border-bottom:1px solid var(--line-soft)}
+.entry:hover{background:rgba(127,163,194,.045)}
+
+.meta{
+  color:var(--steel);
+  font-size:.74rem;
+  letter-spacing:.05em;
+  line-height:1.8;
+}
+
+.meta .dates{
+  display:block;
+  color:var(--gilt);
+  margin-bottom:4px;
+}
+
+.entry h3{
+  font-size:1.08rem;
+  letter-spacing:.06em;
+  margin-bottom:2px;
+}
+
+.role{
+  color:var(--gilt-bright);
+  text-transform:uppercase;
+  font-size:.74rem;
+  letter-spacing:.13em;
+  margin-bottom:12px;
+}
+
+.entry p{
+  color:var(--ink-dim);
+  font-size:.98rem;
+  font-weight:300;
+  max-width:780px;
+}
+
+.context-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1px;
+  background:var(--line-soft);
+  border:1px solid var(--line-soft);
+}
+
+.place{
+  background:var(--card);
+  padding:24px;
+}
+
+.place strong{
+  display:block;
+  font-family:'Cinzel',serif;
+  color:var(--gilt-bright);
+  letter-spacing:.08em;
+  margin-bottom:8px;
+}
+
+.place span{
+  color:var(--ink-dim);
+  font-size:.95rem;
+}
+
+.profile{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:clamp(30px,5vw,56px);
+}
+
+.profile p{
+  max-width:850px;
+  color:var(--ink-dim);
+  font-size:1.06rem;
+  font-weight:300;
+}
+
+.profile p+p{margin-top:16px}
+
+.rotating-gallery{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.photo-tile{
+  aspect-ratio:1/1;
+  background:#0b263f;
+  border:1px solid var(--line-soft);
+  overflow:hidden;
+}
+
+.photo-tile img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  opacity:.92;
+  transform:scale(1.02);
+  transition:opacity .8s ease, transform .8s ease;
+}
+
+.photo-tile.fade img{
+  opacity:0;
+  transform:scale(1.08);
+}
+
+footer{
+  padding:60px 0 48px;
+  border-top:1px solid var(--line-soft);
+  margin-top:40px;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  color:var(--steel);
+  font-size:.72rem;
+  letter-spacing:.13em;
+}
+
+footer a{
+  color:var(--gilt);
+  text-decoration:none;
+}
+
+@media(max-width:800px){
+  .grid-2,.entry{grid-template-columns:1fr}
+  .rotating-gallery{grid-template-columns:repeat(2,1fr)}
+  header{min-height:76vh}
+}
+</style>
+</head>
+
+<body>
+
+<svg class="compass" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="#cfe0ee" stroke-width="1">
+    <circle cx="200" cy="200" r="190"/>
+    <circle cx="200" cy="200" r="168"/>
+    <circle cx="200" cy="200" r="120" stroke-dasharray="2 7"/>
+    <circle cx="200" cy="200" r="64"/>
+  </g>
+  <g stroke="#cfe0ee" stroke-width="1">
+    <line x1="200" y1="10" x2="200" y2="390"/>
+    <line x1="10" y1="200" x2="390" y2="200"/>
+    <line x1="66" y1="66" x2="334" y2="334"/>
+    <line x1="334" y1="66" x2="66" y2="334"/>
+  </g>
+</svg>
+
+<div class="vignette"></div>
+
+<div class="shell">
+
+<header id="home">
+  <p class="overline"><span></span>Global Perspective</p>
+  <h1>Ronnie <span class="gilt">Bailey</span></h1>
+
+  <p class="hero-sub">
+    Identity Security Architect with fifteen years securing enterprise environments, including multinational identity systems, global collaboration, public service, language study, and cross-cultural engagement.
+  </p>
+
+  <nav>
+    <a href="#security">Security Practice</a>
+    <a href="#engagement">International Engagement</a>
+    <a href="#context">Global Context</a>
+    <a href="#mindset">Point of View</a>
+    <a href="#field-notes">Field Notes</a>
+  </nav>
+</header>
+
+<section id="security">
+  <div class="sec-head">
+    <p class="sec-eyebrow">Professional Foundation</p>
+    <h2>Global Security Practice</h2>
+    <p class="sec-note">
+      The strongest international thread in this profile is not travel. It is identity security work performed at enterprise and multinational scale.
+    </p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Enterprise Identity</h3>
+      <ul>
+        <li>Designed and supported identity and access management environments for large organizations.</li>
+        <li>Worked across authentication, authorization, provisioning, SSO, MFA, and identity governance.</li>
+        <li>Supported systems where trust, access, and security crossed organizational and geographic boundaries.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Global Collaboration</h3>
+      <ul>
+        <li>Collaborated with distributed engineering and operations teams.</li>
+        <li>Supported identity systems serving multinational organizations and diverse user populations.</li>
+        <li>Worked in settings where technical clarity, communication, and cultural awareness mattered.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tags">
+    <span class="tag">Azure AD / Entra ID</span>
+    <span class="tag">Ping Identity</span>
+    <span class="tag">ForgeRock</span>
+    <span class="tag">SAML</span>
+    <span class="tag">OAuth</span>
+    <span class="tag">OIDC</span>
+    <span class="tag">SCIM</span>
+    <span class="tag">LDAP</span>
+    <span class="tag">Global IAM</span>
+    <span class="tag">Identity Governance</span>
+  </div>
+</section>
+
+<section id="engagement">
+  <div class="sec-head">
+    <p class="sec-eyebrow">International Engagement</p>
+    <h2>Language, Public Service & Cross-Cultural Work</h2>
+    <p class="sec-note">
+      Language study, public-facing government service, diplomacy coursework, and human-rights training provide the broader context around the technical career.
+    </p>
+  </div>
+
+  <div class="ledger">
+    <article class="entry">
+      <div class="meta"><span class="dates">Jan 2013 · Remote</span>Tokyo, Japan · Headquarters</div>
+      <div>
+        <h3>Lang-8, Inc.</h3>
+        <p class="role">Language Interpreter & Cross-Cultural Contributor</p>
+        <p>Supported a Tokyo-headquartered international language exchange platform through French-English interpretation, translation assistance, language coaching, and cross-cultural communication with a global community of learners.</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="meta"><span class="dates">Multi-Year</span>French Language Study</div>
+      <div>
+        <h3>Alliance Française</h3>
+        <p class="role">French Language Student</p>
+        <p>Completed sustained French language study focused on communication, Francophone culture, history, and intercultural understanding.</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="meta"><span class="dates">Academic</span>International Relations</div>
+      <div>
+        <h3>Clark College</h3>
+        <p class="role">Public Relations / International Relations</p>
+        <p>Studied international relations, diplomacy, communications, global affairs, and public policy.</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="meta"><span class="dates">2023</span>Washington, D.C.</div>
+      <div>
+        <h3>U.S. Institute of Diplomacy and Human Rights</h3>
+        <p class="role">Professional Certificate</p>
+        <p>Completed professional training in diplomacy, international human rights principles, advocacy, multilateral institutions, and international legal frameworks.</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="meta"><span class="dates">Academic</span>Diplomatic Simulation</div>
+      <div>
+        <h3>Model United Nations</h3>
+        <p class="role">Delegate / Participant</p>
+        <p>Participated in simulations involving negotiation, coalition-building, public speaking, geopolitical analysis, and resolution drafting.</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="meta"><span class="dates">Academic</span>Student Leadership</div>
+      <div>
+        <h3>University French Club</h3>
+        <p class="role">President</p>
+        <p>Led French language and cultural programming, supporting campus engagement around language, culture, and international awareness.</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="meta"><span class="dates">Sep 2017 – Apr 2018</span>Washington, D.C.</div>
+      <div>
+        <h3>Architect of the Capitol</h3>
+        <p class="role">Visitor Assistant</p>
+        <p>Represented a major public institution while assisting domestic and international visitors through public engagement, historical interpretation, and professional communication.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="context">
+  <div class="sec-head">
+    <p class="sec-eyebrow">Global Context</p>
+    <h2>Where the Work Connects</h2>
+    <p class="sec-note">A practical mix of work, study, public service, cultural engagement, and travel.</p>
+  </div>
+
+  <div class="context-list">
+    <div class="place"><strong>Washington, D.C.</strong><span>Public service, diplomacy training, and government institutions.</span></div>
+    <div class="place"><strong>Tokyo, Japan</strong><span>Remote work with a Tokyo-headquartered language exchange company.</span></div>
+    <div class="place"><strong>Paris, France</strong><span>French language, culture, travel, and European historical study.</span></div>
+    <div class="place"><strong>London, United Kingdom</strong><span>International travel and cultural exposure.</span></div>
+    <div class="place"><strong>Multinational Security Work</strong><span>Enterprise identity systems supporting users, teams, and platforms across global organizations.</span></div>
+    <div class="place"><strong>Richmond, Virginia</strong><span>Home base for cybersecurity, civic engagement, and public service.</span></div>
+  </div>
+</section>
+
+<section id="mindset">
+  <div class="sec-head">
+    <p class="sec-eyebrow">Point of View</p>
+    <h2>Global Mindset</h2>
+  </div>
+
+  <div class="profile">
+    <p>Technology crosses borders before organizations fully understand the risks. Identity security sits at the center of that reality: who can access what, from where, under which rules, and with what level of trust.</p>
+    <p>My background brings together technical depth in identity security with a long-standing interest in language, diplomacy, human rights, public service, and cross-cultural communication.</p>
+    <p>The result is not a traditional international affairs profile. It is a global technology profile: practical security experience supported by cultural awareness, public-sector exposure, and international curiosity.</p>
+  </div>
+</section>
+
+<section id="field-notes">
+  <div class="sec-head">
+    <p class="sec-eyebrow">Cultural Record</p>
+    <h2>Field Notes</h2>
+    <p class="sec-note">A rotating visual archive of language study, travel, public service, culture, and international curiosity.</p>
+  </div>
+
+  <div class="rotating-gallery" id="rotatingGallery"></div>
+</section>
+
+<footer>
+  <span>Ronnie Bailey · Identity · Culture · Technology · Public Service</span>
+  <span><a href="https://ronniebailey.cloud">ronniebailey.cloud</a> · © 2026</span>
+</footer>
+
+</div>
+
+<script>
+const imageLibrary = [
+  "images/paris-eiffel.jpg",
+  "images/paris-seine.jpg",
+  "images/french-study.jpg",
+  "images/japan-publication.jpg",
+  "images/french-project.jpg",
+  "images/london.jpg",
+  "images/cultural-festival.jpg",
+  "images/capitol-interior.jpg",
+  "images/jefferson-memorial.jpg",
+  "images/washington-dc.jpg",
+  "images/france-culture.jpg",
+  "images/language-books.jpg",
+  "images/public-service.jpg",
+  "images/europe-travel.jpg",
+  "images/french-notes.jpg",
+  "images/international-event.jpg",
+  "images/museum.jpg",
+  "images/government.jpg",
+  "images/paris-night.jpg",
+  "images/culture-archive.jpg",
+  "images/capitol-dome.jpg",
+  "images/french-class.jpg",
+  "images/paris-street.jpg",
+  "images/global-culture.jpg",
+  "images/history-museum.jpg",
+  "images/language-exchange.jpg",
+  "images/france-project.jpg",
+  "images/civic-institution.jpg",
+  "images/europe-architecture.jpg",
+  "images/cultural-study.jpg"
+];
+
+const gallery = document.getElementById("rotatingGallery");
+const tileCount = 16;
+
+function chooseImage(current){
+  let next;
+  do{
+    next = imageLibrary[Math.floor(Math.random() * imageLibrary.length)];
+  }while(current && current.includes(next) && imageLibrary.length > 1);
+  return next;
+}
+
+for(let i=0;i<tileCount;i++){
+  const tile=document.createElement("div");
+  tile.className="photo-tile";
+  const img=document.createElement("img");
+  img.src=imageLibrary[i % imageLibrary.length];
+  img.alt="Cultural field note";
+  tile.appendChild(img);
+  gallery.appendChild(tile);
+}
+
+setInterval(()=>{
+  const tiles=document.querySelectorAll(".photo-tile");
+  const tile=tiles[Math.floor(Math.random()*tiles.length)];
+  const img=tile.querySelector("img");
+  tile.classList.add("fade");
+  setTimeout(()=>{
+    img.src=chooseImage(img.src);
+    tile.classList.remove("fade");
+  },800);
+},4000);
+</script>
+
+</body>
+</html>.atmosphere{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .vignette{
   position:fixed;inset:0;z-index:0;pointer-events:none;
   background:radial-gradient(ellipse at 50% 35%,transparent 40%,rgba(4,14,24,.55) 100%);
