@@ -1,21 +1,20 @@
+Yes — 8 images is cleaner. I also added the compass back and added a small French translation line in the hero.
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ronnie Bailey — International Record</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
 :root{
   --navy:#061a2b;
   --blue:#0b2a45;
   --blue2:#123a5e;
   --cream:#e9e4d4;
-  --cream2:#f5eedc;
   --muted:#c8d3dc;
   --gold:#c9a44a;
   --gold2:#e3c06a;
@@ -23,11 +22,8 @@
   --ink:#0b2238;
   --ink2:#123a5e;
 }
-
 *{box-sizing:border-box;margin:0;padding:0}
-
 html{scroll-behavior:smooth}
-
 body{
   font-family:'Spectral', Georgia, serif;
   background:
@@ -38,9 +34,7 @@ body{
   min-height:100vh;
   overflow-x:hidden;
 }
-
 h1,h2,h3{font-family:'Cinzel',serif}
-
 .background-atlas{
   position:fixed;
   inset:0;
@@ -48,31 +42,27 @@ h1,h2,h3{font-family:'Cinzel',serif}
   pointer-events:none;
   overflow:hidden;
 }
-
 .compass{
   position:absolute;
   width:1150px;
   height:1150px;
   top:-520px;
   left:-520px;
-  opacity:.045;
+  opacity:.07;
   animation:compassRotate 420s linear infinite;
 }
-
 .grid-globe{
   position:absolute;
   width:900px;
   height:900px;
   right:-360px;
   bottom:-360px;
-  opacity:.045;
+  opacity:.05;
 }
-
 @keyframes compassRotate{
   from{transform:rotate(0deg)}
   to{transform:rotate(360deg)}
 }
-
 .shell{
   position:relative;
   z-index:2;
@@ -80,11 +70,7 @@ h1,h2,h3{font-family:'Cinzel',serif}
   margin:0 auto;
   padding:0 clamp(22px,4vw,54px);
 }
-
-header{
-  padding:70px 0 44px;
-}
-
+header{padding:70px 0 44px}
 .kicker{
   color:var(--gold2);
   font-size:.95rem;
@@ -92,7 +78,6 @@ header{
   margin-bottom:18px;
   font-weight:500;
 }
-
 h1{
   font-size:clamp(2.65rem,7vw,5rem);
   letter-spacing:.14em;
@@ -100,7 +85,6 @@ h1{
   line-height:1.08;
   font-weight:500;
 }
-
 .hero-sub{
   margin-top:24px;
   max-width:790px;
@@ -108,19 +92,19 @@ h1{
   font-size:1.22rem;
   font-weight:300;
 }
-
-.hero-sub strong{
-  color:var(--cream);
-  font-weight:500;
+.french-line{
+  margin-top:14px;
+  max-width:790px;
+  color:var(--gold2);
+  font-size:1.02rem;
+  font-style:italic;
 }
-
 .hero-links{
   margin-top:32px;
   display:flex;
   flex-wrap:wrap;
   gap:12px;
 }
-
 .hero-links a{
   color:var(--cream);
   text-decoration:none;
@@ -129,38 +113,30 @@ h1{
   font-size:.95rem;
   background:rgba(255,255,255,.04);
 }
-
 .hero-links a:hover{
   color:var(--gold2);
   border-color:rgba(227,192,106,.55);
 }
-
 section{padding:54px 0}
-
 .intro{
   background:var(--cream);
   color:var(--ink);
   padding:clamp(30px,4vw,48px);
   box-shadow:0 18px 45px rgba(0,0,0,.18);
 }
-
 .intro p{
   max-width:900px;
   color:var(--ink2);
   font-size:1.13rem;
 }
-
 .intro p+p{margin-top:18px}
-
 .sec-head{margin-bottom:30px}
-
 h2{
   font-size:clamp(1.55rem,3vw,2.1rem);
   letter-spacing:.08em;
   text-transform:uppercase;
   font-weight:500;
 }
-
 .sec-note{
   margin-top:12px;
   max-width:760px;
@@ -168,11 +144,7 @@ h2{
   font-size:1.04rem;
   font-weight:300;
 }
-
-.timeline{
-  border-top:1px solid var(--line);
-}
-
+.timeline{border-top:1px solid var(--line)}
 .entry{
   display:grid;
   grid-template-columns:250px 1fr;
@@ -180,14 +152,12 @@ h2{
   padding:34px 0;
   border-bottom:1px solid var(--line);
 }
-
 .when{
   color:var(--cream);
   font-size:1rem;
   font-weight:500;
   line-height:1.45;
 }
-
 .where{
   display:block;
   margin-top:8px;
@@ -195,58 +165,49 @@ h2{
   font-size:.98rem;
   font-weight:300;
 }
-
 .entry h3{
   font-size:1.12rem;
   letter-spacing:.04em;
   margin-bottom:4px;
 }
-
 .role{
   color:var(--gold2);
   font-size:.98rem;
   letter-spacing:.03em;
   margin-bottom:12px;
 }
-
 .entry p{
   color:var(--muted);
   max-width:820px;
   font-weight:300;
   font-size:1.03rem;
 }
-
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:16px;
 }
-
 .card{
   background:var(--cream);
   color:var(--ink);
   padding:26px;
   box-shadow:0 14px 34px rgba(0,0,0,.16);
 }
-
 .card h3{
   font-size:1rem;
   letter-spacing:.05em;
   color:var(--ink);
   margin-bottom:10px;
 }
-
 .card p{
   color:var(--ink2);
   font-size:1rem;
 }
-
 .tags{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
 }
-
 .tag{
   padding:9px 15px;
   border:1px solid var(--line);
@@ -254,20 +215,17 @@ h2{
   font-size:.88rem;
   background:rgba(255,255,255,.04);
 }
-
 .gallery{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:14px;
 }
-
 .photo-tile{
   aspect-ratio:1/1;
   overflow:hidden;
   background:#0a253d;
   border:1px solid var(--line);
 }
-
 .photo-tile img{
   width:100%;
   height:100%;
@@ -277,12 +235,10 @@ h2{
   transform:scale(1.02);
   transition:opacity .8s ease, transform .8s ease;
 }
-
 .photo-tile.fade img{
   opacity:0;
   transform:scale(1.08);
 }
-
 footer{
   padding:54px 0 44px;
   border-top:1px solid var(--line);
@@ -293,12 +249,10 @@ footer{
   color:var(--muted);
   font-size:.9rem;
 }
-
 footer a{
   color:var(--gold2);
   text-decoration:none;
 }
-
 @media(max-width:800px){
   header{padding-top:52px}
   .entry{grid-template-columns:1fr}
@@ -306,9 +260,7 @@ footer a{
 }
 </style>
 </head>
-
 <body>
-
 <div class="background-atlas" aria-hidden="true">
   <svg class="compass" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" stroke="#d8e5ef" stroke-width=".65">
@@ -336,7 +288,6 @@ footer a{
       <text x="13" y="206">W</text>
     </g>
   </svg>
-
   <svg class="grid-globe" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#d8e5ef" stroke-width=".65">
     <circle cx="200" cy="200" r="196"/>
     <ellipse cx="200" cy="200" rx="196" ry="145"/>
@@ -347,44 +298,38 @@ footer a{
     <line x1="4" y1="200" x2="396" y2="200"/>
   </svg>
 </div>
-
 <div class="shell">
-
 <header id="home">
   <p class="kicker">French study · public service · civic education · cultural exchange</p>
-
   <h1>Ronnie Bailey</h1>
-
   <p class="hero-sub">
-    A record shaped by <strong>language, civic institutions, international learning communities, and cultural work</strong> — gathered here as the international side of a broader professional life.
+    A record shaped by language, civic institutions, international learning communities, and cultural work — gathered here as the international side of a broader professional life.
   </p>
-
+  <p class="french-line">
+    Un parcours marqué par la langue, la culture, le service public et l’ouverture internationale.
+  </p>
   <div class="hero-links">
     <a href="#record">The record</a>
     <a href="#formation">Formation</a>
     <a href="#field-notes">Field notes</a>
   </div>
 </header>
-
 <section>
   <div class="intro">
     <p>
-      My interest in international work did not start as a branding exercise. It came through French language study, student cultural leadership, work with a Tokyo-based language exchange platform, public service in Washington, D.C., and later human-rights training.
+      My interest in international work came through French language study, student cultural leadership, work with a Tokyo-based language exchange platform, public service in Washington, D.C., and later human-rights training.
     </p>
     <p>
-      This page brings those pieces together. It is not meant to overstate the record as diplomatic service; it is meant to document a real pattern of language, culture, civic life, and international education that has followed me for years.
+      This page brings those pieces together as a record of language, culture, civic life, and international education that has followed me for years.
     </p>
   </div>
 </section>
-
 <section id="record">
   <div class="sec-head">
     <h2>The Record</h2>
     <p class="sec-note">Language, civic, academic, and cultural work arranged as a timeline.</p>
   </div>
-
   <div class="timeline">
-
     <article class="entry">
       <div class="when">2008<span class="where">All On The Line · Richmond, Virginia · On-site</span></div>
       <div>
@@ -393,7 +338,6 @@ footer a{
         <p>Supported public outreach, voter engagement, community mobilization, and civic education in a field-facing environment.</p>
       </div>
     </article>
-
     <article class="entry">
       <div class="when">Jan 2013<span class="where">Lang-8, Inc. · Shibuya-ku, Tokyo, Japan · Remote</span></div>
       <div>
@@ -402,7 +346,6 @@ footer a{
         <p>Supported a Tokyo-headquartered language exchange platform through French-English interpretation, translation support, language coaching, and cross-cultural communication with a global community of learners.</p>
       </div>
     </article>
-
     <article class="entry">
       <div class="when">Jul 2013 – Aug 2016<span class="where">Clark College · Vancouver, Washington</span></div>
       <div>
@@ -411,7 +354,6 @@ footer a{
         <p>Studied international relations, public communication, global affairs, and policy-oriented education through an international studies pathway.</p>
       </div>
     </article>
-
     <article class="entry">
       <div class="when">Jan 2014 – Oct 2015<span class="where">Alliance Française de Portland · Portland, Oregon</span></div>
       <div>
@@ -420,16 +362,14 @@ footer a{
         <p>Completed French language group courses 101 and 103, building foundational French communication skills through a cultural institution dedicated to French language and Francophone exchange.</p>
       </div>
     </article>
-
     <article class="entry">
       <div class="when">Sep 2013 – Feb 2016<span class="where">Clark College Cercle Français · Vancouver, Washington</span></div>
       <div>
         <h3>President</h3>
         <p class="role">French Club leadership</p>
-        <p>Led French language and cultural programming designed to share, celebrate, and promote the language and culture of the French-speaking world while connecting with the broader community.</p>
+        <p>Led French language and cultural programming designed to share, celebrate, and promote the language and culture of the French-speaking world.</p>
       </div>
     </article>
-
     <article class="entry">
       <div class="when">Academic<span class="where">Model United Nations · Academic simulation</span></div>
       <div>
@@ -438,7 +378,6 @@ footer a{
         <p>Participated in structured diplomatic simulations involving negotiation, coalition-building, geopolitical analysis, public speaking, and resolution drafting.</p>
       </div>
     </article>
-
     <article class="entry">
       <div class="when">Sep 2017 – Apr 2018<span class="where">Architect of the Capitol · Washington, D.C.</span></div>
       <div>
@@ -447,7 +386,6 @@ footer a{
         <p>Served in a public-facing role assisting visitor groups at a major U.S. civic institution, including domestic and international guests.</p>
       </div>
     </article>
-
     <article class="entry">
       <div class="when">Nov 2023 – Dec 2023<span class="where">U.S. Institute of Diplomacy and Human Rights · Washington, D.C.</span></div>
       <div>
@@ -456,117 +394,60 @@ footer a{
         <p>Completed professional training covering diplomacy, international human-rights principles, advocacy, protection, international legal frameworks, and multilateral institutions.</p>
       </div>
     </article>
-
   </div>
 </section>
-
 <section id="formation">
   <div class="sec-head">
     <h2>Formation</h2>
     <p class="sec-note">The through-line is language, cultural fluency, civic education, and public-facing communication.</p>
   </div>
-
   <div class="cards">
     <div class="card"><h3>Language</h3><p>French-English interpretation, formal French coursework, language coaching, and translation support.</p></div>
     <div class="card"><h3>Culture</h3><p>Francophone culture, Japanese language exchange, European history, museums, festivals, and cultural documentation.</p></div>
     <div class="card"><h3>Public Service</h3><p>Visitor-facing government experience, civic engagement, historical interpretation, and community outreach.</p></div>
     <div class="card"><h3>Human Rights</h3><p>Training in human-rights principles, advocacy, diplomacy, protection, and international legal frameworks.</p></div>
-    <div class="card"><h3>International Study</h3><p>Academic exposure to international relations, global affairs, public policy, and diplomatic simulation.</p></div>
-    <div class="card"><h3>Communication</h3><p>Experience translating ideas across cultures, institutions, audiences, and public-facing environments.</p></div>
   </div>
 </section>
-
 <section id="places">
   <div class="sec-head">
     <h2>Places of Connection</h2>
   </div>
-
   <div class="cards">
     <div class="card"><h3>Washington, D.C.</h3><p>Public service, civic institutions, human-rights education, and government-facing experience.</p></div>
     <div class="card"><h3>Tokyo, Japan</h3><p>Remote contribution to a Tokyo-headquartered international language exchange platform.</p></div>
     <div class="card"><h3>Portland, Oregon</h3><p>French coursework through Alliance Française de Portland.</p></div>
     <div class="card"><h3>Vancouver, Washington</h3><p>International studies coursework and French Club leadership at Clark College.</p></div>
-    <div class="card"><h3>Paris, France</h3><p>French language, cultural travel, European history, architecture, and Francophone interest.</p></div>
-    <div class="card"><h3>London, United Kingdom</h3><p>International travel, cultural exposure, and urban historical context.</p></div>
   </div>
 </section>
-
-<section id="skills">
-  <div class="sec-head">
-    <h2>Competencies</h2>
-  </div>
-
-  <div class="tags">
-    <span class="tag">French-English Interpretation</span>
-    <span class="tag">Translation Support</span>
-    <span class="tag">Language Coaching</span>
-    <span class="tag">French Language Study</span>
-    <span class="tag">Cross-Cultural Communication</span>
-    <span class="tag">Public Engagement</span>
-    <span class="tag">Cultural Literacy</span>
-    <span class="tag">Human Rights Awareness</span>
-    <span class="tag">International Relations</span>
-    <span class="tag">Diplomacy Studies</span>
-    <span class="tag">Public Institutions</span>
-    <span class="tag">Historical Interpretation</span>
-    <span class="tag">Civic Education</span>
-    <span class="tag">Global Learning Communities</span>
-  </div>
-</section>
-
 <section id="field-notes">
   <div class="sec-head">
     <h2>Field Notes</h2>
     <p class="sec-note">A rotating visual archive of language study, travel, public institutions, cultural events, and international curiosity.</p>
   </div>
-
   <div class="gallery" id="rotatingGallery"></div>
 </section>
-
 <footer>
   <span>Ronnie Bailey · Language · Culture · Public Service</span>
   <span><a href="https://ronniebailey.cloud">ronniebailey.cloud</a> · © 2026</span>
 </footer>
-
 </div>
-
 <script>
 const imageLibrary = [
   "images/paris-eiffel.jpg",
   "images/paris-seine.jpg",
   "images/french-study.jpg",
   "images/japan-publication.jpg",
-  "images/french-project.jpg",
   "images/london.jpg",
   "images/cultural-festival.jpg",
   "images/capitol-interior.jpg",
-  "images/jefferson-memorial.jpg",
   "images/washington-dc.jpg",
   "images/france-culture.jpg",
   "images/language-books.jpg",
   "images/public-service.jpg",
-  "images/europe-travel.jpg",
-  "images/french-notes.jpg",
-  "images/international-event.jpg",
-  "images/museum.jpg",
-  "images/government.jpg",
-  "images/paris-night.jpg",
-  "images/culture-archive.jpg",
-  "images/capitol-dome.jpg",
-  "images/french-class.jpg",
-  "images/paris-street.jpg",
-  "images/global-culture.jpg",
-  "images/history-museum.jpg",
-  "images/language-exchange.jpg",
-  "images/france-project.jpg",
-  "images/civic-institution.jpg",
-  "images/europe-architecture.jpg",
-  "images/cultural-study.jpg"
+  "images/europe-travel.jpg"
 ];
-
 const gallery = document.getElementById("rotatingGallery");
-const tileCount = 16;
-
+const tileCount = 8;
 function chooseImage(current){
   let next;
   do{
@@ -574,7 +455,6 @@ function chooseImage(current){
   }while(current && current.includes(next) && imageLibrary.length > 1);
   return next;
 }
-
 for(let i=0;i<tileCount;i++){
   const tile=document.createElement("div");
   tile.className="photo-tile";
@@ -584,7 +464,6 @@ for(let i=0;i<tileCount;i++){
   tile.appendChild(img);
   gallery.appendChild(tile);
 }
-
 setInterval(()=>{
   const tiles=document.querySelectorAll(".photo-tile");
   const tile=tiles[Math.floor(Math.random()*tiles.length)];
@@ -596,6 +475,5 @@ setInterval(()=>{
   },800);
 },4000);
 </script>
-
 </body>
 </html>
