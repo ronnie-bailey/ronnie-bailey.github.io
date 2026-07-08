@@ -79,9 +79,50 @@
 
         main { max-width: 1080px; margin: 0 auto; padding: 4rem 1.5rem 3rem; }
 
-        .notes-hero { padding: 1.5rem 0 3rem; border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+        .notes-hero { padding: 1.5rem 0 3rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
         .notes-hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: -0.055em; font-weight: 750; line-height: 1.02; margin-bottom: 0.9rem; }
         .notes-hero p { font-size: clamp(1rem, 1.8vw, 1.2rem); color: var(--text-light); max-width: 700px; letter-spacing: -0.02em; }
+
+        /* ---------- News ticker ---------- */
+        .ticker-container {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 1rem;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+        }
+
+        .ticker-scroll {
+            display: flex;
+            gap: 1rem;
+            animation: scroll 35s linear infinite;
+            will-change: transform;
+        }
+
+        .ticker-item {
+            flex: 0 0 auto;
+            padding: 0.75rem 1rem;
+            background: var(--bg);
+            color: var(--text-light);
+            font-size: 0.85rem;
+            white-space: nowrap;
+            border-radius: 999px;
+            min-width: 360px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.2s ease;
+            border: 1px solid var(--border);
+        }
+
+        .ticker-item:hover { color: var(--text); background: var(--accent-soft); border-color: transparent; }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-scroll:hover { animation-play-state: paused; }
 
         .layout { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 3rem; align-items: start; }
 
@@ -152,19 +193,21 @@
 
         footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-lighter); font-size: 0.82rem; margin-top: 3rem; }
 
-        @media (prefers-reduced-motion: reduce) { .post-card { transition: none; } }
+        @media (prefers-reduced-motion: reduce) { .post-card { transition: none; } .ticker-scroll { animation: none !important; } }
 
         @media (max-width: 900px) {
             header { position: static; }
             .layout { grid-template-columns: 1fr; gap: 2rem; }
             .sidebar { position: static; order: -1; }
             .sidebar-section { padding: 1.1rem 1.25rem; }
+            .ticker-item { min-width: 320px; }
         }
 
         @media (max-width: 640px) {
             .post-card { grid-template-columns: 1fr; gap: 0.9rem; }
             .post-card-media { aspect-ratio: 16 / 8; }
             main { padding: 2.5rem 1rem 2rem; }
+            .ticker-item { min-width: 280px; font-size: 0.8rem; padding: 0.5rem 1rem; }
         }
     </style>
 </head>
@@ -190,6 +233,12 @@
             <p>Working notes from fifteen years in identity security: failure modes, decisions, and the reasoning behind them. Written for practitioners, and for my future self.</p>
         </section>
 
+        <section id="news-ticker" style="display:none;">
+            <div class="ticker-container">
+                <div class="ticker-scroll" id="ticker-scroll"></div>
+            </div>
+        </section>
+
         <div class="layout">
             <div>
                 <div class="post-list" id="post-list">
@@ -211,19 +260,14 @@
     </footer>
 
     <script>
-    /* =====================================================================
-       CONFIG — the only thing you ever need to edit in this file.
-       Point it at the GitHub repo that hosts this site.
-       ===================================================================== */
-const BLOG_CONFIG = {
-    owner:    "ronnie-bailey",
-    repo:     "ronnie-bailey.github.io",
-    branch:   "main",
-    postsDir: "posts"
-};
-    /* ===================================================================== */
+    const BLOG_CONFIG = {
+        owner:    "ronnie-bailey",
+        repo:     "ronnie-bailey.github.io",
+        branch:   "main",
+        postsDir: "posts"
+    };
 
-    // ---------- theme (shared with the portfolio pages) ----------
+    // ---------- theme ----------
     const htmlElement = document.documentElement;
     document.getElementById('theme-toggle').addEventListener('click', () => {
         const next = (htmlElement.getAttribute('data-theme') || 'light') === 'light' ? 'dark' : 'light';
@@ -239,7 +283,6 @@ const BLOG_CONFIG = {
     function resolveAsset(path) {
         if (!path) return null;
         if (/^https?:\/\//i.test(path)) return path;
-        // relative paths are resolved against the repo root
         return rawBase() + path.replace(/^\.?\//, '');
     }
 
@@ -259,10 +302,10 @@ const BLOG_CONFIG = {
 
     function firstParagraph(markdown, maxLen = 200) {
         const cleaned = markdown
-            .replace(/```[\s\S]*?```/g, '')          // code blocks
-            .replace(/^#{1,6}\s.*$/gm, '')           // headings
-            .replace(/!\[[^\]]*\]\([^)]*\)/g, '')    // images
-            .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') // links -> text
+            .replace(/```[\s\S]*?```/g, '')
+            .replace(/^#{1,6}\s.*$/gm, '')
+            .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+            .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
             .replace(/[*_`>#]/g, '')
             .split(/\n\s*\n/).map(s => s.trim()).find(s => s.length > 0) || '';
         return cleaned.length > maxLen ? cleaned.slice(0, maxLen).replace(/\s+\S*$/, '') + '…' : cleaned;
@@ -289,7 +332,7 @@ const BLOG_CONFIG = {
 
     const esc = s => { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
 
-    // ---------- load & render ----------
+    // ---------- load & render posts ----------
     let allPosts = [];
     let activeTag = null;
 
@@ -330,7 +373,7 @@ const BLOG_CONFIG = {
             renderTagCloud();
             renderPosts();
         } catch (err) {
-            listEl.innerHTML = `<p class="status-message">Couldn't load notes right now. If you're the site owner: check the <code>BLOG_CONFIG</code> owner/repo values in blog.html, and note that this page only works once published (not when opened as a local file).</p>`;
+            listEl.innerHTML = `<p class="status-message">Couldn't load notes right now. If you're the site owner: check the <code>BLOG_CONFIG</code> owner/repo values in blog.html.</p>`;
         }
     }
 
@@ -385,7 +428,125 @@ const BLOG_CONFIG = {
         renderPosts();
     });
 
+    // ---------- news ticker (moved from index.html) ----------
+    async function fetchWithTimeout(url, timeout) {
+        const controller = new AbortController();
+        const id = setTimeout(() => controller.abort(), timeout || 6000);
+        try {
+            const response = await fetch(url, { signal: controller.signal });
+            clearTimeout(id);
+            return response;
+        } catch (error) {
+            clearTimeout(id);
+            throw error;
+        }
+    }
+
+    function getSourceName(feedUrl) {
+        const sourceMap = {
+            'darkreading.com': 'Dark Reading',
+            'thehackersnews': 'The Hacker News',
+            'sans.edu': 'SANS ISC',
+            'cisa.gov': 'CISA',
+            'bleepingcomputer.com': 'BleepingComputer',
+            'threatpost.com': 'Threatpost',
+            'krebsonsecurity.com': 'Krebs on Security'
+        };
+        for (const [key, name] of Object.entries(sourceMap)) {
+            if (feedUrl.includes(key)) return name;
+        }
+        return 'Security News';
+    }
+
+    function parseDate(dateString) {
+        if (!dateString) return null;
+        const dateFormats = [
+            Date.parse(dateString),
+            dateString.match(/\d{4}-\d{2}-\d{2}/)?.[0],
+            dateString.match(/\d{2}\s+[A-Za-z]+\s+\d{4}/)?.[0],
+            dateString.match(/[A-Za-z]+\s+\d{1,2},\s+\d{4}/)?.[0],
+        ];
+        for (const format of dateFormats) {
+            if (format) {
+                const date = new Date(format);
+                if (!isNaN(date.getTime())) return date;
+            }
+        }
+        return null;
+    }
+
+    async function fetchLiveNews() {
+        const newsFeeds = [
+            'https://www.darkreading.com/rss.xml',
+            'https://feeds.feedburner.com/TheHackersNews',
+            'https://isc.sans.edu/rssfeed_full.xml',
+            'https://www.cisa.gov/cybersecurity-advisories/all.xml',
+            'https://www.bleepingcomputer.com/feed/',
+            'https://threatpost.com/feed/',
+            'https://krebsonsecurity.com/feed/'
+        ];
+        const newsItems = [];
+        const currentYear = new Date().getFullYear();
+        const startOfYear = new Date(currentYear + '-01-01T00:00:00Z');
+        const fetchPromises = newsFeeds.map(async (feed) => {
+            try {
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed)}`;
+                const response = await fetchWithTimeout(proxyUrl, 5000);
+                if (!response.ok) return [];
+                const data = await response.json();
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data.contents, 'text/xml');
+                if (xml.querySelector('parsererror')) return [];
+                const items = xml.querySelectorAll('item, entry');
+                const feedItems = [];
+                let count = 0;
+                items.forEach(item => {
+                    if (count < 5) {
+                        const titleEl = item.querySelector('title');
+                        const linkEl = item.querySelector('link');
+                        const pubDateEl = item.querySelector('pubDate') || item.querySelector('published') || item.querySelector('updated') || item.querySelector('dc\\:date') || item.querySelector('date');
+                        if (titleEl && linkEl) {
+                            let title = titleEl.textContent.trim();
+                            let link = linkEl.textContent || linkEl.getAttribute('href') || '#';
+                            let pubDate = pubDateEl ? parseDate(pubDateEl.textContent) : null;
+                            const isCurrentYear = pubDate ? (pubDate.getFullYear() === currentYear && pubDate >= startOfYear) : false;
+                            if (isCurrentYear || !pubDate) {
+                                title = title.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 120);
+                                feedItems.push({ title, link, source: getSourceName(feed), date: pubDate, timestamp: pubDate ? pubDate.getTime() : Date.now() });
+                                count++;
+                            }
+                        }
+                    }
+                });
+                return feedItems;
+            } catch (error) { return []; }
+        });
+        try {
+            const results = await Promise.allSettled(fetchPromises);
+            results.forEach(result => { if (result.status === 'fulfilled' && result.value.length > 0) newsItems.push(...result.value); });
+            return newsItems.sort((a, b) => b.timestamp - a.timestamp);
+        } catch (error) { return []; }
+    }
+
+    async function fetchCybersecurityNews() {
+        const section = document.getElementById('news-ticker');
+        const tickerScroll = document.getElementById('ticker-scroll');
+        if (!section || !tickerScroll) return;
+        try {
+            const liveNews = await fetchLiveNews();
+            if (liveNews.length < 4) return;
+            const newsContent = liveNews.slice(0, 10).map(item => {
+                const source = item.source ? ` [${item.source}]` : '';
+                return `<a href="${item.link}" target="_blank" class="ticker-item" rel="noopener noreferrer">${item.title}${source}</a>`;
+            }).join('');
+            tickerScroll.innerHTML = newsContent + newsContent;
+            section.style.display = '';
+        } catch (error) { /* keep hidden if feeds fail */ }
+    }
+
+    // ---------- init ----------
     loadPosts();
+    fetchCybersecurityNews();
     </script>
 </body>
 </html>
