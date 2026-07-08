@@ -4,9 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ronnie Bailey — International Portfolio</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
 :root{
   --navy:#061a2b;
@@ -20,8 +22,10 @@
   --ink:#0b2238;
   --ink2:#123a5e;
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+
 body{
   font-family:'Spectral', Georgia, serif;
   background:
@@ -32,7 +36,9 @@ body{
   min-height:100vh;
   overflow-x:hidden;
 }
+
 h1,h2,h3{font-family:'Cinzel',serif}
+
 .background-atlas{
   position:fixed;
   inset:0;
@@ -40,6 +46,7 @@ h1,h2,h3{font-family:'Cinzel',serif}
   pointer-events:none;
   overflow:hidden;
 }
+
 .compass{
   position:absolute;
   width:1200px;
@@ -49,18 +56,12 @@ h1,h2,h3{font-family:'Cinzel',serif}
   opacity:.07;
   animation:compassRotate 420s linear infinite;
 }
-.grid-globe{
-  position:absolute;
-  width:920px;
-  height:920px;
-  right:-370px;
-  bottom:-370px;
-  opacity:.05;
-}
+
 @keyframes compassRotate{
   from{transform:rotate(0deg)}
   to{transform:rotate(360deg)}
 }
+
 .shell{
   position:relative;
   z-index:2;
@@ -68,7 +69,9 @@ h1,h2,h3{font-family:'Cinzel',serif}
   margin:0 auto;
   padding:0 clamp(22px,4vw,54px);
 }
+
 header{padding:68px 0 42px}
+
 .kicker{
   color:var(--gold2);
   font-size:.95rem;
@@ -76,6 +79,7 @@ header{padding:68px 0 42px}
   margin-bottom:18px;
   font-weight:500;
 }
+
 h1{
   font-size:clamp(2.65rem,7vw,5rem);
   letter-spacing:.14em;
@@ -83,6 +87,7 @@ h1{
   line-height:1.08;
   font-weight:500;
 }
+
 .hero-sub{
   margin-top:24px;
   max-width:820px;
@@ -90,6 +95,7 @@ h1{
   font-size:1.22rem;
   font-weight:300;
 }
+
 .french-line{
   margin-top:14px;
   max-width:820px;
@@ -97,12 +103,14 @@ h1{
   font-size:1.05rem;
   font-style:italic;
 }
+
 .hero-links{
   margin-top:32px;
   display:flex;
   flex-wrap:wrap;
   gap:12px;
 }
+
 .hero-links a{
   color:var(--cream);
   text-decoration:none;
@@ -111,30 +119,38 @@ h1{
   font-size:.95rem;
   background:rgba(255,255,255,.04);
 }
+
 .hero-links a:hover{
   color:var(--gold2);
   border-color:rgba(227,192,106,.55);
 }
+
 section{padding:52px 0}
+
 .intro{
   background:var(--cream);
   color:var(--ink);
   padding:clamp(30px,4vw,48px);
   box-shadow:0 18px 45px rgba(0,0,0,.18);
 }
+
 .intro p{
   max-width:900px;
   color:var(--ink2);
   font-size:1.13rem;
 }
+
 .intro p+p{margin-top:18px}
+
 .sec-head{margin-bottom:30px}
+
 h2{
   font-size:clamp(1.55rem,3vw,2.1rem);
   letter-spacing:.08em;
   text-transform:uppercase;
   font-weight:500;
 }
+
 .fr-title{
   display:block;
   margin-top:2px;
@@ -146,6 +162,7 @@ h2{
   text-transform:none;
   font-weight:300;
 }
+
 .sec-note{
   margin-top:12px;
   max-width:780px;
@@ -153,7 +170,9 @@ h2{
   font-size:1.04rem;
   font-weight:300;
 }
+
 .timeline{border-top:1px solid var(--line)}
+
 .entry{
   display:grid;
   grid-template-columns:250px 1fr;
@@ -161,12 +180,14 @@ h2{
   padding:34px 0;
   border-bottom:1px solid var(--line);
 }
+
 .when{
   color:var(--cream);
   font-size:1rem;
   font-weight:500;
   line-height:1.45;
 }
+
 .where{
   display:block;
   margin-top:8px;
@@ -174,92 +195,147 @@ h2{
   font-size:.98rem;
   font-weight:300;
 }
+
 .entry h3{
   font-size:1.12rem;
   letter-spacing:.04em;
   margin-bottom:4px;
 }
+
 .role{
   color:var(--gold2);
   font-size:.98rem;
   letter-spacing:.03em;
   margin-bottom:12px;
 }
+
 .entry p{
   color:var(--muted);
   max-width:820px;
   font-weight:300;
   font-size:1.03rem;
 }
+
 .ref-links{
   margin-top:14px;
   display:flex;
   flex-wrap:wrap;
   gap:10px;
 }
+
 .ref-links a,
 .reading-link{
   color:var(--gold2);
   text-decoration:none;
   border-bottom:1px solid rgba(227,192,106,.45);
 }
+
 .ref-links a:hover,
 .reading-link:hover{
   color:var(--cream);
   border-color:var(--cream);
 }
+
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:16px;
 }
+
 .card{
   background:var(--cream);
   color:var(--ink);
   padding:26px;
   box-shadow:0 14px 34px rgba(0,0,0,.16);
 }
+
 .card h3{
   font-size:1rem;
   letter-spacing:.05em;
   color:var(--ink);
   margin-bottom:10px;
 }
+
 .card p,
 .card li{
   color:var(--ink2);
   font-size:1rem;
 }
+
 .card ul{list-style:none}
 .card li{margin-bottom:8px}
-.language-layout{
+
+.profile-panel{
   display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  gap:16px;
+  grid-template-columns:minmax(0,1fr) 42%;
+  gap:34px;
+  align-items:stretch;
 }
-.language-parallax{
-  grid-column:2 / 4;
-  min-height:360px;
+
+.profile-copy{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:10px 0;
+}
+
+.profile-row{
+  padding:26px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.profile-row:last-child{border-bottom:none}
+
+.profile-row h3{
+  color:var(--cream);
+  font-size:1.05rem;
+  letter-spacing:.05em;
+  margin-bottom:8px;
+}
+
+.profile-row p,
+.profile-row li{
+  color:var(--muted);
+  font-size:1.04rem;
+  font-weight:300;
+  max-width:620px;
+}
+
+.profile-row ul{
+  list-style:none;
+  columns:2;
+  column-gap:34px;
+}
+
+.profile-row li{
+  break-inside:avoid;
+  margin-bottom:8px;
+}
+
+.study-photo{
+  min-height:620px;
   background:
-    linear-gradient(rgba(6,26,43,.35),rgba(6,26,43,.55)),
+    linear-gradient(rgba(6,26,43,.54),rgba(6,26,43,.70)),
     url("images/literature-study.jpg");
   background-size:cover;
   background-position:center;
-  background-attachment:fixed;
   border:1px solid var(--line);
-  box-shadow:0 14px 34px rgba(0,0,0,.2);
+  box-shadow:0 18px 45px rgba(0,0,0,.25);
+  filter:grayscale(.25) brightness(.88) contrast(1.05);
 }
+
 .gallery{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:14px;
 }
+
 .photo-tile{
   aspect-ratio:1/1;
   overflow:hidden;
   background:#0a253d;
   border:1px solid var(--line);
 }
+
 .photo-tile img{
   width:100%;
   height:100%;
@@ -269,10 +345,12 @@ h2{
   transform:scale(1.02);
   transition:opacity .8s ease, transform .8s ease;
 }
+
 .photo-tile.fade img{
   opacity:0;
   transform:scale(1.08);
 }
+
 .quote{
   margin-top:34px;
   padding:28px;
@@ -281,11 +359,13 @@ h2{
   font-size:1.12rem;
   max-width:820px;
 }
+
 .quote em{
   display:block;
   margin-top:10px;
   color:var(--gold2);
 }
+
 footer{
   padding:54px 0 44px;
   border-top:1px solid var(--line);
@@ -296,18 +376,18 @@ footer{
   color:var(--muted);
   font-size:.9rem;
 }
+
 footer a{
   color:var(--gold2);
   text-decoration:none;
 }
+
 @media(max-width:900px){
-  .language-layout{grid-template-columns:1fr}
-  .language-parallax{
-    grid-column:auto;
-    min-height:300px;
-    background-attachment:scroll;
-  }
+  .profile-panel{grid-template-columns:1fr}
+  .profile-row ul{columns:1}
+  .study-photo{min-height:360px}
 }
+
 @media(max-width:800px){
   header{padding-top:52px}
   .entry{grid-template-columns:1fr}
@@ -315,7 +395,9 @@ footer a{
 }
 </style>
 </head>
+
 <body>
+
 <div class="background-atlas" aria-hidden="true">
   <svg class="compass" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" stroke="#d8e5ef" stroke-width=".65">
@@ -343,34 +425,32 @@ footer a{
       <text x="13" y="206">W</text>
     </g>
   </svg>
-  <svg class="grid-globe" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#d8e5ef" stroke-width=".65">
-    <circle cx="200" cy="200" r="196"/>
-    <ellipse cx="200" cy="200" rx="196" ry="145"/>
-    <ellipse cx="200" cy="200" rx="196" ry="92"/>
-    <ellipse cx="200" cy="200" rx="145" ry="196"/>
-    <ellipse cx="200" cy="200" rx="92" ry="196"/>
-    <line x1="200" y1="4" x2="200" y2="396"/>
-    <line x1="4" y1="200" x2="396" y2="200"/>
-  </svg>
 </div>
+
 <div class="shell">
+
 <header id="home">
   <p class="kicker">Language • Public Service • International Relations • American Heritage • Cultural Study</p>
+
   <h1>Ronnie Bailey</h1>
+
   <p class="hero-sub">
     A curated international portfolio documenting language study, public service, American civic heritage, cultural exchange, and international education developed over more than a decade.
   </p>
+
   <p class="french-line">
     Un parcours consacré à la langue, au service public, au patrimoine civique américain et aux affaires internationales.
   </p>
+
   <div class="hero-links">
     <a href="#timeline">Professional Timeline</a>
-    <a href="#language">Language Profile</a>
+    <a href="#language">Academic Profile</a>
     <a href="#heritage">American Heritage</a>
     <a href="#archive">Cultural Archive</a>
     <a href="#reading">Selected Reading</a>
   </div>
 </header>
+
 <section>
   <div class="intro">
     <p>
@@ -381,12 +461,15 @@ footer a{
     </p>
   </div>
 </section>
+
 <section id="timeline">
   <div class="sec-head">
     <h2>Professional Timeline <span class="fr-title">Parcours professionnel</span></h2>
     <p class="sec-note">Selected international, civic, language, and public-service experiences. Newest to oldest.</p>
   </div>
+
   <div class="timeline">
+
     <article class="entry">
       <div class="when">Nov 2023 – Dec 2023<span class="where">U.S. Institute of Diplomacy and Human Rights · Washington, D.C.</span></div>
       <div>
@@ -399,6 +482,7 @@ footer a{
         </div>
       </div>
     </article>
+
     <article class="entry">
       <div class="when">Sep 2017 – Apr 2018<span class="where">Architect of the Capitol · Washington, D.C.</span></div>
       <div>
@@ -411,6 +495,7 @@ footer a{
         </div>
       </div>
     </article>
+
     <article class="entry">
       <div class="when">Sep 2013 – Feb 2016<span class="where">Clark College Cercle Français · Vancouver, Washington</span></div>
       <div>
@@ -423,6 +508,7 @@ footer a{
         </div>
       </div>
     </article>
+
     <article class="entry">
       <div class="when">Jan 2014 – Oct 2015<span class="where">Alliance Française de Portland · Portland, Oregon</span></div>
       <div>
@@ -435,6 +521,7 @@ footer a{
         </div>
       </div>
     </article>
+
     <article class="entry">
       <div class="when">Jul 2013 – Aug 2016<span class="where">Clark College · Vancouver, Washington</span></div>
       <div>
@@ -447,6 +534,7 @@ footer a{
         </div>
       </div>
     </article>
+
     <article class="entry">
       <div class="when">Jan 2013<span class="where">Lang-8, Inc. · Shibuya-ku, Tokyo, Japan · Remote</span></div>
       <div>
@@ -459,6 +547,7 @@ footer a{
         </div>
       </div>
     </article>
+
     <article class="entry">
       <div class="when">2008<span class="where">All On The Line · Richmond, Virginia · On-site</span></div>
       <div>
@@ -471,44 +560,48 @@ footer a{
         </div>
       </div>
     </article>
+
   </div>
 </section>
+
 <section id="language">
   <div class="sec-head">
-    <h2>Language Profile <span class="fr-title">Profil linguistique</span></h2>
+    <h2>Language & Academic Profile <span class="fr-title">Profil linguistique et académique</span></h2>
   </div>
-  <div class="language-layout">
-    <div class="card">
-      <h3>English</h3>
-      <p>Native language, with experience in public-facing communication, interpretation support, and civic education settings.</p>
+
+  <div class="profile-panel">
+    <div class="profile-copy">
+      <div class="profile-row">
+        <h3>English</h3>
+        <p>Native language used throughout professional, public-facing, academic, and civic communication.</p>
+      </div>
+
+      <div class="profile-row">
+        <h3>French</h3>
+        <p>Working proficiency, self-assessed at approximately CEFR B2, developed through university coursework, Alliance Française study, Lang-8 language exchange, travel, and continued independent reading. Formal DELF certification has not been pursued.</p>
+      </div>
+
+      <div class="profile-row">
+        <h3>Areas of Inquiry</h3>
+        <ul>
+          <li>French language</li>
+          <li>Francophone culture</li>
+          <li>European history</li>
+          <li>American history</li>
+          <li>Virginia history</li>
+          <li>International relations</li>
+          <li>Human rights</li>
+          <li>Public diplomacy</li>
+          <li>Cross-cultural communication</li>
+          <li>Civic institutions</li>
+        </ul>
+      </div>
     </div>
-    <div class="card">
-      <h3>French</h3>
-      <p>Working study level; self-assessed around B2 through university study, Alliance Française coursework, language exchange, and continued independent study. Not formally DELF-certified.</p>
-    </div>
-    <div class="card">
-      <h3>Areas of Study</h3>
-      <ul>
-        <li>Conversation</li>
-        <li>Grammar</li>
-        <li>Pronunciation</li>
-        <li>Reading comprehension</li>
-        <li>Francophone culture</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>International Interests</h3>
-      <ul>
-        <li>International relations</li>
-        <li>Human rights</li>
-        <li>Public diplomacy</li>
-        <li>European history</li>
-        <li>Civic institutions</li>
-      </ul>
-    </div>
-    <div class="language-parallax" aria-hidden="true"></div>
+
+    <div class="study-photo" aria-hidden="true"></div>
   </div>
 </section>
+
 <section id="heritage">
   <div class="sec-head">
     <h2>American Heritage & Civic Study <span class="fr-title">Patrimoine américain et culture civique</span></h2>
@@ -516,37 +609,45 @@ footer a{
       International perspective is strongest when paired with a clear understanding of one’s own civic history, regional heritage, and national institutions.
     </p>
   </div>
+
   <div class="cards">
     <div class="card">
       <h3>American Civic Institutions</h3>
       <p>Study and public-facing experience connected to the U.S. Capitol, democratic institutions, public service, and civic education.</p>
     </div>
+
     <div class="card">
       <h3>Virginia Heritage</h3>
       <p>Interest in Virginia history, Richmond institutions, regional memory, and the Commonwealth’s role in American political and cultural development.</p>
     </div>
+
     <div class="card">
       <h3>Black American Studies</h3>
       <p>Ongoing interest in Black American history, genealogy, community formation, public memory, civic identity, and cultural inheritance.</p>
     </div>
+
     <div class="card">
       <h3>Comparative Perspective</h3>
       <p>American history, French culture, human rights, and international relations studied together as connected civic and cultural traditions.</p>
     </div>
   </div>
 </section>
+
 <section id="archive">
   <div class="sec-head">
     <h2>Selected Cultural Archive <span class="fr-title">Archives culturelles</span></h2>
     <p class="sec-note">Selected moments from language study, cultural events, public institutions, and travel.</p>
   </div>
+
   <div class="gallery" id="rotatingGallery"></div>
 </section>
+
 <section id="reading">
   <div class="sec-head">
     <h2>Selected Reading <span class="fr-title">Lectures choisies</span></h2>
     <p class="sec-note">Materials that shaped my French comprehension, international awareness, American civic knowledge, and cultural perspective.</p>
   </div>
+
   <div class="cards">
     <div class="card">
       <h3>French</h3>
@@ -557,6 +658,7 @@ footer a{
         <li><a class="reading-link" href="#" target="_blank">French conversation and pronunciation texts</a></li>
       </ul>
     </div>
+
     <div class="card">
       <h3>International Relations</h3>
       <ul>
@@ -566,6 +668,7 @@ footer a{
         <li><a class="reading-link" href="#" target="_blank">International law</a></li>
       </ul>
     </div>
+
     <div class="card">
       <h3>Human Rights</h3>
       <ul>
@@ -575,6 +678,7 @@ footer a{
         <li><a class="reading-link" href="https://www.hrw.org/" target="_blank">Selected reports and institutional materials</a></li>
       </ul>
     </div>
+
     <div class="card">
       <h3>American Heritage</h3>
       <ul>
@@ -584,6 +688,7 @@ footer a{
         <li><a class="reading-link" href="https://nmaahc.si.edu/" target="_blank">Black American history and culture</a></li>
       </ul>
     </div>
+
     <div class="card">
       <h3>Current Study</h3>
       <ul>
@@ -593,6 +698,7 @@ footer a{
         <li><a class="reading-link" href="#" target="_blank">Public diplomacy</a></li>
       </ul>
     </div>
+
     <div class="card">
       <h3>Virginia & Public Memory</h3>
       <ul>
@@ -603,16 +709,20 @@ footer a{
       </ul>
     </div>
   </div>
+
   <div class="quote">
     “One language sets you in a corridor for life. Two languages open every door along the way.”
     <em>« Une langue vous place dans un couloir pour la vie. Deux langues ouvrent toutes les portes sur le chemin. »</em>
   </div>
 </section>
+
 <footer>
   <span>Ronnie Bailey · International Portfolio</span>
   <span><a href="https://ronniebailey.cloud">ronniebailey.cloud</a> · © 2026</span>
 </footer>
+
 </div>
+
 <script>
 const imageLibrary = [
   "images/paris-eiffel.jpg",
@@ -628,8 +738,10 @@ const imageLibrary = [
   "images/public-service.jpg",
   "images/europe-travel.jpg"
 ];
+
 const gallery = document.getElementById("rotatingGallery");
 const tileCount = 8;
+
 function chooseImage(current){
   let next;
   do{
@@ -637,25 +749,32 @@ function chooseImage(current){
   }while(current && current.includes(next) && imageLibrary.length > 1);
   return next;
 }
+
 for(let i=0;i<tileCount;i++){
   const tile=document.createElement("div");
   tile.className="photo-tile";
+
   const img=document.createElement("img");
   img.src=imageLibrary[i % imageLibrary.length];
   img.alt="International cultural archive";
+
   tile.appendChild(img);
   gallery.appendChild(tile);
 }
+
 setInterval(()=>{
   const tiles=document.querySelectorAll(".photo-tile");
   const tile=tiles[Math.floor(Math.random()*tiles.length)];
   const img=tile.querySelector("img");
+
   tile.classList.add("fade");
+
   setTimeout(()=>{
     img.src=chooseImage(img.src);
     tile.classList.remove("fade");
   },800);
 },4000);
 </script>
+
 </body>
 </html>
