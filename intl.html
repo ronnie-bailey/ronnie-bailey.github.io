@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ronnie Bailey — International & Cultural Record</title>
+<title>Ronnie Bailey — International Record</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,15 +11,15 @@
 
 <style>
 :root{
-  --navy:#071b2d;
-  --blue:#0d2b47;
+  --navy:#061a2b;
+  --blue:#0b2a45;
   --blue2:#123a5e;
   --cream:#e9e4d4;
   --cream2:#f5eedc;
-  --muted:#c9d3dd;
+  --muted:#c8d3dc;
   --gold:#c9a44a;
   --gold2:#e3c06a;
-  --line:rgba(122,168,205,.20);
+  --line:rgba(122,168,205,.22);
   --ink:#0b2238;
   --ink2:#123a5e;
 }
@@ -30,52 +30,92 @@ html{scroll-behavior:smooth}
 
 body{
   font-family:'Spectral', Georgia, serif;
-  background:linear-gradient(160deg,var(--navy),var(--blue) 48%,var(--blue2));
+  background:
+    radial-gradient(circle at 75% 10%,rgba(227,192,106,.07),transparent 28%),
+    linear-gradient(160deg,var(--navy),var(--blue) 48%,var(--blue2));
   color:var(--cream);
   line-height:1.65;
   min-height:100vh;
+  overflow-x:hidden;
 }
 
-h1,h2,h3{
-  font-family:'Cinzel',serif;
+h1,h2,h3{font-family:'Cinzel',serif}
+
+.background-atlas{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.compass{
+  position:absolute;
+  width:1150px;
+  height:1150px;
+  top:-520px;
+  left:-520px;
+  opacity:.045;
+  animation:compassRotate 420s linear infinite;
+}
+
+.grid-globe{
+  position:absolute;
+  width:900px;
+  height:900px;
+  right:-360px;
+  bottom:-360px;
+  opacity:.045;
+}
+
+@keyframes compassRotate{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
 }
 
 .shell{
+  position:relative;
+  z-index:2;
   max-width:1120px;
   margin:0 auto;
   padding:0 clamp(22px,4vw,54px);
 }
 
 header{
-  padding:82px 0 54px;
+  padding:70px 0 44px;
 }
 
 .kicker{
   color:var(--gold2);
-  font-size:.9rem;
-  letter-spacing:.08em;
-  margin-bottom:20px;
+  font-size:.95rem;
+  letter-spacing:.06em;
+  margin-bottom:18px;
   font-weight:500;
 }
 
 h1{
-  font-size:clamp(2.5rem,7vw,5rem);
-  letter-spacing:.15em;
+  font-size:clamp(2.65rem,7vw,5rem);
+  letter-spacing:.14em;
   text-transform:uppercase;
   line-height:1.08;
   font-weight:500;
 }
 
 .hero-sub{
-  margin-top:26px;
-  max-width:820px;
+  margin-top:24px;
+  max-width:790px;
   color:var(--muted);
   font-size:1.22rem;
   font-weight:300;
 }
 
+.hero-sub strong{
+  color:var(--cream);
+  font-weight:500;
+}
+
 .hero-links{
-  margin-top:34px;
+  margin-top:32px;
   display:flex;
   flex-wrap:wrap;
   gap:12px;
@@ -95,9 +135,7 @@ h1{
   border-color:rgba(227,192,106,.55);
 }
 
-section{
-  padding:58px 0;
-}
+section{padding:54px 0}
 
 .intro{
   background:var(--cream);
@@ -107,22 +145,18 @@ section{
 }
 
 .intro p{
-  max-width:890px;
+  max-width:900px;
   color:var(--ink2);
   font-size:1.13rem;
 }
 
-.intro p+p{
-  margin-top:18px;
-}
+.intro p+p{margin-top:18px}
 
-.sec-head{
-  margin-bottom:32px;
-}
+.sec-head{margin-bottom:30px}
 
 h2{
-  font-size:clamp(1.55rem,3vw,2.15rem);
-  letter-spacing:.09em;
+  font-size:clamp(1.55rem,3vw,2.1rem);
+  letter-spacing:.08em;
   text-transform:uppercase;
   font-weight:500;
 }
@@ -164,14 +198,14 @@ h2{
 
 .entry h3{
   font-size:1.12rem;
-  letter-spacing:.05em;
+  letter-spacing:.04em;
   margin-bottom:4px;
 }
 
 .role{
   color:var(--gold2);
   font-size:.98rem;
-  letter-spacing:.04em;
+  letter-spacing:.03em;
   margin-bottom:12px;
 }
 
@@ -197,7 +231,7 @@ h2{
 
 .card h3{
   font-size:1rem;
-  letter-spacing:.06em;
+  letter-spacing:.05em;
   color:var(--ink);
   margin-bottom:10px;
 }
@@ -266,7 +300,7 @@ footer a{
 }
 
 @media(max-width:800px){
-  header{padding-top:58px}
+  header{padding-top:52px}
   .entry{grid-template-columns:1fr}
   .gallery{grid-template-columns:repeat(2,1fr)}
 }
@@ -275,19 +309,58 @@ footer a{
 
 <body>
 
+<div class="background-atlas" aria-hidden="true">
+  <svg class="compass" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#d8e5ef" stroke-width=".65">
+      <circle cx="200" cy="200" r="194"/>
+      <circle cx="200" cy="200" r="170"/>
+      <circle cx="200" cy="200" r="145"/>
+      <circle cx="200" cy="200" r="120"/>
+      <circle cx="200" cy="200" r="92"/>
+      <circle cx="200" cy="200" r="58"/>
+      <line x1="200" y1="6" x2="200" y2="394"/>
+      <line x1="6" y1="200" x2="394" y2="200"/>
+      <line x1="58" y1="58" x2="342" y2="342"/>
+      <line x1="342" y1="58" x2="58" y2="342"/>
+    </g>
+    <g fill="#d8e5ef">
+      <polygon points="200,26 208,188 200,200 192,188"/>
+      <polygon points="374,200 212,208 200,200 212,192"/>
+      <polygon points="200,374 208,212 200,200 192,212"/>
+      <polygon points="26,200 188,208 200,200 188,192"/>
+    </g>
+    <g font-family="Cinzel" font-size="18" fill="#d8e5ef" text-anchor="middle">
+      <text x="200" y="20">N</text>
+      <text x="200" y="394">S</text>
+      <text x="387" y="206">E</text>
+      <text x="13" y="206">W</text>
+    </g>
+  </svg>
+
+  <svg class="grid-globe" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#d8e5ef" stroke-width=".65">
+    <circle cx="200" cy="200" r="196"/>
+    <ellipse cx="200" cy="200" rx="196" ry="145"/>
+    <ellipse cx="200" cy="200" rx="196" ry="92"/>
+    <ellipse cx="200" cy="200" rx="145" ry="196"/>
+    <ellipse cx="200" cy="200" rx="92" ry="196"/>
+    <line x1="200" y1="4" x2="200" y2="396"/>
+    <line x1="4" y1="200" x2="396" y2="200"/>
+  </svg>
+</div>
+
 <div class="shell">
 
 <header id="home">
-  <p class="kicker">French language study, public service, cultural work, and international education</p>
+  <p class="kicker">French study · public service · civic education · cultural exchange</p>
 
   <h1>Ronnie Bailey</h1>
 
   <p class="hero-sub">
-    A personal and professional record shaped by language, civic institutions, cultural exchange, and international learning communities.
+    A record shaped by <strong>language, civic institutions, international learning communities, and cultural work</strong> — gathered here as the international side of a broader professional life.
   </p>
 
   <div class="hero-links">
-    <a href="#record">View the record</a>
+    <a href="#record">The record</a>
     <a href="#formation">Formation</a>
     <a href="#field-notes">Field notes</a>
   </div>
@@ -296,10 +369,10 @@ footer a{
 <section>
   <div class="intro">
     <p>
-      My international interests developed through practical, documented experiences: French coursework at Alliance Française de Portland, language exchange work with Tokyo-based Lang-8, international relations study at Clark College, French Club leadership, human-rights training, and public service at the U.S. Capitol.
+      My interest in international work did not start as a branding exercise. It came through French language study, student cultural leadership, work with a Tokyo-based language exchange platform, public service in Washington, D.C., and later human-rights training.
     </p>
     <p>
-      This page gathers that thread in one place. It is not a claim of diplomatic rank or foreign-service experience. It is a record of cultural formation, language study, public-facing service, and sustained engagement with international themes.
+      This page brings those pieces together. It is not meant to overstate the record as diplomatic service; it is meant to document a real pattern of language, culture, civic life, and international education that has followed me for years.
     </p>
   </div>
 </section>
@@ -307,122 +380,80 @@ footer a{
 <section id="record">
   <div class="sec-head">
     <h2>The Record</h2>
-    <p class="sec-note">
-      A timeline of language, civic, academic, and cultural work.
-    </p>
+    <p class="sec-note">Language, civic, academic, and cultural work arranged as a timeline.</p>
   </div>
 
   <div class="timeline">
 
     <article class="entry">
-      <div class="when">
-        2008
-        <span class="where">All On The Line · Richmond, Virginia · On-site</span>
-      </div>
+      <div class="when">2008<span class="where">All On The Line · Richmond, Virginia · On-site</span></div>
       <div>
         <h3>Political Canvasser</h3>
         <p class="role">Civic education and community outreach</p>
-        <p>
-          Supported public outreach, voter engagement, community mobilization, and civic education in a field-facing environment.
-        </p>
+        <p>Supported public outreach, voter engagement, community mobilization, and civic education in a field-facing environment.</p>
       </div>
     </article>
 
     <article class="entry">
-      <div class="when">
-        Jan 2013
-        <span class="where">Lang-8, Inc. · Shibuya-ku, Tokyo, Japan · Remote</span>
-      </div>
+      <div class="when">Jan 2013<span class="where">Lang-8, Inc. · Shibuya-ku, Tokyo, Japan · Remote</span></div>
       <div>
         <h3>Language Interpreter & Cultural Liaison</h3>
         <p class="role">French-English interpretation and language exchange</p>
-        <p>
-          Supported a Tokyo-headquartered language exchange platform through French-English interpretation, translation support, language coaching, and cross-cultural communication with a global community of learners.
-        </p>
+        <p>Supported a Tokyo-headquartered language exchange platform through French-English interpretation, translation support, language coaching, and cross-cultural communication with a global community of learners.</p>
       </div>
     </article>
 
     <article class="entry">
-      <div class="when">
-        Jul 2013 – Aug 2016
-        <span class="where">Clark College · Vancouver, Washington</span>
-      </div>
+      <div class="when">Jul 2013 – Aug 2016<span class="where">Clark College · Vancouver, Washington</span></div>
       <div>
         <h3>International Relations & Affairs</h3>
         <p class="role">Associate of Arts coursework</p>
-        <p>
-          Studied international relations, public communication, global affairs, and policy-oriented education through an international studies pathway.
-        </p>
+        <p>Studied international relations, public communication, global affairs, and policy-oriented education through an international studies pathway.</p>
       </div>
     </article>
 
     <article class="entry">
-      <div class="when">
-        Jan 2014 – Oct 2015
-        <span class="where">Alliance Française de Portland · Portland, Oregon</span>
-      </div>
+      <div class="when">Jan 2014 – Oct 2015<span class="where">Alliance Française de Portland · Portland, Oregon</span></div>
       <div>
         <h3>French Language Study</h3>
         <p class="role">Courses 101 and 103</p>
-        <p>
-          Completed French language group courses 101 and 103, building foundational French communication skills through a cultural institution dedicated to French language and Francophone exchange.
-        </p>
+        <p>Completed French language group courses 101 and 103, building foundational French communication skills through a cultural institution dedicated to French language and Francophone exchange.</p>
       </div>
     </article>
 
     <article class="entry">
-      <div class="when">
-        Sep 2013 – Feb 2016
-        <span class="where">Clark College Cercle Français · Vancouver, Washington</span>
-      </div>
+      <div class="when">Sep 2013 – Feb 2016<span class="where">Clark College Cercle Français · Vancouver, Washington</span></div>
       <div>
         <h3>President</h3>
         <p class="role">French Club leadership</p>
-        <p>
-          Led French language and cultural programming designed to share, celebrate, and promote the language and culture of the French-speaking world while connecting with the broader community.
-        </p>
+        <p>Led French language and cultural programming designed to share, celebrate, and promote the language and culture of the French-speaking world while connecting with the broader community.</p>
       </div>
     </article>
 
     <article class="entry">
-      <div class="when">
-        Academic
-        <span class="where">Model United Nations · Academic simulation</span>
-      </div>
+      <div class="when">Academic<span class="where">Model United Nations · Academic simulation</span></div>
       <div>
         <h3>Delegate / Participant</h3>
         <p class="role">Diplomacy, negotiation, and public speaking</p>
-        <p>
-          Participated in structured diplomatic simulations involving negotiation, coalition-building, geopolitical analysis, public speaking, and resolution drafting.
-        </p>
+        <p>Participated in structured diplomatic simulations involving negotiation, coalition-building, geopolitical analysis, public speaking, and resolution drafting.</p>
       </div>
     </article>
 
     <article class="entry">
-      <div class="when">
-        Sep 2017 – Apr 2018
-        <span class="where">Architect of the Capitol · Washington, D.C.</span>
-      </div>
+      <div class="when">Sep 2017 – Apr 2018<span class="where">Architect of the Capitol · Washington, D.C.</span></div>
       <div>
         <h3>Visitor Assistant · GS-5</h3>
         <p class="role">Public service and historical interpretation</p>
-        <p>
-          Served in a public-facing role assisting visitor groups at a major U.S. civic institution, including domestic and international guests.
-        </p>
+        <p>Served in a public-facing role assisting visitor groups at a major U.S. civic institution, including domestic and international guests.</p>
       </div>
     </article>
 
     <article class="entry">
-      <div class="when">
-        Nov 2023 – Dec 2023
-        <span class="where">U.S. Institute of Diplomacy and Human Rights · Washington, D.C.</span>
-      </div>
+      <div class="when">Nov 2023 – Dec 2023<span class="where">U.S. Institute of Diplomacy and Human Rights · Washington, D.C.</span></div>
       <div>
         <h3>Human Rights Education Training</h3>
         <p class="role">Human rights, diplomacy, and advocacy</p>
-        <p>
-          Completed professional training covering diplomacy, international human-rights principles, advocacy, protection, international legal frameworks, and multilateral institutions.
-        </p>
+        <p>Completed professional training covering diplomacy, international human-rights principles, advocacy, protection, international legal frameworks, and multilateral institutions.</p>
       </div>
     </article>
 
@@ -432,41 +463,16 @@ footer a{
 <section id="formation">
   <div class="sec-head">
     <h2>Formation</h2>
-    <p class="sec-note">
-      The recurring pattern across the record is language, cultural fluency, civic education, and public-facing communication.
-    </p>
+    <p class="sec-note">The through-line is language, cultural fluency, civic education, and public-facing communication.</p>
   </div>
 
   <div class="cards">
-    <div class="card">
-      <h3>Language</h3>
-      <p>French-English interpretation, formal French coursework, language coaching, and translation support.</p>
-    </div>
-
-    <div class="card">
-      <h3>Culture</h3>
-      <p>Francophone culture, Japanese language exchange, European history, museums, festivals, and cultural documentation.</p>
-    </div>
-
-    <div class="card">
-      <h3>Public Service</h3>
-      <p>Visitor-facing government experience, civic engagement, historical interpretation, and community outreach.</p>
-    </div>
-
-    <div class="card">
-      <h3>Human Rights</h3>
-      <p>Training in human-rights principles, advocacy, diplomacy, protection, and international legal frameworks.</p>
-    </div>
-
-    <div class="card">
-      <h3>International Study</h3>
-      <p>Academic exposure to international relations, global affairs, public policy, and diplomatic simulation.</p>
-    </div>
-
-    <div class="card">
-      <h3>Communication</h3>
-      <p>Experience translating ideas across cultures, institutions, audiences, and public-facing environments.</p>
-    </div>
+    <div class="card"><h3>Language</h3><p>French-English interpretation, formal French coursework, language coaching, and translation support.</p></div>
+    <div class="card"><h3>Culture</h3><p>Francophone culture, Japanese language exchange, European history, museums, festivals, and cultural documentation.</p></div>
+    <div class="card"><h3>Public Service</h3><p>Visitor-facing government experience, civic engagement, historical interpretation, and community outreach.</p></div>
+    <div class="card"><h3>Human Rights</h3><p>Training in human-rights principles, advocacy, diplomacy, protection, and international legal frameworks.</p></div>
+    <div class="card"><h3>International Study</h3><p>Academic exposure to international relations, global affairs, public policy, and diplomatic simulation.</p></div>
+    <div class="card"><h3>Communication</h3><p>Experience translating ideas across cultures, institutions, audiences, and public-facing environments.</p></div>
   </div>
 </section>
 
@@ -476,35 +482,12 @@ footer a{
   </div>
 
   <div class="cards">
-    <div class="card">
-      <h3>Washington, D.C.</h3>
-      <p>Public service, civic institutions, human-rights education, and government-facing experience.</p>
-    </div>
-
-    <div class="card">
-      <h3>Tokyo, Japan</h3>
-      <p>Remote contribution to a Tokyo-headquartered international language exchange platform.</p>
-    </div>
-
-    <div class="card">
-      <h3>Portland, Oregon</h3>
-      <p>French coursework through Alliance Française de Portland.</p>
-    </div>
-
-    <div class="card">
-      <h3>Vancouver, Washington</h3>
-      <p>International studies coursework and French Club leadership at Clark College.</p>
-    </div>
-
-    <div class="card">
-      <h3>Paris, France</h3>
-      <p>French language, cultural travel, European history, architecture, and Francophone interest.</p>
-    </div>
-
-    <div class="card">
-      <h3>London, United Kingdom</h3>
-      <p>International travel, cultural exposure, and urban historical context.</p>
-    </div>
+    <div class="card"><h3>Washington, D.C.</h3><p>Public service, civic institutions, human-rights education, and government-facing experience.</p></div>
+    <div class="card"><h3>Tokyo, Japan</h3><p>Remote contribution to a Tokyo-headquartered international language exchange platform.</p></div>
+    <div class="card"><h3>Portland, Oregon</h3><p>French coursework through Alliance Française de Portland.</p></div>
+    <div class="card"><h3>Vancouver, Washington</h3><p>International studies coursework and French Club leadership at Clark College.</p></div>
+    <div class="card"><h3>Paris, France</h3><p>French language, cultural travel, European history, architecture, and Francophone interest.</p></div>
+    <div class="card"><h3>London, United Kingdom</h3><p>International travel, cultural exposure, and urban historical context.</p></div>
   </div>
 </section>
 
@@ -534,9 +517,7 @@ footer a{
 <section id="field-notes">
   <div class="sec-head">
     <h2>Field Notes</h2>
-    <p class="sec-note">
-      A rotating visual archive of language study, travel, public institutions, cultural events, and international curiosity.
-    </p>
+    <p class="sec-note">A rotating visual archive of language study, travel, public institutions, cultural events, and international curiosity.</p>
   </div>
 
   <div class="gallery" id="rotatingGallery"></div>
@@ -597,11 +578,9 @@ function chooseImage(current){
 for(let i=0;i<tileCount;i++){
   const tile=document.createElement("div");
   tile.className="photo-tile";
-
   const img=document.createElement("img");
   img.src=imageLibrary[i % imageLibrary.length];
   img.alt="International cultural field note";
-
   tile.appendChild(img);
   gallery.appendChild(tile);
 }
@@ -610,9 +589,7 @@ setInterval(()=>{
   const tiles=document.querySelectorAll(".photo-tile");
   const tile=tiles[Math.floor(Math.random()*tiles.length)];
   const img=tile.querySelector("img");
-
   tile.classList.add("fade");
-
   setTimeout(()=>{
     img.src=chooseImage(img.src);
     tile.classList.remove("fade");
