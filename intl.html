@@ -29,7 +29,6 @@ h1,h2,h3{font-family:"Cinzel",serif;font-weight:500}
 a{color:inherit}
 .hero{min-height:530px;display:grid;grid-template-columns:40% 60%;background:var(--navy);overflow:hidden}
 .hero-copy{z-index:2;padding:58px 40px 48px clamp(34px,6vw,78px);display:flex;flex-direction:column;justify-content:center;color:var(--paper)}
-.compass-mark{color:var(--gold2);font-size:2rem;margin-bottom:20px}
 .hero h1{font-size:clamp(3.4rem,7vw,5.9rem);line-height:.98;letter-spacing:.08em;text-transform:uppercase}
 .hero h1::after{content:"";display:block;width:100%;max-width:560px;height:1px;background:linear-gradient(90deg,var(--gold2),rgba(214,169,74,.34),transparent);margin:24px 0 0}
 .hero-sub{max-width:450px;margin-top:24px;color:var(--muted);font-size:1.08rem}
@@ -583,6 +582,44 @@ main,
   }
 }
 
+
+/* FINAL REQUESTED REVISIONS */
+.hero-copy{
+  padding-bottom:96px !important;
+}
+
+.hero-fr{
+  margin-bottom:10px;
+  position:relative;
+  z-index:3;
+}
+
+.section-nav{
+  margin-top:-52px !important;
+}
+
+/* Archive: 2 rows x 4 images */
+.archive-strip{
+  grid-template-columns:repeat(4,1fr) !important;
+  max-width:450px !important;
+}
+
+/* Reference Library: add American Studies as third column */
+.library{
+  grid-template-columns:repeat(3,1fr) !important;
+  gap:28px !important;
+}
+
+@media(max-width:780px){
+  .library{
+    grid-template-columns:1fr !important;
+  }
+  .archive-strip{
+    grid-template-columns:repeat(2,1fr) !important;
+    max-width:100% !important;
+  }
+}
+
 </style>
 </head>
 
@@ -626,8 +663,7 @@ main,
 
 <header class="hero">
   <div class="hero-copy">
-    <div class="compass-mark">✥</div>
-    <h1>Ronnie<br>Bailey</h1>
+<h1>Ronnie<br>Bailey</h1>
     <p class="hero-sub">A continuous record of how a long-standing interest in language gradually became a broader study of culture, public institutions, and international studies.</p>
     <p class="hero-fr">Un parcours consacré à la langue, à la culture, et à la compréhension du monde.</p>
     
@@ -712,10 +748,12 @@ main,
             <div><a href="images/gallery/gallery04.webp" target="_blank"><img src="images/gallery/gallery04.webp" alt="Archive preview"></a></div>
             <div><a href="images/gallery/gallery05.webp" target="_blank"><img src="images/gallery/gallery05.webp" alt="Archive preview"></a></div>
             <div><a href="images/gallery/gallery06.webp" target="_blank"><img src="images/gallery/gallery06.webp" alt="Archive preview"></a></div>
+            <div><a href="images/gallery/gallery07.webp" target="_blank"><img src="images/gallery/gallery07.webp" alt="Archive preview"></a></div>
+            <div><a href="images/gallery/gallery08.webp" target="_blank"><img src="images/gallery/gallery08.webp" alt="Archive preview"></a></div>
           </div>
         </div>
 
-        <div id="library"><div class="section-head"><h2>Reference Library</h2><p class="fr-title">Bibliothèque de référence</p></div><div class="library"><div><h3>Language &amp; Literature</h3><a href="#">Alliance Française</a><a href="#">DELF / DALF</a><a href="#">Assimil</a><a href="#">Le Monde</a></div><div><h3>International Studies</h3><a href="#">Foreign Affairs</a><a href="#">The Economist</a><a href="#">Brookings</a><a href="#">Council on Foreign Relations</a></div></div></div></div></section>
+        <div id="library"><div class="section-head"><h2>Reference Library</h2><p class="fr-title">Bibliothèque de référence</p></div><div class="library"><div><h3>Language &amp; Literature</h3><a href="#">Alliance Française</a><a href="#">DELF / DALF</a><a href="#">Assimil</a><a href="#">Le Monde</a></div><div><h3>International Studies</h3><a href="#">Foreign Affairs</a><a href="#">The Economist</a><a href="#">Brookings</a><a href="#">Council on Foreign Relations</a></div><div><h3>American Studies</h3><a href="#">Library of Congress</a><a href="#">National Archives</a><a href="#">Encyclopedia Virginia</a><a href="#">National Museum of African American History &amp; Culture</a></div></div></div></div></section>
 
   <section id="correspondence" class="chapter correspondence"><div class="contact"><div class="section-head"><h2>Correspondence</h2><p class="fr-title">Correspondance</p></div><p>For correspondence regarding language, culture, or civic study, you can reach me through:</p><div class="contact-links"><a href="mailto:ronniebailey@live.com"><i class="fa-solid fa-envelope"></i>Email</a><a href="https://www.babelio.com/monprofil.php?id_user=293465" target="_blank"><i class="fa-solid fa-book-open-reader"></i>Babelio</a><a href="https://www.goodreads.com/user/show/2583666-ronnie" target="_blank"><i class="fa-brands fa-goodreads-g"></i>Goodreads</a></div></div><div class="quote"><p>“One language sets you in a corridor for life. Two languages open every door along the way.”</p><cite>« Une langue vous place dans un couloir pour la vie. Deux langues ouvrent toutes les portes sur le chemin. »</cite></div></section>
 </div></main>
