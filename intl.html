@@ -74,11 +74,12 @@ h1,h2,h3{font-family:'Cinzel',serif}
 header{padding:68px 0 42px}
 
 h1{
-  font-size:clamp(2.65rem,7vw,5rem);
-  letter-spacing:.14em;
+  font-size:clamp(2.4rem,6.2vw,4.65rem);
+  letter-spacing:.10em;
   text-transform:uppercase;
   line-height:1.08;
   font-weight:500;
+  white-space:nowrap;
 }
 
 .hero-sub{
@@ -444,13 +445,25 @@ h2{
   justify-content:center;
 }
 
+
 .closing-quote{
-  padding-top:20px;
+  padding:22px 0 34px;
+  border-top:1px solid var(--line);
 }
 
+.closing-quote .quote{
+  margin-top:0;
+  padding:0;
+  max-width:860px;
+  font-size:.96rem;
+  opacity:.84;
+}
+
+.closing-quote .quote em{
+  font-size:.96rem;
+}
 footer{
   padding:54px 0 44px;
-  border-top:1px solid var(--line);
   display:flex;
   justify-content:space-between;
   gap:16px;
@@ -475,6 +488,14 @@ footer a{
   .entry{grid-template-columns:1fr}
   .gallery{grid-template-columns:repeat(2,1fr)}
 }
+
+@media(max-width:700px){
+  h1{
+    white-space:normal;
+    letter-spacing:.08em;
+  }
+}
+
 </style>
 </head>
 
@@ -515,7 +536,7 @@ footer a{
   <h1>Ronnie Bailey</h1>
 
   <p class="hero-sub">
-    A professional record shaped by language study, public institutions, cultural heritage, and international affairs.
+    A continuous record of how a long-standing interest in language gradually became a broader study of culture, public institutions, and international affairs.
   </p>
 
   <p class="french-line">
@@ -535,10 +556,10 @@ footer a{
 <section>
   <div class="intro">
     <p>
-      My interest in language and international affairs began independently in 2008 while I was still in high school. What started as personal study gradually became a broader engagement with language communities, formal education, public service, travel, and continuing research.
+      My interest in language and international affairs began independently in 2008 while I was still in high school. Personal study eventually led to language communities, formal education, public service, travel, and continuing research.
     </p>
     <p>
-      My professional interests explore how language, culture, and public institutions shape understanding between people and nations. This portfolio documents that progression as an ongoing record of study, service, and professional development.
+      My professional interests explore how language and public institutions shape cultural understanding between people and nations. This portfolio documents that progression through study, service, and professional development.
     </p>
   </div>
 </section>
@@ -547,7 +568,7 @@ footer a{
   <div class="sec-head">
     <h2>Professional Timeline <span class="fr-title">Parcours professionnel</span></h2>
     <p class="sec-note">
-      The following timeline traces how these interests developed over time, beginning with independent language study and continuing through cultural exchange, formal education, public service, and professional training.
+      The following timeline shows the path from early independent language study into formal education, cultural exchange, public service, and professional training.
     </p>
   </div>
 
@@ -557,7 +578,7 @@ footer a{
       <div>
         <h3>Human Rights Education Training</h3>
         <p class="role">Human rights, diplomacy, advocacy</p>
-        <p>Completed professional training in diplomacy and international human-rights principles, with attention to advocacy, protection frameworks, and multilateral institutions.</p>
+        <p>Completed professional training in diplomacy and human-rights principles, with a focus on how international institutions frame advocacy and protection.</p>
         <div class="ref-links">
           <a href="archive/usidhr/certificate.pdf" target="_blank">Certificate</a>
           <a href="archive/usidhr/program-overview.pdf" target="_blank">Program overview</a>
@@ -570,7 +591,7 @@ footer a{
       <div>
         <h3>Visitor Assistant · GS-5</h3>
         <p class="role">Public service, visitor engagement, historical interpretation</p>
-        <p>Served in a public-facing role at a major U.S. civic institution, assisting domestic and international visitors through historical interpretation and visitor engagement.</p>
+        <p>Served in a public-facing role at a major U.S. civic institution, where historical interpretation became part of daily public service.</p>
         <div class="ref-links">
           <a href="archive/aoc/appointment.pdf" target="_blank">Appointment</a>
           <a href="archive/aoc/photographs.html" target="_blank">Photographs</a>
@@ -583,7 +604,7 @@ footer a{
       <div>
         <h3>Vice President</h3>
         <p class="role">Clark College Cercle Français leadership</p>
-        <p>Supported French language and cultural programming designed to share, celebrate, and promote the language and culture of the French-speaking world.</p>
+        <p>Supported campus programming that connected French language study with cultural exchange and community engagement.</p>
         <div class="ref-links">
           <a href="archive/french-club/leadership-record.pdf" target="_blank">Leadership record</a>
           <a href="archive/french-club/photos.html" target="_blank">Photographs</a>
@@ -596,7 +617,7 @@ footer a{
       <div>
         <h3>French Language Study</h3>
         <p class="role">Courses 101 and 103</p>
-        <p>Completed French language group courses 101 and 103, building foundational French communication skills through a cultural institution dedicated to French language and Francophone exchange.</p>
+        <p>Completed French language group courses 101 and 103 through a cultural institution dedicated to Francophone language and exchange.</p>
         <div class="ref-links">
           <a href="archive/alliance-francaise/attendance-letter.pdf" target="_blank">Attendance letter</a>
           <a href="archive/alliance-francaise/study-materials.html" target="_blank">Study materials</a>
@@ -609,7 +630,7 @@ footer a{
       <div>
         <h3>International Relations & Affairs</h3>
         <p class="role">Associate of Arts coursework</p>
-        <p>Studied international relations through coursework that included public communication, literature, public speaking, global affairs, and policy-oriented education.</p>
+        <p>Studied international relations within a broader academic path that connected public communication, literature, public speaking, global affairs, and policy.</p>
         <div class="ref-links">
           <a href="archive/clark-college/transcript.pdf" target="_blank">Transcript</a>
           <a href="archive/clark-college/degree.pdf" target="_blank">Degree record</a>
@@ -622,7 +643,7 @@ footer a{
       <div>
         <h3>Language Interpreter & Cultural Liaison</h3>
         <p class="role">French-English interpretation, language exchange</p>
-        <p>Supported a Tokyo-headquartered language exchange platform through French-English interpretation, translation support, and language coaching within a global community of learners.</p>
+        <p>Supported a Tokyo-headquartered language exchange platform through French-English interpretation, translation support, and coaching within a global learning community.</p>
         <div class="ref-links">
           <a href="archive/lang8/profile.pdf" target="_blank">Platform profile</a>
           <a href="archive/lang8/translation-samples.pdf" target="_blank">Translation samples</a>
@@ -635,7 +656,7 @@ footer a{
       <div>
         <h3>Independent Language Study</h3>
         <p class="role">French language exploration</p>
-        <p>Began independent French study through self-directed coursework, language audio programs, online communities, and international correspondence. This early study later expanded into university coursework, Alliance Française instruction, language exchange, and a broader interest in international affairs and cultural diplomacy.</p>
+        <p>Began independent French study through self-directed coursework, language audio programs, online communities, and international correspondence. That early interest later expanded into university coursework, Alliance Française instruction, language exchange, and a broader interest in cultural diplomacy.</p>
       </div>
     </article>
 
@@ -644,7 +665,7 @@ footer a{
       <div>
         <h3>Political Canvasser</h3>
         <p class="role">Civic education, community outreach</p>
-        <p>Supported public outreach, voter engagement, community mobilization, and civic education in a field-facing environment.</p>
+        <p>Supported civic outreach in a field-facing environment focused on public awareness and community participation.</p>
         <div class="ref-links">
           <a href="archive/all-on-the-line/record.pdf" target="_blank">Record</a>
           <a href="archive/all-on-the-line/materials.html" target="_blank">Materials</a>
@@ -668,7 +689,7 @@ footer a{
 
       <div class="profile-row">
         <h3>French</h3>
-        <p>Working proficiency, self-assessed at approximately CEFR B2, developed through independent study, university coursework, Alliance Française instruction, Lang-8 language exchange, travel, and continued reading. Formal DELF certification has not been pursued.</p>
+        <p>Working proficiency, self-assessed at approximately CEFR B1, developed through independent study, university coursework, Alliance Française instruction, Lang-8 language exchange, travel, and continued reading. Formal DELF certification has not been pursued.</p>
       </div>
 
       <div class="profile-row">
@@ -742,7 +763,7 @@ footer a{
 <section id="library">
   <div class="sec-head">
     <h2>Reference Library <span class="fr-title">Bibliothèque de référence</span></h2>
-    <p class="sec-note">Reference material connected to language, public institutions, cultural heritage, and international affairs.</p>
+    <p class="sec-note">Reference material connected to the subjects that shaped this record.</p>
   </div>
 
   <div class="cards">
@@ -759,7 +780,7 @@ footer a{
   <div class="portfolio-note">
     <h3>Portfolio</h3>
     <p>
-      This portfolio is maintained as an ongoing record of continued study, professional development, and cultural engagement. New coursework, publications, travel, certifications, and public projects are incorporated as they become part of the record.
+      This portfolio is maintained as an ongoing record of study and professional development. New coursework, publications, travel, certifications, and public projects are incorporated as they become part of the record.
     </p>
     <em>Ce portfolio est enrichi au fil des études, des expériences professionnelles, des voyages et des échanges culturels.</em>
   </div>
@@ -768,7 +789,7 @@ footer a{
 <section id="contact">
   <div class="sec-head">
     <h2>Correspondence <span class="fr-title">Correspondance</span></h2>
-    <p class="sec-note">For professional correspondence, collaboration, or discussion related to language, cultural affairs, public institutions, or international engagement.</p>
+    <p class="sec-note">For professional correspondence related to cultural affairs, public institutions, language, or international engagement.</p>
   </div>
 
   <div class="contact-grid">
@@ -779,15 +800,13 @@ footer a{
 </section>
 
 
+
 <section class="closing-quote" aria-label="Language quote">
   <div class="quote">
     “One language sets you in a corridor for life. Two languages open every door along the way.”
     <em>« Une langue vous place dans un couloir pour la vie. Deux langues ouvrent toutes les portes sur le chemin. »</em>
   </div>
 </section>
-
-
-
 
 <footer>
   <span>Ronnie Bailey · International Portfolio</span>
