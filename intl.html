@@ -391,6 +391,74 @@ main,
   }
 }
 
+
+/* TIMELINE SPLIT + ORIGINAL PHOTO COUNT */
+.studies-layout{
+  grid-template-columns:1fr !important;
+}
+
+.timeline{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 54px;
+  padding-left:0 !important;
+}
+
+.timeline::before{
+  display:none !important;
+}
+
+.t-entry{
+  display:grid;
+  grid-template-columns:76px 1fr;
+  gap:18px;
+  padding:0 0 26px;
+  margin-bottom:0 !important;
+}
+
+.year{
+  position:static !important;
+  width:auto !important;
+  text-align:right !important;
+  font-size:.94rem;
+}
+
+.t-entry::before{
+  display:none !important;
+}
+
+.thumb-grid{
+  grid-template-columns:repeat(3,1fr) !important;
+  max-width:460px;
+  margin-top:8px;
+}
+
+/* Archive section should be a small linkable preview, not another growing gallery */
+.archive-strip{
+  grid-template-columns:repeat(3,1fr) !important;
+  max-width:300px;
+}
+
+.archive-strip div:nth-child(n+4){
+  display:none;
+}
+
+.archive-strip a,
+.archive-strip img{
+  display:block;
+  width:100%;
+  height:100%;
+}
+
+@media(max-width:900px){
+  .timeline{
+    grid-template-columns:1fr;
+  }
+  .thumb-grid{
+    max-width:100%;
+  }
+}
+
 </style>
 </head>
 
@@ -483,7 +551,7 @@ main,
         <article class="t-entry"><div class="year">2008–2013</div><h3>Independent French &amp; Cultural Study</h3><p class="place">Richmond, Virginia</p><p>Began independent French study through self-directed resources, language audio programs, online communities, and international correspondence. This became the foundation for later formal study and cultural engagement.</p></article>
         <article class="t-entry"><div class="year">2008</div><h3>Political Canvasser</h3><p class="place">All On The Line · Richmond, Virginia</p><p>Early civic outreach experience focused on public awareness and community participation, foreshadowing a continuing interest in public institutions and civic life.</p></article>
       </div>
-      <div class="thumb-grid rotating-gallery" id="rotatingHeroGallery">
+      <div class="thumb-grid" id="rotatingHeroGallery">
           <div class="thumb"><img src="images/gallery/gallery01.webp" alt="Gallery image"></div>
           <div class="thumb"><img src="images/gallery/gallery02.webp" alt="Gallery image"></div>
           <div class="thumb"><img src="images/gallery/gallery03.webp" alt="Gallery image"></div>
@@ -493,9 +561,6 @@ main,
           <div class="thumb"><img src="images/gallery/gallery07.webp" alt="Gallery image"></div>
           <div class="thumb"><img src="images/gallery/gallery08.webp" alt="Gallery image"></div>
           <div class="thumb"><img src="images/gallery/gallery09.webp" alt="Gallery image"></div>
-          <div class="thumb"><img src="images/gallery/gallery10.webp" alt="Gallery image"></div>
-          <div class="thumb"><img src="images/gallery/gallery11.webp" alt="Gallery image"></div>
-          <div class="thumb"><img src="images/gallery/gallery12.webp" alt="Gallery image"></div>
         </div>
       </div>
     </section>
@@ -526,39 +591,12 @@ main,
     </div>
   </section>
 
-  <section id="archive" class="chapter"><div class="lower-grid"><div><div class="section-head"><h2>Archive</h2><p class="fr-title">Archives</p></div><div class="archive-strip"><div><img src="images/gallery/gallery01.webp" alt="Archive placeholder"></div><div><img src="images/gallery/gallery02.webp" alt="Archive placeholder"></div><div><img src="images/gallery/gallery03.webp" alt="Archive placeholder"></div><div><img src="images/gallery/gallery04.webp" alt="Archive placeholder"></div><div><img src="images/gallery/gallery05.webp" alt="Archive placeholder"></div><div><img src="images/gallery/gallery06.webp" alt="Archive placeholder"></div></div></div>
+  <section id="archive" class="chapter"><div class="lower-grid"><div><div class="section-head"><h2>Archive</h2><p class="fr-title">Archives</p><p>A small preview of larger documents and images. Each item can open as a larger file.</p></div><div class="archive-strip"><div><a href="images/gallery/gallery01.webp" target="_blank"><img src="images/gallery/gallery01.webp" alt="Archive preview"></a></div><div><a href="images/gallery/gallery02.webp" target="_blank"><img src="images/gallery/gallery02.webp" alt="Archive preview"></a></div><div><a href="images/gallery/gallery03.webp" target="_blank"><img src="images/gallery/gallery03.webp" alt="Archive preview"></a></div></div></div>
     <div id="library"><div class="section-head"><h2>Reference Library</h2><p class="fr-title">Bibliothèque de référence</p></div><div class="library"><div><h3>Language &amp; Literature</h3><a href="#">Alliance Française</a><a href="#">DELF / DALF</a><a href="#">Assimil</a><a href="#">Le Monde</a></div><div><h3>International Affairs</h3><a href="#">Foreign Affairs</a><a href="#">The Economist</a><a href="#">Brookings</a><a href="#">Council on Foreign Relations</a></div></div></div></div></section>
 
   <section id="correspondence" class="chapter correspondence"><div class="contact"><div class="section-head"><h2>Correspondence</h2><p class="fr-title">Correspondance</p></div><p>For correspondence regarding language, culture, or civic study, you can reach me through:</p><div class="contact-links"><a href="mailto:ronniebailey@live.com"><i class="fa-solid fa-envelope"></i>Email</a><a href="https://www.babelio.com/monprofil.php?id_user=293465" target="_blank"><i class="fa-solid fa-book-open-reader"></i>Babelio</a><a href="https://www.goodreads.com/user/show/2583666-ronnie" target="_blank"><i class="fa-brands fa-goodreads-g"></i>Goodreads</a></div></div><div class="quote"><p>“One language sets you in a corridor for life. Two languages open every door along the way.”</p><cite>« Une langue vous place dans un couloir pour la vie. Deux langues ouvrent toutes les portes sur le chemin. »</cite></div></section>
 </div></main>
 <footer class="footer"><span>Ronnie Bailey &nbsp; | &nbsp; A Record of Study</span><a href="https://www.ronniebailey.cloud" target="_blank" rel="noopener">Professional Identity &amp; Security Work → ronniebailey.cloud</a></footer>
-
-<script>
-const galleryRepository = Array.from({length:24}, (_,i) => `images/gallery/gallery${String(i+1).padStart(2,'0')}.webp`);
-
-function getVisibleSources(){
-  return Array.from(document.querySelectorAll('#rotatingHeroGallery img')).map(img => img.getAttribute('src'));
-}
-
-function pickNextImage(currentSrc){
-  const visible = new Set(getVisibleSources());
-  const candidates = galleryRepository.filter(src => src !== currentSrc && !visible.has(src));
-  const pool = candidates.length ? candidates : galleryRepository.filter(src => src !== currentSrc);
-  return pool[Math.floor(Math.random() * pool.length)];
-}
-
-setInterval(() => {
-  const tiles = document.querySelectorAll('#rotatingHeroGallery .thumb');
-  if(!tiles.length) return;
-  const tile = tiles[Math.floor(Math.random() * tiles.length)];
-  const img = tile.querySelector('img');
-  tile.classList.add('fade');
-  setTimeout(() => {
-    img.src = pickNextImage(img.getAttribute('src'));
-    tile.classList.remove('fade');
-  }, 550);
-}, 4200);
-</script>
 
 </body>
 </html>
