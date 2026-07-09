@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 :root{
@@ -71,14 +72,6 @@ h1,h2,h3{font-family:'Cinzel',serif}
 }
 
 header{padding:68px 0 42px}
-
-.kicker{
-  color:var(--gold2);
-  font-size:.95rem;
-  letter-spacing:.05em;
-  margin-bottom:18px;
-  font-weight:500;
-}
 
 h1{
   font-size:clamp(2.65rem,7vw,5rem);
@@ -223,47 +216,16 @@ h2{
   gap:10px;
 }
 
-.ref-links a,
-.reading-link{
+.ref-links a{
   color:var(--gold2);
   text-decoration:none;
   border-bottom:1px solid rgba(227,192,106,.45);
 }
 
-.ref-links a:hover,
-.reading-link:hover{
+.ref-links a:hover{
   color:var(--cream);
   border-color:var(--cream);
 }
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:16px;
-}
-
-.card{
-  background:var(--cream);
-  color:var(--ink);
-  padding:26px;
-  box-shadow:0 14px 34px rgba(0,0,0,.16);
-}
-
-.card h3{
-  font-size:1rem;
-  letter-spacing:.05em;
-  color:var(--ink);
-  margin-bottom:10px;
-}
-
-.card p,
-.card li{
-  color:var(--ink2);
-  font-size:1rem;
-}
-
-.card ul{list-style:none}
-.card li{margin-bottom:8px}
 
 .profile-panel{
   display:grid;
@@ -311,16 +273,70 @@ h2{
   margin-bottom:8px;
 }
 
-.study-photo{
+.study-photo,
+.heritage-photo{
   min-height:620px;
-  background:
-    linear-gradient(rgba(6,26,43,.54),rgba(6,26,43,.70)),
-    url("images/literature-study.jpg");
   background-size:cover;
   background-position:center;
   border:1px solid var(--line);
   box-shadow:0 18px 45px rgba(0,0,0,.25);
   filter:grayscale(.25) brightness(.88) contrast(1.05);
+}
+
+.study-photo{
+  background:
+    linear-gradient(rgba(6,26,43,.54),rgba(6,26,43,.70)),
+    url("images/literature-study.jpg");
+  background-size:cover;
+  background-position:center;
+}
+
+.heritage-photo{
+  background:
+    linear-gradient(rgba(6,26,43,.50),rgba(6,26,43,.68)),
+    url("images/american-heritage.jpg");
+  background-size:cover;
+  background-position:center;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+}
+
+.card{
+  background:var(--cream);
+  color:var(--ink);
+  padding:26px;
+  box-shadow:0 14px 34px rgba(0,0,0,.16);
+}
+
+.card h3{
+  font-size:1rem;
+  letter-spacing:.05em;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+
+.card p,
+.card li{
+  color:var(--ink2);
+  font-size:1rem;
+}
+
+.card ul{list-style:none}
+.card li{margin-bottom:8px}
+
+.reading-link{
+  color:var(--ink2);
+  text-decoration:none;
+  border-bottom:1px solid rgba(18,58,94,.28);
+}
+
+.reading-link:hover{
+  color:var(--gold);
+  border-color:var(--gold);
 }
 
 .gallery{
@@ -353,8 +369,7 @@ h2{
 
 .quote{
   margin-top:34px;
-  padding:28px;
-  border-left:2px solid var(--gold);
+  padding:28px 0;
   color:var(--muted);
   font-size:1.12rem;
   max-width:820px;
@@ -364,6 +379,47 @@ h2{
   display:block;
   margin-top:10px;
   color:var(--gold2);
+}
+
+.closing-note{
+  margin-top:34px;
+  max-width:860px;
+  color:var(--muted);
+  font-size:1.08rem;
+  font-weight:300;
+}
+
+.closing-note em{
+  display:block;
+  margin-top:10px;
+  color:var(--gold2);
+}
+
+.contact-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+
+.contact-grid a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--cream);
+  text-decoration:none;
+  border:1px solid var(--line);
+  padding:12px 16px;
+  background:rgba(255,255,255,.04);
+  font-size:1rem;
+}
+
+.contact-grid a:hover{
+  color:var(--gold2);
+  border-color:rgba(227,192,106,.55);
+}
+
+.contact-grid i{
+  font-size:.95rem;
 }
 
 footer{
@@ -385,7 +441,7 @@ footer a{
 @media(max-width:900px){
   .profile-panel{grid-template-columns:1fr}
   .profile-row ul{columns:1}
-  .study-photo{min-height:360px}
+  .study-photo,.heritage-photo{min-height:360px}
 }
 
 @media(max-width:800px){
@@ -430,34 +486,33 @@ footer a{
 <div class="shell">
 
 <header id="home">
-  <p class="kicker">Language • Public Service • International Relations • American Heritage • Cultural Study</p>
-
   <h1>Ronnie Bailey</h1>
 
   <p class="hero-sub">
-    A curated international portfolio documenting language study, public service, American civic heritage, cultural exchange, and international education developed over more than a decade.
+    A professional record documenting sustained study in language, public institutions, cultural heritage, and international affairs.
   </p>
 
   <p class="french-line">
-    Un parcours consacré à la langue, au service public, au patrimoine civique américain et aux affaires internationales.
+    Un parcours consacré aux langues, aux institutions publiques, au patrimoine culturel et aux affaires internationales.
   </p>
 
   <div class="hero-links">
     <a href="#timeline">Professional Timeline</a>
     <a href="#language">Academic Profile</a>
-    <a href="#heritage">American Heritage</a>
-    <a href="#archive">Cultural Archive</a>
-    <a href="#reading">Selected Reading</a>
+    <a href="#heritage">Civic Study</a>
+    <a href="#archive">Archive</a>
+    <a href="#library">Library</a>
+    <a href="#contact">Correspondence</a>
   </div>
 </header>
 
 <section>
   <div class="intro">
     <p>
-      My career has primarily been in technology, but alongside that work I have consistently pursued language study, international relations, public institutions, French culture, American civic history, Virginia heritage, and human-rights education.
+      My interest in language and international affairs began independently in 2008 while I was still in high school. What started as personal study gradually expanded through language-learning communities, formal education, public service, travel, and continued independent research.
     </p>
     <p>
-      This portfolio documents that parallel path through academic work, public service, language learning, cultural engagement, and selected references from the archive.
+      My professional interests center on the ways language, culture, history, and public institutions shape relationships between people and nations. This portfolio documents that progression as an ongoing record of study, service, and professional development.
     </p>
   </div>
 </section>
@@ -465,11 +520,10 @@ footer a{
 <section id="timeline">
   <div class="sec-head">
     <h2>Professional Timeline <span class="fr-title">Parcours professionnel</span></h2>
-    <p class="sec-note">Selected international, civic, language, and public-service experiences. Newest to oldest.</p>
+    <p class="sec-note">Selected international, civic, language, and public-service experiences.</p>
   </div>
 
   <div class="timeline">
-
     <article class="entry">
       <div class="when">Nov 2023 – Dec 2023<span class="where">U.S. Institute of Diplomacy and Human Rights · Washington, D.C.</span></div>
       <div>
@@ -499,9 +553,9 @@ footer a{
     <article class="entry">
       <div class="when">Sep 2013 – Feb 2016<span class="where">Clark College Cercle Français · Vancouver, Washington</span></div>
       <div>
-        <h3>President</h3>
-        <p class="role">French Club leadership</p>
-        <p>Led French language and cultural programming designed to share, celebrate, and promote the language and culture of the French-speaking world.</p>
+        <h3>Vice President</h3>
+        <p class="role">Clark College Cercle Français leadership</p>
+        <p>Supported French language and cultural programming designed to share, celebrate, and promote the language and culture of the French-speaking world.</p>
         <div class="ref-links">
           <a href="archive/french-club/leadership-record.pdf" target="_blank">Leadership record</a>
           <a href="archive/french-club/photos.html" target="_blank">Photographs</a>
@@ -527,7 +581,7 @@ footer a{
       <div>
         <h3>International Relations & Affairs</h3>
         <p class="role">Associate of Arts coursework</p>
-        <p>Studied international relations, public communication, global affairs, and policy-oriented education through an international studies pathway.</p>
+        <p>Studied international relations, public communication, global affairs, literature, public speaking, and policy-oriented education through an international studies pathway.</p>
         <div class="ref-links">
           <a href="archive/clark-college/transcript.pdf" target="_blank">Transcript</a>
           <a href="archive/clark-college/degree.pdf" target="_blank">Degree record</a>
@@ -549,6 +603,15 @@ footer a{
     </article>
 
     <article class="entry">
+      <div class="when">2008 – 2013<span class="where">Independent Study · Richmond, Virginia</span></div>
+      <div>
+        <h3>Independent Language & Cultural Study</h3>
+        <p class="role">French language, international communities, cultural exploration</p>
+        <p>Began studying French independently through self-directed language learning and participation in international online communities. This period established the foundation for later academic study, language exchange, travel, and continued interest in international relations.</p>
+      </div>
+    </article>
+
+    <article class="entry">
       <div class="when">2008<span class="where">All On The Line · Richmond, Virginia · On-site</span></div>
       <div>
         <h3>Political Canvasser</h3>
@@ -560,7 +623,6 @@ footer a{
         </div>
       </div>
     </article>
-
   </div>
 </section>
 
@@ -578,7 +640,7 @@ footer a{
 
       <div class="profile-row">
         <h3>French</h3>
-        <p>Working proficiency, self-assessed at approximately CEFR B2, developed through university coursework, Alliance Française study, Lang-8 language exchange, travel, and continued independent reading. Formal DELF certification has not been pursued.</p>
+        <p>Working proficiency, self-assessed at approximately CEFR B2, developed through independent study, university coursework, Alliance Française study, Lang-8 language exchange, travel, and continued reading. Formal DELF certification has not been pursued.</p>
       </div>
 
       <div class="profile-row">
@@ -586,6 +648,8 @@ footer a{
         <ul>
           <li>French language</li>
           <li>Francophone culture</li>
+          <li>Literature</li>
+          <li>Public speaking</li>
           <li>European history</li>
           <li>American history</li>
           <li>Virginia history</li>
@@ -605,109 +669,84 @@ footer a{
 <section id="heritage">
   <div class="sec-head">
     <h2>American Heritage & Civic Study <span class="fr-title">Patrimoine américain et culture civique</span></h2>
-    <p class="sec-note">
-      International perspective is strongest when paired with a clear understanding of one’s own civic history, regional heritage, and national institutions.
-    </p>
   </div>
 
-  <div class="cards">
-    <div class="card">
-      <h3>American Civic Institutions</h3>
-      <p>Study and public-facing experience connected to the U.S. Capitol, democratic institutions, public service, and civic education.</p>
+  <div class="profile-panel">
+    <div class="profile-copy">
+      <div class="profile-row">
+        <h3>American Civic Institutions</h3>
+        <p>Study and public-facing experience connected to the U.S. Capitol, democratic institutions, public service, government operations, and civic education.</p>
+      </div>
+
+      <div class="profile-row">
+        <h3>Virginia Heritage</h3>
+        <p>Interest in Virginia history, Richmond institutions, regional memory, and the Commonwealth’s role in American political and cultural development.</p>
+      </div>
+
+      <div class="profile-row">
+        <h3>Black American Heritage</h3>
+        <p>Study of Black American civic memory, freedom communities, regional history, public institutions, and the cultural symbols carried through American life.</p>
+      </div>
+
+      <div class="profile-row">
+        <h3>Cultural Affairs</h3>
+        <p>Professional interest in museums, literature, architecture, performing arts, languages, and cultural institutions as expressions of national identity and historical continuity.</p>
+      </div>
+
+      <div class="profile-row">
+        <h3>Comparative Perspective</h3>
+        <p>American history, French culture, public service, human rights, and international relations studied together as connected civic and cultural traditions.</p>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Virginia Heritage</h3>
-      <p>Interest in Virginia history, Richmond institutions, regional memory, and the Commonwealth’s role in American political and cultural development.</p>
-    </div>
-
-    <div class="card">
-      <h3>Black American Studies</h3>
-      <p>Ongoing interest in Black American history, genealogy, community formation, public memory, civic identity, and cultural inheritance.</p>
-    </div>
-
-    <div class="card">
-      <h3>Comparative Perspective</h3>
-      <p>American history, French culture, human rights, and international relations studied together as connected civic and cultural traditions.</p>
-    </div>
+    <div class="heritage-photo" aria-hidden="true"></div>
   </div>
 </section>
 
 <section id="archive">
   <div class="sec-head">
-    <h2>Selected Cultural Archive <span class="fr-title">Archives culturelles</span></h2>
-    <p class="sec-note">Selected moments from language study, cultural events, public institutions, and travel.</p>
+    <h2>Archive <span class="fr-title">Archives</span></h2>
   </div>
 
   <div class="gallery" id="rotatingGallery"></div>
 </section>
 
-<section id="reading">
+<section id="library">
   <div class="sec-head">
-    <h2>Selected Reading <span class="fr-title">Lectures choisies</span></h2>
-    <p class="sec-note">Materials that shaped my French comprehension, international awareness, American civic knowledge, and cultural perspective.</p>
+    <h2>Professional Library <span class="fr-title">Bibliothèque professionnelle</span></h2>
+    <p class="sec-note">Reference material connected to language, public institutions, cultural heritage, and international affairs.</p>
   </div>
 
   <div class="cards">
-    <div class="card">
-      <h3>French</h3>
-      <ul>
-        <li><a class="reading-link" href="#" target="_blank">Alliance Française coursework</a></li>
-        <li><a class="reading-link" href="#" target="_blank">College French materials</a></li>
-        <li><a class="reading-link" href="#" target="_blank">DELF-style listening and grammar practice</a></li>
-        <li><a class="reading-link" href="#" target="_blank">French conversation and pronunciation texts</a></li>
-      </ul>
-    </div>
+    <div class="card"><h3>French</h3><ul><li><a class="reading-link" href="#">Alliance Française coursework</a></li><li><a class="reading-link" href="#">College French materials</a></li><li><a class="reading-link" href="#">DELF-style listening and grammar practice</a></li><li><a class="reading-link" href="#">French conversation and pronunciation texts</a></li></ul></div>
+    <div class="card"><h3>International Relations</h3><ul><li><a class="reading-link" href="#">University coursework</a></li><li><a class="reading-link" href="#">Political theory</a></li><li><a class="reading-link" href="#">European history</a></li><li><a class="reading-link" href="#">International law</a></li></ul></div>
+    <div class="card"><h3>Human Rights</h3><ul><li><a class="reading-link" href="https://www.usidhr.org/">USIDHR course materials</a></li><li><a class="reading-link" href="https://www.un.org/en/about-us/universal-declaration-of-human-rights">Universal Declaration of Human Rights</a></li><li><a class="reading-link" href="https://www.ohchr.org/">Human-rights protection frameworks</a></li><li><a class="reading-link" href="https://www.hrw.org/">Selected reports and institutional materials</a></li></ul></div>
+    <div class="card"><h3>American & Black American Heritage</h3><ul><li><a class="reading-link" href="https://www.loc.gov/">Library of Congress collections</a></li><li><a class="reading-link" href="https://www.archives.gov/">National Archives materials</a></li><li><a class="reading-link" href="https://encyclopediavirginia.org/">Encyclopedia Virginia</a></li><li><a class="reading-link" href="https://nmaahc.si.edu/">National Museum of African American History & Culture</a></li></ul></div>
+    <div class="card"><h3>Cultural Affairs</h3><ul><li><a class="reading-link" href="#">Museums and public memory</a></li><li><a class="reading-link" href="#">Architecture and public space</a></li><li><a class="reading-link" href="#">Literature and national identity</a></li><li><a class="reading-link" href="#">Arts and cultural diplomacy</a></li></ul></div>
+    <div class="card"><h3>Virginia & Public Memory</h3><ul><li><a class="reading-link" href="https://www.virginiahistory.org/">Virginia Museum of History & Culture</a></li><li><a class="reading-link" href="https://www.lva.virginia.gov/">Library of Virginia</a></li><li><a class="reading-link" href="https://www.blackhistorymuseum.org/">Black History Museum & Cultural Center of Virginia</a></li><li><a class="reading-link" href="https://www.nps.gov/rich/index.htm">Richmond National Battlefield Park</a></li></ul></div>
+  </div>
 
-    <div class="card">
-      <h3>International Relations</h3>
-      <ul>
-        <li><a class="reading-link" href="#" target="_blank">University coursework</a></li>
-        <li><a class="reading-link" href="#" target="_blank">Political theory</a></li>
-        <li><a class="reading-link" href="#" target="_blank">European history</a></li>
-        <li><a class="reading-link" href="#" target="_blank">International law</a></li>
-      </ul>
-    </div>
 
-    <div class="card">
-      <h3>Human Rights</h3>
-      <ul>
-        <li><a class="reading-link" href="https://www.usidhr.org/" target="_blank">USIDHR course materials</a></li>
-        <li><a class="reading-link" href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" target="_blank">Universal Declaration of Human Rights</a></li>
-        <li><a class="reading-link" href="https://www.ohchr.org/" target="_blank">Human-rights protection frameworks</a></li>
-        <li><a class="reading-link" href="https://www.hrw.org/" target="_blank">Selected reports and institutional materials</a></li>
-      </ul>
-    </div>
+  <p class="closing-note">
+    This portfolio is maintained as a living record of continuing study in language, history, public institutions, cultural affairs, and international engagement.
+    <em>Ce portfolio est mis à jour au fil des études, des recherches et des expériences professionnelles.</em>
+  </p>
+</section>
 
-    <div class="card">
-      <h3>American Heritage</h3>
-      <ul>
-        <li><a class="reading-link" href="https://www.loc.gov/" target="_blank">Library of Congress collections</a></li>
-        <li><a class="reading-link" href="https://www.archives.gov/" target="_blank">National Archives materials</a></li>
-        <li><a class="reading-link" href="https://encyclopediavirginia.org/" target="_blank">Encyclopedia Virginia</a></li>
-        <li><a class="reading-link" href="https://nmaahc.si.edu/" target="_blank">Black American history and culture</a></li>
-      </ul>
-    </div>
+<section id="contact">
+  <div class="sec-head">
+    <h2>Correspondence <span class="fr-title">Correspondance</span></h2>
+    <p class="sec-note">Professional, language, reading, and international correspondence.</p>
+  </div>
 
-    <div class="card">
-      <h3>Current Study</h3>
-      <ul>
-        <li><a class="reading-link" href="#" target="_blank">French conversation</a></li>
-        <li><a class="reading-link" href="#" target="_blank">Francophone culture</a></li>
-        <li><a class="reading-link" href="#" target="_blank">Comparative politics</a></li>
-        <li><a class="reading-link" href="#" target="_blank">Public diplomacy</a></li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Virginia & Public Memory</h3>
-      <ul>
-        <li><a class="reading-link" href="https://www.virginiahistory.org/" target="_blank">Virginia Museum of History & Culture</a></li>
-        <li><a class="reading-link" href="https://www.lva.virginia.gov/" target="_blank">Library of Virginia</a></li>
-        <li><a class="reading-link" href="https://www.blackhistorymuseum.org/" target="_blank">Black History Museum & Cultural Center of Virginia</a></li>
-        <li><a class="reading-link" href="https://www.nps.gov/rich/index.htm" target="_blank">Richmond National Battlefield Park</a></li>
-      </ul>
-    </div>
+  <div class="contact-grid">
+    <a href="mailto:ronniebailey@live.com"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
+    <a href="https://ronniebailey.cloud" target="_blank"><i class="fa-solid fa-globe"></i><span>Website</span></a>
+    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a>
+    <a href="https://www.babelio.com/monprofil.php?id_user=293465" target="_blank"><i class="fa-solid fa-book-open-reader"></i><span>Babelio</span></a>
+    <a href="https://www.goodreads.com/user/show/2583666-ronnie" target="_blank"><i class="fa-brands fa-goodreads-g"></i><span>Goodreads</span></a>
+    <a href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
+    <a href="#" target="_blank"><i class="fa-solid fa-comment-dots"></i><span>Signal</span></a>
   </div>
 
   <div class="quote">
@@ -753,11 +792,9 @@ function chooseImage(current){
 for(let i=0;i<tileCount;i++){
   const tile=document.createElement("div");
   tile.className="photo-tile";
-
   const img=document.createElement("img");
   img.src=imageLibrary[i % imageLibrary.length];
   img.alt="International cultural archive";
-
   tile.appendChild(img);
   gallery.appendChild(tile);
 }
@@ -766,9 +803,7 @@ setInterval(()=>{
   const tiles=document.querySelectorAll(".photo-tile");
   const tile=tiles[Math.floor(Math.random()*tiles.length)];
   const img=tile.querySelector("img");
-
   tile.classList.add("fade");
-
   setTimeout(()=>{
     img.src=chooseImage(img.src);
     tile.classList.remove("fade");
