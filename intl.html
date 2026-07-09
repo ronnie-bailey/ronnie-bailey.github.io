@@ -392,55 +392,123 @@ main,
 }
 
 
-/* TIMELINE SPLIT + ORIGINAL PHOTO COUNT */
+/* FINAL MASTER OVERRIDES */
+.hero{
+  grid-template-columns:46% 54% !important;
+  overflow:hidden;
+}
+
+.hero-copy{
+  padding-left:clamp(34px,4.2vw,68px) !important;
+}
+
+.hero-image{
+  position:relative;
+  grid-column:2;
+  background-image:url("images/capitol-rotunda.webp") !important;
+  background-size:cover !important;
+  background-position:center top !important;
+  filter:grayscale(.12) contrast(1.04);
+}
+
+.hero-image::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,
+      rgba(6,26,43,1) 0%,
+      rgba(6,26,43,.92) 8%,
+      rgba(6,26,43,.72) 20%,
+      rgba(6,26,43,.34) 36%,
+      rgba(6,26,43,.08) 58%,
+      rgba(6,26,43,0) 100%),
+    linear-gradient(180deg,
+      rgba(6,26,43,0) 0%,
+      rgba(6,26,43,0) 68%,
+      rgba(6,26,43,.40) 86%,
+      rgba(6,26,43,.88) 100%);
+}
+
+.section-nav{
+  margin-top:-64px !important;
+  min-height:64px;
+  justify-content:flex-start !important;
+  padding-left:calc(46% + 6px) !important;
+  padding-right:clamp(20px,4vw,48px) !important;
+  background:linear-gradient(180deg,rgba(6,26,43,.12),rgba(6,26,43,.86)) !important;
+  backdrop-filter:blur(4px);
+  border-top:none !important;
+  border-bottom:1px solid rgba(214,169,74,.42);
+}
+
+.section-nav a{
+  background:rgba(6,26,43,.55) !important;
+}
+
+.top-row{
+  grid-template-columns:46% 54% !important;
+  gap:0 !important;
+}
+
+.side-label{
+  justify-self:start !important;
+  width:min(430px,100%) !important;
+  border-right:1px solid rgba(184,134,45,.45) !important;
+  padding-right:38px !important;
+  padding-left:0 !important;
+}
+
+.intro-copy{
+  padding-left:38px !important;
+  max-width:760px;
+}
+
+.side-label p + p{
+  margin-top:14px;
+}
+
+.side-note{
+  font-size:.92rem !important;
+  line-height:1.68 !important;
+  color:var(--ink2);
+}
+
+/* Timeline back to clean single-column */
 .studies-layout{
   grid-template-columns:1fr !important;
 }
 
 .timeline{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:0 54px;
-  padding-left:0 !important;
+  display:block !important;
+  max-width:880px;
+  padding-left:116px !important;
 }
 
 .timeline::before{
-  display:none !important;
+  display:block !important;
 }
 
 .t-entry{
-  display:grid;
-  grid-template-columns:76px 1fr;
-  gap:18px;
-  padding:0 0 26px;
-  margin-bottom:0 !important;
-}
-
-.year{
-  position:static !important;
-  width:auto !important;
-  text-align:right !important;
-  font-size:.94rem;
+  display:block !important;
+  margin-bottom:24px !important;
 }
 
 .t-entry::before{
-  display:none !important;
+  display:block !important;
 }
 
-.thumb-grid{
-  grid-template-columns:repeat(3,1fr) !important;
-  max-width:460px;
-  margin-top:8px;
-}
-
-/* Archive section should be a small linkable preview, not another growing gallery */
+/* Archive: 2 rows only, with rotating repository */
 .archive-strip{
+  display:grid;
   grid-template-columns:repeat(3,1fr) !important;
-  max-width:300px;
+  gap:12px;
+  max-width:330px;
 }
 
-.archive-strip div:nth-child(n+4){
-  display:none;
+.archive-strip div{
+  aspect-ratio:1/1;
 }
 
 .archive-strip a,
@@ -450,12 +518,68 @@ main,
   height:100%;
 }
 
-@media(max-width:900px){
-  .timeline{
-    grid-template-columns:1fr;
+.archive-strip img{
+  object-fit:cover;
+  transition:opacity .55s ease, transform .55s ease;
+}
+
+.archive-strip .fade img{
+  opacity:0;
+  transform:scale(1.04);
+}
+
+/* Lower-right moving compass */
+.page-compass{
+  position:fixed;
+  right:-170px;
+  bottom:-210px;
+  width:760px;
+  height:760px;
+  z-index:0;
+  pointer-events:none;
+  opacity:.11;
+  animation:churn 240s linear infinite;
+  transform-origin:center;
+}
+
+.page-compass svg{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+@keyframes churn{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+.hero, main, .footer{
+  position:relative;
+  z-index:1;
+}
+
+@media(max-width:980px){
+  .hero,
+  .top-row{
+    grid-template-columns:1fr !important;
   }
-  .thumb-grid{
+  .section-nav{
+    margin-top:0 !important;
+    padding-left:clamp(20px,4vw,48px) !important;
+    justify-content:center !important;
+    background:#061a2b !important;
+  }
+  .side-label{
+    border-right:none !important;
+    border-bottom:1px solid rgba(184,134,45,.35) !important;
+    padding-right:0 !important;
+  }
+  .intro-copy{
+    padding-left:0 !important;
+  }
+  .timeline{
     max-width:100%;
+    padding-left:76px !important;
   }
 }
 
@@ -504,7 +628,7 @@ main,
   <div class="hero-copy">
     <div class="compass-mark">✥</div>
     <h1>Ronnie<br>Bailey</h1>
-    <p class="hero-sub">A continuous record of how a long-standing interest in language gradually became a broader study of culture, public institutions, and international affairs.</p>
+    <p class="hero-sub">A continuous record of how a long-standing interest in language gradually became a broader study of culture, public institutions, and international studies.</p>
     <p class="hero-fr">Un parcours consacré à la langue, à la culture, et à la compréhension du monde.</p>
     
   </div>
@@ -524,8 +648,9 @@ main,
   <div class="top-row">
     <aside class="side-label">
       <h3><i class="fa-regular fa-shield"></i>Professionally</h3>
-      <p>I work in identity security. That career lives at <a href="https://www.ronniebailey.cloud" target="_blank" rel="noopener">ronniebailey.cloud</a>.</p>
-      <p class="side-note">This page is the companion record: language, public institutions, cultural study, civic memory, and the interests that developed alongside my professional work.</p>
+      <p>Professionally, my career has been in enterprise identity security. Over time, that work became my profession; the study of language, culture, and public institutions remained a parallel pursuit.</p>
+      <p class="side-note">Although they developed along different paths, each has informed the other. One became my vocation. The other continues as a lifelong course of study.</p>
+      <p class="side-note">This archive documents that second path and the interests that continue to shape how I approach society, institutions, and international studies. My professional work is documented at <a href="https://www.ronniebailey.cloud" target="_blank" rel="noopener">ronniebailey.cloud</a>.</p>
     </aside>
     <div class="intro-copy">
       <p>My interest in language began independently in 2008 while I was still in high school. What started as personal study gradually expanded into formal education, public service, and a broader interest in the institutions, history, and cultures that shape international engagement.</p>
@@ -546,22 +671,11 @@ main,
         <article class="t-entry"><div class="year">2017–2018</div><h3>Visitor Assistant · GS-5</h3><p class="place">Architect of the Capitol · Washington, D.C.</p><p>Daily work inside one of the United States' most significant civic institutions deepened an existing interest in constitutional government, public service, American history, and national memory.</p></article>
         <article class="t-entry"><div class="year">2014–2016</div><h3>Le Cercle Français</h3><p class="place">Clark College · Vancouver, Washington</p><p>Served as Vice President and later Co-President of Le Cercle Français, supporting French-language practice, Francophone cultural programming, quarterly film events, and museum-based cultural study.</p></article>
         <article class="t-entry"><div class="year">2014–2015</div><h3>French Language Study</h3><p class="place">Alliance Française de Portland · Portland, Oregon</p><p>Continued formal French study through one of the world's leading institutions dedicated to French language and culture. Placement and instructor feedback placed proficiency around the A2 level during this period.</p></article>
-        <article class="t-entry"><div class="year">2013–2016</div><h3>International Relations &amp; Academic Study</h3><p class="place">Clark College · Vancouver, Washington</p><p>Academic study connected public communication, literature, government, history, and international relations into a broader framework for understanding societies and institutions.</p></article>
+        <article class="t-entry"><div class="year">2013–2016</div><h3>International Studies &amp; Academic Study</h3><p class="place">Clark College · Vancouver, Washington</p><p>Academic study connected public communication, literature, government, history, and international studies into a broader framework for understanding societies and institutions.</p></article>
         <article class="t-entry"><div class="year">2013</div><h3>Language Interpreter &amp; Cultural Liaison</h3><p class="place">Lang-8, Inc. · Shibuya-ku, Tokyo, Japan · Remote</p><p>Supported a Tokyo-headquartered language-exchange community through French-English interpretation, translation support, and language guidance for international learners.</p></article>
         <article class="t-entry"><div class="year">2008–2013</div><h3>Independent French &amp; Cultural Study</h3><p class="place">Richmond, Virginia</p><p>Began independent French study through self-directed resources, language audio programs, online communities, and international correspondence. This became the foundation for later formal study and cultural engagement.</p></article>
         <article class="t-entry"><div class="year">2008</div><h3>Political Canvasser</h3><p class="place">All On The Line · Richmond, Virginia</p><p>Early civic outreach experience focused on public awareness and community participation, foreshadowing a continuing interest in public institutions and civic life.</p></article>
       </div>
-      <div class="thumb-grid" id="rotatingHeroGallery">
-          <div class="thumb"><img src="images/gallery/gallery01.webp" alt="Gallery image"></div>
-          <div class="thumb"><img src="images/gallery/gallery02.webp" alt="Gallery image"></div>
-          <div class="thumb"><img src="images/gallery/gallery03.webp" alt="Gallery image"></div>
-          <div class="thumb"><img src="images/gallery/gallery04.webp" alt="Gallery image"></div>
-          <div class="thumb"><img src="images/gallery/gallery05.webp" alt="Gallery image"></div>
-          <div class="thumb"><img src="images/gallery/gallery06.webp" alt="Gallery image"></div>
-          <div class="thumb"><img src="images/gallery/gallery07.webp" alt="Gallery image"></div>
-          <div class="thumb"><img src="images/gallery/gallery08.webp" alt="Gallery image"></div>
-          <div class="thumb"><img src="images/gallery/gallery09.webp" alt="Gallery image"></div>
-        </div>
       </div>
     </section>
 
@@ -572,7 +686,7 @@ main,
       <div class="area"><h3>History &amp; Public Memory</h3><p>Academic-level literature and historical study supported later engagement with museums, archives, monuments, and the institutions that preserve civic memory.</p></div>
       <div class="area"><h3>Government &amp; Institutions</h3><p>Study of American government and public institutions was reinforced through direct public-facing work inside federal civic environments.</p></div>
       <div class="area"><h3>Research &amp; Analysis</h3><p>Upper-level research, writing, statistics, humanities, and analytical coursework strengthened evidence-based reasoning and long-form interpretation.</p></div>
-      <div class="area"><h3>International Affairs</h3><p>Language study gradually expanded into diplomacy, human rights, comparative institutions, and cultural exchange.</p></div>
+      <div class="area"><h3>International Studies</h3><p>Language study gradually expanded into diplomacy, human rights, comparative institutions, and cultural exchange.</p></div>
     </div>
   </section>
 
@@ -580,7 +694,7 @@ main,
     <div class="duo">
       <div class="profile"><div><div class="section-head"><h2>Language &amp; Academic Profile</h2><p class="fr-title">Profil linguistique et académique</p></div>
         <div class="profile-item"><i class="fa-regular fa-bookmark"></i><div><h3>French</h3><p>Independent study beginning in 2008, later supported by Clark College, Alliance Française, Lang-8, and continued reading. Alliance Française placement and instructor feedback placed proficiency around A2 during formal study.</p></div></div>
-        <div class="profile-item"><i class="fa-solid fa-landmark"></i><div><h3>International Relations</h3><p>Study focused on language, public institutions, civic traditions, diplomacy, and cultural exchange.</p></div></div>
+        <div class="profile-item"><i class="fa-solid fa-landmark"></i><div><h3>International Studies</h3><p>Study focused on language, public institutions, civic traditions, diplomacy, and cultural exchange.</p></div></div>
         <div class="profile-item"><i class="fa-regular fa-compass"></i><div><h3>Academic Development</h3><p>Literature, public speaking, government, research writing, humanities, statistics, and applied systems coursework formed the analytical foundation beneath this record.</p></div></div>
       </div><div class="panel-img"><img src="images/library-study.webp" alt="Library placeholder"></div></div>
       <div class="profile"><div><div class="section-head"><h2>Heritage &amp; Cultural Roots</h2><p class="fr-title">Patrimoine et culture civique</p></div>
@@ -591,12 +705,52 @@ main,
     </div>
   </section>
 
-  <section id="archive" class="chapter"><div class="lower-grid"><div><div class="section-head"><h2>Archive</h2><p class="fr-title">Archives</p><p>A small preview of larger documents and images. Each item can open as a larger file.</p></div><div class="archive-strip"><div><a href="images/gallery/gallery01.webp" target="_blank"><img src="images/gallery/gallery01.webp" alt="Archive preview"></a></div><div><a href="images/gallery/gallery02.webp" target="_blank"><img src="images/gallery/gallery02.webp" alt="Archive preview"></a></div><div><a href="images/gallery/gallery03.webp" target="_blank"><img src="images/gallery/gallery03.webp" alt="Archive preview"></a></div></div></div>
-    <div id="library"><div class="section-head"><h2>Reference Library</h2><p class="fr-title">Bibliothèque de référence</p></div><div class="library"><div><h3>Language &amp; Literature</h3><a href="#">Alliance Française</a><a href="#">DELF / DALF</a><a href="#">Assimil</a><a href="#">Le Monde</a></div><div><h3>International Affairs</h3><a href="#">Foreign Affairs</a><a href="#">The Economist</a><a href="#">Brookings</a><a href="#">Council on Foreign Relations</a></div></div></div></div></section>
+  <section id="archive" class="chapter"><div class="lower-grid"><div><div class="section-head"><h2>Archive</h2><p class="fr-title">Archives</p></div><div class="archive-strip rotating-archive" id="rotatingArchive">
+            <div><a href="images/gallery/gallery01.webp" target="_blank"><img src="images/gallery/gallery01.webp" alt="Archive preview"></a></div>
+            <div><a href="images/gallery/gallery02.webp" target="_blank"><img src="images/gallery/gallery02.webp" alt="Archive preview"></a></div>
+            <div><a href="images/gallery/gallery03.webp" target="_blank"><img src="images/gallery/gallery03.webp" alt="Archive preview"></a></div>
+            <div><a href="images/gallery/gallery04.webp" target="_blank"><img src="images/gallery/gallery04.webp" alt="Archive preview"></a></div>
+            <div><a href="images/gallery/gallery05.webp" target="_blank"><img src="images/gallery/gallery05.webp" alt="Archive preview"></a></div>
+            <div><a href="images/gallery/gallery06.webp" target="_blank"><img src="images/gallery/gallery06.webp" alt="Archive preview"></a></div>
+          </div>
+        </div>
+
+        <div id="library"><div class="section-head"><h2>Reference Library</h2><p class="fr-title">Bibliothèque de référence</p></div><div class="library"><div><h3>Language &amp; Literature</h3><a href="#">Alliance Française</a><a href="#">DELF / DALF</a><a href="#">Assimil</a><a href="#">Le Monde</a></div><div><h3>International Studies</h3><a href="#">Foreign Affairs</a><a href="#">The Economist</a><a href="#">Brookings</a><a href="#">Council on Foreign Relations</a></div></div></div></div></section>
 
   <section id="correspondence" class="chapter correspondence"><div class="contact"><div class="section-head"><h2>Correspondence</h2><p class="fr-title">Correspondance</p></div><p>For correspondence regarding language, culture, or civic study, you can reach me through:</p><div class="contact-links"><a href="mailto:ronniebailey@live.com"><i class="fa-solid fa-envelope"></i>Email</a><a href="https://www.babelio.com/monprofil.php?id_user=293465" target="_blank"><i class="fa-solid fa-book-open-reader"></i>Babelio</a><a href="https://www.goodreads.com/user/show/2583666-ronnie" target="_blank"><i class="fa-brands fa-goodreads-g"></i>Goodreads</a></div></div><div class="quote"><p>“One language sets you in a corridor for life. Two languages open every door along the way.”</p><cite>« Une langue vous place dans un couloir pour la vie. Deux langues ouvrent toutes les portes sur le chemin. »</cite></div></section>
 </div></main>
 <footer class="footer"><span>Ronnie Bailey &nbsp; | &nbsp; A Record of Study</span><a href="https://www.ronniebailey.cloud" target="_blank" rel="noopener">Professional Identity &amp; Security Work → ronniebailey.cloud</a></footer>
+
+
+<script>
+const archiveRepository = Array.from({length:24}, (_,i) => `images/gallery/gallery${String(i+1).padStart(2,'0')}.webp`);
+
+function visibleArchiveSources(){
+  return Array.from(document.querySelectorAll('#rotatingArchive img')).map(img => img.getAttribute('src'));
+}
+
+function nextArchiveImage(current){
+  const visible = new Set(visibleArchiveSources());
+  const candidates = archiveRepository.filter(src => src !== current && !visible.has(src));
+  const pool = candidates.length ? candidates : archiveRepository.filter(src => src !== current);
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+setInterval(() => {
+  const tiles = document.querySelectorAll('#rotatingArchive div');
+  if(!tiles.length) return;
+  const tile = tiles[Math.floor(Math.random() * tiles.length)];
+  const img = tile.querySelector('img');
+  const link = tile.querySelector('a');
+  tile.classList.add('fade');
+  setTimeout(() => {
+    const next = nextArchiveImage(img.getAttribute('src'));
+    img.src = next;
+    link.href = next;
+    tile.classList.remove('fade');
+  }, 550);
+}, 5200);
+</script>
 
 </body>
 </html>
