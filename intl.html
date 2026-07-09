@@ -953,6 +953,79 @@ html, body{
   }
 }
 
+
+/* MOBILE-ONLY FINAL POLISH: buttons + readability */
+@media(max-width:780px){
+  .hero::before{
+    background:
+      linear-gradient(90deg,
+        rgba(6,26,43,.96) 0%,
+        rgba(6,26,43,.92) 34%,
+        rgba(6,26,43,.78) 58%,
+        rgba(6,26,43,.38) 82%,
+        rgba(6,26,43,.12) 100%),
+      url("images/capitol-rotunda.webp") !important;
+    background-size:cover !important;
+    background-position:center top !important;
+  }
+
+  .hero-copy{
+    min-height:760px !important;
+    padding:86px 30px 150px 30px !important;
+  }
+
+  .hero-fr{
+    color:#e3c06a !important;
+    text-shadow:0 2px 8px rgba(0,0,0,.55);
+    max-width:92vw !important;
+  }
+
+  .hero-sub{
+    text-shadow:0 2px 8px rgba(0,0,0,.45);
+  }
+
+  .section-nav{
+    display:grid !important;
+    grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+    gap:12px !important;
+    width:100% !important;
+    max-width:100% !important;
+    margin-top:-132px !important;
+    padding:18px 30px 28px 30px !important;
+    justify-content:initial !important;
+    align-items:center !important;
+  }
+
+  .section-nav a{
+    width:100% !important;
+    text-align:center !important;
+    padding:12px 8px !important;
+    font-size:1rem !important;
+    background:rgba(6,26,43,.64) !important;
+    border:1px solid rgba(245,239,227,.34) !important;
+    box-shadow:0 8px 20px rgba(0,0,0,.16);
+  }
+}
+
+@media(max-width:430px){
+  .section-nav{
+    grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+    margin-top:-148px !important;
+    padding-left:24px !important;
+    padding-right:24px !important;
+  }
+
+  .section-nav a{
+    font-size:.98rem !important;
+  }
+
+  .hero-copy{
+    min-height:790px !important;
+    padding-left:24px !important;
+    padding-right:24px !important;
+  }
+}
+
 </style>
 </head>
 
