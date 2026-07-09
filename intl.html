@@ -12,7 +12,7 @@ Image paths used:
 images/capitol-rotunda.webp
 images/library-study.webp
 images/heritage-civic.webp
-images/archive01.webp through images/archive09.webp
+images/gallery/gallery01.webp through images/gallery/gallery09.webp
 -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,27 +97,292 @@ main{background:linear-gradient(180deg,var(--paper2),var(--paper))}
 .footer a{color:var(--gold2)}
 @media(max-width:980px){.hero,.top-row,.studies-layout,.duo,.lower-grid,.correspondence{grid-template-columns:1fr}.hero-image{min-height:280px}.side-label{border-right:0;border-bottom:1px solid rgba(184,134,45,.35);padding:0 0 20px}.areas{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.hero h1{font-size:3rem}.thumb-grid{grid-template-columns:repeat(2,1fr)}.archive-strip{grid-template-columns:repeat(3,1fr)}.library,.profile{grid-template-columns:1fr}.areas{grid-template-columns:1fr}.timeline{padding-left:76px}.timeline::before{left:54px}.year{left:-76px;width:44px}.t-entry::before{left:-26px}}
+
+/* MOVING COMPASS BACKGROUND — LOWER RIGHT */
+.page-compass{
+  position:fixed;
+  right:-170px;
+  bottom:-210px;
+  width:760px;
+  height:760px;
+  z-index:0;
+  pointer-events:none;
+  opacity:.11;
+  animation:churn 240s linear infinite;
+  transform-origin:center;
+}
+
+.page-compass svg{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+@keyframes churn{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+.hero,
+main,
+.footer{
+  position:relative;
+  z-index:1;
+}
+
+
+/* HERO-CONTENT NAV STRIP */
+.hero-nav{display:none;}
+
+.section-nav{
+  position:relative;
+  z-index:2;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  padding:13px clamp(20px,4vw,48px);
+  background:#061a2b;
+  border-top:1px solid rgba(214,169,74,.38);
+  border-bottom:1px solid rgba(214,169,74,.38);
+}
+
+.section-nav a{
+  color:#f5efe3;
+  text-decoration:none;
+  border:1px solid rgba(245,239,227,.24);
+  padding:8px 14px;
+  font-size:.86rem;
+  background:rgba(255,255,255,.035);
+}
+
+.section-nav a:hover{
+  color:#d6a94a;
+  border-color:rgba(214,169,74,.60);
+}
+
+/* ROTATING GALLERY */
+.thumb-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.thumb.fade img{
+  opacity:0;
+  transform:scale(1.04);
+}
+
+.thumb img{
+  transition:opacity .55s ease, transform .55s ease;
+}
+
+
+/* SYMMETRICAL QUADRANT ALIGNMENT */
+.hero{
+  grid-template-columns:50% 50%;
+}
+
+.hero-copy{
+  padding-left:clamp(34px,5vw,78px);
+  padding-right:clamp(28px,4vw,58px);
+}
+
+.hero-sub,
+.hero-fr{
+  max-width:520px;
+}
+
+.hero-image{
+  grid-column:2;
+}
+
+/* Move nav onto the horizontal break between hero and content */
+.section-nav{
+  margin-top:-52px;
+  min-height:52px;
+  background:rgba(6,26,43,.88);
+  backdrop-filter:blur(6px);
+  border-top:1px solid rgba(214,169,74,.45);
+  border-bottom:1px solid rgba(214,169,74,.45);
+}
+
+/* Align the professional note and intro as bottom quadrants */
+.top-row{
+  grid-template-columns:50% 50%;
+  gap:0;
+  align-items:start;
+}
+
+.side-label{
+  justify-self:end;
+  width:min(330px,100%);
+  padding-right:46px;
+  border-right:1px solid rgba(184,134,45,.45);
+}
+
+.intro-copy{
+  padding-left:46px;
+  max-width:680px;
+}
+
+@media(max-width:980px){
+  .hero,
+  .top-row{
+    grid-template-columns:1fr;
+  }
+
+  .section-nav{
+    margin-top:0;
+  }
+
+  .side-label{
+    justify-self:start;
+    width:100%;
+    padding-right:0;
+    border-right:0;
+    border-bottom:1px solid rgba(184,134,45,.35);
+  }
+
+  .intro-copy{
+    padding-left:0;
+  }
+}
+
+
+/* RIGHT-QUADRANT MENU ALIGNMENT */
+.section-nav{
+  justify-content:flex-start !important;
+  padding-left:calc(50% + 18px) !important;
+  padding-right:clamp(20px,4vw,48px) !important;
+}
+
+/* Remove the extra vertical gold divider in the professional block */
+.side-label{
+  border-right:none !important;
+}
+.intro-copy{
+  padding-left:46px;
+}
+
+@media(max-width:980px){
+  .section-nav{
+    padding-left:clamp(20px,4vw,48px) !important;
+    justify-content:center !important;
+  }
+  .intro-copy{
+    padding-left:0;
+  }
+}
+
+
+/* FINAL ALIGNMENT TUNING */
+.section-nav{
+  border-top:none !important; /* removes the long gold line above menu */
+  padding-left:calc(50% + 6px) !important; /* start closer to quadrant edge */
+}
+
+.hero{
+  grid-template-columns:46% 54% !important; /* lets image bite farther left */
+}
+
+.hero-copy{
+  padding-left:clamp(34px,4.2vw,68px) !important;
+}
+
+.top-row{
+  grid-template-columns:46% 54% !important;
+}
+
+.side-label{
+  justify-self:end;
+  width:min(330px,100%);
+  border-right:1px solid rgba(184,134,45,.45) !important; /* restore middle divider */
+  padding-right:38px;
+}
+
+.intro-copy{
+  padding-left:38px !important;
+}
+
+@media(max-width:980px){
+  .section-nav{
+    padding-left:clamp(20px,4vw,48px) !important;
+  }
+  .hero,
+  .top-row{
+    grid-template-columns:1fr !important;
+  }
+  .side-label{
+    border-right:none !important;
+    padding-right:0;
+  }
+  .intro-copy{
+    padding-left:0 !important;
+  }
+}
+
 </style>
 </head>
 
 <body>
+
+<div class="page-compass" aria-hidden="true">
+  <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#0b2a45" stroke-width="1">
+      <circle cx="200" cy="200" r="190"/>
+      <circle cx="200" cy="200" r="168"/>
+      <circle cx="200" cy="200" r="120" stroke-dasharray="2 7"/>
+      <circle cx="200" cy="200" r="64"/>
+      <circle cx="200" cy="200" r="14"/>
+    </g>
+    <g stroke="#0b2a45" stroke-width="1">
+      <line x1="200" y1="10" x2="200" y2="390"/>
+      <line x1="10" y1="200" x2="390" y2="200"/>
+      <line x1="66" y1="66" x2="334" y2="334"/>
+      <line x1="334" y1="66" x2="66" y2="334"/>
+    </g>
+    <g fill="#0b2a45">
+      <polygon points="200,28 208,188 200,200 192,188"/>
+      <polygon points="200,372 208,212 200,200 192,212"/>
+      <polygon points="28,200 188,192 200,200 188,208"/>
+      <polygon points="372,200 212,192 200,200 212,208"/>
+    </g>
+    <g fill="none" stroke="#0b2a45" stroke-width=".75" opacity=".8">
+      <polygon points="200,88 212,188 200,200 188,188"/>
+      <polygon points="200,312 212,212 200,200 188,212"/>
+      <polygon points="88,200 188,188 200,200 188,212"/>
+      <polygon points="312,200 212,188 200,200 212,212"/>
+    </g>
+    <g font-family="Georgia,serif" font-size="20" fill="#0b2a45" text-anchor="middle">
+      <text x="200" y="24">N</text>
+      <text x="200" y="396">S</text>
+      <text x="386" y="207">E</text>
+      <text x="14" y="207">W</text>
+    </g>
+  </svg>
+</div>
+
 <header class="hero">
   <div class="hero-copy">
     <div class="compass-mark">✥</div>
     <h1>Ronnie<br>Bailey</h1>
     <p class="hero-sub">A continuous record of how a long-standing interest in language gradually became a broader study of culture, public institutions, and international affairs.</p>
     <p class="hero-fr">Un parcours consacré à la langue, à la culture, et à la compréhension du monde.</p>
-    <nav class="hero-nav">
-      <a href="#studies">Studies</a>
-      <a href="#areas">Areas</a>
-      <a href="#profile">Profile</a>
-      <a href="#archive">Archive</a>
-      <a href="#library">Library</a>
-      <a href="#correspondence">Correspondence</a>
-    </nav>
+    
   </div>
   <div class="hero-image"></div>
 </header>
+
+<nav class="section-nav" aria-label="Section navigation">
+  <a href="#studies">Studies</a>
+  <a href="#areas">Areas</a>
+  <a href="#profile">Profile</a>
+  <a href="#archive">Archive</a>
+  <a href="#library">Library</a>
+  <a href="#correspondence">Correspondence</a>
+</nav>
 
 <main><div class="wrap">
   <div class="top-row">
@@ -149,13 +414,22 @@ main{background:linear-gradient(180deg,var(--paper2),var(--paper))}
         <article class="t-entry"><div class="year">2008–2013</div><h3>Independent French &amp; Cultural Study</h3><p class="place">Richmond, Virginia</p><p>Began independent French study through self-directed resources, language audio programs, online communities, and international correspondence. This became the foundation for later formal study and cultural engagement.</p></article>
         <article class="t-entry"><div class="year">2008</div><h3>Political Canvasser</h3><p class="place">All On The Line · Richmond, Virginia</p><p>Early civic outreach experience focused on public awareness and community participation, foreshadowing a continuing interest in public institutions and civic life.</p></article>
       </div>
-      <div class="thumb-grid">
-        <div class="thumb"><img src="images/archive01.webp" alt="Archive placeholder"></div><div class="thumb"><img src="images/archive02.webp" alt="Archive placeholder"></div><div class="thumb"><img src="images/archive03.webp" alt="Archive placeholder"></div>
-        <div class="thumb"><img src="images/archive04.webp" alt="Archive placeholder"></div><div class="thumb"><img src="images/archive05.webp" alt="Archive placeholder"></div><div class="thumb"><img src="images/archive06.webp" alt="Archive placeholder"></div>
-        <div class="thumb"><img src="images/archive07.webp" alt="Archive placeholder"></div><div class="thumb"><img src="images/archive08.webp" alt="Archive placeholder"></div><div class="thumb"><img src="images/archive09.webp" alt="Archive placeholder"></div>
+      <div class="thumb-grid rotating-gallery" id="rotatingHeroGallery">
+          <div class="thumb"><img src="images/gallery/gallery01.webp" alt="Gallery image"></div>
+          <div class="thumb"><img src="images/gallery/gallery02.webp" alt="Gallery image"></div>
+          <div class="thumb"><img src="images/gallery/gallery03.webp" alt="Gallery image"></div>
+          <div class="thumb"><img src="images/gallery/gallery04.webp" alt="Gallery image"></div>
+          <div class="thumb"><img src="images/gallery/gallery05.webp" alt="Gallery image"></div>
+          <div class="thumb"><img src="images/gallery/gallery06.webp" alt="Gallery image"></div>
+          <div class="thumb"><img src="images/gallery/gallery07.webp" alt="Gallery image"></div>
+          <div class="thumb"><img src="images/gallery/gallery08.webp" alt="Gallery image"></div>
+          <div class="thumb"><img src="images/gallery/gallery09.webp" alt="Gallery image"></div>
+          <div class="thumb"><img src="images/gallery/gallery10.webp" alt="Gallery image"></div>
+          <div class="thumb"><img src="images/gallery/gallery11.webp" alt="Gallery image"></div>
+          <div class="thumb"><img src="images/gallery/gallery12.webp" alt="Gallery image"></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   <section id="areas" class="chapter">
     <div class="section-head"><h2>Areas of Study</h2><p class="fr-title">Domaines d'étude</p><p>The coursework and institutions are presented here through the larger intellectual directions they supported.</p></div>
@@ -183,11 +457,39 @@ main{background:linear-gradient(180deg,var(--paper2),var(--paper))}
     </div>
   </section>
 
-  <section id="archive" class="chapter"><div class="lower-grid"><div><div class="section-head"><h2>Archive</h2><p class="fr-title">Archives</p></div><div class="archive-strip"><div><img src="images/archive01.webp" alt="Archive placeholder"></div><div><img src="images/archive02.webp" alt="Archive placeholder"></div><div><img src="images/archive03.webp" alt="Archive placeholder"></div><div><img src="images/archive04.webp" alt="Archive placeholder"></div><div><img src="images/archive05.webp" alt="Archive placeholder"></div><div><img src="images/archive06.webp" alt="Archive placeholder"></div></div></div>
+  <section id="archive" class="chapter"><div class="lower-grid"><div><div class="section-head"><h2>Archive</h2><p class="fr-title">Archives</p></div><div class="archive-strip"><div><img src="images/gallery/gallery01.webp" alt="Archive placeholder"></div><div><img src="images/gallery/gallery02.webp" alt="Archive placeholder"></div><div><img src="images/gallery/gallery03.webp" alt="Archive placeholder"></div><div><img src="images/gallery/gallery04.webp" alt="Archive placeholder"></div><div><img src="images/gallery/gallery05.webp" alt="Archive placeholder"></div><div><img src="images/gallery/gallery06.webp" alt="Archive placeholder"></div></div></div>
     <div id="library"><div class="section-head"><h2>Reference Library</h2><p class="fr-title">Bibliothèque de référence</p></div><div class="library"><div><h3>Language &amp; Literature</h3><a href="#">Alliance Française</a><a href="#">DELF / DALF</a><a href="#">Assimil</a><a href="#">Le Monde</a></div><div><h3>International Affairs</h3><a href="#">Foreign Affairs</a><a href="#">The Economist</a><a href="#">Brookings</a><a href="#">Council on Foreign Relations</a></div></div></div></div></section>
 
   <section id="correspondence" class="chapter correspondence"><div class="contact"><div class="section-head"><h2>Correspondence</h2><p class="fr-title">Correspondance</p></div><p>For correspondence regarding language, culture, or civic study, you can reach me through:</p><div class="contact-links"><a href="mailto:ronniebailey@live.com"><i class="fa-solid fa-envelope"></i>Email</a><a href="https://www.babelio.com/monprofil.php?id_user=293465" target="_blank"><i class="fa-solid fa-book-open-reader"></i>Babelio</a><a href="https://www.goodreads.com/user/show/2583666-ronnie" target="_blank"><i class="fa-brands fa-goodreads-g"></i>Goodreads</a></div></div><div class="quote"><p>“One language sets you in a corridor for life. Two languages open every door along the way.”</p><cite>« Une langue vous place dans un couloir pour la vie. Deux langues ouvrent toutes les portes sur le chemin. »</cite></div></section>
 </div></main>
 <footer class="footer"><span>Ronnie Bailey &nbsp; | &nbsp; A Record of Study</span><a href="https://www.ronniebailey.cloud" target="_blank" rel="noopener">Professional Identity &amp; Security Work → ronniebailey.cloud</a></footer>
+
+<script>
+const galleryRepository = Array.from({length:24}, (_,i) => `images/gallery/gallery${String(i+1).padStart(2,'0')}.webp`);
+
+function getVisibleSources(){
+  return Array.from(document.querySelectorAll('#rotatingHeroGallery img')).map(img => img.getAttribute('src'));
+}
+
+function pickNextImage(currentSrc){
+  const visible = new Set(getVisibleSources());
+  const candidates = galleryRepository.filter(src => src !== currentSrc && !visible.has(src));
+  const pool = candidates.length ? candidates : galleryRepository.filter(src => src !== currentSrc);
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+setInterval(() => {
+  const tiles = document.querySelectorAll('#rotatingHeroGallery .thumb');
+  if(!tiles.length) return;
+  const tile = tiles[Math.floor(Math.random() * tiles.length)];
+  const img = tile.querySelector('img');
+  tile.classList.add('fade');
+  setTimeout(() => {
+    img.src = pickNextImage(img.getAttribute('src'));
+    tile.classList.remove('fade');
+  }, 550);
+}, 4200);
+</script>
+
 </body>
 </html>
