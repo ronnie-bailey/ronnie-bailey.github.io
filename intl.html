@@ -323,6 +323,74 @@ main,
   }
 }
 
+
+/* HERO IMAGE SMOOTH FADE + NAV OVERLAY */
+.hero{
+  overflow:hidden;
+}
+
+.hero-image{
+  position:relative;
+  background-image:url("images/capitol-rotunda.webp") !important;
+  background-size:cover !important;
+  background-position:center top !important;
+  filter:grayscale(.12) contrast(1.04);
+}
+
+.hero-image::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,
+      rgba(6,26,43,1) 0%,
+      rgba(6,26,43,.92) 8%,
+      rgba(6,26,43,.72) 20%,
+      rgba(6,26,43,.34) 36%,
+      rgba(6,26,43,.08) 58%,
+      rgba(6,26,43,0) 100%),
+    linear-gradient(180deg,
+      rgba(6,26,43,0) 0%,
+      rgba(6,26,43,0) 68%,
+      rgba(6,26,43,.40) 86%,
+      rgba(6,26,43,.88) 100%);
+}
+
+.section-nav{
+  margin-top:-64px !important;
+  min-height:64px;
+  background:linear-gradient(180deg,rgba(6,26,43,.12),rgba(6,26,43,.86)) !important;
+  backdrop-filter:blur(4px);
+  border-top:none !important;
+  border-bottom:1px solid rgba(214,169,74,.42);
+  padding-left:calc(46% + 6px) !important;
+  justify-content:flex-start !important;
+}
+
+.section-nav a{
+  background:rgba(6,26,43,.55) !important;
+}
+
+.side-label p + p{
+  margin-top:14px;
+}
+
+.side-note{
+  font-size:.92rem !important;
+  line-height:1.68 !important;
+  color:var(--ink2);
+}
+
+@media(max-width:980px){
+  .section-nav{
+    margin-top:0 !important;
+    padding-left:clamp(20px,4vw,48px) !important;
+    justify-content:center !important;
+    background:#061a2b !important;
+  }
+}
+
 </style>
 </head>
 
@@ -388,7 +456,8 @@ main,
   <div class="top-row">
     <aside class="side-label">
       <h3><i class="fa-regular fa-shield"></i>Professionally</h3>
-      <p>I work in identity security. That career lives at <a href="https://www.ronniebailey.cloud" target="_blank" rel="noopener">ronniebailey.cloud</a>. This archive documents the academic, civic, and cultural interests that developed alongside it.</p>
+      <p>I work in identity security. That career lives at <a href="https://www.ronniebailey.cloud" target="_blank" rel="noopener">ronniebailey.cloud</a>.</p>
+      <p class="side-note">This page is the companion record: language, public institutions, cultural study, civic memory, and the interests that developed alongside my professional work.</p>
     </aside>
     <div class="intro-copy">
       <p>My interest in language began independently in 2008 while I was still in high school. What started as personal study gradually expanded into formal education, public service, and a broader interest in the institutions, history, and cultures that shape international engagement.</p>
