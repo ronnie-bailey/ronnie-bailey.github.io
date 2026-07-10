@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ronnie Bailey — A Record of Study | Hybrid</title>
+
+<!--
+HYBRID TEMPLATE
+- Grand Capitol banner from the "Theatrical" version
+- Restrained dark archival body from the "Compass" version
+- One faint moving compass watermark
+- Single HTML file; keep beside an /images folder
+
+Image paths:
+images/capitol-rotunda.webp
+images/library-study.webp
+images/heritage-civic.webp
+images/engagements/engagement01.jpg through engagement09.jpg
+images/gallery/gallery01.webp through gallery24.webp
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --navy:#061a2b;
+  --blue:#0b2a45;
+  --blue2:#123a5e;
+  --cream:#e9e4d4;
+  --muted:#c8d3dc;
+  --gold:#c9a44a;
+  --gold2:#e3c06a;
+  --line:rgba(122,168,205,.22);
+  --surface:rgba(255,255,255,.035);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Spectral',Georgia,serif;
+  background:
+    radial-gradient(circle at 75% 10%,rgba(227,192,106,.06),transparent 28%),
+    linear-gradient(160deg,var(--navy),var(--blue) 48%,var(--blue2));
+  color:var(--cream);
+  line-height:1.65;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+h1,h2,h3{font-family:'Cinzel',serif}
+a{color:inherit}
+
+/* COMPASS WATERMARK */
+.background-atlas{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+.compass{
+  position:absolute;
+  width:1100px;
+  height:1100px;
+  right:-460px;
+  bottom:-470px;
+  opacity:.055;
+  animation:compassRotate 420s linear infinite;
+}
+@keyframes compassRotate{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+/* GRAND HERO */
+.hero{
+  position:relative;
+  min-height:780px;
+  overflow:hidden;
+  background:#061a2b;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,
+      rgba(6,26,43,1) 0%,
+      rgba(6,26,43,.95) 18%,
+      rgba(6,26,43,.74) 34%,
+      rgba(6,26,43,.28) 56%,
+      rgba(6,26,43,0) 80%),
+    url("images/capitol-rotunda.webp");
+  background-size:cover;
+  background-position:center top;
+  filter:grayscale(.10) contrast(1.04);
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  width:46%;
+  min-height:700px;
+  padding:100px 42px 110px clamp(42px,6vw,88px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.hero h1{
+  font-size:clamp(4.1rem,8vw,7rem);
+  line-height:.98;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-weight:500;
+}
+.hero h1::after{
+  content:"";
+  display:block;
+  width:100%;
+  max-width:520px;
+  height:1px;
+  margin-top:24px;
+  background:linear-gradient(90deg,var(--gold2),rgba(227,192,106,.28),transparent);
+}
+.hero-sub{
+  margin-top:24px;
+  max-width:560px;
+  color:var(--muted);
+  font-size:1.12rem;
+  font-weight:300;
+}
+.hero-fr{
+  margin-top:22px;
+  max-width:560px;
+  color:var(--gold2);
+  font-size:1.02rem;
+  font-style:italic;
+}
+
+/* NAV OVER HERO */
+.section-nav{
+  position:relative;
+  z-index:3;
+  margin-top:-82px;
+  min-height:82px;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  padding:16px clamp(20px,4vw,48px) 20px calc(46% + 12px);
+}
+.section-nav a{
+  color:var(--cream);
+  text-decoration:none;
+  border:1px solid rgba(245,239,227,.30);
+  padding:9px 14px;
+  font-size:.9rem;
+  background:rgba(6,26,43,.62);
+  backdrop-filter:blur(2px);
+}
+.section-nav a:hover{
+  color:var(--gold2);
+  border-color:rgba(227,192,106,.55);
+}
+
+/* BODY */
+.shell{
+  position:relative;
+  z-index:2;
+  max-width:1120px;
+  margin:0 auto;
+  padding:0 clamp(22px,4vw,54px);
+}
+section{padding:42px 0}
+.chapter{border-top:1px solid var(--line)}
+
+.top-row{
+  display:grid;
+  grid-template-columns:46% 54%;
+  gap:0;
+  padding-top:46px;
+}
+.side-label{
+  padding-right:38px;
+  border-right:1px solid rgba(201,164,74,.42);
+}
+.side-label h3{
+  font-size:.95rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  margin-bottom:12px;
+}
+.side-label p{
+  color:var(--muted);
+  font-size:.96rem;
+  font-weight:300;
+  margin-top:14px;
+}
+.side-label p:first-of-type{margin-top:0}
+.side-label a,
+.professional-link,
+.footer-link{
+  color:var(--gold2);
+  text-decoration:none;
+  border-bottom:1px solid rgba(227,192,106,.45);
+}
+.intro-copy{
+  padding-left:38px;
+}
+.intro-copy p{
+  max-width:760px;
+  color:var(--muted);
+  font-size:1.08rem;
+  line-height:1.78;
+  margin-bottom:20px;
+  font-weight:300;
+}
+.intro-copy p:last-child{margin-bottom:0}
+
+.sec-head{margin-bottom:28px}
+h2{
+  font-size:clamp(1.55rem,3vw,2rem);
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  font-weight:500;
+}
+.fr-title{
+  display:block;
+  margin-top:2px;
+  color:var(--gold2);
+  font-family:'Spectral',Georgia,serif;
+  font-size:1.02rem;
+  font-style:italic;
+  text-transform:none;
+  letter-spacing:0;
+  font-weight:300;
+}
+.sec-note{
+  margin-top:12px;
+  max-width:820px;
+  color:var(--muted);
+  font-size:1.02rem;
+  font-weight:300;
+}
+
+/* SCROLLABLE TIMELINE + 9 IMAGES */
+.engagement-panel{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);
+  gap:54px;
+  align-items:start;
+}
+.timeline-scroll{
+  max-height:540px;
+  overflow-y:auto;
+  padding-right:18px;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(201,164,74,.55) rgba(255,255,255,.06);
+}
+.timeline-scroll::-webkit-scrollbar{width:8px}
+.timeline-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,.06)}
+.timeline-scroll::-webkit-scrollbar-thumb{background:rgba(201,164,74,.55)}
+
+.timeline{
+  position:relative;
+  padding-left:112px;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:74px;
+  top:6px;
+  bottom:6px;
+  width:1px;
+  background:rgba(200,211,220,.42);
+}
+.t-entry{
+  position:relative;
+  margin-bottom:26px;
+}
+.t-entry:last-child{margin-bottom:0}
+.year{
+  position:absolute;
+  left:-112px;
+  top:0;
+  width:62px;
+  text-align:right;
+  color:var(--gold2);
+  font-style:italic;
+  font-weight:600;
+}
+.t-entry::before{
+  content:"";
+  position:absolute;
+  left:-42px;
+  top:8px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--cream);
+}
+.t-entry h3{
+  font-size:1.02rem;
+  margin-bottom:2px;
+}
+.place{
+  color:var(--gold2);
+  font-style:italic;
+  margin-bottom:8px;
+  font-size:.93rem;
+}
+.t-entry p{
+  color:var(--muted);
+  font-size:.96rem;
+  font-weight:300;
+}
+
+.engagement-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+.engagement-grid div{
+  aspect-ratio:1.28/1;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:#0a253d;
+}
+.engagement-grid img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .28s ease,filter .28s ease,box-shadow .28s ease;
+}
+.engagement-grid div:hover img{
+  transform:scale(1.04);
+  filter:brightness(1.03);
+  box-shadow:0 10px 24px rgba(0,0,0,.16);
+}
+
+/* AREAS */
+.areas{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:22px;
+}
+.area h3{
+  font-size:.9rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  margin-bottom:8px;
+}
+.area p{
+  color:var(--muted);
+  font-size:.95rem;
+  font-weight:300;
+}
+
+/* PROFILE */
+.duo{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:54px;
+}
+.profile{
+  display:grid;
+  grid-template-columns:1fr 210px;
+  gap:24px;
+  align-items:start;
+}
+.profile-item{
+  display:grid;
+  grid-template-columns:28px 1fr;
+  gap:12px;
+  margin-bottom:22px;
+}
+.profile-item i{
+  color:var(--gold2);
+  padding-top:4px;
+}
+.profile-item h3{
+  font-size:.98rem;
+  margin-bottom:4px;
+}
+.profile-item p{
+  color:var(--muted);
+  font-size:.93rem;
+  font-weight:300;
+}
+.panel-img{
+  min-height:280px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:#0a253d;
+}
+.panel-img img{
+  width:100%;
+  height:100%;
+  min-height:280px;
+  object-fit:cover;
+  filter:grayscale(.18) brightness(.86);
+}
+
+/* ARCHIVE + LIBRARY */
+.lower-grid{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  gap:76px;
+  align-items:start;
+}
+.archive-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  max-width:380px;
+}
+.archive-strip div{
+  aspect-ratio:1/1;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:#0a253d;
+}
+.archive-strip img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:opacity .55s ease,transform .55s ease;
+}
+.archive-strip .fade img{
+  opacity:0;
+  transform:scale(1.04);
+}
+.library{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(150px,1fr));
+  gap:44px;
+}
+.library h3{
+  font-size:.82rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  margin-bottom:8px;
+}
+.library a{
+  display:block;
+  width:max-content;
+  max-width:100%;
+  margin-bottom:5px;
+  color:var(--muted);
+  text-decoration:none;
+  border-bottom:1px solid rgba(200,211,220,.22);
+  font-size:.92rem;
+  font-weight:300;
+}
+.library a:hover{
+  color:var(--gold2);
+  border-color:rgba(227,192,106,.45);
+}
+
+/* CONTACT */
+.correspondence{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:56px;
+}
+.contact p{
+  color:var(--muted);
+  max-width:540px;
+  font-weight:300;
+}
+.contact-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:18px;
+}
+.contact-links a{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:var(--cream);
+  text-decoration:none;
+  border:1px solid var(--line);
+  padding:11px 16px;
+  background:var(--surface);
+}
+.contact-links a:hover{
+  color:var(--gold2);
+  border-color:rgba(227,192,106,.55);
+}
+.quote{
+  border-left:1px solid rgba(201,164,74,.4);
+  padding-left:34px;
+  color:var(--muted);
+  font-weight:300;
+}
+.quote cite{
+  display:block;
+  margin-top:10px;
+  color:var(--gold2);
+  font-style:italic;
+}
+
+footer{
+  position:relative;
+  z-index:2;
+  max-width:1120px;
+  margin:0 auto;
+  padding:46px clamp(22px,4vw,54px) 38px;
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .background-atlas{display:none}
+  .hero{min-height:auto}
+  .hero::before{
+    background:
+      linear-gradient(90deg,
+        rgba(6,26,43,.96) 0%,
+        rgba(6,26,43,.92) 34%,
+        rgba(6,26,43,.78) 58%,
+        rgba(6,26,43,.38) 82%,
+        rgba(6,26,43,.12) 100%),
+      url("images/capitol-rotunda.webp");
+    background-size:cover;
+    background-position:center top;
+  }
+  .hero-inner{
+    width:100%;
+    min-height:760px;
+    padding:86px 24px 150px;
+  }
+  .hero h1{
+    font-size:clamp(4rem,22vw,5.3rem);
+  }
+  .hero-sub,.hero-fr{
+    max-width:92vw;
+    text-shadow:0 2px 8px rgba(0,0,0,.5);
+  }
+  .section-nav{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+    width:100%;
+    margin-top:-148px;
+    padding:18px 24px 28px;
+  }
+  .section-nav a{
+    width:100%;
+    text-align:center;
+    padding:12px 8px;
+  }
+  .top-row,
+  .engagement-panel,
+  .duo,
+  .profile,
+  .lower-grid,
+  .correspondence{
+    grid-template-columns:1fr;
+  }
+  .side-label{
+    padding-right:0;
+    padding-bottom:26px;
+    border-right:none;
+    border-bottom:1px solid rgba(201,164,74,.35);
+  }
+  .intro-copy{
+    padding-left:0;
+    padding-top:26px;
+  }
+  .timeline-scroll{
+    max-height:none;
+    overflow:visible;
+    padding-right:0;
+  }
+  .timeline{padding-left:76px}
+  .timeline::before{left:54px}
+  .year{left:-76px;width:44px}
+  .t-entry::before{left:-26px}
+  .engagement-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
+  }
+  .areas{grid-template-columns:1fr 1fr}
+  .archive-strip{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    max-width:100%;
+  }
+  .library{grid-template-columns:1fr}
+}
+
+@media(max-width:520px){
+  .engagement-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .areas{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-atlas" aria-hidden="true">
+  <svg class="compass" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#d8e5ef" stroke-width=".65">
+      <circle cx="200" cy="200" r="194"/>
+      <circle cx="200" cy="200" r="170"/>
+      <circle cx="200" cy="200" r="145"/>
+      <circle cx="200" cy="200" r="120"/>
+      <circle cx="200" cy="200" r="92"/>
+      <circle cx="200" cy="200" r="58"/>
+      <line x1="200" y1="6" x2="200" y2="394"/>
+      <line x1="6" y1="200" x2="394" y2="200"/>
+      <line x1="58" y1="58" x2="342" y2="342"/>
+      <line x1="342" y1="58" x2="58" y2="342"/>
+    </g>
+    <g fill="#d8e5ef">
+      <polygon points="200,26 208,188 200,200 192,188"/>
+      <polygon points="374,200 212,208 200,200 212,192"/>
+      <polygon points="200,374 208,212 200,200 192,212"/>
+      <polygon points="26,200 188,208 200,200 188,192"/>
+    </g>
+  </svg>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Ronnie<br>Bailey</h1>
+    <p class="hero-sub">A continuous record of how a long-standing interest in language gradually became a broader study of culture, public institutions, and international studies.</p>
+    <p class="hero-fr">Un parcours consacré à la langue, à la culture, et à la compréhension du monde.</p>
+  </div>
+</header>
+
+<nav class="section-nav" aria-label="Section navigation">
+  <a href="#studies">Studies</a>
+  <a href="#areas">Areas</a>
+  <a href="#profile">Profile</a>
+  <a href="#archive">Archive</a>
+  <a href="#library">Library</a>
+  <a href="#correspondence">Correspondence</a>
+</nav>
+
+<div class="shell">
+
+<section class="top-row">
+  <aside class="side-label">
+    <h3><i class="fa-regular fa-shield"></i> Professionally</h3>
+    <p>Professionally, my career has been in enterprise identity security. Over time, that work became my profession; the study of language, culture, and public institutions remained a parallel pursuit.</p>
+    <p>Although they developed along different paths, each has informed the other. One became my vocation. The other continues as a lifelong course of study.</p>
+    <p>This archive documents that second path and the interests that continue to shape how I approach society, institutions, and international studies. My professional work is documented at <a href="https://www.ronniebailey.cloud" target="_blank" rel="noopener">ronniebailey.cloud</a>.</p>
+  </aside>
+
+  <div class="intro-copy">
+    <p>My interest in language began independently in 2008 while I was still in high school. What started as personal study gradually expanded into formal education, public service, and a broader interest in the institutions, history, and cultures that shape international engagement.</p>
+    <p>This archive follows that progression—not as a résumé, but as a record of study, civic participation, and the experiences that continue to inform my professional perspective.</p>
+  </div>
+</section>
+
+<section id="studies" class="chapter">
+  <div class="sec-head">
+    <h2>Studies &amp; Engagement <span class="fr-title">Études et engagement</span></h2>
+    <p class="sec-note">A chronological record of formal study, cultural participation, public service, and independent inquiry.</p>
+  </div>
+
+  <div class="engagement-panel">
+    <div class="timeline-scroll">
+      <div class="timeline">
+        <article class="t-entry"><div class="year">2024–Present</div><h3>Continuing Independent Study</h3><p class="place">Richmond, Virginia</p><p>Ongoing study of language, public institutions, American heritage, cultural affairs, and international studies through reading, travel, archives, museums, and public scholarship.</p></article>
+        <article class="t-entry"><div class="year">2023</div><h3>Human Rights Education Training</h3><p class="place">U.S. Institute of Diplomacy and Human Rights · Washington, D.C.</p><p>Completed professional training in diplomacy and human-rights principles, strengthening an existing interest in international institutions, advocacy, and protection frameworks.</p></article>
+        <article class="t-entry"><div class="year">2017–2018</div><h3>Visitor Assistant · GS-5</h3><p class="place">Architect of the Capitol · Washington, D.C.</p><p>Daily work inside one of the United States' most significant civic institutions deepened an existing interest in constitutional government, public service, American history, and national memory.</p></article>
+        <article class="t-entry"><div class="year">2014–2016</div><h3>Le Cercle Français Leadership</h3><p class="place">Clark College · Vancouver, Washington</p><p>Served as Vice President and later President of Le Cercle Français, helping lead campus programs dedicated to French language and Francophone culture. Organized cultural events, language practice, and community engagement that encouraged broader international understanding.</p></article>
+        <article class="t-entry"><div class="year">2014–2015</div><h3>French Language Study</h3><p class="place">Alliance Française de Portland · Portland, Oregon</p><p>Continued formal French study through one of the world's leading institutions dedicated to French language and culture. Placement and instructor feedback placed proficiency around the A2 level during this period.</p></article>
+        <article class="t-entry"><div class="year">2013–2016</div><h3>International Studies &amp; Academic Study</h3><p class="place">Clark College · Vancouver, Washington</p><p>Academic study connected public communication, literature, government, history, and international studies into a broader framework for understanding societies and institutions.</p></article>
+        <article class="t-entry"><div class="year">2013</div><h3>Language Interpreter &amp; Cultural Liaison</h3><p class="place">Lang-8, Inc. · Shibuya-ku, Tokyo, Japan · Remote</p><p>Supported a Tokyo-headquartered language-exchange community through French-English interpretation, translation support, and language guidance for international learners.</p></article>
+        <article class="t-entry"><div class="year">2008–2013</div><h3>Independent French &amp; Cultural Study</h3><p class="place">Richmond, Virginia</p><p>Began independent French study through self-directed resources, audio programs, online communities, and international correspondence. This became the foundation for later formal study and cultural engagement.</p></article>
+        <article class="t-entry"><div class="year">2008</div><h3>Political Canvasser</h3><p class="place">All On The Line · Richmond, Virginia</p><p>Early civic outreach experience focused on public awareness and community participation, foreshadowing a continuing interest in public institutions and civic life.</p></article>
+      </div>
+    </div>
+
+    <div class="engagement-grid">
+      <div><img src="images/engagements/engagement01.jpg" alt="Engagement image"></div>
+      <div><img src="images/engagements/engagement02.jpg" alt="Engagement image"></div>
+      <div><img src="images/engagements/engagement03.jpg" alt="Engagement image"></div>
+      <div><img src="images/engagements/engagement04.jpg" alt="Engagement image"></div>
+      <div><img src="images/engagements/engagement05.jpg" alt="Engagement image"></div>
+      <div><img src="images/engagements/engagement06.jpg" alt="Engagement image"></div>
+      <div><img src="images/engagements/engagement07.jpg" alt="Engagement image"></div>
+      <div><img src="images/engagements/engagement08.jpg" alt="Engagement image"></div>
+      <div><img src="images/engagements/engagement09.jpg" alt="Engagement image"></div>
+    </div>
+  </div>
+</section>
+
+<section id="areas" class="chapter">
+  <div class="sec-head">
+    <h2>Areas of Study <span class="fr-title">Domaines d'étude</span></h2>
+    <p class="sec-note">The coursework and institutions are presented here through the larger intellectual directions they supported.</p>
+  </div>
+  <div class="areas">
+    <div class="area"><h3>Language &amp; Communication</h3><p>French study, literature, public speaking, academic writing, and translation communities shaped a continuing interest in how language carries culture and identity.</p></div>
+    <div class="area"><h3>History &amp; Public Memory</h3><p>Academic-level literature and historical study supported later engagement with museums, archives, monuments, and the institutions that preserve civic memory.</p></div>
+    <div class="area"><h3>Government &amp; Institutions</h3><p>Study of American government and public institutions was reinforced through direct public-facing work inside federal civic environments.</p></div>
+    <div class="area"><h3>Research &amp; Analysis</h3><p>Upper-level research, writing, statistics, humanities, and analytical coursework strengthened evidence-based reasoning and long-form interpretation.</p></div>
+    <div class="area"><h3>International Studies</h3><p>Language study gradually expanded into diplomacy, human rights, comparative institutions, and cultural exchange.</p></div>
+  </div>
+</section>
+
+<section id="profile" class="chapter">
+  <div class="duo">
+    <div class="profile">
+      <div>
+        <div class="sec-head"><h2>Language &amp; Academic Profile <span class="fr-title">Profil linguistique et académique</span></h2></div>
+        <div class="profile-item"><i class="fa-regular fa-bookmark"></i><div><h3>French</h3><p>Independent study beginning in 2008, later supported by Clark College, Alliance Française, Lang-8, and continued reading. Alliance Française placement and instructor feedback placed proficiency around A2 during formal study.</p></div></div>
+        <div class="profile-item"><i class="fa-solid fa-landmark"></i><div><h3>International Studies</h3><p>Study focused on language, public institutions, civic traditions, diplomacy, and cultural exchange.</p></div></div>
+        <div class="profile-item"><i class="fa-regular fa-compass"></i><div><h3>Academic Development</h3><p>Literature, public speaking, government, research writing, humanities, statistics, and applied systems coursework formed the analytical foundation beneath this record.</p></div></div>
+      </div>
+      <div class="panel-img"><img src="images/library-study.webp" alt="Library study"></div>
+    </div>
+
+    <div class="profile">
+      <div>
+        <div class="sec-head"><h2>Heritage &amp; Cultural Roots <span class="fr-title">Patrimoine et culture civique</span></h2></div>
+        <div class="profile-item"><i class="fa-regular fa-gem"></i><div><h3>Black American Heritage</h3><p>Civic memory, freedom communities, regional history, public institutions, and enduring cultural symbols in American life.</p></div></div>
+        <div class="profile-item"><i class="fa-solid fa-map"></i><div><h3>Virginia Roots</h3><p>Interest in Richmond institutions, Virginia history, and public memory across the Commonwealth.</p></div></div>
+        <div class="profile-item"><i class="fa-regular fa-building-columns"></i><div><h3>Civic &amp; Historical Study</h3><p>Exploring the institutions, archives, and narratives that shape shared historical understanding.</p></div></div>
+      </div>
+      <div class="panel-img"><img src="images/heritage-civic.webp" alt="Heritage study"></div>
+    </div>
+  </div>
+</section>
+
+<section id="archive" class="chapter">
+  <div class="lower-grid">
+    <div>
+      <div class="sec-head"><h2>Archive <span class="fr-title">Archives</span></h2></div>
+      <div class="archive-strip rotating-archive" id="rotatingArchive">
+        <div><a href="images/gallery/gallery01.webp" target="_blank"><img src="images/gallery/gallery01.webp" alt="Archive preview"></a></div>
+        <div><a href="images/gallery/gallery02.webp" target="_blank"><img src="images/gallery/gallery02.webp" alt="Archive preview"></a></div>
+        <div><a href="images/gallery/gallery03.webp" target="_blank"><img src="images/gallery/gallery03.webp" alt="Archive preview"></a></div>
+        <div><a href="images/gallery/gallery04.webp" target="_blank"><img src="images/gallery/gallery04.webp" alt="Archive preview"></a></div>
+        <div><a href="images/gallery/gallery05.webp" target="_blank"><img src="images/gallery/gallery05.webp" alt="Archive preview"></a></div>
+        <div><a href="images/gallery/gallery06.webp" target="_blank"><img src="images/gallery/gallery06.webp" alt="Archive preview"></a></div>
+        <div><a href="images/gallery/gallery07.webp" target="_blank"><img src="images/gallery/gallery07.webp" alt="Archive preview"></a></div>
+        <div><a href="images/gallery/gallery08.webp" target="_blank"><img src="images/gallery/gallery08.webp" alt="Archive preview"></a></div>
+      </div>
+    </div>
+
+    <div id="library">
+      <div class="sec-head"><h2>Reference Library <span class="fr-title">Bibliothèque de référence</span></h2></div>
+      <div class="library">
+        <div><h3>Language &amp; Literature</h3><a href="#">Alliance Française</a><a href="#">DELF / DALF</a><a href="#">Assimil</a><a href="#">Le Monde</a></div>
+        <div><h3>International Studies</h3><a href="#">Foreign Affairs</a><a href="#">The Economist</a><a href="#">Brookings</a><a href="#">Council on Foreign Relations</a></div>
+        <div><h3>American Studies</h3><a href="#">Library of Congress</a><a href="#">National Archives</a><a href="#">Encyclopedia Virginia</a><a href="#">National Museum of African American History &amp; Culture</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="correspondence" class="chapter correspondence">
+  <div class="contact">
+    <div class="sec-head"><h2>Correspondence <span class="fr-title">Correspondance</span></h2></div>
+    <p>For correspondence related to language, heritage, culture, or civic study. For professional identity and security work, please visit <a class="professional-link" href="https://www.ronniebailey.cloud" target="_blank" rel="noopener">ronniebailey.cloud</a>.</p>
+    <div class="contact-links">
+      <a href="mailto:ronniebailey@live.com"><i class="fa-solid fa-envelope"></i>Email</a>
+      <a href="https://www.babelio.com/monprofil.php?id_user=293465" target="_blank"><i class="fa-solid fa-book-open-reader"></i>Babelio</a>
+      <a href="https://www.goodreads.com/user/show/2583666-ronnie" target="_blank"><i class="fa-brands fa-goodreads-g"></i>Goodreads</a>
+    </div>
+  </div>
+
+  <div class="quote">
+    <p>“One language sets you in a corridor for life. Two languages open every door along the way.”</p>
+    <cite>« Une langue vous place dans un couloir pour la vie. Deux langues ouvrent toutes les portes sur le chemin. »</cite>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <span>Ronnie Bailey · A Record of Study</span>
+  <span><a class="footer-link" href="https://www.ronniebailey.cloud" target="_blank" rel="noopener">Identity Security → ronniebailey.cloud</a> · © 2026</span>
+</footer>
+
+<script>
+const archiveRepository = Array.from({length:24},(_,i)=>`images/gallery/gallery${String(i+1).padStart(2,'0')}.webp`);
+
+function visibleArchiveSources(){
+  return Array.from(document.querySelectorAll('#rotatingArchive img')).map(img=>img.getAttribute('src'));
+}
+
+function nextArchiveImage(current){
+  const visible=new Set(visibleArchiveSources());
+  const candidates=archiveRepository.filter(src=>src!==current&&!visible.has(src));
+  const pool=candidates.length?candidates:archiveRepository.filter(src=>src!==current);
+  return pool[Math.floor(Math.random()*pool.length)];
+}
+
+setInterval(()=>{
+  const tiles=document.querySelectorAll('#rotatingArchive div');
+  if(!tiles.length)return;
+  const tile=tiles[Math.floor(Math.random()*tiles.length)];
+  const img=tile.querySelector('img');
+  const link=tile.querySelector('a');
+  tile.classList.add('fade');
+  setTimeout(()=>{
+    const next=nextArchiveImage(img.getAttribute('src'));
+    img.src=next;
+    link.href=next;
+    tile.classList.remove('fade');
+  },550);
+},5200);
+</script>
+
+</body>
+</html>
