@@ -9,7 +9,8 @@
 HYBRID TEMPLATE
 - Grand Capitol banner from the "Theatrical" version
 - Restrained dark archival body from the "Compass" version
-- One faint moving compass watermark
+- One faint moving cartographic compass watermark (graduated rings,
+  cardinal cross, fading axis lines; dial rotates, meridians static)
 - Single HTML file; keep beside an /images folder
 
 Image paths:
@@ -64,16 +65,22 @@ a{color:inherit}
 }
 .compass{
   position:absolute;
-  width:1100px;
-  height:1100px;
-  right:-460px;
-  bottom:-470px;
+  width:2000px;
+  height:2000px;
+  right:-910px;
+  bottom:-920px;
   opacity:.055;
+}
+.compass .dial{
+  transform-origin:450px 450px;
   animation:compassRotate 420s linear infinite;
 }
 @keyframes compassRotate{
   from{transform:rotate(0deg)}
   to{transform:rotate(360deg)}
+}
+@media (prefers-reduced-motion: reduce){
+  .compass .dial{animation:none}
 }
 
 /* GRAND HERO */
@@ -679,32 +686,62 @@ footer{
 <body>
 
 <div class="background-atlas" aria-hidden="true">
-  <svg class="compass" viewBox="-16 -16 432 432" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <g fill="none" stroke="#d8e5ef" stroke-width=".65">
-      <circle cx="200" cy="200" r="194"/>
-      <circle cx="200" cy="200" r="170"/>
-      <circle cx="200" cy="200" r="145"/>
-      <circle cx="200" cy="200" r="120"/>
-      <circle cx="200" cy="200" r="92"/>
-      <circle cx="200" cy="200" r="58"/>
-      <line x1="200" y1="6" x2="200" y2="394"/>
-      <line x1="6" y1="200" x2="394" y2="200"/>
-      <line x1="58" y1="58" x2="342" y2="342"/>
-      <line x1="342" y1="58" x2="58" y2="342"/>
+  <svg class="compass" viewBox="-450 -450 1800 1800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
+    <defs>
+      <!-- Fade runs from the north pointer tip outward; the same
+           gradient rotates with each axis line copy -->
+      <linearGradient id="axisFade" gradientUnits="userSpaceOnUse" x1="450" y1="224" x2="450" y2="-430">
+        <stop offset="0"   stop-color="#d8e5ef" stop-opacity=".95"/>
+        <stop offset=".32" stop-color="#d8e5ef" stop-opacity=".95"/>
+        <stop offset="1"   stop-color="#d8e5ef" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Static meridian lines + dotted trajectory arc (do not rotate) -->
+    <g fill="none" stroke="#d8e5ef">
+      <line x1="-450" y1="880" x2="1350" y2="90" stroke-width="2.2" opacity=".6"/>
+      <line x1="130" y1="-450" x2="770" y2="1350" stroke-width="1" opacity=".4"/>
+      <circle cx="1150" cy="-150" r="1050" stroke-width="1.4" stroke-dasharray="2 15" opacity=".5"/>
+      <circle cx="740" cy="880" r="640" stroke-width="1" opacity=".22"/>
     </g>
 
-    <g fill="#d8e5ef">
-      <polygon points="200,26 208,188 200,200 192,188"/>
-      <polygon points="374,200 212,208 200,200 212,192"/>
-      <polygon points="200,374 208,212 200,200 192,212"/>
-      <polygon points="26,200 188,208 200,200 188,192"/>
-    </g>
+    <!-- Rotating dial -->
+    <g class="dial">
 
-    <g font-family="Cinzel, Georgia, serif" fill="#d8e5ef" text-anchor="middle">
-      <text x="200" y="-2" font-size="28" font-weight="700">N</text>
-      <text x="200" y="418" font-size="18">S</text>
-      <text x="418" y="206" font-size="18">E</text>
-      <text x="-18" y="206" font-size="18">W</text>
+      <!-- Four cardinal axis lines: from the pointer tips, through
+           all rings, protruding far beyond and fading out -->
+      <g stroke="url(#axisFade)" stroke-width="2">
+        <line x1="450" y1="224" x2="450" y2="-430"/>
+        <line x1="450" y1="224" x2="450" y2="-430" transform="rotate(90 450 450)"/>
+        <line x1="450" y1="224" x2="450" y2="-430" transform="rotate(180 450 450)"/>
+        <line x1="450" y1="224" x2="450" y2="-430" transform="rotate(270 450 450)"/>
+      </g>
+
+      <g fill="none" stroke="#d8e5ef">
+        <!-- outer ring pair -->
+        <circle cx="450" cy="450" r="430" stroke-width="1.1"/>
+        <circle cx="450" cy="450" r="414" stroke-width="1.1"/>
+        <!-- perforated band (film-strip graduations) -->
+        <circle cx="450" cy="450" r="392" stroke-width="10" stroke-dasharray="4 10.6" opacity=".9"/>
+        <circle cx="450" cy="450" r="372" stroke-width="1.1"/>
+        <!-- fine radial tick band -->
+        <circle cx="450" cy="450" r="330" stroke-width="14" stroke-dasharray="1.6 8.2" opacity=".55"/>
+        <circle cx="450" cy="450" r="306" stroke-width="1.1"/>
+        <!-- inner emblem ring pair -->
+        <circle cx="450" cy="450" r="252" stroke-width="1.2"/>
+        <circle cx="450" cy="450" r="240" stroke-width="1.2"/>
+        <!-- hub ring -->
+        <circle cx="450" cy="450" r="30" stroke-width="1.4"/>
+      </g>
+
+      <!-- Cardinal cross -->
+      <g fill="#d8e5ef">
+        <polygon points="450,224 460,434 450,450 440,434"/>
+        <polygon points="450,224 460,434 450,450 440,434" transform="rotate(90 450 450)"/>
+        <polygon points="450,224 460,434 450,450 440,434" transform="rotate(180 450 450)"/>
+        <polygon points="450,224 460,434 450,450 440,434" transform="rotate(270 450 450)"/>
+      </g>
     </g>
   </svg>
 </div>
