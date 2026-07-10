@@ -1,10 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Ronnie Bailey — A Record of Study | Hybrid</title>
-
 <!--
 HYBRID TEMPLATE
 - Grand Capitol banner from the "Theatrical" version
@@ -20,12 +20,10 @@ images/heritage-civic.webp
 images/engagements/engagement01.jpg through engagement09.jpg
 images/gallery/gallery01.webp through gallery24.webp
 -->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;family=Spectral:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
 <style>
 :root{
   --navy:#061a2b;
@@ -151,14 +149,16 @@ a{color:inherit}
 .section-nav{
   position:relative;
   z-index:3;
-  margin-top:-82px;
+  margin-top:0;
+  margin-bottom:34px;
   min-height:82px;
   display:flex;
   justify-content:flex-start;
   align-items:center;
   flex-wrap:wrap;
   gap:10px;
-  padding:16px clamp(20px,4vw,48px) 20px calc(46% + 12px);
+  padding:42px 0 18px;
+  justify-content:center;
 }
 .section-nav a{
   color:var(--cream);
@@ -682,235 +682,209 @@ footer{
 
 </style>
 </head>
-
 <body>
-
-<div class="background-atlas" aria-hidden="true">
-  <svg class="compass" viewBox="-450 -450 1800 1800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-
-    <defs>
-      <!-- Fade runs from the north pointer tip outward; the same
+<div aria-hidden="true" class="background-atlas">
+<svg aria-hidden="true" class="compass" viewbox="-450 -450 1800 1800" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Fade runs from the north pointer tip outward; the same
            gradient rotates with each axis line copy -->
-      <linearGradient id="axisFade" gradientUnits="userSpaceOnUse" x1="450" y1="224" x2="450" y2="-430">
-        <stop offset="0"   stop-color="#d8e5ef" stop-opacity=".95"/>
-        <stop offset=".32" stop-color="#d8e5ef" stop-opacity=".95"/>
-        <stop offset="1"   stop-color="#d8e5ef" stop-opacity="0"/>
-      </linearGradient>
-    </defs>
-
-    <!-- Static meridian lines + dotted trajectory arc (do not rotate) -->
-    <g fill="none" stroke="#d8e5ef">
-      <line x1="-450" y1="880" x2="1350" y2="90" stroke-width="2.2" opacity=".6"/>
-      <line x1="130" y1="-450" x2="770" y2="1350" stroke-width="1" opacity=".4"/>
-      <circle cx="1150" cy="-150" r="1050" stroke-width="1.4" stroke-dasharray="2 15" opacity=".5"/>
-      <circle cx="740" cy="880" r="640" stroke-width="1" opacity=".22"/>
-    </g>
-
-    <!-- Rotating dial -->
-    <g class="dial">
-
-      <!-- Four cardinal axis lines: from the pointer tips, through
+<lineargradient gradientunits="userSpaceOnUse" id="axisFade" x1="450" x2="450" y1="224" y2="-430">
+<stop offset="0" stop-color="#d8e5ef" stop-opacity=".95"></stop>
+<stop offset=".32" stop-color="#d8e5ef" stop-opacity=".95"></stop>
+<stop offset="1" stop-color="#d8e5ef" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Static meridian lines + dotted trajectory arc (do not rotate) -->
+<g fill="none" stroke="#d8e5ef">
+<line opacity=".6" stroke-width="2.2" x1="-450" x2="1350" y1="880" y2="90"></line>
+<line opacity=".4" stroke-width="1" x1="130" x2="770" y1="-450" y2="1350"></line>
+<circle cx="1150" cy="-150" opacity=".5" r="1050" stroke-dasharray="2 15" stroke-width="1.4"></circle>
+<circle cx="740" cy="880" opacity=".22" r="640" stroke-width="1"></circle>
+</g>
+<!-- Rotating dial -->
+<g class="dial">
+<!-- Four cardinal axis lines: from the pointer tips, through
            all rings, protruding far beyond and fading out -->
-      <g stroke="url(#axisFade)" stroke-width="2">
-        <line x1="450" y1="224" x2="450" y2="-430"/>
-        <line x1="450" y1="224" x2="450" y2="-430" transform="rotate(90 450 450)"/>
-        <line x1="450" y1="224" x2="450" y2="-430" transform="rotate(180 450 450)"/>
-        <line x1="450" y1="224" x2="450" y2="-430" transform="rotate(270 450 450)"/>
-      </g>
-
-      <g fill="none" stroke="#d8e5ef">
-        <!-- outer ring pair -->
-        <circle cx="450" cy="450" r="430" stroke-width="1.1"/>
-        <circle cx="450" cy="450" r="414" stroke-width="1.1"/>
-        <!-- perforated band (film-strip graduations) -->
-        <circle cx="450" cy="450" r="392" stroke-width="10" stroke-dasharray="4 10.6" opacity=".9"/>
-        <circle cx="450" cy="450" r="372" stroke-width="1.1"/>
-        <!-- fine radial tick band -->
-        <circle cx="450" cy="450" r="330" stroke-width="14" stroke-dasharray="1.6 8.2" opacity=".55"/>
-        <circle cx="450" cy="450" r="306" stroke-width="1.1"/>
-        <!-- inner emblem ring pair -->
-        <circle cx="450" cy="450" r="252" stroke-width="1.2"/>
-        <circle cx="450" cy="450" r="240" stroke-width="1.2"/>
-        <!-- hub ring -->
-        <circle cx="450" cy="450" r="30" stroke-width="1.4"/>
-      </g>
-
-      <!-- Cardinal cross -->
-      <g fill="#d8e5ef">
-        <polygon points="450,224 460,434 450,450 440,434"/>
-        <polygon points="450,224 460,434 450,450 440,434" transform="rotate(90 450 450)"/>
-        <polygon points="450,224 460,434 450,450 440,434" transform="rotate(180 450 450)"/>
-        <polygon points="450,224 460,434 450,450 440,434" transform="rotate(270 450 450)"/>
-      </g>
-    </g>
-  </svg>
+<g stroke="url(#axisFade)" stroke-width="2">
+<line x1="450" x2="450" y1="224" y2="-430"></line>
+<line transform="rotate(90 450 450)" x1="450" x2="450" y1="224" y2="-430"></line>
+<line transform="rotate(180 450 450)" x1="450" x2="450" y1="224" y2="-430"></line>
+<line transform="rotate(270 450 450)" x1="450" x2="450" y1="224" y2="-430"></line>
+</g>
+<g fill="none" stroke="#d8e5ef">
+<!-- outer ring pair -->
+<circle cx="450" cy="450" r="430" stroke-width="1.1"></circle>
+<circle cx="450" cy="450" r="414" stroke-width="1.1"></circle>
+<!-- perforated band (film-strip graduations) -->
+<circle cx="450" cy="450" opacity=".9" r="392" stroke-dasharray="4 10.6" stroke-width="10"></circle>
+<circle cx="450" cy="450" r="372" stroke-width="1.1"></circle>
+<!-- fine radial tick band -->
+<circle cx="450" cy="450" opacity=".55" r="330" stroke-dasharray="1.6 8.2" stroke-width="14"></circle>
+<circle cx="450" cy="450" r="306" stroke-width="1.1"></circle>
+<!-- inner emblem ring pair -->
+<circle cx="450" cy="450" r="252" stroke-width="1.2"></circle>
+<circle cx="450" cy="450" r="240" stroke-width="1.2"></circle>
+<!-- hub ring -->
+<circle cx="450" cy="450" r="30" stroke-width="1.4"></circle>
+</g>
+<!-- Cardinal cross -->
+<g fill="#d8e5ef">
+<polygon points="450,224 460,434 450,450 440,434"></polygon>
+<polygon points="450,224 460,434 450,450 440,434" transform="rotate(90 450 450)"></polygon>
+<polygon points="450,224 460,434 450,450 440,434" transform="rotate(180 450 450)"></polygon>
+<polygon points="450,224 460,434 450,450 440,434" transform="rotate(270 450 450)"></polygon>
+</g>
+</g>
+</svg>
 </div>
-
 <header class="hero">
-  <div class="hero-inner">
-    <h1>Ronnie<br>Bailey</h1>
-    <p class="hero-sub">A continuous record of how a long-standing interest in language gradually became a broader study of culture, public institutions, and international studies.</p>
-    <p class="hero-fr">Un parcours consacré à la langue, à la culture, et à la compréhension du monde.</p>
-  </div>
+<div class="hero-inner">
+<h1>Ronnie<br/>Bailey</h1>
+<p class="hero-sub">A continuous record of how a long-standing interest in language gradually became a broader study of culture, public institutions, and international studies.</p>
+<p class="hero-fr">Un parcours consacré à la langue, à la culture, et à la compréhension du monde.</p>
+</div>
 </header>
 
-<nav class="section-nav" aria-label="Section navigation">
-  <a href="#studies">Studies</a>
-  <a href="#areas">Areas</a>
-  <a href="#profile">Profile</a>
-  <a href="#archive">Archive</a>
-  <a href="#library">Library</a>
-  <a href="#correspondence">Correspondence</a>
+<div class="shell"><nav aria-label="Section navigation" class="section-nav">
+<a href="#studies">Studies</a>
+<a href="#areas">Areas</a>
+<a href="#profile">Profile</a>
+<a href="#archive">Archive</a>
+<a href="#library">Library</a>
+<a href="#correspondence">Correspondence</a>
 </nav>
-
-<div class="shell">
-
 <section class="top-row">
-  <aside class="side-label">
-    <h3><i class="fa-regular fa-shield"></i> Professionally</h3>
-    <p>Professionally, my career has been in enterprise identity security. Over time, that work became my profession; the study of language, culture, and public institutions remained a parallel pursuit.</p>
-    <p>Although they developed along different paths, each has informed the other. One became my vocation. The other continues as a lifelong course of study.</p>
-    <p>This archive documents that second path and the interests that continue to shape how I approach society, institutions, and international studies. My professional work is documented at <a href="https://www.ronniebailey.cloud" target="_blank" rel="noopener">ronniebailey.cloud</a>.</p>
-  </aside>
-
-  <div class="intro-copy">
-    <p>My interest in language began independently in 2008 while I was still in high school. What started as personal study gradually expanded into formal education, public service, and a broader interest in the institutions, history, and cultures that shape international engagement.</p>
-    <p>This archive follows that progression—not as a résumé, but as a record of study, civic participation, and the experiences that continue to inform my professional perspective.</p>
-  </div>
-</section>
-
-<section id="studies" class="chapter">
-  <div class="sec-head">
-    <h2>Studies &amp; Engagement <span class="fr-title">Études et engagement</span></h2>
-    <p class="sec-note">A chronological record of formal study, cultural participation, public service, and independent inquiry.</p>
-  </div>
-
-  <div class="engagement-panel">
-    <div class="timeline-frame">
-      <button class="timeline-scroll-btn timeline-scroll-up" type="button" aria-label="Scroll timeline up">
-        <i class="fa-solid fa-chevron-up"></i>
-      </button>
-      <div class="timeline-scroll" id="timelineScroll">
-        <div class="timeline">
-        <article class="t-entry"><div class="year">2024–Present</div><h3>Continuing Independent Study</h3><p class="place">Richmond, Virginia</p><p>Ongoing study of language, public institutions, American heritage, cultural affairs, and international studies through reading, travel, archives, museums, and public scholarship.</p></article>
-        <article class="t-entry"><div class="year">2023</div><h3>Human Rights Education Training</h3><p class="place">U.S. Institute of Diplomacy and Human Rights · Washington, D.C.</p><p>Completed professional training in diplomacy and human-rights principles, strengthening an existing interest in international institutions, advocacy, and protection frameworks.</p></article>
-        <article class="t-entry"><div class="year">2017–2018</div><h3>Visitor Assistant · GS-5</h3><p class="place">Architect of the Capitol · Washington, D.C.</p><p>Daily work inside one of the United States' most significant civic institutions deepened an existing interest in constitutional government, public service, American history, and national memory.</p></article>
-        <article class="t-entry"><div class="year">2014–2016</div><h3>Le Cercle Français Leadership</h3><p class="place">Clark College · Vancouver, Washington</p><p>Served as Vice President and later President of Le Cercle Français, helping lead campus programs dedicated to French language and Francophone culture. Organized cultural events, language practice, and community engagement that encouraged broader international understanding.</p></article>
-        <article class="t-entry"><div class="year">2014–2015</div><h3>French Language Study</h3><p class="place">Alliance Française de Portland · Portland, Oregon</p><p>Continued formal French study through one of the world's leading institutions dedicated to French language and culture. Placement and instructor feedback placed proficiency around the A2 level during this period.</p></article>
-        <article class="t-entry"><div class="year">2013–2016</div><h3>International Studies &amp; Academic Study</h3><p class="place">Clark College · Vancouver, Washington</p><p>Academic study connected public communication, literature, government, history, and international studies into a broader framework for understanding societies and institutions.</p></article>
-        <article class="t-entry"><div class="year">2013</div><h3>Language Interpreter &amp; Cultural Liaison</h3><p class="place">Lang-8, Inc. · Shibuya-ku, Tokyo, Japan · Remote</p><p>Supported a Tokyo-headquartered language-exchange community through French-English interpretation, translation support, and language guidance for international learners.</p></article>
-        <article class="t-entry"><div class="year">2008–2013</div><h3>Independent French &amp; Cultural Study</h3><p class="place">Richmond, Virginia</p><p>Began independent French study through self-directed resources, audio programs, online communities, and international correspondence. This became the foundation for later formal study and cultural engagement.</p></article>
-        <article class="t-entry"><div class="year">2008</div><h3>Political Canvasser</h3><p class="place">All On The Line · Richmond, Virginia</p><p>Early civic outreach experience focused on public awareness and community participation, foreshadowing a continuing interest in public institutions and civic life.</p></article>
-        </div>
-      </div>
-      <button class="timeline-scroll-btn timeline-scroll-down" type="button" aria-label="Scroll timeline down">
-        <i class="fa-solid fa-chevron-down"></i>
-      </button>
-    </div>
-
-    <div class="engagement-grid">
-      <div><img src="images/engagements/engagement01.jpg" alt="Engagement image"></div>
-      <div><img src="images/engagements/engagement02.jpg" alt="Engagement image"></div>
-      <div><img src="images/engagements/engagement03.jpg" alt="Engagement image"></div>
-      <div><img src="images/engagements/engagement04.jpg" alt="Engagement image"></div>
-      <div><img src="images/engagements/engagement05.jpg" alt="Engagement image"></div>
-      <div><img src="images/engagements/engagement06.jpg" alt="Engagement image"></div>
-      <div><img src="images/engagements/engagement07.jpg" alt="Engagement image"></div>
-      <div><img src="images/engagements/engagement08.jpg" alt="Engagement image"></div>
-      <div><img src="images/engagements/engagement09.jpg" alt="Engagement image"></div>
-    </div>
-  </div>
-</section>
-
-<section id="areas" class="chapter">
-  <div class="sec-head">
-    <h2>Areas of Study <span class="fr-title">Domaines d'étude</span></h2>
-    <p class="sec-note">The coursework and institutions are presented here through the larger intellectual directions they supported.</p>
-  </div>
-  <div class="areas">
-    <div class="area"><h3>Language &amp; Communication</h3><p>French study, literature, public speaking, academic writing, and translation communities shaped a continuing interest in how language carries culture and identity.</p></div>
-    <div class="area"><h3>History &amp; Public Memory</h3><p>Academic-level literature and historical study supported later engagement with museums, archives, monuments, and the institutions that preserve civic memory.</p></div>
-    <div class="area"><h3>Government &amp; Institutions</h3><p>Study of American government and public institutions was reinforced through direct public-facing work inside federal civic environments.</p></div>
-    <div class="area"><h3>Research &amp; Analysis</h3><p>Upper-level research, writing, statistics, humanities, and analytical coursework strengthened evidence-based reasoning and long-form interpretation.</p></div>
-    <div class="area"><h3>International Studies</h3><p>Language study gradually expanded into diplomacy, human rights, comparative institutions, and cultural exchange.</p></div>
-  </div>
-</section>
-
-<section id="profile" class="chapter">
-  <div class="duo">
-    <div class="profile">
-      <div>
-        <div class="sec-head"><h2>Language &amp; Academic Profile <span class="fr-title">Profil linguistique et académique</span></h2></div>
-        <div class="profile-item"><i class="fa-regular fa-bookmark"></i><div><h3>French</h3><p>Independent study beginning in 2008, later supported by Clark College, Alliance Française, Lang-8, and continued reading. Alliance Française placement and instructor feedback placed proficiency around A2 during formal study.</p></div></div>
-        <div class="profile-item"><i class="fa-solid fa-landmark"></i><div><h3>International Studies</h3><p>Study focused on language, public institutions, civic traditions, diplomacy, and cultural exchange.</p></div></div>
-        <div class="profile-item"><i class="fa-regular fa-compass"></i><div><h3>Academic Development</h3><p>Literature, public speaking, government, research writing, humanities, statistics, and applied systems coursework formed the analytical foundation beneath this record.</p></div></div>
-      </div>
-      <div class="panel-img"><img src="images/library-study.webp" alt="Library study"></div>
-    </div>
-
-    <div class="profile">
-      <div>
-        <div class="sec-head"><h2>Heritage &amp; Cultural Roots <span class="fr-title">Patrimoine et culture civique</span></h2></div>
-        <div class="profile-item"><i class="fa-regular fa-gem"></i><div><h3>Black American Heritage</h3><p>Civic memory, freedom communities, regional history, public institutions, and enduring cultural symbols in American life.</p></div></div>
-        <div class="profile-item"><i class="fa-solid fa-map"></i><div><h3>Virginia Roots</h3><p>Interest in Richmond institutions, Virginia history, and public memory across the Commonwealth.</p></div></div>
-        <div class="profile-item"><i class="fa-regular fa-building-columns"></i><div><h3>Civic &amp; Historical Study</h3><p>Exploring the institutions, archives, and narratives that shape shared historical understanding.</p></div></div>
-      </div>
-      <div class="panel-img"><img src="images/heritage-civic.webp" alt="Heritage study"></div>
-    </div>
-  </div>
-</section>
-
-<section id="archive" class="chapter">
-  <div class="lower-grid">
-    <div>
-      <div class="sec-head"><h2>Archive <span class="fr-title">Archives</span></h2></div>
-      <div class="archive-strip rotating-archive" id="rotatingArchive">
-        <div><a href="images/gallery/gallery01.webp" target="_blank"><img src="images/gallery/gallery01.webp" alt="Archive preview"></a></div>
-        <div><a href="images/gallery/gallery02.webp" target="_blank"><img src="images/gallery/gallery02.webp" alt="Archive preview"></a></div>
-        <div><a href="images/gallery/gallery03.webp" target="_blank"><img src="images/gallery/gallery03.webp" alt="Archive preview"></a></div>
-        <div><a href="images/gallery/gallery04.webp" target="_blank"><img src="images/gallery/gallery04.webp" alt="Archive preview"></a></div>
-        <div><a href="images/gallery/gallery05.webp" target="_blank"><img src="images/gallery/gallery05.webp" alt="Archive preview"></a></div>
-        <div><a href="images/gallery/gallery06.webp" target="_blank"><img src="images/gallery/gallery06.webp" alt="Archive preview"></a></div>
-        <div><a href="images/gallery/gallery07.webp" target="_blank"><img src="images/gallery/gallery07.webp" alt="Archive preview"></a></div>
-        <div><a href="images/gallery/gallery08.webp" target="_blank"><img src="images/gallery/gallery08.webp" alt="Archive preview"></a></div>
-      </div>
-    </div>
-
-    <div id="library">
-      <div class="sec-head"><h2>Reference Library <span class="fr-title">Bibliothèque de référence</span></h2></div>
-      <div class="library">
-        <div><h3>Language &amp; Literature</h3><a href="#">Alliance Française</a><a href="#">DELF / DALF</a><a href="#">Assimil</a><a href="#">Le Monde</a></div>
-        <div><h3>International Studies</h3><a href="#">Foreign Affairs</a><a href="#">The Economist</a><a href="#">Brookings</a><a href="#">Council on Foreign Relations</a></div>
-        <div><h3>American Studies</h3><a href="#">Library of Congress</a><a href="#">National Archives</a><a href="#">Encyclopedia Virginia</a><a href="#">National Museum of African American History &amp; Culture</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="correspondence" class="chapter correspondence">
-  <div class="contact">
-    <div class="sec-head"><h2>Correspondence <span class="fr-title">Correspondance</span></h2></div>
-    <p>For correspondence related to language, heritage, culture, or civic study. For professional identity and security work, please visit <a class="professional-link" href="https://www.ronniebailey.cloud" target="_blank" rel="noopener">ronniebailey.cloud</a>.</p>
-    <div class="contact-links">
-      <a href="mailto:ronniebailey@live.com"><i class="fa-solid fa-envelope"></i>Email</a>
-      <a href="https://www.babelio.com/monprofil.php?id_user=293465" target="_blank"><i class="fa-solid fa-book-open-reader"></i>Babelio</a>
-      <a href="https://www.goodreads.com/user/show/2583666-ronnie" target="_blank"><i class="fa-brands fa-goodreads-g"></i>Goodreads</a>
-    </div>
-  </div>
-
-  <div class="quote">
-    <p>“One language sets you in a corridor for life. Two languages open every door along the way.”</p>
-    <cite>« Une langue vous place dans un couloir pour la vie. Deux langues ouvrent toutes les portes sur le chemin. »</cite>
-  </div>
-</section>
-
+<aside class="side-label">
+<h3><i class="fa-regular fa-shield"></i> Professionally<br><span class="fr-title">Professionnellement</span></h3>
+<p>Professionally, my career has been in enterprise identity security. Over time, that work became my profession; the study of language, culture, and public institutions remained a parallel pursuit.</p>
+<p>Although they developed along different paths, each has informed the other. One became my vocation. The other continues as a lifelong course of study.</p>
+<p>This archive documents that second path and the interests that continue to shape how I approach society, institutions, and international studies. My professional work is documented at <a href="https://www.ronniebailey.cloud" rel="noopener" target="_blank">ronniebailey.cloud</a>.</p>
+</aside>
+<div class="intro-copy">
+<p>My interest in language began independently in 2008 while I was still in high school. What started as personal study gradually expanded into formal education, public service, and a broader interest in the institutions, history, and cultures that shape international engagement.</p>
+<p>This archive follows that progression—not as a résumé, but as a record of study, civic participation, and the experiences that continue to inform my professional perspective.</p>
 </div>
-
+</section>
+<section class="chapter" id="studies">
+<div class="sec-head">
+<h2>Studies &amp; Engagement <span class="fr-title">Études et engagement</span></h2>
+<p class="sec-note">A chronological record of formal study, cultural participation, public service, and independent inquiry.</p>
+</div>
+<div class="engagement-panel">
+<div class="timeline-frame">
+<button aria-label="Scroll timeline up" class="timeline-scroll-btn timeline-scroll-up" type="button">
+<i class="fa-solid fa-chevron-up"></i>
+</button>
+<div class="timeline-scroll" id="timelineScroll">
+<div class="timeline">
+<article class="t-entry"><div class="year">2024–Present</div><h3>Continuing Independent Study</h3><p class="place">Richmond, Virginia</p><p>Ongoing study of language, public institutions, American heritage, cultural affairs, and international studies through reading, travel, archives, museums, and public scholarship.</p></article>
+<article class="t-entry"><div class="year">2023</div><h3>Human Rights Education Training</h3><p class="place">U.S. Institute of Diplomacy and Human Rights · Washington, D.C.</p><p>Completed professional training in diplomacy and human-rights principles, strengthening an existing interest in international institutions, advocacy, and protection frameworks.</p></article>
+<article class="t-entry"><div class="year">2017–2018</div><h3>Visitor Assistant · GS-5</h3><p class="place">Architect of the Capitol · Washington, D.C.</p><p>Daily work inside one of the United States' most significant civic institutions deepened an existing interest in constitutional government, public service, American history, and national memory.</p></article>
+<article class="t-entry"><div class="year">2014–2016</div><h3>Le Cercle Français Leadership</h3><p class="place">Clark College · Vancouver, Washington</p><p>Served as Vice President and later President of Le Cercle Français, helping lead campus programs dedicated to French language and Francophone culture. Organized cultural events, language practice, and community engagement that encouraged broader international understanding.</p></article>
+<article class="t-entry"><div class="year">2014–2015</div><h3>French Language Study</h3><p class="place">Alliance Française de Portland · Portland, Oregon</p><p>Continued formal French study through one of the world's leading institutions dedicated to French language and culture. Placement and instructor feedback placed proficiency around the A2 level during this period.</p></article>
+<article class="t-entry"><div class="year">2013–2016</div><h3>International Studies &amp; Academic Study</h3><p class="place">Clark College · Vancouver, Washington</p><p>Academic study connected public communication, literature, government, history, and international studies into a broader framework for understanding societies and institutions.</p></article>
+<article class="t-entry"><div class="year">2013</div><h3>Language Interpreter &amp; Cultural Liaison</h3><p class="place">Lang-8, Inc. · Shibuya-ku, Tokyo, Japan · Remote</p><p>Supported a Tokyo-headquartered language-exchange community through French-English interpretation, translation support, and language guidance for international learners.</p></article>
+<article class="t-entry"><div class="year">2008–2013</div><h3>Independent French &amp; Cultural Study</h3><p class="place">Richmond, Virginia</p><p>Began independent French study through self-directed resources, audio programs, online communities, and international correspondence. This became the foundation for later formal study and cultural engagement.</p></article>
+<article class="t-entry"><div class="year">2008</div><h3>Political Canvasser</h3><p class="place">All On The Line · Richmond, Virginia</p><p>Early civic outreach experience focused on public awareness and community participation, foreshadowing a continuing interest in public institutions and civic life.</p></article>
+</div>
+</div>
+<button aria-label="Scroll timeline down" class="timeline-scroll-btn timeline-scroll-down" type="button">
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+</div>
+<div class="engagement-grid">
+<div><img alt="Engagement image" src="images/engagements/engagement01.jpg"/></div>
+<div><img alt="Engagement image" src="images/engagements/engagement02.jpg"/></div>
+<div><img alt="Engagement image" src="images/engagements/engagement03.jpg"/></div>
+<div><img alt="Engagement image" src="images/engagements/engagement04.jpg"/></div>
+<div><img alt="Engagement image" src="images/engagements/engagement05.jpg"/></div>
+<div><img alt="Engagement image" src="images/engagements/engagement06.jpg"/></div>
+<div><img alt="Engagement image" src="images/engagements/engagement07.jpg"/></div>
+<div><img alt="Engagement image" src="images/engagements/engagement08.jpg"/></div>
+<div><img alt="Engagement image" src="images/engagements/engagement09.jpg"/></div>
+</div>
+</div>
+</section>
+<section class="chapter" id="areas">
+<div class="sec-head">
+<h2>Areas of Study <span class="fr-title">Domaines d'étude</span></h2>
+<p class="sec-note">The coursework and institutions are presented here through the larger intellectual directions they supported.</p>
+</div>
+<div class="areas">
+<div class="area"><h3>Language &amp; Communication</h3><p>French study, literature, public speaking, academic writing, and translation communities shaped a continuing interest in how language carries culture and identity.</p></div>
+<div class="area"><h3>History &amp; Public Memory</h3><p>Academic-level literature and historical study supported later engagement with museums, archives, monuments, and the institutions that preserve civic memory.</p></div>
+<div class="area"><h3>Government &amp; Institutions</h3><p>Study of American government and public institutions was reinforced through direct public-facing work inside federal civic environments.</p></div>
+<div class="area"><h3>Research &amp; Analysis</h3><p>Upper-level research, writing, statistics, humanities, and analytical coursework strengthened evidence-based reasoning and long-form interpretation.</p></div>
+<div class="area"><h3>International Studies</h3><p>Language study gradually expanded into diplomacy, human rights, comparative institutions, and cultural exchange.</p></div>
+</div>
+</section>
+<section class="chapter" id="profile">
+<div class="duo">
+<div class="profile">
+<div>
+<div class="sec-head"><h2>Language &amp; Academic Profile <span class="fr-title">Profil linguistique et académique</span></h2></div>
+<div class="profile-item"><i class="fa-regular fa-bookmark"></i><div><h3>French</h3><p>Independent study beginning in 2008, later supported by Clark College, Alliance Française, Lang-8, and continued reading. Alliance Française placement and instructor feedback placed proficiency around A2 during formal study.</p></div></div>
+<div class="profile-item"><i class="fa-solid fa-landmark"></i><div><h3>International Studies</h3><p>Study focused on language, public institutions, civic traditions, diplomacy, and cultural exchange.</p></div></div>
+<div class="profile-item"><i class="fa-regular fa-compass"></i><div><h3>Academic Development</h3><p>Literature, public speaking, government, research writing, humanities, statistics, and applied systems coursework formed the analytical foundation beneath this record.</p></div></div>
+</div>
+<div class="panel-img"><img alt="Library study" src="images/library-study.webp"/></div>
+</div>
+<div class="profile">
+<div>
+<div class="sec-head"><h2>Heritage &amp; Cultural Roots <span class="fr-title">Patrimoine et culture civique</span></h2></div>
+<div class="profile-item"><i class="fa-regular fa-gem"></i><div><h3>Black American Heritage</h3><p>Civic memory, freedom communities, regional history, public institutions, and enduring cultural symbols in American life.</p></div></div>
+<div class="profile-item"><i class="fa-solid fa-map"></i><div><h3>Virginia Roots</h3><p>Interest in Richmond institutions, Virginia history, and public memory across the Commonwealth.</p></div></div>
+<div class="profile-item"><i class="fa-regular fa-building-columns"></i><div><h3>Civic &amp; Historical Study</h3><p>Exploring the institutions, archives, and narratives that shape shared historical understanding.</p></div></div>
+</div>
+<div class="panel-img"><img alt="Heritage study" src="images/heritage-civic.webp"/></div>
+</div>
+</div>
+</section>
+<section class="chapter" id="archive">
+<div class="lower-grid">
+<div>
+<div class="sec-head"><h2>Archive <span class="fr-title">Archives</span></h2></div>
+<div class="archive-strip rotating-archive" id="rotatingArchive">
+<div><a href="images/gallery/gallery01.webp" target="_blank"><img alt="Archive preview" src="images/gallery/gallery01.webp"/></a></div>
+<div><a href="images/gallery/gallery02.webp" target="_blank"><img alt="Archive preview" src="images/gallery/gallery02.webp"/></a></div>
+<div><a href="images/gallery/gallery03.webp" target="_blank"><img alt="Archive preview" src="images/gallery/gallery03.webp"/></a></div>
+<div><a href="images/gallery/gallery04.webp" target="_blank"><img alt="Archive preview" src="images/gallery/gallery04.webp"/></a></div>
+<div><a href="images/gallery/gallery05.webp" target="_blank"><img alt="Archive preview" src="images/gallery/gallery05.webp"/></a></div>
+<div><a href="images/gallery/gallery06.webp" target="_blank"><img alt="Archive preview" src="images/gallery/gallery06.webp"/></a></div>
+<div><a href="images/gallery/gallery07.webp" target="_blank"><img alt="Archive preview" src="images/gallery/gallery07.webp"/></a></div>
+<div><a href="images/gallery/gallery08.webp" target="_blank"><img alt="Archive preview" src="images/gallery/gallery08.webp"/></a></div>
+</div>
+</div>
+<div id="library">
+<div class="sec-head"><h2>Reference Library <span class="fr-title">Bibliothèque de référence</span></h2></div>
+<div class="library">
+<div><h3>Language &amp; Literature</h3><a href="#">Alliance Française</a><a href="#">DELF / DALF</a><a href="#">Assimil</a><a href="#">Le Monde</a></div>
+<div><h3>International Studies</h3><a href="#">Foreign Affairs</a><a href="#">The Economist</a><a href="#">Brookings</a><a href="#">Council on Foreign Relations</a></div>
+<div><h3>American Studies</h3><a href="#">Library of Congress</a><a href="#">National Archives</a><a href="#">Encyclopedia Virginia</a><a href="#">National Museum of African American History &amp; Culture</a></div>
+</div>
+</div>
+</div>
+</section>
+<section class="chapter correspondence" id="correspondence">
+<div class="contact">
+<div class="sec-head"><h2>Correspondence <span class="fr-title">Correspondance</span></h2></div>
+<p>For correspondence related to language, heritage, culture, or civic study. For professional identity and security work, please visit <a class="professional-link" href="https://www.ronniebailey.cloud" rel="noopener" target="_blank">ronniebailey.cloud</a>.</p>
+<div class="contact-links">
+<a href="mailto:ronniebailey@live.com"><i class="fa-solid fa-envelope"></i>Email</a>
+<a href="https://www.babelio.com/monprofil.php?id_user=293465" target="_blank"><i class="fa-solid fa-book-open-reader"></i>Babelio</a>
+<a href="https://www.goodreads.com/user/show/2583666-ronnie" target="_blank"><i class="fa-brands fa-goodreads-g"></i>Goodreads</a>
+</div>
+</div>
+<div class="quote">
+<p>“One language sets you in a corridor for life. Two languages open every door along the way.”</p>
+<cite>« Une langue vous place dans un couloir pour la vie. Deux langues ouvrent toutes les portes sur le chemin. »</cite>
+</div>
+</section>
+</div>
 <footer>
-  <span>Ronnie Bailey · A Record of Study</span>
-  <span><a class="footer-link" href="https://www.ronniebailey.cloud" target="_blank" rel="noopener">Identity Security → ronniebailey.cloud</a> · © 2026</span>
+<span>Ronnie Bailey · A Record of Study</span>
+<span><a class="footer-link" href="https://www.ronniebailey.cloud" rel="noopener" target="_blank">Identity Security → ronniebailey.cloud</a> · © 2026</span>
 </footer>
-
 <script>
 
 const timelineViewport = document.getElementById("timelineScroll");
@@ -958,6 +932,5 @@ setInterval(()=>{
   },550);
 },5200);
 </script>
-
 </body>
 </html>
