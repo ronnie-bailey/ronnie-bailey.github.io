@@ -1108,6 +1108,31 @@ html, body{
   }
 }
 
+
+/* ENGAGEMENT GALLERY HOVER — layout and image sizes unchanged */
+.engagement-grid div{
+  overflow:hidden;
+}
+
+.engagement-grid img{
+  transition:transform .28s ease, filter .28s ease, box-shadow .28s ease;
+  cursor:pointer;
+}
+
+.engagement-grid div:hover img{
+  transform:scale(1.04);
+  filter:brightness(1.03);
+  box-shadow:0 10px 24px rgba(0,0,0,.16);
+}
+
+@media(hover:none){
+  .engagement-grid div:hover img{
+    transform:none;
+    filter:none;
+    box-shadow:none;
+  }
+}
+
 </style>
 </head>
 
@@ -1217,7 +1242,7 @@ html, body{
             <div class="year">2014–2016</div>
             <h3>Le Cercle Français</h3>
             <p class="place">Clark College · Vancouver, Washington</p>
-            <p>Served as Vice President and later President of Le Cercle Français, helping lead campus programs dedicated to French language and Francophone culture. Organized cultural events, language practice, and community engagement that encouraged broader international understanding. Recognized with multiple Outstanding Student in an ASCC Club (Oswald Award) honors.</p>
+            <p>Served as Vice President and later President of Le Cercle Français, helping lead campus programs dedicated to French language and Francophone culture. Organized cultural events, language practice, and community engagement that encouraged broader international understanding.</p>
           </article>
 
           <article class="t-entry">
