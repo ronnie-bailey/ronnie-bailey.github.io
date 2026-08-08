@@ -297,7 +297,7 @@
 
         .timeline-compact { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin-top: 2rem; }
 
-        .timeline-item-compact, .cert-edu-section, .project-card, .quote-box {
+        .timeline-item-compact, .cert-edu-section, .project-card {
             background: var(--bg-light);
             border: 1px solid rgba(210, 210, 215, 0.55);
             border-radius: var(--radius-small);
@@ -333,16 +333,9 @@
         .cert-org { font-size: 0.9rem; color: var(--accent); font-weight: 600; margin-bottom: 0.25rem; }
         .cert-date { font-size: 0.85rem; color: var(--text-light); }
 
-        .quote-box { padding: 2rem; text-align: center; }
-
-        .quote-content { font-size: 1.05rem; color: var(--text-light); font-style: normal; line-height: 1.8; margin: 0; letter-spacing: -0.015em; }
-
         footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-lighter); font-size: 0.82rem; margin-top: 3rem; }
 
         @media (hover: none) and (pointer: coarse) {
-            .company-name { cursor: default; }
-            .company-name:active .company-placeholder { display: none; }
-            .company-name:active .company-real { display: inline; }
             .main-nav a, .contact-icons a, .theme-toggle, .download-btn, .hero-link { min-height: 44px; min-width: 44px; }
             .main-nav a { padding: 0.75rem 0.5rem; display: flex; align-items: center; justify-content: center; }
         }
@@ -408,8 +401,6 @@
         .project-card { border: 1px solid var(--border); background: var(--bg-light); border-radius: 22px; padding: 1.35rem; }
         .project-title { font-size: 1.05rem; letter-spacing: -0.025em; }
         .project-list li { color: var(--text); }
-
-        .quote-box { border-radius: 22px; border: 1px solid var(--border); }
 
         @media (max-width: 700px) {
             .hero { padding: 3rem 0 3.5rem; }
@@ -783,24 +774,48 @@
             </div>
         </section>
 
-        <section id="quote-section">
-            <div class="quote-box">
-                <p id="quote-text" class="quote-content"></p>
+        <section id="education">
+            <h2 class="section-title">Education &amp; Certifications</h2>
+            <div class="cert-edu-grid">
+                <div class="cert-edu-section">
+                    <h3>Education</h3>
+                    <ul class="cert-list">
+                        <li class="cert-item">
+                            <div class="cert-title">BS Cybersecurity</div>
+                            <div class="cert-org">University of Richmond</div>
+                            <div class="cert-date">In Progress</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">AAS Information Systems</div>
+                            <div class="cert-org">Reynolds College</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">Network Administration</div>
+                            <div class="cert-org">Reynolds College</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cert-edu-section">
+                    <h3>Certifications</h3>
+                    <ul class="cert-list">
+                        <li class="cert-item">
+                            <div class="cert-title">AZ-900: Microsoft Azure Fundamentals</div>
+                            <div class="cert-org">Microsoft</div>
+                            <div class="cert-date">In Progress</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">Cybersecurity Essentials</div>
+                            <div class="cert-org">Cisco</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">IBM Cloud Essentials</div>
+                            <div class="cert-org">IBM</div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
     </main>
-
-    <div style="max-width:1100px;margin:0 auto;padding:2rem 1.5rem 0;border-top:1px solid var(--border);">
-        <p style="font-size:0.9rem;color:var(--text-light);line-height:1.75;">
-            <strong style="color:var(--text);">Education &amp; Certifications</strong> &nbsp;&middot;&nbsp;
-            BS Cybersecurity, University of Richmond (In Progress) &nbsp;&middot;&nbsp;
-            AAS Information Systems, Reynolds College &nbsp;&middot;&nbsp;
-            AZ-900 Microsoft Azure Fundamentals (In Progress) &nbsp;&middot;&nbsp;
-            Cybersecurity Essentials, Cisco &nbsp;&middot;&nbsp;
-            IBM Cloud Essentials &nbsp;&middot;&nbsp;
-            Network Administration, Reynolds College
-        </p>
-    </div>
 
     <footer>
         <p>&copy; 2026 Ronnie Bailey | Identity Security Director</p>
@@ -824,14 +839,6 @@
             htmlElement.setAttribute('data-theme', savedTheme);
         }
 
-        const quotes = [
-            "The future of technology is not in our ability to create machines but in our understanding of how those machines can reshape the soul of humanity.",
-            "The only constant in the evolution of technology is its refusal to remain constrained by the imagination of its creators.",
-            "Every algorithm is a seed planted in the soil of time, destined to grow into solutions for problems we cannot yet see.",
-            "Progress is a paradox: it marches forward yet always loops back to confront the humanity it serves.",
-            "A truly advanced society is one where technology fades into the background, empowering individuals without demanding their attention.",
-        ];
-
         function downloadResume() {
             const resumeUrl = 'resume.pdf';
             const link = document.createElement('a');
@@ -843,9 +850,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date();
-            document.getElementById('quote-text').textContent = quotes[today.getDate() % quotes.length];
-
             window.addEventListener('scroll', () => {
                 let current = '';
                 document.querySelectorAll('section[id]').forEach(section => {
